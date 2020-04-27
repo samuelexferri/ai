@@ -1,7 +1,7 @@
 # Artificial Intelligence
 
 <p align="center">
-<img src="https://github.com/samuelexferri/ai/blob/master/images/ai.jpg" width="300">
+<img src="https://github.com/samuelexferri/ai/blob/master/images/ai.jpg" width="200">
 </p>
 
 Artificial Intelligence project
