@@ -1,0 +1,516 @@
+#LyX file created by tex2lyx 2.3
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin C:/GitHub/ai/doc/source/
+\textclass article
+\use_default_options false
+\begin_modules
+theorems-ams
+graphicboxes
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 2
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Algorithms for Finite Instances
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:finiteinst"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We begin our technical presentation by furnishing a lower bound on the sample complexity of algorithms for 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QFK
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Lower Bound on the Sample-Complexity
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:lbsckmn"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{restatable}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+theorem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+thmlbmainthm
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+[Lower Bound for 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QFK
+\end_layout
+
+\end_inset
+
+] 
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:lbmainthm"
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ be an algorithm that solves 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QFK
+\end_layout
+
+\end_inset
+
+. Then, there exists an instance 
+\begin_inset Formula $(\A, n, m, k, \epsilon, \delta)$
+\end_inset
+
+, with 
+\begin_inset Formula $0< \epsilon \leq \frac{1}{\sqrt{32}}$
+\end_inset
+
+, 
+\begin_inset Formula $0 < \delta \leq \frac{e^{-1}}{4}$
+\end_inset
+
+, and 
+\begin_inset Formula $n \geq 2m$
+\end_inset
+
+, 
+\begin_inset Formula $1 \leq k \leq m$
+\end_inset
+
+, on which the expected number of pulls performed by 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ is at least 
+\begin_inset Formula $\frac{1}{18375}. \frac{1}{\epsilon^2}. \frac{n}{m-k+1}\ln\frac{\binom{m}{k - 1}}{4\delta}$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{restatable}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The detailed proof of the theorem is given in Appendix
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "app:lowerboundqfk"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+. The proof generalises lower bound proofs for both 
+\begin_inset Formula $(m, m, n)$
+\end_inset
+
+ 
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+citep[see Theorem 8]{bib:lucb}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Formula $(1, m, n)$
+\end_inset
+
+
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+citep[see Theorem 3.3]{bib:arcsk2017}
+\end_layout
+
+\end_inset
+
+. The core idea in these proofs is to consider two sets of bandit instances, 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{I}^{\prime}$
+\end_inset
+
+, such that over 
+\begin_inset Quotes eld
+\end_inset
+
+short
+\begin_inset Quotes erd
+\end_inset
+
+ trajectories, an instance from 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+ will yield the same reward sequences as a corresponding instance from 
+\begin_inset Formula $\mathcal{I}^{\prime}$
+\end_inset
+
+, with high probability. Thus, any algorithm will return the same set of arms for both instances, with high probability. However, by construction, no set of arms can be simultaneously correct for both instances—implying that a correct algorithm must encounter sufficiently 
+\begin_inset Quotes eld
+\end_inset
+
+long
+\begin_inset Quotes erd
+\end_inset
+
+ trajectories. Our main contribution is in the design of 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{I}^{\prime}$
+\end_inset
+
+ when 
+\begin_inset Formula $k \in \{1, 2, \dots, m\}$
+\end_inset
+
+ (rather than exactly 
+\begin_inset Formula $1$
+\end_inset
+
+ or 
+\begin_inset Formula $m$
+\end_inset
+
+) arms have to be returned.
+\end_layout
+
+\begin_layout Standard
+Our algorithms to achieve improved 
+\shape italic
+upper
+\shape default
+ bounds for 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QFK
+\end_layout
+
+\end_inset
+
+ (across bandit instances) follow directly from methods we design for the infinite-armed setting in Section
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:infinitemab"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (see Corollary
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:qffromqptighter"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Corollary
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:qfkfromqpktighter"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+). In the remainder of this section, we present a fully-sequential algorithm for 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QFK
+\end_layout
+
+\end_inset
+
+ whose expected sample complexity varies with the 
+\begin_inset Quotes eld
+\end_inset
+
+hardness
+\begin_inset Quotes erd
+\end_inset
+
+ of the input instance.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+input{ghalving.tex}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+preview false
+filename "glucb.lyx"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  We two algorithms that solve 
+\backslash
+QFK: one with optimal worst-case sample complexity, and the other
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Next, we are going to consider infinite-armed bandit instances, and present the algorithms to solve them.
+\end_layout
+
+\end_body
+\end_document

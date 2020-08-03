@@ -1,0 +1,611 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\begin_preamble
+% in case somebody want to have the label "Equation"
+%\renewcommand{\eqref}[1]{Equation~(\negthinspace\autoref{#1})}
+
+% that links to image floats jumps to the beginning
+% of the float and not to its caption
+\usepackage[figure]{hypcap}
+
+% the pages of the TOC is numbered roman
+% and a pdf-bookmark for the TOC is added
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+  \frontmatter
+  \pdfbookmark[1]{\contentsname}{}
+  \myTOC
+  \mainmatter }
+
+% makes caption labels bold
+% for more info about these settings, see
+% https://ctan.org/tex-archive/macros/latex/contrib/koma-script/doc/scrguien.pdf
+\setkomafont{captionlabel}{\bfseries}
+\setcapindent{1em}
+
+% enables calculations
+\usepackage{calc}
+
+% fancy page header/footer settings
+% for more information see section 9 of
+% ftp://www.ctan.org/pub/tex-archive/macros/latex2e/contrib/fancyhdr/fancyhdr.pdf
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+% increases the bottom float placement fraction
+\renewcommand{\bottomfraction}{0.5}
+
+% avoids that floats are placed above its sections
+\let\mySection\section\renewcommand{\section}{\suppressfloats[t]\mySection}
+
+% increases link area for cross-references and autoname them
+% if you change the document language to e.g. French
+% you must change "extrasenglish" to "extrasfrench"
+% if you uncomment the following lines, you cannot use the reference version Ref+Text in LyX
+%\AtBeginDocument{%
+% \renewcommand{\ref}[1]{\autoref{#1}}
+%}
+%\def\refnamechanges{%
+% \renewcommand*{\equationautorefname}[1]{}
+% \renewcommand{\sectionautorefname}{sec.\negthinspace}
+% \renewcommand{\subsectionautorefname}{sec.\negthinspace}
+% \renewcommand{\subsubsectionautorefname}{sec.\negthinspace}
+% \renewcommand{\figureautorefname}{Fig.\negthinspace}
+% \renewcommand{\tableautorefname}{Tab.\negthinspace}
+%}
+%\@ifpackageloaded{babel}{\addto\extrasenglish{\refnamechanges}}{\refnamechanges}
+\end_preamble
+\options intoc,bibliography=totoc,index=totoc,BCOR10mm,captions=tableheading,titlepage
+\use_default_options true
+\master project.lyx
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_title "Your title"
+\pdf_author "Your name"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\branch Standalone
+\selected 1
+\filename_suffix 0
+\color #ff0000
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 1
+\math_indentation default
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Left Header
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chaptername
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thechapter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+rightmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Right Header
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+leftmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Left Footer
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Center Footer
+
+\end_layout
+
+\begin_layout Right Footer
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Introduzione
+\end_layout
+
+\begin_layout Standard
+In questo progetto verrà analizzato approfonditamente il paper 
+\begin_inset Quotes fld
+\end_inset
+
+
+\emph on
+PAC Identification of Many Good Arms in Stochastic Multi-Armed Bandits
+\emph default
+
+\begin_inset Quotes frd
+\end_inset
+
+ pubblicato da Arghya Roy Chaudhuri e Shivaram Kalyanakrishnan a inizio
+ 2019.
+\end_layout
+
+\begin_layout Standard
+Nella prossimo paragrafo verrà presentato brevemente il contenuto sottoforma
+ di abstract.
+\end_layout
+
+\begin_layout Standard
+Nel capitolo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Contesto"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ verrà descritto il contesto in cui si colloca il lavoro, quale è il problema
+ trattato e quali sono i possibili scenari applicativi.
+\end_layout
+
+\begin_layout Standard
+Nel capitolo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Contesto"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ verranno descrittti e commentati i lavori precedenti in merito allo stesso
+ problema.
+ Oltre ai lavori citati nei "related works" e nei riferimenti bibliograci
+ del lavoro analizzato verranno descritti anche altri lavori presenti nella
+ letteratura che sono correlati al problema analizzato.
+ Inoltre, verranno elencate anche quali delle tecniche viste in classe potrebber
+o essere utilizzate per risolvere il problema in analisi.
+\end_layout
+
+\begin_layout Standard
+Nel capitolo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Contesto"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ verrà descritto dettagliatamente il lavoro presentato nel paper comprese
+ le proprietà teoriche usate.
+\end_layout
+
+\begin_layout Standard
+Nel capitolo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Contesto"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ verranno descritti e replicati gli esperimenti svolti nel paper; non essendoci
+ codice è stato richiesto di limitarsi a replicare gli esperimenti presenti
+ nel paper senza farne di nuovi.
+\end_layout
+
+\begin_layout Standard
+Nel capitolo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Contesto"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ verranno elencate le conclusioni sulle proprietà teoriche e sperimentali
+ del metodo analizzato nel paper ed eventuali scenari applicativi nella
+ vita reale.
+\end_layout
+
+\begin_layout Standard
+Nel capitolo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Contesto"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ verranno fatte delle considerazioni personali sull'impatto che questo progetto
+ ha avuto sia in ambito universitario/lavorativo che nella quotidianetà.
+\end_layout
+
+\begin_layout Standard
+Infine sono presenti anche i riferimenti bibliograci citati nell'elaborato.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Abstract
+\end_layout
+
+\begin_layout Standard
+Nell'ambito PAC
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Probably Approximately Correct Learning: nella teoria dell'apprendimento
+ computazionale, l'apprendimento approssimativamente corretto (PAC) è un
+ framework per l'analisi matematica del machine learning proposto nel 1984
+ da Leslie Valiant.
+ In questo framework, il learner riceve campioni e deve selezionare una
+ funzione di generalizzazione (chiamata ipotesi) da una certa classe di
+ possibili funzioni.
+ L'obiettivo è che, con alta probabilità, la funzione selezionata avrà un
+ errore di generalizzazione basso.
+ Il learner deve essere in grado di apprendere il concetto dato qualsiasi
+ rapporto di approssimazione arbitrario, probabilità di successo o distribuzione
+ dei campioni.
+\end_layout
+
+\end_inset
+
+ verrà considerato il problema di identificare un numero 
+\emph on
+k
+\emph default
+ qualsiasi tra i migliori m bracci in un 
+\emph on
+
+\begin_inset Formula $n$
+\end_inset
+
+-armed stochastic multi-armed bandit
+\emph default
+.
+ Questo particolare problema generalizza sia il problema della "migliore
+ selezione del sottoinsieme" 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2010efficient"
+literal "false"
+
+\end_inset
+
+ sia quello della selezione di "uno dei migliori 
+\emph on
+m
+\emph default
+-bracci" 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+.
+ In applicazioni come il crowdsourcing e la progettazione di farmaci, identifica
+re una singola buona soluzione spesso non è sufficiente.
+ Inoltre, trovare il sottoinsieme migliore potrebbe essere difficile a causa
+ della presenza di molte soluzioni indistinguibilmente vicine.
+ La generalizzazione di identificare esattamente 
+\emph on
+k
+\emph default
+ bracci dai migliori m, dove 
+\emph on
+1≤k≤m
+\emph default
+, serve come alternativa più efficace.
+ Verrà presentato un limite inferiore alla complessità del caso peggiore
+ per il generico 
+\emph on
+k
+\emph default
+ e un algoritmo PAC completamente sequenziale molto più efficiente in casi
+ semplici.
+ Inoltre, estendendo l'analisi a 
+\emph on
+infinite-armed bandit
+\emph default
+, verrà presentato un algoritmo PAC che è indipendente da 
+\emph on
+n
+\emph default
+, che identifica un braccio dalla migliore frazione 
+\emph on
+ρ
+\emph default
+ di bracci usando al massimo un numero (polinomiale-logatrimico) addizionale
+ di campioni rispetto al limite inferiore, migliorando così rispetto a 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aziz2018pure"
+literal "false"
+
+\end_inset
+
+.
+ Il problema di identificare
+\emph on
+ k>1
+\emph default
+ bracci distinti dalla frazione 
+\emph on
+ρ
+\emph default
+ migliore non è sempre ben definito; per una classe speciale di questo problema
+ verranno presentati i limiti inferiore e superiore.
+ Infine, attraverso una riduzione, verrà stabilita una relazione tra i limiti
+ superiori per il problema "uno dei migliori 
+\emph on
+ρ
+\emph default
+" per istanze infinite e quello "uno dei migliori 
+\emph on
+m
+\emph default
+" per le istanze finite.
+ Verrà ipotizzato che sia più efficiente risolvere istanze "piccole" finite
+ usando quest'ultima formulazione, piuttosto che passare attraverso la prima.
+\end_layout
+
+\begin_layout Chapter
+Contesto
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Contesto"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/unibg.jpg
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+XXXXX
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,5894 @@
+#LyX file created by tex2lyx 2.3
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin C:/GitHub/ai/doc/source/
+\textclass article
+\use_default_options false
+\begin_modules
+theorems-ams
+graphicboxes
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 2
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Algorithm for Infinite Instances
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:infinitemab"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Before proceeding to the identification of 
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\begin_inset Formula $[\epsilon, \rho]$
+\end_inset
+
+-optimal arms in infinite-armed bandits, we revisit the case of 
+\begin_inset Formula $k = 1$
+\end_inset
+
+. To find a single 
+\begin_inset Formula $[\epsilon, \rho]$
+\end_inset
+
+-optimal arm, the sample complexity of all the existing algorithms
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+citep{bib:arcsk2017,Aziz+AKA:2018}
+\end_layout
+
+\end_inset
+
+ scales as 
+\begin_inset Formula $(1/\rho \epsilon^{2})\log^2(1/\delta)$
+\end_inset
+
+, for the given mistake probability 
+\begin_inset Formula $\delta$
+\end_inset
+
+. In this section we present an algorithm 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+PPP
+\end_layout
+
+\end_inset
+
+ whose sample complexity is only an 
+\shape italic
+additive
+\shape default
+ poly-log factor away from the lower bound of 
+\begin_inset Formula $\Omega((1/\rho \epsilon^{2})\log 1/\delta)$
+\end_inset
+
+
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+citep[Corollary 3.4]{bib:arcsk2017}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Solving 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+protect
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+ Instances
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:tighterqp"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+PPP
+\end_layout
+
+\end_inset
+
+ is a two-phase algorithm. In the first phase, it runs a sufficiently large number of independent copies of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+PP
+\end_layout
+
+\end_inset
+
+ and chooses a large subset of arms (say of size 
+\begin_inset Formula $u$
+\end_inset
+
+), in which every arm is 
+\begin_inset Formula $[\epsilon, \rho]$
+\end_inset
+
+-optimal with probability at least 
+\begin_inset Formula $1-\delta'$
+\end_inset
+
+, where 
+\begin_inset Formula $\delta'$
+\end_inset
+
+ is some small 
+\shape italic
+constant
+\shape default
+. The value 
+\begin_inset Formula $u$
+\end_inset
+
+ is chosen in a manner such that at least one of the chosen arms is 
+\begin_inset Formula $[\epsilon/2, \rho]$
+\end_inset
+
+-optimal with probability at least 
+\begin_inset Formula $\delta/2$
+\end_inset
+
+. The second phase solves the best arm identification problem 
+\begin_inset Formula $(1,1,u)$
+\end_inset
+
+ by applying 
+\shape smallcaps
+Median Elimination
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+Algorithm
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:tightqp1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ describes 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+PPP
+\end_layout
+
+\end_inset
+
+. It uses 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+PP
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+citep{bib:arcsk2017}
+\end_layout
+
+\end_inset
+
+ with 
+\shape smallcaps
+ Median Elimination
+\shape default
+ as a subroutine, to select an 
+\begin_inset Formula $[\epsilon, \rho]$
+\end_inset
+
+-optimal arm with confidence 
+\begin_inset Formula $1-\delta'$
+\end_inset
+
+. We have assumed 
+\begin_inset Formula $\delta' = 1/4$
+\end_inset
+
+, in practice the one can choose any sufficiently small value for it, which will merely affect the multiplicative constant in the upper bound. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{algorithm}[]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+DontPrintSemicolon
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+small{
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+caption{$
+\backslash
+mathcal{P}_3$}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+KwIn{ $
+\backslash
+mathcal{A}, 
+\backslash
+epsilon, 
+\backslash
+delta$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+label{alg:tightqp1}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Set $
+\backslash
+delta' = 1/4$, $u = 
+\backslash
+bceil{
+\backslash
+frac{1}{1-
+\backslash
+delta'}
+\backslash
+log
+\backslash
+frac{2}{
+\backslash
+delta}} = 
+\backslash
+bceil{
+\backslash
+frac{4}{3}
+\backslash
+log
+\backslash
+frac{2}{
+\backslash
+delta}}$.
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Run $u$ copies of $
+\backslash
+mathcal{P}_2(
+\backslash
+A, 
+\backslash
+rho, 
+\backslash
+epsilon/2, 
+\backslash
+delta')$ and form set $S$ with the output arms.
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Identify the $(
+\backslash
+epsilon/2,1)$-optimal arm in $S$ using 
+\backslash
+textsc{Median Elimination} with confidence at least $1-
+\backslash
+delta/2$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% %  Return the output from 
+\backslash
+GHALVING$
+\backslash
+left(S, u, 
+\backslash
+floor{
+\backslash
+frac{u}{2}}, 1, 
+\backslash
+frac{
+\backslash
+epsilon}{2}, 
+\backslash
+frac{
+\backslash
+delta}{2}
+\backslash
+right)$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+end{algorithm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Float algorithm
+placement ht
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\size small
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+REQUIRE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\mathcal{A}, \epsilon, \delta$
+\end_inset
+
+.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENSURE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+One 
+\begin_inset Formula $[\epsilon, \rho]$
+\end_inset
+
+-optimal arm.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Set 
+\begin_inset Formula $\delta' = 1/4$
+\end_inset
+
+, 
+\begin_inset Formula $u = \bceil{\frac{1}{\delta'}\log\frac{2}{\delta}} = \bceil{4\log\frac{2}{\delta}}$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Run 
+\begin_inset Formula $u$
+\end_inset
+
+ copies of 
+\begin_inset Formula $\mathcal{P}_2(\A, \rho, \epsilon/2, \delta')$
+\end_inset
+
+ and form set 
+\begin_inset Formula $S$
+\end_inset
+
+ with the output arms. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Identify an 
+\begin_inset Formula $(\epsilon/2,1)$
+\end_inset
+
+-optimal arm in 
+\begin_inset Formula $S$
+\end_inset
+
+ using 
+\shape smallcaps
+Median Elimination
+\shape default
+ with confidence at least 
+\begin_inset Formula $1-\delta/2$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\begin_inset Formula $\mathcal{P}_3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:tightqp1"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{restatable}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+theorem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+thmppp
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+[Correctness and Sample Complexity of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+PPP
+\end_layout
+
+\end_inset
+
+] 
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:ppp"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+PPP
+\end_layout
+
+\end_inset
+
+ solves 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+, with sample complexity 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  $O
+\backslash
+left(
+\backslash
+frac{1}{
+\backslash
+epsilon^2}
+\backslash
+left(
+\backslash
+frac{1}{
+\backslash
+rho}
+\backslash
+log
+\backslash
+frac{1}{
+\backslash
+delta} + 
+\backslash
+log^2
+\backslash
+frac{1}{
+\backslash
+delta}
+\backslash
+right)
+\backslash
+right)$. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $O(\epsilon^{-2}(\rho^{-1}\log(1/\delta) + \log^2(1/\delta)))$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{restatable}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+First we prove the correctness and then upper-bound the sample complexity.
+\end_layout
+
+\begin_deeper
+\begin_layout Paragraph
+Correctness.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+First we notice that each copy of 
+\begin_inset Formula $\mathcal{P}_2$
+\end_inset
+
+ outputs an 
+\begin_inset Formula $[\epsilon/2, \rho]$
+\end_inset
+
+-optimal arm with probability at least 
+\begin_inset Formula $1-\delta'$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Also, 
+\backslash
+GHALVING outputs an
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  $[
+\backslash
+epsilon/2, 
+\backslash
+rho]$-optimal arm with probability $1-
+\backslash
+delta$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ Now, 
+\begin_inset Formula $S \cap \TOPRHO = \emptyset$
+\end_inset
+
+ can only happen if all the 
+\begin_inset Formula $u$
+\end_inset
+
+ copies of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+PP
+\end_layout
+
+\end_inset
+
+ output sub-optimal arms. Therefore, 
+\begin_inset Formula $\Pr\{S \cap \TOPRHO = \emptyset\} = (1-\delta')^{u} \leq \delta/2$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Let, $
+\backslash
+hat{X}$ be the fraction of sub-optimal arms in $S$. Then $
+\backslash
+Pr
+\backslash
+{
+\backslash
+hat{X} 
+\backslash
+geq 
+\backslash
+frac{1}{2}
+\backslash
+}$ $= 
+\backslash
+Pr
+\backslash
+{
+\backslash
+hat{X} - 
+\backslash
+delta' 
+\backslash
+geq 
+\backslash
+frac{1}{4}
+\backslash
+}$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%   $
+\backslash
+leq 
+\backslash
+exp(2
+\backslash
+cdot(
+\backslash
+frac{1}{4})^2
+\backslash
+cdot u) = 
+\backslash
+exp(-2
+\backslash
+cdot
+\backslash
+frac{1}{16}
+\backslash
+cdot 8
+\backslash
+log
+\backslash
+frac{2}{
+\backslash
+delta}) < 
+\backslash
+frac{
+\backslash
+delta}{2}$. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ On the other hand, the mistake probability of 
+\shape smallcaps
+Median Elimination
+\shape default
+ is upper bounded by 
+\begin_inset Formula $\delta/2$
+\end_inset
+
+. Therefore, by taking union bound, we get the mistake probability is upper bounded by 
+\begin_inset Formula $\delta$
+\end_inset
+
+. Also, the mean of the output arm is not less than 
+\begin_inset Formula $\frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$
+\end_inset
+
+ from the 
+\begin_inset Formula $(1-\rho)$
+\end_inset
+
+-th quantile.
+\end_layout
+
+\begin_deeper
+\begin_layout Paragraph
+Sample complexity.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+First we note that, for some appropriate constant 
+\begin_inset Formula $C$
+\end_inset
+
+, the sample complexity (SC) of each of the 
+\begin_inset Formula $u$
+\end_inset
+
+ copies of 
+\begin_inset Formula $\mathcal{P}_2$
+\end_inset
+
+ is 
+\begin_inset Formula $\frac{C}{\rho(\epsilon/2)^2}\left(\ln\frac{2}{\delta'}\right)^2 \in O\left(\frac{1}{\rho\epsilon^2}\right)$
+\end_inset
+
+. Hence, SC of all the 
+\begin_inset Formula $u$
+\end_inset
+
+ copies 
+\begin_inset Formula $\mathcal{P}_2$
+\end_inset
+
+ together is upper bounded by 
+\begin_inset Formula $\frac{C_1\cdot u}{\rho\epsilon^2}$
+\end_inset
+
+, for some constant 
+\begin_inset Formula $C_1$
+\end_inset
+
+. Also, for some constant 
+\begin_inset Formula $C_2$
+\end_inset
+
+, the sample complexity of 
+\shape smallcaps
+Median Elimination
+\shape default
+ is upper bounded by 
+\begin_inset Formula $\frac{C_2\cdot u}{ (\epsilon/2)^2}\ln\frac{2}{\delta} \leq \frac{C_3}{\epsilon^2}\ln^2\frac{2}{\delta}$
+\end_inset
+
+. Adding the sample complexities and substituting for 
+\begin_inset Formula $u$
+\end_inset
+
+ yields the bound. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Although, sample complexity of 
+\backslash
+PPP matches the lower bound up to a constant factor, in practice its performance is
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% not satisfactory due to large value of the constant. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% For example, the number of samples required to select $u$ $[
+\backslash
+epsilon, 
+\backslash
+rho]$-optimal arms is 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% $
+\backslash
+frac{C 
+\backslash
+cdot u}{
+\backslash
+rho (
+\backslash
+epsilon/2)^2} 
+\backslash
+log^2
+\backslash
+frac{2}{
+\backslash
+delta'} 
+\backslash
+geq 
+\backslash
+bceil{
+\backslash
+frac{C}{
+\backslash
+rho 
+\backslash
+epsilon^2}
+\backslash
+log
+\backslash
+frac{2}{
+\backslash
+delta} 
+\backslash
+cdot 4
+\backslash
+frac{
+\backslash
+log^2(1/
+\backslash
+delta')}{0.5-
+\backslash
+delta'}} 
+\backslash
+geq 
+\backslash
+bceil{
+\backslash
+frac{109 C}{
+\backslash
+rho 
+\backslash
+epsilon^2}
+\backslash
+log
+\backslash
+frac{2}{
+\backslash
+delta}}$, minimising with respect to $
+\backslash
+delta' $.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% In the second phase a big number of samples add up to this to make it even bigger. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Therefore, 
+\backslash
+PPP can not outperform 
+\backslash
+PP if $
+\backslash
+delta 
+\backslash
+geq 2^{-109}$, which is effectively  far below
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% the practical range.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{corollary}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:qffromqptighter"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+PPP
+\end_layout
+
+\end_inset
+
+ can solve any instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $(\A, n, m, \epsilon, \delta)$
+\end_inset
+
+ with sample complexity 
+\begin_inset Formula $O\left(\frac{1}{\epsilon^2}\left(\frac{n}{m}\log\frac{1}{\delta} + \log^2\frac{1}{\delta}\right)\right)$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{corollary}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%
+\backslash
+filler{NEED A COUPLE OF LINES DESCRIBING HOW.}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let, 
+\begin_inset Formula $(\A, n, m, \epsilon,\delta)$
+\end_inset
+
+ be the given instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+. We partition the set 
+\begin_inset Formula $\A^\infty = [0,1]$
+\end_inset
+
+ in to 
+\begin_inset Formula $n$
+\end_inset
+
+ equal segments and associate each with a unique arm in 
+\begin_inset Formula $\A$
+\end_inset
+
+, and such that no two different subsets get associated with the same arm. Now, defining 
+\begin_inset Formula $P_{A^\infty} = Uniform[0,1]$
+\end_inset
+
+, and 
+\begin_inset Formula $\rho' = m/n$
+\end_inset
+
+, we realise that solving the 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+ instance 
+\begin_inset Formula $(\A^\infty, P_{\A^\infty}, \rho', \epsilon,\delta)$
+\end_inset
+
+ solves the original 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ instance, thereby proving the corollary. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Given an instance of 
+\backslash
+QF by $(
+\backslash
+A, n, m, 
+\backslash
+epsilon,
+\backslash
+delta)$, we can transform it
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% to an instance of 
+\backslash
+QP given by $(
+\backslash
+A^
+\backslash
+infty, P_{
+\backslash
+A^
+\backslash
+infty}, 
+\backslash
+rho', 
+\backslash
+epsilon,
+\backslash
+delta)$, where
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% $P_
+\backslash
+A$ is an uniform distribution over $
+\backslash
+A$, and $
+\backslash
+rho = m/n$. Now, solving this 
+\backslash
+QP
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% solves the original 
+\backslash
+QF, thereby proving Corollary~
+\backslash
+ref{cor:qffromqptighter}.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+At this point it is of natural interest to find an efficient algorithm to solve 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+. Next, we discuss the extension of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+ to 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+, and present lower and upper bound on the sample complexity needed to solve it. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% this in detail.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% However, as discussed in Section~
+\backslash
+ref{sec:problemdefinitionandcontributions},
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% problem instances have to be 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Solving 
+\begin_inset Quotes eld
+\end_inset
+
+At Most 
+\begin_inset Formula $k$
+\end_inset
+
+-equiprobable
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+protect
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+ Instances
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:tighterqpk"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, let us focus on identifying 
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\begin_inset Formula $[\epsilon, \rho]$
+\end_inset
+
+-optimal arms. In Theorem
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:impossibility_qpk"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we derive the lower bound on the sample complexity to solve an instance 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+ by reducing it to solving a 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+SUBSET
+\end_layout
+
+\end_inset
+
+ problem as follows.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{restatable}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+theorem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+thmimpossibilityqpk
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+[Lower Bound on the Sample Complexity for Solving 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+protect
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+] 
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:impossibility_qpk"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% For $
+\backslash
+alpha 
+\backslash
+in [0, 1)$, and $k > 1$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+For every 
+\begin_inset Formula $\epsilon \in (0, \frac{1}{\sqrt{32}}]$
+\end_inset
+
+, 
+\begin_inset Formula $\delta \in (0, \frac{1}{\sqrt{32}}]$
+\end_inset
+
+, and 
+\begin_inset Formula $\rho \in (0,\frac{1}{2}]$
+\end_inset
+
+, there exists an instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+ given by 
+\begin_inset Formula $(\A, P_\A, \rho, \epsilon, \delta)$
+\end_inset
+
+, such that any algorithm that solves 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+ incurs at least 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%there exists no algorithm that solves it %that can solve every instance of 
+\backslash
+QPK given by $(
+\backslash
+A, P_
+\backslash
+A, 
+\backslash
+rho, 
+\backslash
+epsilon, 
+\backslash
+delta)$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%within a number of samples which is strictly lesser than 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $C\cdot \frac{k}{\rho\epsilon^2}\ln\frac{k}{8\delta}$
+\end_inset
+
+ samples, where 
+\begin_inset Formula $C = \frac{1}{18375}$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{restatable}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%
+\backslash
+filler{THEOREM NEEDS TO BE WRITTEN BY SPECIFYING RANGES FOR EPSILON, DELTA, AND RHO.}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We shall prove the theorem by contradiction. Let us assume that the statement is incorrect. Therefore, there exists an algorithm 
+\shape smallcaps
+ALG
+\shape default
+ that 
+\shape smallcaps
+ALG
+\shape default
+ can solve any instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+ using no more than 
+\begin_inset Formula $C\cdot \frac{k}{\rho\epsilon^2}\ln\frac{k}{8\delta}$
+\end_inset
+
+ samples, for 
+\begin_inset Formula $C= \frac{1}{18375}$
+\end_inset
+
+. Now, let 
+\begin_inset Formula $(n, \A, m, \epsilon, \delta)$
+\end_inset
+
+ be an instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+SUBSET
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+citep{bib:arcsk2017}
+\end_layout
+
+\end_inset
+
+ with 
+\begin_inset Formula $n \geq 2m$
+\end_inset
+
+. Letting 
+\begin_inset Formula $P_\A = Uniform\{1,2, \dots, n\}$
+\end_inset
+
+, 
+\begin_inset Formula $k = m$
+\end_inset
+
+, and 
+\begin_inset Formula $\rho = m /n$
+\end_inset
+
+, we create an instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+ as 
+\begin_inset Formula $(\A, P_\A, \rho, k, \epsilon, \delta)$
+\end_inset
+
+. Therefore, solving this 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+ instance will solve the original 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+SUBSET
+\end_layout
+
+\end_inset
+
+ instance. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%Assuming $N$ as the number of samples needed by 
+\backslash
+textsc{ALG} to solve this 
+\backslash
+QPK instance,  we can write $N 
+\backslash
+leq C
+\backslash
+cdot 
+\backslash
+frac{k}{
+\backslash
+rho
+\backslash
+epsilon^2}
+\backslash
+ln
+\backslash
+frac{k}{4
+\backslash
+delta}$. Hence, a
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+According our claim, 
+\shape smallcaps
+ALG
+\shape default
+ solves the original 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+SUBSET
+\end_layout
+
+\end_inset
+
+ instance using at most 
+\begin_inset Formula $C\cdot \frac{k}{(k/n)\epsilon^2}\ln\frac{k}{8\delta}$
+\end_inset
+
+ 
+\begin_inset Formula $ = C\cdot \frac{m}{(m/n)\epsilon^2}\ln\frac{m}{8\delta}$
+\end_inset
+
+ 
+\begin_inset Formula $ = C\cdot \frac{n}{\epsilon^2}\ln\frac{m}{8\delta}$
+\end_inset
+
+ samples. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Now,  for all $k > 1$, according to our assumption as $
+\backslash
+alpha < 1$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+This observation contradicts the lower bound on the sample complexity for solving 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+SUBSET
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+citep[Theorem 8]{bib:lucb}
+\end_layout
+
+\end_inset
+
+; thereby proving the theorem. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% At this point it is of natural interest to find an efficient algorithm to solve 
+\backslash
+QPK. However, as discussed in Section~
+\backslash
+ref{sec:problemdefinitionandcontributions}, problem instances have to be valid---that is, containing $k$ $[
+\backslash
+epsilon, 
+\backslash
+rho]$-optimal arms. Even so, it can take an arbitrarily large number of guesses to discover unseen arms unless $P_
+\backslash
+A$ allocates sufficient probability to each of $k$ arms. For this purpose, recall that we decided to limit our algorithms to at most $k$-equiprobable instances
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% $(
+\backslash
+A, P_
+\backslash
+A, k, 
+\backslash
+rho, 
+\backslash
+epsilon, 
+\backslash
+delta)$ for which $
+\backslash
+forall a 
+\backslash
+in 
+\backslash
+TOPRHO$, $
+\backslash
+Pr_{
+\backslash
+mathbf{a}' 
+\backslash
+sim P_
+\backslash
+A}
+\backslash
+{
+\backslash
+mathbf{a}' = a
+\backslash
+} 
+\backslash
+leq 
+\backslash
+frac{
+\backslash
+rho}{k}$.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%
+\backslash
+begin{definition}[At most equiprobable instance of 
+\backslash
+QPK:] Given a valid instance of 
+\backslash
+QPK as $(
+\backslash
+A, P_
+\backslash
+A, k, 
+\backslash
+rho, 
+\backslash
+epsilon, 
+\backslash
+delta)$, we call it 
+\backslash
+emph{at most equiprobable}, if $
+\backslash
+forall a 
+\backslash
+in 
+\backslash
+TOPRHO$, $
+\backslash
+Pr_{
+\backslash
+mathbf{a}' 
+\backslash
+sim P_
+\backslash
+A}
+\backslash
+{
+\backslash
+mathbf{a}' = a
+\backslash
+} 
+\backslash
+leq 
+\backslash
+frac{
+\backslash
+rho}{k}$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%
+\backslash
+end{definition}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Algorithm for solving at most 
+\begin_inset Formula $k$
+\end_inset
+
+-equiprobable 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+protect
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+ instances.
+\end_layout
+
+\begin_layout Standard
+Let, for any 
+\begin_inset Formula $\mathcal{S} \subseteq \A$
+\end_inset
+
+, 
+\begin_inset Formula $\nu(\mathcal{S}) \defeq \Pr_{a \sim P_\A}\{a \in \mathcal{S}\}$
+\end_inset
+
+. Therefore, 
+\begin_inset Formula $\nu(\A) = 1$
+\end_inset
+
+. Now, we present an algorithm 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+KQP
+\end_layout
+
+\end_inset
+
+ that can solve any at most 
+\begin_inset Formula $k$
+\end_inset
+
+-equiprobable instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+. Algorithm
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:looseqpk"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ describes 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+KQP
+\end_layout
+
+\end_inset
+
+. At each phase 
+\begin_inset Formula $y$
+\end_inset
+
+, it solves an instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+ to output an arm, say 
+\begin_inset Formula $a^{(y)}$
+\end_inset
+
+, from 
+\begin_inset Formula $\TOPRHO(\epsilon)$
+\end_inset
+
+. In the next phase, it updates the bandit instance 
+\begin_inset Formula $\A^{y+1} = \A^{y}\setminus\{a^{(y)}\}$
+\end_inset
+
+, the sampling distribution 
+\begin_inset Formula $P_{\A^{y+1}} = \frac{1}{1-\nu\left(\A\setminus\A^{y+1}\right)} P_{\A^{y}}$
+\end_inset
+
+, and the target quantile 
+\begin_inset Formula $\rho^{y+1} = \rho^y-\nu(a^{(y)})$
+\end_inset
+
+. However, as we are not given the explicit form of 
+\begin_inset Formula $P_\A$
+\end_inset
+
+, we realise 
+\begin_inset Formula $P_{\A^{y+1}}$
+\end_inset
+
+ by rejection-sampling—if 
+\begin_inset Formula $a' \in \A\setminus\A^{y+1}$
+\end_inset
+
+ is chosen by 
+\begin_inset Formula $P_{\A}$
+\end_inset
+
+, we simply discard 
+\begin_inset Formula $a'$
+\end_inset
+
+, and continue to sample 
+\begin_inset Formula $P_\A$
+\end_inset
+
+ one more time. Because 
+\begin_inset Formula $\nu(\{a^y\})$
+\end_inset
+
+ is not known explicitly, we rely on the fact that 
+\begin_inset Formula $\nu(\{a^y\}) \leq \rho/k$
+\end_inset
+
+: it is for this reason we require the instance to be at most 
+\begin_inset Formula $ k$
+\end_inset
+
+-equiprobable. Therefore, in each phase 
+\begin_inset Formula $y \geq 1$
+\end_inset
+
+, 
+\begin_inset Formula $\rho^y - \rho/k \leq \rho^{y+1} \leq \rho^y - \nu\{a^y\}$
+\end_inset
+
+, and hence, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+KQP
+\end_layout
+
+\end_inset
+
+ solves an instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+ given by 
+\begin_inset Formula $\left(\A^{y}, P_{\A^{y}}, \rho-{(y-1)\rho}/{k}, \epsilon, \delta\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% We notice, in each phase the algorithm 
+\backslash
+KQP 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% queries the oracle with the arm output by 
+\backslash
+PPP.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% % As 
+\backslash
+PPP can solve any instance of 
+\backslash
+QP, 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Therefore, if the original 
+\backslash
+QPK instance is at most
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% uniform, we can pass an oracle as an input to 
+\backslash
+KQP which will produce $
+\backslash
+nu(
+\backslash
+{a^{(y)}
+\backslash
+}) = 
+\backslash
+rho/k$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% for any $y 
+\backslash
+in 
+\backslash
+{1, 
+\backslash
+cdots, k
+\backslash
+}$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% For such an instance this oracle will help us to establish the upper bound on the
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% expected sample complexity.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{algorithm}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+caption{
+\backslash
+KQP: Algorithm to solve a valid 
+\backslash
+QPK}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+label{alg:looseqpk}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+DontPrintSemicolon
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+KwIn{$
+\backslash
+A, P_
+\backslash
+A, k, 
+\backslash
+rho, 
+\backslash
+epsilon, 
+\backslash
+delta$, and an oracle that gives $ 
+\backslash
+Pr_{a 
+\backslash
+sim P_
+\backslash
+A}
+\backslash
+{a 
+\backslash
+in 
+\backslash
+mathcal{S}$, for any $
+\backslash
+mathcal{S} 
+\backslash
+subseteq 
+\backslash
+A$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+KwOut{Set of $k$ distinct arms from $
+\backslash
+TOPRHO(
+\backslash
+epsilon)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% $
+\backslash
+A^1 = 
+\backslash
+A, 
+\backslash
+rho^1 = 
+\backslash
+rho$.
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+For{$y = 1,2,3,
+\backslash
+cdots,k$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 	Run 
+\backslash
+PPP to solve the 
+\backslash
+QP instance given by
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%     $(
+\backslash
+A^y, P_{
+\backslash
+A^y}, 
+\backslash
+rho^y, 
+\backslash
+epsilon, 
+\backslash
+frac{
+\backslash
+delta}{k})$, and let $a^{(y)}$ be the output.
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%     $
+\backslash
+A^{y+1} = 
+\backslash
+A^{y}
+\backslash
+setminus 
+\backslash
+{a^{(y)}
+\backslash
+}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%     $P_{
+\backslash
+A^{y+1}} = 
+\backslash
+frac{1}{1-
+\backslash
+nu
+\backslash
+left(
+\backslash
+A
+\backslash
+setminus
+\backslash
+A^{y+1}
+\backslash
+right)} P_{
+\backslash
+A^{y}}$.
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%     $
+\backslash
+rho^{y+1} = 
+\backslash
+rho^y-
+\backslash
+nu(
+\backslash
+{a^{(y)}
+\backslash
+})$.
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{algorithm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\size small
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+REQUIRE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\A, P_\A, k, \rho, \epsilon, \delta$
+\end_inset
+
+.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENSURE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+Set of 
+\begin_inset Formula $k$
+\end_inset
+
+ distinct arms from 
+\begin_inset Formula $\TOPRHO(\epsilon)$
+\end_inset
+
+.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\A^1 = \A, \rho^1 = \rho$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+FOR
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $y = 1,2,3,\cdots,k$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Run 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+PPP
+\end_layout
+
+\end_inset
+
+ to solve the 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+ instance given by 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $(\A^y, P_{\A^y}, \rho^y, \epsilon, \frac{\delta}{k})$
+\end_inset
+
+, and let 
+\begin_inset Formula $a^{(y)}$
+\end_inset
+
+ be the output. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\A^{y+1} = \A^{y}\setminus \{a^{(y)}\}$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%     
+\backslash
+STATE $P_{
+\backslash
+A^{y+1}} = 
+\backslash
+frac{1}{1-
+\backslash
+nu
+\backslash
+left(
+\backslash
+A
+\backslash
+setminus
+\backslash
+A^{y+1}
+\backslash
+right)} P_{
+\backslash
+A^{y}}$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\rho^{y+1} = \rho^y-({(y-1)\rho})/{k}$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDFOR
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+KQP
+\end_layout
+
+\end_inset
+
+: Algorithm to solve a at most k-equiprobable 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+ instances
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:looseqpk"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Theorem
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:exsceqp"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we present an upper bound on the expected sample complexity of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+KQP
+\end_layout
+
+\end_inset
+
+.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+filler{NOT ADDRESSED: In the line just above the algorithm, and also in the algorithm, you are (incorrectly) subtracting $
+\backslash
+rho/k$ from the existing $
+\backslash
+rho^{y}$. I think you should instead subtract $
+\backslash
+nu(
+\backslash
+A^{(y)})$.} 
+\backslash
+textcolor{blue}{not clear to me what you mean}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:exsceqp"
+
+\end_inset
+
+ Given any at most 
+\begin_inset Formula $k$
+\end_inset
+
+-equiprobable instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+ with 
+\begin_inset Formula $k > 1$
+\end_inset
+
+, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  and an oracle that produces $
+\backslash
+nu(
+\backslash
+{a^{(y)}
+\backslash
+}) = 
+\backslash
+rho/k$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  for all $y 
+\backslash
+in  
+\backslash
+{1, 2, 
+\backslash
+cdots, k
+\backslash
+}$, 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+KQP
+\end_layout
+
+\end_inset
+
+ solves the instance with expected sample-complexity upper bounded by 
+\begin_inset Formula $O\left(\frac{k}{\epsilon^2}\left(\frac{\log k}{\rho}\log\frac{k}{\delta} + \log^2\frac{k}{\delta}\right)\right)$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+We break the proof in two parts: upper-bounding the sample complexity, and proving correctness.
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+Sample complexity:
+\series default
+ In phase 
+\begin_inset Formula $y$
+\end_inset
+
+, the sample complexity of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+PPP
+\end_layout
+
+\end_inset
+
+ is upper-bounded as 
+\begin_inset Formula $\text{SC}(y) \leq \frac{C}{\rho^y \epsilon^2}\log\frac{k}{\delta}$
+\end_inset
+
+, for some constant 
+\begin_inset Formula $C$
+\end_inset
+
+. Therefore, the sample complexity of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+KQP
+\end_layout
+
+\end_inset
+
+ is upper bounded as 
+\size small
+
+\begin_inset Formula \begin{align*}
+& \sum_{y=1}^k \text{SC}(y) \leq \sum_{y=1}^k \frac{C}{ \epsilon^2}\left(\frac{1}{\rho^y}\log\frac{k}{\delta} + \log^2\frac{k}{\delta}\right),\\
+%  &= \left(\frac{1}{\rho} + \sum_{y=2}^k \frac{1}{\rho - \sum_{j=1}^{y-1} \nu(\{a^{(j)}\})}\right) \frac{C}{\epsilon^2}\ln\frac{k}{\delta} +\\
+%  &\hspace{1cm}  \frac{kC}{\epsilon^2}\ln^2\frac{k}{\delta},\\
+& \leq  \frac{C}{\epsilon^2}\left(\log\frac{k}{\delta} \sum_{y=1}^k \frac{1}{\rho - (y-1)\frac{\rho}{k}}+ k\log^2\frac{k}{\delta}\right),\\
+& = \frac{Ck}{\epsilon^2} \left(\frac{1}{\rho} \log\frac{k}{\delta} \sum_{y=1}^k \frac{1}{k-y+1} + \log^2\frac{k}{\delta}\right),\\
+& \leq \frac{C'k}{\epsilon^2}\left(\frac{\log k}{\rho}\log\frac{k}{\delta} + \log^2\frac{k}{\delta}\right),
+\end{align*}
+\end_inset
+
+
+\size default
+ for 
+\begin_inset Formula $k > 1$
+\end_inset
+
+, and some constant 
+\begin_inset Formula $C'$
+\end_inset
+
+. 
+\end_layout
+
+\begin_deeper
+\begin_layout Paragraph
+Correctness:
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Letting 
+\begin_inset Formula $E_y$
+\end_inset
+
+ be the event that 
+\begin_inset Formula $a^{(y)} \not\in \TOPRHO(\epsilon)$
+\end_inset
+
+, the probability of mistake by 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+KQP
+\end_layout
+
+\end_inset
+
+ can be upper bounded as 
+\begin_inset Formula $\Pr\{\text{Error}\} = \Pr\{\exists y \in \{1, \cdots, k\}\; E_y \} \leq \sum_{y=1}^k \Pr\{E_y \} \leq \sum_{y=1}^k \frac{\delta}{k} = \delta$
+\end_inset
+
+. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{corollary}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:qfkfromqpktighter"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+KQP
+\end_layout
+
+\end_inset
+
+ can solve any instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QFK
+\end_layout
+
+\end_inset
+
+ given by 
+\begin_inset Formula $(\A, n, m, k, \epsilon, \delta)$
+\end_inset
+
+ with 
+\begin_inset Formula $k \geq 2$
+\end_inset
+
+, using 
+\begin_inset Formula $O\left(\frac{k}{\epsilon^2}\left(\frac{n\log k}{m}\log\frac{k}{\delta} + \log^2\frac{k}{\delta}\right)\right)$
+\end_inset
+
+ samples. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{corollary}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We note that though the sample complexity of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+KQP
+\end_layout
+
+\end_inset
+
+ is independent of size of the bandit instance 
+\begin_inset Formula $\A$
+\end_inset
+
+, and every instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QFK
+\end_layout
+
+\end_inset
+
+ given by 
+\begin_inset Formula $(\A, n, m, m , \epsilon, \delta)$
+\end_inset
+
+, can be solved by 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+KQP
+\end_layout
+
+\end_inset
+
+ by posing it as an instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+ given by 
+\begin_inset Formula $(\A,  Uniform\{\A\}, m/n, m, \epsilon, \delta)$
+\end_inset
+
+. However, for 
+\begin_inset Formula $k=m$
+\end_inset
+
+, the sample complexity of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+KQP
+\end_layout
+
+\end_inset
+
+ reduces to 
+\begin_inset Formula $O\left(\frac{1}{\epsilon^2}\left(n\log m\cdot\log\frac{m}{\delta} + \log^2\frac{m}{\delta}\right)\right)$
+\end_inset
+
+, which is higher than the sample complexity of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+HALVING
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "bib:explorem"
+literal "false"
+
+\end_inset
+
+, that needs only 
+\begin_inset Formula $O\left(\frac{n}{\epsilon^2}\log\frac{m}{\delta}\right)$
+\end_inset
+
+ samples. Hence, for the best subset selection problem in finite instances 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+HALVING
+\end_layout
+
+\end_inset
+
+ is preferable to 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+KQP
+\end_layout
+
+\end_inset
+
+. However, in the very large instances, where the probability of picking any given arm from 
+\begin_inset Formula $\TOPRHO$
+\end_inset
+
+ is close to zero, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% However,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% for potentially infinite instances, where the probability
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% of picking any given arm is zero (or very close to zero),
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+ is the ideal problem to solve, and 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+KQP
+\end_layout
+
+\end_inset
+
+ is the first solution that we propose.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{corollary}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:qfkfromqpktighter2"
+
+\end_inset
+
+ Every instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QPK
+\end_layout
+
+\end_inset
+
+ given by 
+\begin_inset Formula $(\A, P_\A, k, \rho, \epsilon, \delta)$
+\end_inset
+
+, such that 
+\begin_inset Formula $|\A| = \infty$
+\end_inset
+
+, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%and $
+\backslash
+Pr_{a
+\backslash
+sim P_
+\backslash
+A}
+\backslash
+{a 
+\backslash
+in S 
+\backslash
+subset 
+\backslash
+A : |S| < 
+\backslash
+infty
+\backslash
+} = 0$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+and for all finite subset 
+\begin_inset Formula $S \subset \A$
+\end_inset
+
+, 
+\begin_inset Formula $\Pr_{a\sim P_\A}\{a \in S\} = 0$
+\end_inset
+
+; can be solved within a sample-complexity 
+\begin_inset Formula $O\left({k}{\epsilon^{-2}}\left({\rho^{-1}}\log({k}/{\delta}) + \log^2({k}/{\delta})\right)\right)$
+\end_inset
+
+, by independently solving 
+\begin_inset Formula $k$
+\end_inset
+
+ different 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+ instances, each given by 
+\begin_inset Formula $(\A, P_\A, k, \rho, \epsilon, \delta/k)$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{corollary}
+\end_layout
+
+\end_inset
+
+ The correctness of Corollary
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:qfkfromqpktighter2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ gets proved by noticing the fact that all the 
+\begin_inset Formula $k$
+\end_inset
+
+ outputs are unique with probability 1, and then taking union bound over mistake probabilities. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% As the probability of encountering any arm more than once is zero, the each of the $k$ outputs is
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% is unique with probability 1. Now, taking union over mistake probabilities, the statement of Corollary~
+\backslash
+ref{cor:qfkfromqpktighter2} follows.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%
+\backslash
+filler{Still not clear. Are you assuming $k = m$? Perhaps you need to specify the constraints on $k$ and $m$. Otherwise, look at the preceding sentence alone, which implies $(1, m, n)$ is better solved using HALVING unless $n = 
+\backslash
+infty$. Not true; what if $n$ is just large?}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Before going to the experiments, we present an important result on the hardness of solving 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Specifically,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% we establish a connection between the optimal sample complexities for solving 
+\backslash
+QF and 
+\backslash
+QP.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+filler{Tight lower bound or tight upper bound?}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+On the Hardness of Solving 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+protect
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:qpreducub"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+filler{What do you mean by ``order-optimal''? The term suggests that you believe that the lower bound we have furnished is correct. But what if the actual lower bound is larger?}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Theorem
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:qpreducubonly"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ presents a general relation between the upper bound on sample complexities for solving 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% solving 
+\backslash
+QP problem using order-optimal sample complexity is crucially dependent on the
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% existence of an algorithm for solving 
+\backslash
+QF within order-optimal sample complexity.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% The lower bound directly follows from the intuition. We provide the upper bound in Theorem~
+\backslash
+ref{thm:qpreducub}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+filler{Not clear: lower bound for what and upper bound for what?}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% if every problem instance of
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+QP given by $(
+\backslash
+A, P_
+\backslash
+A, 
+\backslash
+rho, 
+\backslash
+epsilon, 
+\backslash
+delta)$   needs $
+\backslash
+Theta(h(
+\backslash
+rho,
+\backslash
+epsilon,
+\backslash
+delta))$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% samples to get solved.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+subsection{Upper Bound}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+label{subsec:hardnessqpub}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% In this section we show that if there exists an algorithm for solving any instance of 
+\backslash
+QF
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% within order-optimal sample-complexity, then we can construct an algorithm that can solve
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% any instance of 
+\backslash
+QP  within order-optimal sample-complexity.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{restatable}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+theorem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+thmqpreducubonly
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:qpreducubonly"
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\gamma: \mathbb{Z}^+ \times \mathbb{Z}^+ \times [0,1] \times [0,1] \mapsto \mathbb{R}^+$
+\end_inset
+
+. If every instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ given by 
+\begin_inset Formula $(\A, n, m, \epsilon, \delta)$
+\end_inset
+
+, can be solved within the sample-complexity 
+\begin_inset Formula $O\left(\frac{n}{m\epsilon^2}\log\frac{1}{\delta} + \gamma(n,m,\epsilon,\delta)\right)$
+\end_inset
+
+, then, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% there exists an algorithm 
+\backslash
+textsc{OptQP} that can solve 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+every instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+ given by 
+\begin_inset Formula $(\A, P_\A, \rho, \epsilon, \delta)$
+\end_inset
+
+ can be solved within the sample-complexity 
+\begin_inset Flex Resizebox
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Argument 1
+status collapsed
+
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+columnwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 2
+status collapsed
+
+
+\begin_layout Standard
+!
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $O\left({(1/\rho\epsilon^{2}})\log({1}/{\delta}) + \gamma\left(\ceil{8\log({2}/{\delta})}, \floor{4\log({2}/{\delta)}}, {\epsilon}/{2}, {\delta}/{2}\right)\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{restatable}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We assume that there exists an algorithm 
+\shape smallcaps
+OptQF
+\shape default
+ that solves every instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ given by 
+\begin_inset Formula $(\A, n, m, \epsilon, \delta)$
+\end_inset
+
+, using 
+\begin_inset Formula $O\left(\frac{n}{m\epsilon^2}\log\frac{1}{\delta} + \gamma(n,m,\epsilon,\delta)\right)$
+\end_inset
+
+ samples. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% We prove Theorem~
+\backslash
+ref{thm:qpreducub}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+We establish the upper bound on sample complexity for solving 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+ by constructing an algorithm 
+\shape smallcaps
+OptQP
+\shape default
+ that follows an approach similar to 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+PPP
+\end_layout
+
+\end_inset
+
+. Specifically, 
+\shape smallcaps
+OptQP
+\shape default
+ reduces the input 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+ instance to an instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ using 
+\begin_inset Formula $O\left(\frac{1}{\rho\epsilon^2}\log\frac{1}{\delta}\right)$
+\end_inset
+
+ samples. Then, it solves that 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ using 
+\shape smallcaps
+OptQF
+\shape default
+ as the subroutine. The detailed proof is given in Appendix-C.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{corollary}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:effectoptqf"
+
+\end_inset
+
+ Corollary
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:qffromqptighter"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that every 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ is solvable in 
+\begin_inset Formula $O\left(\frac{1}{\epsilon^2}\left(\frac{n}{m}\log\frac{1}{\delta} + \log^2\frac{1}{\delta}\right)\right)$
+\end_inset
+
+ samples. Hence, 
+\begin_inset Formula $\gamma(n,m,\epsilon,\delta) \in O\left(\frac{1}{\epsilon^2}\log^2\frac{1}{\delta}\right)$
+\end_inset
+
+, and therefore, every 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+ is solvable in 
+\begin_inset Formula $O\left(\frac{1}{\epsilon^2}\left(\frac{1}{\rho}\log\frac{1}{\delta} + \log^2\frac{1}{\delta}\right)\right)$
+\end_inset
+
+ samples.
+\end_layout
+
+\begin_layout Standard
+On the other hand, if the lower bound for solving 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ provided by 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+citet{bib:arcsk2017}
+\end_layout
+
+\end_inset
+
+ matches the upper bound up to a constant factor, then 
+\begin_inset Formula $\gamma(n,m,\epsilon,\delta) \in \Theta\left(\frac{n}{m\epsilon^2}\log\frac{1}{\delta}\right)$
+\end_inset
+
+. In that case, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+ is solvable using 
+\begin_inset Formula $\Theta\left(\frac{1}{\rho\epsilon^2}\log\frac{1}{\delta}\right)$
+\end_inset
+
+ samples. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{corollary}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is interesting to find a 
+\begin_inset Formula $\gamma(\cdot)$
+\end_inset
+
+ such that the upper bound presented in Theorem
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:qpreducubonly"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ matches the lower bound up to a constant factor. We notice, Theorem
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:qpreducubonly"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ guarantees that there exists a constant 
+\begin_inset Formula $C$
+\end_inset
+
+, such that for any given 
+\begin_inset Formula $\epsilon, \delta$
+\end_inset
+
+, and 
+\begin_inset Formula $m \leq n/2$
+\end_inset
+
+, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%for every $n 
+\backslash
+geq 
+\backslash
+ceil{8
+\backslash
+log(2/
+\backslash
+delta)}$, %and for every $m 
+\backslash
+leq n/2$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\gamma(n ,m, \epsilon, \delta) \leq C \cdot \gamma\left(\ceil{8\log(2/\delta)}, \floor{4\log(2/\delta)}, \frac{\epsilon}{2}, \frac{\delta}{2}\right)$
+\end_inset
+
+. However, for 
+\begin_inset Formula $n < \ceil{8\log(2/\delta)}$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%and $m 
+\backslash
+leq n/2$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+we believe 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ can be solved more efficiently than posing it as 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+. We present it as a conjecture.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{definition}
+\end_layout
+
+\end_inset
+
+ For 
+\begin_inset Formula $g: \mathbb{Z}^+ \times \mathbb{Z}^+ \times [0,1] \times [0,1] \mapsto \mathbb{R}^+$
+\end_inset
+
+ we say 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ is solvable in 
+\begin_inset Formula $\Theta(g(\cdot))$
+\end_inset
+
+, if there exists an algorithm that solves every instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ given by 
+\begin_inset Formula $(\A, n, m, \epsilon, \delta)$
+\end_inset
+
+ in 
+\begin_inset Formula $O(g(n,m,\epsilon,\delta))$
+\end_inset
+
+ samples, and there exists an instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ given by 
+\begin_inset Formula $(\bar{\A}, \bar{n}, \bar{m}, \bar{\epsilon}, \bar{\delta})$
+\end_inset
+
+ such that every algorithm needs at least 
+\begin_inset Formula $\Omega(g(\bar{n},\bar{m},\bar{\epsilon},\bar{\delta}))$
+\end_inset
+
+ samples to solve it. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{definition}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{restatable}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+conjecture
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+conjdiffqfqp
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ There exists a constant 
+\begin_inset Formula $C > 0$
+\end_inset
+
+, and functions 
+\begin_inset Formula $g: \mathbb{Z}^+ \times \mathbb{Z}^+ \times [0,1] \times [0,1] \mapsto \mathbb{R}^+$
+\end_inset
+
+, and 
+\begin_inset Formula $h: \mathbb{Z}^+ \times \mathbb{Z}^+ \times [0,1] \times [0,1] \mapsto \mathbb{R}^+$
+\end_inset
+
+, such that for every 
+\begin_inset Formula $\delta \in (0, 1]$
+\end_inset
+
+, there exists an integer 
+\begin_inset Formula $n_0 <  C\log\frac{2}{\delta}$
+\end_inset
+
+, such that for every 
+\begin_inset Formula $n\leq n_0$
+\end_inset
+
+, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%given by $(
+\backslash
+A, n, m, 
+\backslash
+epsilon, 
+\backslash
+delta)$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+is solvable in 
+\begin_inset Formula $\Theta(g(n, m, \epsilon, \delta))$
+\end_inset
+
+ samples, and its equivalent 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+ (obtained by posing the the instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QF
+\end_layout
+
+\end_inset
+
+ as an instance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+, as done in proving Corollary
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:qffromqptighter"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) needs at least 
+\begin_inset Formula $\Omega(h(n, m, \epsilon, \delta))$
+\end_inset
+
+ samples, then 
+\begin_inset Formula $\lim_{\delta \downarrow 0} \frac{g(n, m, \epsilon, \delta)}{h(n, m, \epsilon, \delta)} \to 0$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{restatable}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Analogously, for a function $h: [0,1] 
+\backslash
+times [0,1] 
+\backslash
+times [0,1] 
+\backslash
+mapsto 
+\backslash
+mathbb{R}^+$ we say 
+\backslash
+QP is solvable 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% in $
+\backslash
+Theta(h(
+\backslash
+cdot))$, if there exists an algorithm 
+\backslash
+textsc{OptQP} that
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% solves every instance of 
+\backslash
+QP given by $(
+\backslash
+A, P_
+\backslash
+A, 
+\backslash
+rho, 
+\backslash
+epsilon, 
+\backslash
+delta)$ in $O(h(
+\backslash
+rho,
+\backslash
+epsilon,
+\backslash
+delta))$ samples, and there exists an instance of 
+\backslash
+QP given by $(
+\backslash
+A', P_{
+\backslash
+A'}', 
+\backslash
+rho', 
+\backslash
+epsilon', 
+\backslash
+delta')$ such that every algorithm needs at least $
+\backslash
+Omega(h(
+\backslash
+rho',
+\backslash
+epsilon',
+\backslash
+delta'))$ samples to solve it.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{corollary}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+label{cor:effectoptqf}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% If the lower bound provided by 
+\backslash
+citet{bib:arcsk2017} is tight up to a constant
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% factor, then $
+\backslash
+gamma(n,m,
+\backslash
+epsilon,
+\backslash
+delta) 
+\backslash
+in 
+\backslash
+Omega
+\backslash
+left(
+\backslash
+frac{n}{m
+\backslash
+epsilon^2}
+\backslash
+log
+\backslash
+frac{1}{
+\backslash
+delta}
+\backslash
+right)$. In that case, 
+\backslash
+QP is solvable using $
+\backslash
+Theta
+\backslash
+left(
+\backslash
+frac{1}{
+\backslash
+rho
+\backslash
+epsilon^2}
+\backslash
+log
+\backslash
+frac{1}{
+\backslash
+delta}
+\backslash
+right)$ samples.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% On the other hand, if 
+\backslash
+QF is solvable in $
+\backslash
+Theta
+\backslash
+left(
+\backslash
+frac{1}{
+\backslash
+epsilon^2}
+\backslash
+left(
+\backslash
+frac{n}{m}
+\backslash
+log
+\backslash
+frac{1}{
+\backslash
+delta} + 
+\backslash
+log^2
+\backslash
+frac{1}{
+\backslash
+delta}
+\backslash
+right)
+\backslash
+right)$ samples, then 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% $
+\backslash
+gamma(n,m,
+\backslash
+epsilon,
+\backslash
+delta) 
+\backslash
+in 
+\backslash
+Omega
+\backslash
+left(
+\backslash
+frac{1}{
+\backslash
+epsilon^2}
+\backslash
+log^2
+\backslash
+frac{1}{
+\backslash
+delta}
+\backslash
+right)$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% and hence, solving 
+\backslash
+QP is solvable in $
+\backslash
+Theta
+\backslash
+left(
+\backslash
+frac{1}{
+\backslash
+epsilon^2}
+\backslash
+left(
+\backslash
+frac{1}{
+\backslash
+rho}
+\backslash
+log
+\backslash
+frac{1}{
+\backslash
+delta} + 
+\backslash
+log^2
+\backslash
+frac{1}{
+\backslash
+delta}
+\backslash
+right)
+\backslash
+right)$ samples.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{corollary}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+filler{``If the lower bound provided by 
+\backslash
+citet{bib:arcsk2017} is tight up to a constant
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% factor, then $
+\backslash
+gamma(n,m,
+\backslash
+epsilon,
+\backslash
+delta) = C
+\backslash
+frac{n}{m
+\backslash
+epsilon^2}
+\backslash
+log
+\backslash
+frac{1}{
+\backslash
+delta}$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% for some constant $C$.'' Do you mean $
+\backslash
+gamma = 
+\backslash
+Omega(whatever)$ or $
+\backslash
+geq C 
+\backslash
+cdot whatever$?}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Next, we empirically compare 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+GLUCB
+\end_layout
+
+\end_inset
+
+ for 
+\begin_inset Formula $k=1$
+\end_inset
+
+ with 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+FF
+\end_layout
+
+\end_inset
+
+ on different instances, and also we study empirical performance of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+GLUCB
+\end_layout
+
+\end_inset
+
+ by varying 
+\begin_inset Formula $k$
+\end_inset
+
+. 
+\end_layout
+
+\end_body
+\end_document

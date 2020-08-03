@@ -115,9 +115,11 @@ customHeadersFooters
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine basic
-\cite_engine_type default
-\biblio_style plain
+\cite_engine biblatex
+\cite_engine_type numerical
+\biblio_style plainnat
+\biblatex_bibstyle alphabetic-verb
+\biblatex_citestyle alphabetic-verb
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -206,28 +208,24 @@ Progetto di
 \end_layout
 
 \begin_layout Title
-Testing e verifica del software
+Intelligenza artificiale
 \end_layout
 
 \begin_layout Subtitle
-Basato sul progetto di Informatica III (B) 
-\begin_inset Quotes fld
+PAC Identification of Many Good Arms in Stochastic Multi-Armed Bandits
+\begin_inset Newline newline
 \end_inset
 
-Gestione Farmacie
-\begin_inset Quotes frd
-\end_inset
-
-
+(Arghya Roy Chaudhuri, Shivaram Kalyanakrishnan)
 \end_layout
 
 \begin_layout Author
-Samuele Ferri
+Samuele Ferri [1045975]
 \end_layout
 
 \begin_layout Date
 a.a.
- 2019-2020
+ 2019-2020 (Sessione di settembre)
 \end_layout
 
 \begin_layout Publishers
@@ -291,7 +289,7 @@ Scuola di Ingegneria
 \begin_inset Newline newline
 \end_inset
 
-Corso di laurea in Ingegneria Informatica
+Corso di laurea magistrale in Ingegneria Informatica
 \begin_inset Newline newline
 \end_inset
 
@@ -500,7 +498,7 @@ status open
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "chapter-fase-0-fase-1.lyx"
+filename "chapter.lyx"
 
 \end_inset
 
@@ -513,19 +511,7 @@ filename "chapter-fase-0-fase-1.lyx"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Branch chapter-2
-inverted 0
-status open
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "chapter-fase-2.lyx"
-
-\end_inset
-
-
-\end_layout
+\begin_inset FloatList algorithm
 
 \end_inset
 
@@ -533,19 +519,8 @@ filename "chapter-fase-2.lyx"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Branch chapter-3
-inverted 0
-status open
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "chapter-fase-3-timetable.lyx"
-
-\end_inset
-
-
-\end_layout
+\begin_inset CommandInset toc
+LatexCommand lstlistoflistings
 
 \end_inset
 
@@ -553,19 +528,7 @@ filename "chapter-fase-3-timetable.lyx"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Branch chapter-4
-inverted 0
-status open
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "chapter-fase-4-transfer.lyx"
-
-\end_inset
-
-
-\end_layout
+\begin_inset FloatList figure
 
 \end_inset
 
@@ -573,115 +536,15 @@ filename "chapter-fase-4-transfer.lyx"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Branch chapter-5
-inverted 0
-status open
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "chapter-tvsw.lyx"
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "bibliography"
+options "plainnat"
 
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Branch chapter-6
-inverted 0
-status open
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "chapter-manuale-utente.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-1"
-
-\end_inset
-
-C.
- Demetrescu, I.
- Finocchi, G.
- F.
- Italiano: 
-\emph on
-Algoritmi e strutture dati
-\emph default
-, McGraw-Hill
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-2"
-
-\end_inset
-
-Kenneth A.
- Lambert: 
-\emph on
-Programmazione in Python, 
-\emph default
-Apogeo
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-3"
-literal "false"
-
-\end_inset
-
-Django Documentation 
-\emph on
-(https://docs.djangoproject.com/en/3.0/)
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-4"
-literal "false"
-
-\end_inset
-
-Django REST Framework Tutorial 
-\emph on
-(https://www.django-rest-framework.org/tutorial/quickstart/)
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-5"
-literal "false"
-
-\end_inset
-
-StackOverflow 
-\emph on
-(https://stackoverflow.com/)
 \end_layout
 
 \end_body

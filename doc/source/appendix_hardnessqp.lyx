@@ -1,0 +1,3600 @@
+#LyX file created by tex2lyx 2.3
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin C:/GitHub/ai/doc/source/
+\textclass article
+\use_default_options false
+\begin_modules
+theorems-ams
+graphicboxes
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 2
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Proof of Theorem
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:qpreducubonly"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:hardnessqp"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% It is interesting to note that solving 
+\backslash
+QP problem using order-optimal sample complexity is crucially dependent on the
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% existence of an algorithm that can solve 
+\backslash
+QF within order-optimal sample complexity for solving
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+QF. We start with proving the upper bound.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+subsection{Upper Bound}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+label{subsec:hardnessqpub}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% In this section we show that if there exists an algorithm for solving any instance of 
+\backslash
+QF
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% within order-optimal sample-complexity, then we can construct an algorithm that can solve
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% any instance of 
+\backslash
+QP  within order-optimal sample-complexity.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{restatable}{theorem}{thmqpubreduc}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+label{thm:qpreducub}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Let $
+\backslash
+gamma: 
+\backslash
+mathbb{Z}^+ 
+\backslash
+times 
+\backslash
+mathbb{Z}^+ 
+\backslash
+times [0,1] 
+\backslash
+times [0,1] 
+\backslash
+mapsto 
+\backslash
+mathbb{R}^+$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% If there exists an algorithm 
+\backslash
+textsc{OptQF} that can solve any instance of 
+\backslash
+QF  given by $(
+\backslash
+A, n, m, 1, 
+\backslash
+epsilon, 
+\backslash
+delta)$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% within a sample-complexity $O
+\backslash
+left(
+\backslash
+frac{n}{m
+\backslash
+epsilon^2}
+\backslash
+log
+\backslash
+frac{1}{
+\backslash
+delta} + 
+\backslash
+gamma(
+\backslash
+cdot)
+\backslash
+right)$, then there exists an
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% algorithm 
+\backslash
+textsc{OptQP} that can solve any instance of 
+\backslash
+QF  given by $(
+\backslash
+A, P_
+\backslash
+A, 
+\backslash
+rho, 
+\backslash
+epsilon, 
+\backslash
+delta)$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% within a sample-complexity  $O
+\backslash
+left(
+\backslash
+frac{1}{
+\backslash
+rho
+\backslash
+epsilon^2}
+\backslash
+log
+\backslash
+frac{1}{
+\backslash
+delta} + 
+\backslash
+gamma(
+\backslash
+cdot)
+\backslash
+right)$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{restatable}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+paragraph{Proof of Theorem~
+\backslash
+ref{thm:qpreducub}.}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% We prove Theorem~
+\backslash
+ref{thm:qpreducub} by construction. Following, we present an  algorithm 
+\backslash
+textsc{OptQP}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% that follows the approach similar to 
+\backslash
+textsc{OptQP}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% It solves any instance of 
+\backslash
+QP  by reducing it to a finite instance to pose it as 
+\backslash
+QFK, and
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% then solves that 
+\backslash
+QF   using 
+\backslash
+textsc{OptQF} as the subroutine.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Algorithm
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:tightqpqf"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ describes 
+\shape smallcaps
+OptQP
+\shape default
+. It uses 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+PP
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "bib:arcsk2017"
+literal "false"
+
+\end_inset
+
+ with 
+\shape smallcaps
+ Median Elimination
+\shape default
+ as the subroutine (inside 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+PP
+\end_layout
+
+\end_inset
+
+), to select an 
+\begin_inset Formula $[\epsilon, \rho]$
+\end_inset
+
+-optimal arm with confidence 
+\begin_inset Formula $1-\delta'$
+\end_inset
+
+. We have assumed 
+\begin_inset Formula $\delta' = 1/4$
+\end_inset
+
+, in practice the one can choose any sufficiently small value for it, which will merely affect the multiplicative constant in the upper bound. 
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+REQUIRE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\mathcal{A}, \epsilon, \delta$
+\end_inset
+
+, and 
+\shape smallcaps
+OptQF
+\shape default
+.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENSURE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+A single 
+\begin_inset Formula $[\epsilon, \rho]$
+\end_inset
+
+-optimal arm
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Set 
+\begin_inset Formula $\delta' = 1/4$
+\end_inset
+
+, 
+\begin_inset Formula $u = \bceil{\frac{1}{2(0.5-\delta')^2} \cdot \log\frac{2}{\delta}} = \bceil{8 \log\frac{2}{\delta}}$
+\end_inset
+
+.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+;
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Run 
+\begin_inset Formula $u$
+\end_inset
+
+ copies of 
+\begin_inset Formula $\mathcal{P}_2(\A, \rho, \epsilon/2, \delta')$
+\end_inset
+
+ and form set 
+\begin_inset Formula $S$
+\end_inset
+
+ with the output arms.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+;
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Return the output from 
+\shape smallcaps
+OptQF
+\shape default
+ 
+\begin_inset Formula $\left(S, u, \floor{\frac{u}{2}}, 1, \frac{\epsilon}{2}, \frac{\delta}{2}\right)$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+OptQP
+\shape default
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:tightqpqf"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{restatable}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+theorem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+thmppp
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+[Correctness and Sample Complexity of 
+\shape smallcaps
+OptQP
+\shape default
+] 
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:ppp"
+
+\end_inset
+
+ If 
+\shape smallcaps
+OptQF
+\shape default
+ exists, then 
+\shape smallcaps
+OptQP
+\shape default
+ solves 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+QP
+\end_layout
+
+\end_inset
+
+, within the sample complexity 
+\begin_inset Formula $\Theta\left(\frac{1}{\rho\epsilon^2}\log\frac{1}{\delta}+ \gamma(\cdot)\right)$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{restatable}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+First we prove the correctness and then upper bound the sample complexity. 
+\end_layout
+
+\begin_deeper
+\begin_layout Paragraph
+Correctness.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+First we notice that each copy of 
+\begin_inset Formula $\mathcal{P}_2$
+\end_inset
+
+ outputs an 
+\begin_inset Formula $[\epsilon/2, \rho]$
+\end_inset
+
+-optimal arm with probability at least 
+\begin_inset Formula $1-\delta'$
+\end_inset
+
+. Also, 
+\shape smallcaps
+OptQF
+\shape default
+ outputs an 
+\begin_inset Formula $[\epsilon/2, \rho]$
+\end_inset
+
+-optimal arm with probability 
+\begin_inset Formula $1-\delta$
+\end_inset
+
+. Let, 
+\begin_inset Formula $\hat{X}$
+\end_inset
+
+ be the fraction of sub-optimal arms in 
+\begin_inset Formula $S$
+\end_inset
+
+. Then 
+\begin_inset Formula $\Pr\{\hat{X} \geq \frac{1}{2}\}$
+\end_inset
+
+ 
+\begin_inset Formula $= \Pr\{\hat{X} - \delta' \geq \frac{1}{4}\}$
+\end_inset
+
+ 
+\begin_inset Formula $\leq \exp(-2\cdot(\frac{1}{4})^2\cdot u) = \exp(-2\cdot\frac{1}{16}\cdot 8\log\frac{2}{\delta}) < \frac{\delta}{2}$
+\end_inset
+
+. On the other hand, the mistake probability of 
+\shape smallcaps
+OptQF
+\shape default
+ is upper bounded by 
+\begin_inset Formula $\delta/2$
+\end_inset
+
+. Therefore, by taking union bound, we get the mistake probability is upper bounded by 
+\begin_inset Formula $\delta$
+\end_inset
+
+. Also, the mean of the output arm is not less than 
+\begin_inset Formula $\frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$
+\end_inset
+
+ from the 
+\begin_inset Formula $(1-\rho)$
+\end_inset
+
+-th quantile.
+\end_layout
+
+\begin_deeper
+\begin_layout Paragraph
+Sample complexity.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+First we note that, for some appropriate constant 
+\begin_inset Formula $C$
+\end_inset
+
+, the sample complexity (SC) of each of the 
+\begin_inset Formula $u$
+\end_inset
+
+ copies of 
+\begin_inset Formula $\mathcal{P}_2$
+\end_inset
+
+ is 
+\begin_inset Formula $\frac{C}{\rho(\epsilon/2)^2}\left(\log\frac{2}{\delta'}\right)^2 \in O\left(\frac{1}{\rho\epsilon^2}\right)$
+\end_inset
+
+. Hence, SC of all the 
+\begin_inset Formula $u$
+\end_inset
+
+ copies 
+\begin_inset Formula $\mathcal{P}_2$
+\end_inset
+
+ together is upper bounded by 
+\begin_inset Formula $\frac{C_1\cdot u}{\rho\epsilon^2}$
+\end_inset
+
+, for some constant 
+\begin_inset Formula $C_1$
+\end_inset
+
+. Also, for some constant 
+\begin_inset Formula $C_2$
+\end_inset
+
+, the sample complexity of 
+\shape smallcaps
+OptQF
+\shape default
+ is upper bounded by 
+\begin_inset Formula $C_2 \left(\frac{u}{(u/2) (\epsilon/2)^2}\log\frac{2}{\delta} + \gamma(\cdot)\right) = C_2 \left(\frac{8}{\epsilon^2}\log\frac{2}{\delta}+ \gamma(\cdot)\right)$
+\end_inset
+
+. Now, adding the sample complexities, and substituting for 
+\begin_inset Formula $u$
+\end_inset
+
+ we prove the bound. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+paragraph{Usefulness of 
+\backslash
+textsc{OptQP}.} Although, sample complexity of 
+\backslash
+textsc{OptQP} matches the lower bound up to a constant factor, in practice its performance is
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% not satisfactory due to large value of the constant. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% For example, the number of samples required to select $u$ $[
+\backslash
+epsilon, 
+\backslash
+rho]$-optimal arms is 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% $
+\backslash
+frac{C 
+\backslash
+cdot u}{
+\backslash
+rho (
+\backslash
+epsilon/2)^2} 
+\backslash
+log^2
+\backslash
+frac{2}{
+\backslash
+delta'} 
+\backslash
+geq 
+\backslash
+bceil{
+\backslash
+frac{C}{
+\backslash
+rho 
+\backslash
+epsilon^2}
+\backslash
+log
+\backslash
+frac{2}{
+\backslash
+delta} 
+\backslash
+cdot 2
+\backslash
+left(
+\backslash
+frac{
+\backslash
+log(1/
+\backslash
+delta')}{0.5-
+\backslash
+delta'}
+\backslash
+right)^2} 
+\backslash
+geq 
+\backslash
+bceil{
+\backslash
+frac{109 C}{
+\backslash
+rho 
+\backslash
+epsilon^2}
+\backslash
+log
+\backslash
+frac{2}{
+\backslash
+delta}}$, minimising with respect to $
+\backslash
+delta' $.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% In the second phase a big number of samples add up to this to make it even bigger. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Therefore, 
+\backslash
+textsc{OptQP} can not outperform 
+\backslash
+PP if $
+\backslash
+delta 
+\backslash
+geq 2^{-109}$, which is effectively  far below
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% the practical range.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+subsection{Lower Bound}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+label{subsec:hardnessqplb}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{restatable}{lemma}{qpreducqf}[At least as hard as 
+\backslash
+QFK]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+label{lem:qpeduclb}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% % Let $
+\backslash
+mathcal{L}$ be an algorithm that solves 
+\backslash
+QP. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% There exists $
+\backslash
+epsilon_0, 
+\backslash
+delta_0 
+\backslash
+in (0, 1)$, such that 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% for all $0< 
+\backslash
+epsilon 
+\backslash
+leq 
+\backslash
+epsilon_0$, and $0 < 
+\backslash
+delta 
+\backslash
+leq 
+\backslash
+delta_0$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% there exists an instance of 
+\backslash
+QP  given by $
+\backslash
+left(
+\backslash
+A, P_
+\backslash
+A, 
+\backslash
+rho, 
+\backslash
+epsilon, 
+\backslash
+delta
+\backslash
+right)$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% and a finite subset $
+\backslash
+A' 
+\backslash
+subset 
+\backslash
+A$, such that $|
+\backslash
+A'| 
+\backslash
+geq 
+\backslash
+bceil{
+\backslash
+frac{1}{2}
+\backslash
+ln
+\backslash
+frac{1}{
+\backslash
+delta}}$, 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% and a corresponding instance of 
+\backslash
+QF  given by $
+\backslash
+left(
+\backslash
+A', |
+\backslash
+A'|, 
+\backslash
+frac{|
+\backslash
+A'|}{4}, 1, 
+\backslash
+epsilon, 
+\backslash
+delta
+\backslash
+right)$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% such that if $SC^F$ is the minimum number of samples required to solve this 
+\backslash
+QF, then
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% expected number of samples required to solve the 
+\backslash
+QP  is at least $
+\backslash
+frac{1}{5}SC^F$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% % at least 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% % at least $
+\backslash
+filler{C} 
+\backslash
+frac{1}{
+\backslash
+epsilon^2} 
+\backslash
+ln
+\backslash
+left(
+\backslash
+frac{1}{
+\backslash
+delta}
+\backslash
+right)$; 
+\backslash
+filler{wherein $C = 
+\backslash
+frac{1}{183750}$}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{restatable}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+paragraph{Bandit Instance.}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Consider, a set of Bernoulli arms $
+\backslash
+A = (0,1]$, a sampling distribution $P_
+\backslash
+A = U[0,1]$, and
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  $
+\backslash
+rho = 
+\backslash
+frac{1}{10}$. Without loss of generality, let $I_0 = 
+\backslash
+left(0, 
+\backslash
+frac{1}{10}
+\backslash
+right]$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  We define a set of subsets of $
+\backslash
+A$ as $
+\backslash
+I 
+\backslash
+defeq 
+\backslash
+left
+\backslash
+{S 
+\backslash
+subset 
+\backslash
+A 
+\backslash
+setminus I_0 : 
+\backslash
+Pr_{a 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+sim P_
+\backslash
+A} 
+\backslash
+{a 
+\backslash
+in S
+\backslash
+} = 
+\backslash
+rho
+\backslash
+right
+\backslash
+}$. We notice, for all $I 
+\backslash
+in 
+\backslash
+I$, 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  $
+\backslash
+Pr_{a 
+\backslash
+sim P_
+\backslash
+A}
+\backslash
+{a 
+\backslash
+in I
+\backslash
+} = 
+\backslash
+Pr_{a 
+\backslash
+sim P_
+\backslash
+A}
+\backslash
+{a 
+\backslash
+in I_0
+\backslash
+} = 
+\backslash
+frac{1}{10} = 
+\backslash
+rho$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Also, corresponding to each $I 
+\backslash
+in 
+\backslash
+I$,  let $I' 
+\backslash
+defeq A
+\backslash
+setminus 
+\backslash
+{I_0 
+\backslash
+cup I
+\backslash
+}$. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  With each $I 
+\backslash
+in 
+\backslash
+{I_0
+\backslash
+} 
+\backslash
+cup
+\backslash
+I$, we  associate 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  a bandit instance $
+\backslash
+B^I$, in which the mean of any arm $a$ is given by
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+mu_a = 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      
+\backslash
+begin{cases}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      
+\backslash
+frac{1}{2}
+\backslash
+;
+\backslash
+;
+\backslash
+;
+\backslash
+;
+\backslash
+;
+\backslash
+;
+\backslash
+;
+\backslash
+;
+\backslash
+; 
+\backslash
+text{ if}
+\backslash
+; a 
+\backslash
+in I_0,
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      
+\backslash
+frac{1}{2} + 2
+\backslash
+epsilon
+\backslash
+;
+\backslash
+; 
+\backslash
+text{if}
+\backslash
+; a 
+\backslash
+in I
+\backslash
+; 
+\backslash
+text{for}
+\backslash
+; I 
+\backslash
+neq I_0,
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      
+\backslash
+frac{1}{2} - 2
+\backslash
+epsilon
+\backslash
+;
+\backslash
+; 
+\backslash
+text{else}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      
+\backslash
+end{cases}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+end{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Notice, that all the arms in $
+\backslash
+B^{I_0}$ has mean $
+\backslash
+frac{1}{2}$. Also, for any 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  $I 
+\backslash
+in 
+\backslash
+{I_0
+\backslash
+} 
+\backslash
+cup 
+\backslash
+I$, only the arms in $
+\backslash
+B^I$ are $[
+\backslash
+epsilon, 
+\backslash
+rho]$-optimal, while the 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  others  are not. Now, we shall show that it is impossible for an algorithm to identify an 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  $[
+\backslash
+epsilon, 
+\backslash
+rho]$-optimal arm with the desired mistake probability, if a large enough subset of arms is not sampled sufficiently large number of times.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% %  
+\backslash
+subsection{Bound}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  To prove the lower bound via contradiction we make the following assumption. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%   
+\backslash
+begin{assumption}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+label{assmp:contraqp}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  We assume that for every $I 
+\backslash
+in 
+\backslash
+I_0 
+\backslash
+cup 
+\backslash
+I$, there exists an algorithm $
+\backslash
+mathcal{L}$ that solves the any problem 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  instance of 
+\backslash
+QP  given by 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  $(
+\backslash
+B^{I}, P_{
+\backslash
+A}, 
+\backslash
+frac{1}{10}, 
+\backslash
+epsilon, 
+\backslash
+delta)$, incurring  sample complexity strictly less than $
+\backslash
+frac{1}{5}SC^F$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+end{assumption}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  For the sake of conciseness, we denote by $
+\backslash
+Pr_I$ the probability distribution resulted from
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  bandit instance $
+\backslash
+B^I$, and the possible randomness in the algorithm $
+\backslash
+mathcal{L}$. Also, we
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  denote the arm output by $
+\backslash
+mathcal{L}$ as $a_
+\backslash
+mathcal{L}$, and let $T_S$ be the total
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  number of samples obtained by the arms in $S 
+\backslash
+subseteq 
+\backslash
+A$ before $
+\backslash
+mathcal{L}$ stops and returns $a_
+\backslash
+mathcal{L}$. As $
+\backslash
+mathcal{L}$ solves 
+\backslash
+QP, for the instance $
+\backslash
+B^{I_0}$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+label{eq:factqfl}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      
+\backslash
+Pr_{I_0}
+\backslash
+{a_
+\backslash
+mathcal{L} 
+\backslash
+in I_0
+\backslash
+} 
+\backslash
+geq 1-
+\backslash
+delta.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  By Assumption~
+\backslash
+ref{assmp:contraqp},
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+label{eq:i0scub}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      
+\backslash
+Pr_{I_0}
+\backslash
+{T_
+\backslash
+A
+\backslash
+} < 
+\backslash
+frac{1}{5}SC^F.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+paragraph{Pigeon-Hole Principle.}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  We partition $
+\backslash
+A 
+\backslash
+setminus I_0$ into nine disjoint subsets each belonging to $
+\backslash
+I$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% %  As $
+\backslash
+rho = 
+\backslash
+frac{1}{10}$, intuitively we can partition $
+\backslash
+A 
+\backslash
+setminus I_0$ into nine disjoint subsets each belonging
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% %  to $
+\backslash
+I$. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Formally, letting $I_i 
+\backslash
+in 
+\backslash
+I$ for $i 
+\backslash
+in
+\backslash
+{1,2,
+\backslash
+cdots, 9
+\backslash
+}$, we define a 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+textsc{Partition} as  $P 
+\backslash
+defeq 
+\backslash
+{I_1, I_2, 
+\backslash
+cdots, I_{9}
+\backslash
+}$ such that $
+\backslash
+cup_{i=1}^{9} I_i = 
+\backslash
+A
+\backslash
+setminus I_0$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  and for $j 
+\backslash
+in
+\backslash
+{1,2,
+\backslash
+cdots, 9
+\backslash
+}$, if $i 
+\backslash
+neq j$ then $I_i 
+\backslash
+cap I_j = 
+\backslash
+emptyset$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Let, $
+\backslash
+mathcal{P}$ be the set of all possible 
+\backslash
+textsc{Partition}s, and hence, 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  for any partition $P 
+\backslash
+in 
+\backslash
+mathcal{P}$, $
+\backslash
+Pr_{a 
+\backslash
+sim P_
+\backslash
+A}
+\backslash
+{a 
+\backslash
+in I_0 
+\backslash
+cup P
+\backslash
+} = 1$. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%   We recall that the  algorithm  $
+\backslash
+mathcal{L}$ is restricted to choose arms from
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%   $
+\backslash
+A$ by sampling $P_
+\backslash
+A$. Assume, $
+\backslash
+Lambda 
+\backslash
+subset 
+\backslash
+A$ be the set of all arms chosen by $
+\backslash
+mathcal{L}$ from $
+\backslash
+A$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%   by sampling $P_
+\backslash
+A$. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%   Letting $k_0 = 
+\backslash
+bceil{
+\backslash
+frac{1}{2}
+\backslash
+ln
+\backslash
+frac{1}{
+\backslash
+delta}}$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%   we define an event $$E_0
+\backslash
+defeq 
+\backslash
+{|
+\backslash
+Lambda| < k_0
+\backslash
+}.$$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Now, for a given fixed partition $P 
+\backslash
+in 
+\backslash
+mathcal{P}$, we fix an $I 
+\backslash
+in P$. Then,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  $$
+\backslash
+Pr_{I_0}
+\backslash
+{ 
+\backslash
+Lambda 
+\backslash
+cap I = 
+\backslash
+emptyset | E_0
+\backslash
+}  > (1-
+\backslash
+rho)^{k_0} = 
+\backslash
+left(1-
+\backslash
+frac{1}{10}
+\backslash
+right)^{
+\backslash
+bceil{
+\backslash
+frac{1}{2}
+\backslash
+ln
+\backslash
+frac{1}{
+\backslash
+delta}}} > (9/10)^{(
+\backslash
+ln
+\backslash
+frac{1}{
+\backslash
+delta})/{
+\backslash
+ln
+\backslash
+frac{10}{9}}} > 
+\backslash
+delta.$$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Therefore, under the instance $B^I$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%     %  &
+\backslash
+Pr_{I_0}
+\backslash
+{ 
+\backslash
+Lambda 
+\backslash
+cap I_0 = 
+\backslash
+emptyset | E_0
+\backslash
+}  = (1-
+\backslash
+rho)^{k_0} = 
+\backslash
+left(1-
+\backslash
+frac{1}{10}
+\backslash
+right)^{
+\backslash
+frac{1}{2}
+\backslash
+ln
+\backslash
+frac{1}{
+\backslash
+delta}} > (9/10)^{(
+\backslash
+ln
+\backslash
+frac{1}{
+\backslash
+delta})/{
+\backslash
+ln
+\backslash
+frac{10}{9}}} > 
+\backslash
+delta
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      & 
+\backslash
+Pr_{I}
+\backslash
+{a_
+\backslash
+mathcal{L} 
+\backslash
+in 
+\backslash
+A 
+\backslash
+setminus I | E_0
+\backslash
+}  > 
+\backslash
+delta
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      & 
+\backslash
+implies 
+\backslash
+Pr_{I}
+\backslash
+{a_
+\backslash
+mathcal{L}  
+\backslash
+in I | E_0
+\backslash
+} < 1 -
+\backslash
+delta.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+end{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Hence, if $E_0$ occurs, we get a contradiction to Assumption~
+\backslash
+ref{assmp:contraqp}, and hence, there exists an $I' 
+\backslash
+in 
+\backslash
+I$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  such that the $
+\backslash
+mathcal{L}$ fails to solve the 
+\backslash
+QP  instance given by  $(
+\backslash
+B^{I}, P_{
+\backslash
+A}, 
+\backslash
+frac{1}{10}, 
+\backslash
+epsilon, 
+\backslash
+delta)$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+paragraph{Note.}  The rest of the proof assumes $E_0$ did not occur.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% %  
+\backslash
+filler{$
+\backslash
+delta 
+\backslash
+leq 
+\backslash
+frac{
+\backslash
+exp(-10)}{4}$, and $
+\backslash
+ln
+\backslash
+frac{1}{
+\backslash
+delta}$}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% %  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  In this case we have $|
+\backslash
+Lambda| 
+\backslash
+geq k_0$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%   Let us define an event $E_1 
+\backslash
+defeq 
+\backslash
+left
+\backslash
+{
+\backslash
+frac{|
+\backslash
+Lambda 
+\backslash
+cap I_0|}{|
+\backslash
+Lambda|} > 
+\backslash
+frac{1}{4}
+\backslash
+right
+\backslash
+}$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Then we upper bound the probability of occurrence of $E_1$ under $I_0$ as, 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  $$
+\backslash
+Pr_{I_0}
+\backslash
+{E_1
+\backslash
+} = 
+\backslash
+Pr_{I_0}
+\backslash
+left
+\backslash
+{
+\backslash
+frac{|
+\backslash
+Lambda 
+\backslash
+cap I_0|}{|
+\backslash
+Lambda|} > 
+\backslash
+frac{1}{4}
+\backslash
+right
+\backslash
+} 
+\backslash
+leq 
+\backslash
+exp
+\backslash
+left(-2 
+\backslash
+left(
+\backslash
+frac{1}{4} - 
+\backslash
+frac{1}{10}
+\backslash
+right)^2 |
+\backslash
+Lambda|
+\backslash
+right) 
+\backslash
+leq 
+\backslash
+exp
+\backslash
+left(-2 
+\backslash
+left(
+\backslash
+frac{3}{20}
+\backslash
+right)^2 k_0
+\backslash
+right) < 
+\backslash
+frac{4}{5}.$$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%   Hence, 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  $$
+\backslash
+Pr_{I_0}
+\backslash
+{
+\backslash
+neg E_1
+\backslash
+} = 
+\backslash
+Pr_{I_0}
+\backslash
+left
+\backslash
+{
+\backslash
+frac{|
+\backslash
+Lambda 
+\backslash
+cap 
+\backslash
+{
+\backslash
+A 
+\backslash
+setminus I_0
+\backslash
+}|}{|
+\backslash
+Lambda|} 
+\backslash
+geq 
+\backslash
+frac{3}{4}
+\backslash
+right
+\backslash
+} = 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+Pr_{I_0}
+\backslash
+left
+\backslash
+{
+\backslash
+frac{|
+\backslash
+Lambda 
+\backslash
+cap 
+\backslash
+{
+\backslash
+A 
+\backslash
+setminus I_0
+\backslash
+}|}{|
+\backslash
+Lambda|} 
+\backslash
+geq 1-
+\backslash
+frac{1}{4}
+\backslash
+right
+\backslash
+} 
+\backslash
+geq 1 - 
+\backslash
+frac{4}{5} = 
+\backslash
+frac{1}{5}.$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Therefore, in the set $
+\backslash
+Lambda$, at least $
+\backslash
+bfloor{
+\backslash
+frac{3}{4}|
+\backslash
+Lambda|}$ sub-optimal arms are present with
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% probability at least  $
+\backslash
+frac{1}{5}$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% % Now, as $|
+\backslash
+Lambda| 
+\backslash
+geq k_0 = 
+\backslash
+bceil{
+\backslash
+frac{1}{2}
+\backslash
+ln
+\backslash
+frac{1}{
+\backslash
+delta}}$, therefore, among the arms in  $
+\backslash
+Lambda$, at least $
+\backslash
+bfloor{
+\backslash
+frac{3/4}{2}
+\backslash
+ln
+\backslash
+frac{1}{
+\backslash
+delta}}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% %  of them are sub-optimal, with probability at least $
+\backslash
+frac{1}{5}$. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Hence, with probability at least $
+\backslash
+frac{1}{5}$, solving $(
+\backslash
+B^{I_0}, P_
+\backslash
+A, 
+\backslash
+rho, 
+\backslash
+epsilon, 
+\backslash
+delta)$ will
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  require at least the number of samples required for solving the an instance of 
+\backslash
+QF  given by $(
+\backslash
+Lambda, |
+\backslash
+Lambda|, 
+\backslash
+frac{3}{4}|
+\backslash
+Lambda|, 1, 
+\backslash
+epsilon, 
+\backslash
+delta)$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  where $
+\backslash
+epsilon$ and $
+\backslash
+delta$ are the same as in the given instance of 
+\backslash
+QP. Now, recalling 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  the fact that $ k_0 = 
+\backslash
+bceil{
+\backslash
+frac{1}{2}
+\backslash
+ln
+\backslash
+frac{1}{
+\backslash
+delta}}$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  we get a contradiction to Assumption~
+\backslash
+ref{assmp:contraqp}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

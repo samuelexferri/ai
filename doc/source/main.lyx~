@@ -1,0 +1,783 @@
+#LyX file created by tex2lyx 2.3
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin C:/GitHub/ai/doc/source/
+\textclass article
+\begin_preamble
+
+
+\usepackage[accepted]{icml2019}
+% \usepackage[final]{nips_2018}
+
+% \usepackage[utf8]{inputenc} % allow utf-8 input
+% \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+
+% \usepackage{hyperref}       % hyperlinks
+\usepackage{url}% simple URL typesetting
+\usepackage{booktabs}% professional-quality tables
+\usepackage{amsfonts}% blackboard math symbols
+\usepackage{nicefrac}% compact symbols for 1/2, etc.
+% microtypography
+\usepackage{lipsum}
+% \usepackage{fancyhdr}
+% \usepackage[comma, round]{natbib}
+% \usepackage{chngcntr}
+\usepackage{booktabs}% for professional tables
+\usepackage{xifthen}
+\usepackage[titletoc]{appendix}
+\usepackage{times}
+\usepackage{romannum}
+% \usepackage{bbm}
+\usepackage{framed}
+\usepackage{thmtools}
+\usepackage{thm-restate}\usepackage{xspace}
+\usepackage{subfigure}
+\usepackage[pdf]{pstricks}
+\usepackage{multirow}
+% \usepackage{slashbox}
+% \usepackage[hidelinks]{hyperref}
+% \usepackage[ruled,vlined]{algorithm2e}
+% \usepackage{algorithm}
+% \usepackage{algorithmic}
+\usepackage{tablefootnote}
+% \makesavenoteenv{tabular}
+% \makesavenoteenv{table}
+
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\tick}{\ding{51}}%
+\newcommand{\cross}{\ding{55}}%
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}\newtheorem{conjecture}{Conjecture}[section]
+\newtheorem{proposition}[theorem]{Proposition}\newtheorem{corollary}[theorem]{Corollary}\newtheorem{condition}[theorem]{Condition}\newtheorem{note}[theorem]{Note}\newtheorem{assumption}{Assumption}\newtheorem{fact}{Fact}
+
+\newcommand{\mycitet}[1]{\citeauthor{#1}~\shortcite{#1}}
+
+% \newenvironment{proof}[1][Proof]{\begin{trivlist}
+% \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+% \newenvironment{example}[1][Example]{\begin{trivlist}
+% \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newtheorem{example}{Example}
+\newcounter{logicase}
+\newenvironment{logicase}[1][htb]{\renewcommand{\ALG@name}{Case}% Update algorithm name
+   \let\c@algorithm\c@logicase% Update algorithm counter
+   \begin{algorithm}[#1]%
+  }{\end{algorithm}}
+
+
+\newcommand{\idop}{1\!\!1}
+\newcommand{\defeq}{\stackrel{\mathclap{\normalfont\mbox{\tiny{def}}}}{=}}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\bceil{\Big\lceil}{\Big\rceil}
+\DeclarePairedDelimiter\bbceil{\Bigg\lceil}{\Bigg\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\bfloor{\Big\lfloor}{\Big\rfloor}
+\DeclarePairedDelimiter\bbfloor{\Bigg\lfloor}{\Bigg\rfloor}
+% \DeclarePairedDelimiter{\Ex}{\E[}{]}
+
+
+% \DeclarePairedDelimiter\Pb{\Pr\{}{\}}
+\DeclarePairedDelimiter\braces{\{}{\}}
+\newcommand{\Pb}[1]{\Pr\braces*{#1}}
+\DeclarePairedDelimiter\brackets{[}{]}
+\newcommand{\Ex}[1]{\E\brackets*{#1}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand{\TOPM}{{\mathcal{TOP}_m}}
+\newcommand{\TOPRHO}{{\mathcal{TOP}_\rho}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\mathcalH}{\mathcal{H}}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\Z}{\mathcal{Z}}
+\newcommand*{\hatp}{\hat{p}}
+\newcommand{\SUBSET}{\textsc{Subset}\@\xspace}
+\newcommand{\QF}{\textsc{Q-F}\@\xspace}
+
+%\newcommand{\QFK}{$\textsc{Q-F}_k$\@\xspace}
+\newcommand{\QFK}{$(k, m, n)$\@\xspace}
+\newcommand{\QFKS}{$(1, m, n)$\@\xspace}
+\newcommand{\QP}{\textsc{Q-P}\@\xspace}
+%\newcommand{\QPK}{$\textsc{Q-P}_k$\@\xspace}
+\newcommand{\QPK}{$(k, \rho)$\@\xspace}
+\newcommand{\QPKS}{$(1, \rho)$\@\xspace}
+
+\newcommand{\FF}{$\mathcal{F}_2$\@\xspace}
+\newcommand{\KQP}{\textsc{KQP}-1\@\xspace}
+\newcommand{\KQF}{\textsc{KQF}-1\@\xspace}
+
+\newcommand*{\PP}{%
+    \@ifnextchar{.}%
+        {$\mathcal{P}_2$}%
+        {$\mathcal{P}_2$\@\xspace}%
+}
+
+
+\newcommand*{\PPP}{%
+    \@ifnextchar{.}%
+        {$\mathcal{P}_3$}%
+        {$\mathcal{P}_3$\@\xspace}%
+}
+
+
+\newcommand{\LUCB}{%
+    \@ifnextchar{.}%
+        {\textsc{LUCB1}}%	
+        {\textsc{LUCB1}\@\xspace}%
+}
+
+% \makeatletter
+% \newcommand*{\GLUCB}{%
+%     \@ifnextchar{.}%
+%         {\textsc{LUCB}$(k,m)$}%	
+%         {\textsc{LUCB}$(k,m)$\@\xspace}%
+% }
+% \makeatother
+
+\newcommand*{\HALVING}{%
+    \@ifnextchar{.}%
+        {\textsc{Halving}}%	
+        {\textsc{Halving}\@\xspace}%
+}
+
+
+%\newcommand*{\GHALVING}{%
+%    \@ifnextchar{.}%
+        %{\textsc{Halving}$(k,m)$}%	
+        %{\textsc{Halving}$(k,m)$\@\xspace}%
+%}
+\newcommand*{\GHALVING}{%
+    \@ifnextchar{.}%
+        {\textsc{Halving}-k-m}%	
+        {\textsc{Halving}-k-m\@\xspace}%
+}
+
+% \newcommand{\HALVING}{\textsc{Halving}\@\xspace}
+% \newcommand{\GHALVING}{\textsc{Halving}$(k,m)$\@\xspace}
+%\newcommand{\GLUCB}{\textsc{LUCB}$(k,m)$\@\xspace}
+
+\newcommand{\GLUCB}{\textsc{LUCB}-k-m\@\xspace}
+
+
+\DeclareMathOperator{\R}{\mathop{\mathbb{R}}}
+\DeclareMathOperator*{\E}{\mathop{\mathbb{E}}}
+% \DeclareMathOperator*{\P}{\mathop{\mathbb{P}}}
+\DeclareMathOperator{\support}{\mathop{support}}
+\newcommand{\QFKL}[1]{\textsc{Q-F}_k({#1})}
+
+\newcommand*{\eg}{e.g.\@\xspace}
+\newcommand*{\ie}{that is\@\xspace}
+\newcommand*{\st}{such that\@\xspace}
+\newcommand*{\wrt}{with respect to\@\xspace}
+\newcommand*{\iid}{i.i.d.\@\xspace}
+%\newcommand*{\wlog}{w.l.o.g.\@\xspace}
+% \newcommand*{\idspa}{\emph{l.p.d.s.p.a.}\@\xspace}
+% \newcommand*{\iispa}{\emph{l.p.i.s.p.a.}\@\xspace}
+
+\newcommand*{\iispa}{%
+    \@ifnextchar{.}%
+        {\emph{p.i.s.p.a}}%	
+        {\emph{p.i.s.p.a.}\@\xspace}%
+}
+
+
+\newcommand*{\etc}{%
+    \@ifnextchar{.}%
+        {etc}%	
+        {etc.\@\xspace}%
+}
+
+\newcommand{\etal}{{\textit{et al}}.\@ }
+
+% Algorithmic modifications
+
+\newcommand{\ALOOP}[1]{\ALC@it\algorithmicloop\ #1%
+  \begin{ALC@loop}}
+\newcommand{\ENDALOOP}{\end{ALC@loop}\ALC@it\algorithmicendloop}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand{\algorithmicbreak}{\textbf{break}}
+\newcommand{\BREAK}{\STATE \algorithmicbreak}
+
+
+
+\newcommand{\filler}[1]{\textcolor{red}{{#1}}}
+
+
+
+% \SetKwRepeat{Do}{do}{while}
+% \SetKwIF{If}{ElseIf}{Else}{if}{}{elif}{else}{}%
+
+% \frenchspacing
+% \setlength{\pdfpagewidth}{8.5in}
+% \setlength{\pdfpageheight}{11in}
+
+%%%%%%%%%%
+% Section Numbers
+% Uncomment if you want to use section numbers
+% and change the 0 to a 1 or 2
+% \setcounter{secnumdepth}{2}
+% \nocopyright	
+% \title{PAC Identification of Many Good Arms in Stochastic Multi-Armed Bandits}
+% \author{AAAI 2018 Submission XYZ}
+%\author{Arghya Roy Chaudhuri(144059001)\\Dept. of CSE\\ \emph{under the guidance of}\\ Prof. Shivaram Kalyanakrishnan\\
+% \{arghya,shivaram\}@cse.iitb.ac.in}
+% \author{}
+
+
+
+\end_preamble
+\use_default_options false
+\begin_modules
+theorems-ams
+graphicboxes
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 2
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+maketitle
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+twocolumn[
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+icmltitlePAC Identification of Many Good Arms in Stochastic Multi-Armed Bandits
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+icmlsetsymbolequal*
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+beginicmlauthorlist
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+icmlauthorArghya Roy Chaudhuriiitb
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+icmlauthorShivaram Kalyanakrishnaniitb
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+endicmlauthorlist
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+icmlaffiliationiitbDepartment of Computer Science and Engineering, Indian Institute of Technology Bombay, Mumbai 400076, India
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+icmlcorrespondingauthorArghya Roy Chaudhuriarghya@cse.iitb.ac.in
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+icmlcorrespondingauthorShivaram Kalyanakrishnanshivaram@cse.iitb.ac.in
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+printAffiliationsAndNotice
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Abstract
+We consider the problem of identifying any 
+\begin_inset Formula $k$
+\end_inset
+
+ out of the best 
+\begin_inset Formula $m$
+\end_inset
+
+ arms in an 
+\begin_inset Formula $n$
+\end_inset
+
+-armed stochastic multi-armed bandit. Framed in the PAC setting, this particular problem generalises both the problem of 
+\begin_inset Quotes eld
+\end_inset
+
+best subset selection
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "bib:explorem"
+literal "false"
+
+\end_inset
+
+ and that of selecting 
+\begin_inset Quotes eld
+\end_inset
+
+one out of the best m
+\begin_inset Quotes erd
+\end_inset
+
+ arms
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "bib:arcsk2017"
+literal "false"
+
+\end_inset
+
+. In applications such as crowd-sourcing and drug-designing, identifying a single good solution is often not sufficient. Moreover, finding the best subset might be hard due to the presence of many indistinguishably close solutions. Our generalisation of identifying exactly 
+\begin_inset Formula $k$
+\end_inset
+
+ arms out of the best 
+\begin_inset Formula $m$
+\end_inset
+
+, where 
+\begin_inset Formula $1 \leq k \leq m$
+\end_inset
+
+, serves as a more effective alternative. We present a lower bound on the worst-case sample complexity for general 
+\begin_inset Formula $k$
+\end_inset
+
+, and a fully sequential PAC algorithm, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+GLUCB
+\end_layout
+
+\end_inset
+
+, which is more sample-efficient on easy instances. Also, extending our analysis to infinite-armed bandits, we present a PAC algorithm that is independent of 
+\begin_inset Formula $n$
+\end_inset
+
+, which identifies an arm from the best 
+\begin_inset Formula $\rho$
+\end_inset
+
+ fraction of arms using at most an additive poly-log number of samples than compared to the lower bound, thereby improving over
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+citet{bib:arcsk2017}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+citet{Aziz+AKA:2018}
+\end_layout
+
+\end_inset
+
+. The problem of identifying 
+\begin_inset Formula $k > 1$
+\end_inset
+
+ distinct arms from the best 
+\begin_inset Formula $\rho$
+\end_inset
+
+ fraction is not always well-defined; for a special class of this problem, we present lower and upper bounds. Finally, through a reduction, we establish a relation between upper bounds for the 
+\begin_inset Quotes eld
+\end_inset
+
+one out of the best 
+\begin_inset Formula $\rho$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ problem for infinite instances and the 
+\begin_inset Quotes eld
+\end_inset
+
+one out of the best 
+\begin_inset Formula $m$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ problem for finite instances. We conjecture that it is more efficient to solve 
+\begin_inset Quotes eld
+\end_inset
+
+small
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+"
+\end_layout
+
+\end_inset
+
+ finite instances using the latter formulation, rather than going through the former. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset include
+LatexCommand input
+preview false
+filename "intro.lyx"
+
+\end_inset
+
+ 
+\begin_inset CommandInset include
+LatexCommand input
+preview false
+filename "finite_arms.lyx"
+
+\end_inset
+
+ 
+\begin_inset CommandInset include
+LatexCommand input
+preview false
+filename "tight_qp.lyx"
+
+\end_inset
+
+ 
+\begin_inset CommandInset include
+LatexCommand input
+preview false
+filename "experiments.lyx"
+
+\end_inset
+
+ 
+\begin_inset CommandInset include
+LatexCommand input
+preview false
+filename "conclusion.lyx"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%{
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%plainnat
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "rpbibfile"
+options "icml2019"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{appendices}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+onecolumn
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset include
+LatexCommand input
+preview false
+filename "appendix_lowerbound.lyx"
+
+\end_inset
+
+ 
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+preview false
+filename "appendix_adaptive.lyx"
+
+\end_inset
+
+ 
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+preview false
+filename "appendix_hardnessqp.lyx"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{appendices}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_body
+\end_document

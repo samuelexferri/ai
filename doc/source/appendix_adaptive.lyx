@@ -1,0 +1,6622 @@
+#LyX file created by tex2lyx 2.3
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin C:/GitHub/ai/doc/source/
+\textclass article
+\use_default_options false
+\begin_modules
+theorems-ams
+graphicboxes
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 2
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+onecolumn
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section
+Analysis of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+GLUCB
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "app:adaptive"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+setcounter{algorithm}{0}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% We present 
+\backslash
+GLUCB---a fully sequential adaptive algorithm for solving 
+\backslash
+QFK.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Algorithm~
+\backslash
+ref{alg:glucb} describes 
+\backslash
+GLUCB.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+GLUCB is motivated by 
+\backslash
+LUCB1~
+\backslash
+cite{bib:lucb}. However, it differs from
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+LUCB in subtle manner, due to the very definition of the problem. Like 
+\backslash
+QF, 
+\backslash
+QFK
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% assumes multiple solutions if $k < m$. On the other hand, it differs from 
+\backslash
+QF as it
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% can solve 
+\backslash
+SUBSET of size $m > 1$ for $k=m$.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% At each round $t$, we partition $
+\backslash
+A$ into three subsets. We keep the $m$ arms
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% with the highest empirical average in $A_1^t$, the worst $n-m$ arms in $A_3^t$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% and the rest in $A_2^t$. Ties are broken arbitrarily. At each round we choose
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% a 
+\backslash
+emph{contentious} arm from each of these three camps. From $A_1^t$ we choose $h_*^t$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% the arm with the lowest lower confidence bound in $A_1^t$; from $A_2^t$ the arm which is least pulled is chosen, and call it $m_*^t$; from $A_3^t$ we choose $l_*^t$, the arm with the highest
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% upper confidence bound. The algorithm stops as soon as the difference between the lower 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% confidence bound of $h_*^t$, and the upper confidence bound of $l_*^t$ become closer than 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% the tolerance. Recently, 
+\backslash
+citet{Jamieson+N:2014} has shown that using a 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% tailored upper bound, 
+\backslash
+LUCB can be shown to incur an expected sample complexity
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% which is within a $O(
+\backslash
+log n)$ factor of the lower bound. Similar technique can
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% also be adopted here to make a tighter analysis. However, in the interest of
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% keeping the proof simple, we keep our analysis restricted in the conventional approach,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% and leave th tighter analysis as an interesting future exercise. In practice, one can use
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% any tighter confidence bound calculation of her choice (as we use KL-divergence based
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% confidence bound in our experiments).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Assume $
+\backslash
+mathcal{A} = 
+\backslash
+{1,2,
+\backslash
+cdots,n
+\backslash
+}$, is a set of $n$ arms, and the arm $i$ has mean $
+\backslash
+mu_i$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Also let  indices of the arms are in descending order of their means, 
+\backslash
+ie $
+\backslash
+mu_i 
+\backslash
+geq 
+\backslash
+mu_j$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% iff $i 
+\backslash
+leq j$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Let $B_1, B_2, B_3$ are three subsets of $
+\backslash
+mathcal{A}$, such that $B_1 
+\backslash
+defeq 
+\backslash
+{1, 2,
+\backslash
+cdots, k
+\backslash
+}$,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% $B_2 = 
+\backslash
+{k+1, k+2,
+\backslash
+cdots, m
+\backslash
+}$ and $B_3=
+\backslash
+{m+1, m+2,
+\backslash
+cdots, n
+\backslash
+}$. For any two arms $a, b 
+\backslash
+in 
+\backslash
+mathcal{A}$ we define
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% $
+\backslash
+Delta_{ab} 
+\backslash
+defeq 
+\backslash
+mu_a - 
+\backslash
+mu_b$. For convenience we slightly overload this notation as
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{equation}
+\backslash
+label{eq:defdelta}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+Delta_a = 
+\backslash
+begin{cases}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%   
+\backslash
+mu_a - 
+\backslash
+mu_{m+1} 
+\backslash
+text{if} a 
+\backslash
+in B_1
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%   
+\backslash
+mu_k - 
+\backslash
+mu_{m+1} 
+\backslash
+text{if} a 
+\backslash
+in B_2
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%   
+\backslash
+mu_m - 
+\backslash
+mu_a 
+\backslash
+text{if} a 
+\backslash
+in B_3.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+end{cases}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% We note that $
+\backslash
+Delta_k = 
+\backslash
+Delta_{k+1} = 
+\backslash
+cdots = 
+\backslash
+Delta_m = 
+\backslash
+Delta_{m+1}$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Let $u^*(a,t) 
+\backslash
+defeq 
+\backslash
+bceil{
+\backslash
+frac{32}{
+\backslash
+max
+\backslash
+{
+\backslash
+Delta_a, 
+\backslash
+frac{
+\backslash
+epsilon}{2}
+\backslash
+}^2}
+\backslash
+ln
+\backslash
+frac{k n t^4}{
+\backslash
+delta}}$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% for all $a 
+\backslash
+in 
+\backslash
+mathcal{A}$. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Now, we define the hardness term as
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+label{eq:hardness}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% H_
+\backslash
+epsilon = 
+\backslash
+sum_{a 
+\backslash
+in 
+\backslash
+mathcal{A}}
+\backslash
+frac{1}{
+\backslash
+max
+\backslash
+{
+\backslash
+Delta_a, 
+\backslash
+epsilon/2
+\backslash
+}^2}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let at time 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\begin_inset Formula $\hatp_a^t$
+\end_inset
+
+ be the empirical mean of the arm 
+\begin_inset Formula $a \in \mathcal{A}$
+\end_inset
+
+, and 
+\begin_inset Formula $u_a^t$
+\end_inset
+
+ be the number of times the arm 
+\begin_inset Formula $a$
+\end_inset
+
+ has been pulled until (and excluding) time 
+\begin_inset Formula $t$
+\end_inset
+
+. For a given 
+\begin_inset Formula $\delta \in (0,1]$
+\end_inset
+
+, we define 
+\begin_inset Formula $\beta(u_a^t, t, \delta) = \sqrt{\frac{1}{2u_a^t}\ln\frac{k_1 n t^4}{\delta}}$
+\end_inset
+
+, where 
+\begin_inset Formula $k_1=5/4$
+\end_inset
+
+. We define upper and lower confidence bound on the estimate of the true mean of arm 
+\begin_inset Formula $a \in \mathcal{A}$
+\end_inset
+
+ as 
+\begin_inset Formula $ucb(a,t) = \hatp_a + \beta(u_a^t, t, \delta)$
+\end_inset
+
+, and 
+\begin_inset Formula $lcb(a,t) = \hatp_a - \beta(u_a^t, t, \delta)$
+\end_inset
+
+ respectively.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{algorithm}[]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+label{alg:glucb}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+caption{
+\backslash
+textsc{GLUCB}:$(
+\backslash
+epsilon, k, m)$-optimal subset selection}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% % 
+\backslash
+dontprintsemicolon % Some LaTeX compilers require you to use
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% % instead
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+KwIn{$
+\backslash
+mathcal{A}$ (
+\backslash
+st $|
+\backslash
+mathcal{A}| = n$), $k, m, 
+\backslash
+epsilon, 
+\backslash
+delta$}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+KwOut{$(
+\backslash
+epsilon, k, m)$-optimal subset of $
+\backslash
+mathcal{A}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Pull each arm $a  
+\backslash
+in 
+\backslash
+mathcal{A}$ for once. Set $t = n$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+Do{$ ucb({l_*^t}, t+1) - lcb({h_*^t}, t+1) > 
+\backslash
+epsilon $} { 
+\backslash
+label{ln:stpkoutofm}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 	 $t = t + 1$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 	 $A_1^t = 
+\backslash
+{a : a' 
+\backslash
+in 
+\backslash
+mathcal{A}, 
+\backslash
+hatp_a = 
+\backslash
+hatp_{a'}
+\backslash
+}$ 
+\backslash
+st $|A_1^t| = k$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 	 $A_3^t = 
+\backslash
+{a : a' 
+\backslash
+in 
+\backslash
+mathcal{A}, 
+\backslash
+hatp_a = 
+\backslash
+hatp_{a'}
+\backslash
+}$ 
+\backslash
+st $|A_3^t| = n-m$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 	 $A_2^t = 
+\backslash
+{
+\backslash
+mathcal{A} 
+\backslash
+setminus (A_1^t 
+\backslash
+cup A_3^t)
+\backslash
+}$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 	 $h_*^t = 
+\backslash
+arg 
+\backslash
+max_{
+\backslash
+{a 
+\backslash
+in A_1^t
+\backslash
+}} lcb(a,t)$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 	 $m_*^t = 
+\backslash
+arg 
+\backslash
+min_{
+\backslash
+{a 
+\backslash
+in A_2^t
+\backslash
+}} u_a^{t}$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 	 $l_*^t = 
+\backslash
+arg 
+\backslash
+max_{
+\backslash
+{a 
+\backslash
+in A_3^t
+\backslash
+}} ucb(a,t)$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 	 pull  $h_*^t,  m_*^t, l_*^t$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+Return $A_1^t$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{algorithm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% %%%%%%%%% Expected Sample Complexity of 
+\backslash
+GLUCB %%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+thmscglucb*
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% %%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+To analyse the sample complexity, first we define some events, at least one of which must occur if the algorithm does not stop at the round 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{definition}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+(
+\shape smallcaps
+Probable Events
+\shape default
+)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $a, b \in \mathcal{A}$
+\end_inset
+
+, such that 
+\begin_inset Formula $\mu_a > \mu_b$
+\end_inset
+
+. During the run of the algorithm, any of the following five events may occur:
+\begin_inset Newline newline
+\end_inset
+
+ i) The empirical mean of an arm may falls outside the upper or the lower confidence bound. We define it as: 
+\begin_inset Formula \[CROSS_a^t \defeq \{ucb(a,t) < \mu_a \vee lcb(a,t) > \mu_a\}.\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ii) The empirical mean of arm 
+\begin_inset Formula $a$
+\end_inset
+
+ may be lesser than that of arm 
+\begin_inset Formula $b$
+\end_inset
+
+; we definite as: 
+\begin_inset Formula \[ErrA(a,b,t) \defeq \{\hatp_a^t < \hatp_b^t\}.\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+iii) The lower and upper confidence bounds of arm 
+\begin_inset Formula $a$
+\end_inset
+
+ may fall below those of arm 
+\begin_inset Formula $b$
+\end_inset
+
+; we define them as: 
+\begin_inset Formula \begin{align*}
+ & ErrL(a,b,t) \defeq \{lcb(a,t) < lcb(b,t)\},\\
+ & ErrU(a,b,t) \defeq \{ucb(a,t) < ucb(b,t)\}.
+\end{align*}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+iv) If an arm's confidence bounds are above a certain radius (say 
+\begin_inset Formula $d$
+\end_inset
+
+), we define that event as 
+\begin_inset Formula \begin{equation*}
+ NEEDY_a^t(d) \defeq \left\{\{lcb(a,t) < \mu_a -d\} \vee \{ucb(a,t) > \mu_a +d\}\right\}.
+\end{equation*}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{definition}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We show that any arm 
+\begin_inset Formula $a$
+\end_inset
+
+, if sampled sufficiently, that is 
+\begin_inset Formula $u_a^t \geq u^*(a,t)$
+\end_inset
+
+, then occurrence of any of the 
+\shape smallcaps
+Probable Events
+\shape default
+ imply occurrence of 
+\begin_inset Formula $CROSS_a^t$
+\end_inset
+
+. First we show that if 
+\begin_inset Formula $CROSS_a^t$
+\end_inset
+
+ does not occur for any 
+\begin_inset Formula $a \in \A$
+\end_inset
+
+, then occurrence of any one of the 
+\shape smallcaps
+Probable Events
+\shape default
+ implies the occurrence of 
+\begin_inset Formula $NEEDY_a^t(\cdot)$
+\end_inset
+
+ or 
+\begin_inset Formula $NEEDY_b^t(\cdot)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%% Reducing Events To $NEEDY_a^t$ %%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{restatable}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+lemma
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+lemErrALUN
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+[Expressing 
+\shape smallcaps
+Probable Events
+\shape default
+ in terms of 
+\begin_inset Formula $NEEDY_a^t$
+\end_inset
+
+ and 
+\begin_inset Formula $CROSS_a^t$
+\end_inset
+
+] 
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:ErrALUN"
+
+\end_inset
+
+ To prove that 
+\begin_inset Formula $\{\neg  CROSS_a^t \wedge \neg CROSS_b^t\} \wedge \{ErrA(a,b,t) \vee ErrU(a,b,t) \vee ErrL(a,b,t)\} \implies \{NEEDY_a^t\left(\frac{\Delta_{ab}}{2}\right) \vee NEEDY_b^t\left(\frac{\Delta_{ab}}{2}\right) \}$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{restatable}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+
+\begin_inset Formula $\mathbf{ErrA(a,b,t)}$
+\end_inset
+
+: To prove that 
+\begin_inset Formula $\neg \{CROSS_a^t \vee CROSS_b^t\} \wedge ErrA(a,b,t) \implies  NEEDY_a^t\left(\frac{\Delta_{ab}}{2}\right) \vee NEEDY_b^t\left(\frac{\Delta_{ab}}{2}\right)$
+\end_inset
+
+. 
+\begin_inset Formula \begin{align*}
+      & ErrA(a,b,t) \implies \hat{p}_a^t < \hat{p}_b^t \\
+      & \implies \hat{p}_a^t - (p_a - \beta(u_a^t,t,\delta)) < \hat{p}_b^t - (p_b + \beta(u_b^t,t,\delta) +\\
+      & (\beta(u_a^t,t,\delta) + \beta(u_b^t,t,\delta)) - \Delta_{ab}/2)\\
+      &\implies  NEEDY_a^t\left(\frac{\Delta_{ab}}{2}\right) \vee NEEDY_b^t\left(\frac{\Delta_{ab}}{2}\right). 
+      \end{align*}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+
+\begin_inset Formula $\mathbf{ErrU(a,b,t)}$
+\end_inset
+
+: To prove that 
+\begin_inset Formula $\neg \{CROSS_a^t \vee CROSS_b^t\} \wedge ErrU(a,b,t) \implies NEEDY_b^t\left(\frac{\Delta_{ab}}{2}\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+ Assuming 
+\begin_inset Formula $\neg CROSS_a^t \wedge \neg CROSS_b^t$
+\end_inset
+
+ we get 
+\begin_inset Formula \begin{align*}
+& ErrU(a,b,t) \implies \{ucb(b,t) > ucb(a,t)\}\\
+& \implies \{\hat{p}_b^t + \beta(u_b^t,t,\delta)> \hat{p}_a^t + \beta(u_a^t,t,\delta)\}\\
+& \implies \{\hat{p}_b^t > \mu_b + \beta(u_b^t,t,\delta)\} \vee \{\hat{p}_a^t < \mu_a - \beta(u_a^t,t,\delta)\}  \vee\\ 
+& \hspace{28pt} \{2\beta(u_b^t,t,\delta) > \Delta_{ab}\}\\
+& \implies NEEDY_b^t\left(\frac{\Delta_{ab}}{2}\right).
+\end{align*}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+
+\begin_inset Formula $\mathbf{ErrL(a,b,t)}$
+\end_inset
+
+: To prove that 
+\begin_inset Formula $\neg \{CROSS_a^t \vee CROSS_b^t\} \wedge ErrL(a,b,t) \implies NEEDY_a^t\left(\frac{\Delta_{ab}}{2}\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+ Assuming 
+\begin_inset Formula $\neg CROSS_a^t \wedge \neg CROSS_b^t$
+\end_inset
+
+ we get 
+\begin_inset Formula \begin{align*}
+& ErrL(a,b,t) \implies \{lcb(b,t) > lcb(a,t)\}\\
+& \implies \{\hat{p}_b^t - \beta(u_b^t,t,\delta)> \hat{p}_a^t - \beta(u_a^t,t,\delta)\}\\
+& \implies \{\hat{p}_b^t > \mu_b + \beta(u_b^t,t,\delta)\} \vee \{\hat{p}_a^t < \mu_a - \beta(u_a^t,t,\delta)\}  \vee\\ 
+& \hspace{28pt} \{2\beta(u_a^t,t,\delta) > \Delta_{ab}\}\\
+& \implies NEEDY_a^t\left(\frac{\Delta_{ab}}{2}\right).
+\end{align*}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We show that given a threshold 
+\begin_inset Formula $d$
+\end_inset
+
+, if an arm 
+\begin_inset Formula $a$
+\end_inset
+
+ is sufficiently sampled, such that 
+\begin_inset Formula $\beta(u_a^t, t, \delta) \leq \frac{d}{2}$
+\end_inset
+
+, then 
+\begin_inset Formula $NEEDY_a^t$
+\end_inset
+
+ infers 
+\begin_inset Formula $CROSS_a^t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%% NEEDY TO CROSS %%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{restatable}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+lemma
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+lemneedycross
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:needycross"
+
+\end_inset
+
+ For any 
+\begin_inset Formula $a \in \A$
+\end_inset
+
+, 
+\begin_inset Formula $\{NEEDY_a^t(d)|\beta(u_a^t, t, \delta) < d/2\} \implies CROSS_a^t$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{restatable}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First, we show that 
+\begin_inset Formula $\{lcb(a,t) < \mu_a -d | \beta(u_a^t, t, \delta) < d/2\} \implies CROSS_a^t$
+\end_inset
+
+, 
+\begin_inset Formula \begin{align}
+  & \{lcb(a,t) < \mu_a -d | \beta(u_a^t, t, \delta) < d/2\} \nonumber\\
+  & \implies \{\hatp_a^t - \beta(u_a^t, t, \delta) < \mu_a -d | \beta(u_a^t, t, \delta) < d/2\} \nonumber\\
+  & \implies \{\hatp_a^t < \mu_a -d +\beta(u_a^t, t, \delta) | \beta(u_a^t, t, \delta) < d/2\} \nonumber\\
+  & \implies \{\hatp_a^t < \mu_a -d/2 | \beta(u_a^t, t, \delta) < d/2\} \nonumber\\
+  & \implies CROSS_a^t.
+ \end{align}
+\end_inset
+
+The other part follows the similar way. 
+\end_layout
+
+\begin_layout Standard
+By the very definition of confidence bound, at any round 
+\begin_inset Formula $t$
+\end_inset
+
+, the probability that the empirical mean of an arm will lie outside it, is very low. In other words, the probability of occurrence 
+\begin_inset Formula $CROSS_a^t$
+\end_inset
+
+ is very low for all 
+\begin_inset Formula $t$
+\end_inset
+
+ and 
+\begin_inset Formula $a \in \A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%% Upper bounding the probability of $CROSS_a^t$ %%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{restatable}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+lemma
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+lemcross
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+[Upper bounding the probability of 
+\begin_inset Formula $CROSS_a^t$
+\end_inset
+
+] 
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:cross"
+
+\end_inset
+
+ 
+\begin_inset Formula $\forall a \in \mathcal{A}$
+\end_inset
+
+ and 
+\begin_inset Formula $\forall t \geq 0$
+\end_inset
+
+, 
+\begin_inset Formula $\Pr\{{CROSS_a^t}\}  \leq  \frac{\delta}{knt^4}$
+\end_inset
+
+. Hence, 
+\begin_inset Formula $P\left[\exists t \geq 0  \wedge \exists a \in \mathcal{A} : {CROSS_a^t} | u_a^t \geq 0  \right] \leq  \frac{\delta}{k_1 t^3}.$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{restatable}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+
+\begin_inset Formula $\Pr\{{CROSS_a^t}\}$
+\end_inset
+
+ is upper bounded by using Hoeffding's inequality, and the next statement gets proved by taking union bound over all arms and 
+\begin_inset Formula $t$
+\end_inset
+
+. 
+\end_layout
+
+\begin_layout Standard
+Now, recalling the definition of 
+\begin_inset Formula $h_*^t$
+\end_inset
+
+, and 
+\begin_inset Formula $l_*^t$
+\end_inset
+
+ from Algorithm
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:glucb"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we present the key logic underlying the analysis of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+GLUCB
+\end_layout
+
+\end_inset
+
+. The idea is to show that if the algorithm has not stopped, then one of those 
+\shape smallcaps
+Probable Events
+\shape default
+ must have occurred. Then using Lemma
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:ErrALUN"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and Lemma
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:needycross"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, Lemma
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:cross"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we show that beyond a certain number of rounds, the probability that 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+GLUCB
+\end_layout
+
+\end_inset
+
+ will continue is sufficiently small. Lastly, using the argument based on pigeon-hole principle, similar to Lemma 5 of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+citet{bib:shivaramphdthesis}
+\end_layout
+
+\end_inset
+
+, we establish the upper bound on the sample complexity. Below we present the core logic that shows, until the algorithm stops one of the 
+\shape smallcaps
+Probable Events
+\shape default
+ must occur.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      Case 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+setcounter{logicase}{0}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{logicase}
+\end_layout
+
+\end_inset
+
+[H] 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\exists b_3 \in A_1^t \cap B_3$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Then 
+\begin_inset Formula $ErrL(h_*^t, b_3, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\exists b_3 \in A_2^t \cap B_3$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Then 
+\begin_inset Formula $ErrA(h_*^t, b_3, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%     Then $CROSS_{h_*^t}^t 
+\backslash
+vee CROSS_{b_3}^t$ has occurred
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "case:1"
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\begin_inset Formula $h_*^t \in B_1 \wedge l_*^t \in B_1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{logicase}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      Case 2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{logicase}
+\end_layout
+
+\end_inset
+
+[H] 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\exists b_3 \in A_1^t \cap B_3$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Then 
+\begin_inset Formula $ErrL(h_*^t, b_3^t, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\exists b_3 \in A_2^t \cap B_3$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\Delta_{h_*^t l_*^t} \geq \frac{\Delta_{h_*^t}}{2}$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Then 
+\begin_inset Formula $NEEDY_{h_*^t}^t(\Delta_{h_*^t}/4) \vee NEEDY_{l_*^t}^t(\Delta_{h_*^t}/4)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Then 
+\begin_inset Formula $ErrL(l_*^t, b_3^t, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "case:2"
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\begin_inset Formula $h_*^t \in B_1 \wedge l_*^t \in B_2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{logicase}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      Case 3
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{logicase}
+\end_layout
+
+\end_inset
+
+[H] 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Then 
+\begin_inset Formula $NEEDY_{h_*^t}^t(\Delta_{h_*^t}/4) \vee NEEDY_{l_*^t}^t(\Delta_{l_*^t}/4)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "case:3"
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\begin_inset Formula $h_*^t \in B_1 \wedge l_*^t \in B_3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{logicase}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      Case 4
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{logicase}
+\end_layout
+
+\end_inset
+
+[H] 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\Delta_{h_*^t l_*^t} \geq \frac{\Delta_{h_*^t}}{2}$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Then 
+\begin_inset Formula $ErrA(l_*^t, h_*^t, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%     Then $CROSS_{h_*^t}^t 
+\backslash
+vee CROSS_{l_*^t}^t$ has occurred
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\exists b_3 \in A_1^t \cap B_3$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Then 
+\begin_inset Formula $ErrL(h_*^t, b_3^t, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\exists b_3 \in A_2^t \cap B_3$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\therefore ErrA(l_*^t, b_3, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%       $
+\backslash
+therefore CROSS_{l_*^t}^t 
+\backslash
+vee CROSS_{b_3}^t$ has occurred.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "case:4"
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\begin_inset Formula $h_*^t \in B_2 \wedge l_*^t \in B_1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{logicase}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      Case 5.A
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{logicase}
+\end_layout
+
+\end_inset
+
+[H] 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Here, 
+\begin_inset Formula $\exists b_1 \in (A_2^t \cup A_3^t)\cap B_1$
+\end_inset
+
+ and 
+\begin_inset Formula $\exists b_3 \in (A_1^t \cup A_2^t)\cap B_3$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $|\Delta_{h_*^t l_*^t}| < \Delta_{h_*^t}/2$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\Delta_{b_1 h_*^t} > \Delta_{b_1}/4$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $b_1 \in A_2^t )\cap B_1$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $ErrA(b_1, h_*^t, t)$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $b_1 \in A_3^t \cap B_1$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $ErrU(b_1, l_*^t, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\Delta_{b_1 h_*^t} \leq \Delta_{b_1}/4$
+\end_inset
+
+ and hence 
+\begin_inset Formula $\Delta_{l_*^t b_3} \geq \Delta_{l_*^t}/4$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $b_3 \in A_2^t \cap B_3$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $ErrA(l_*^t, b_3, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $b_3 \in A_1^t \cap B_3$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $ErrL(h_*^t, b_3, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $|\Delta_{h_*^t l_*^t}| > \Delta_{h_*^t}/2$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $NEEDY_{h_*^t}^t (\Delta_{h_*^t}/4) \vee NEEDY_{l_*^t}^t (\Delta_{h_*^t}/4)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "case:5.A"
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\begin_inset Formula $h_*^t \in B_2 \wedge l_*^t \in B_2$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta_{h_*^t l_*^t} > 0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{logicase}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      Case 5.B
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+setcounter{logicase}{4}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{logicase}
+\end_layout
+
+\end_inset
+
+[H] 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Here, 
+\begin_inset Formula $\exists b_1 \in (A_2^t \cup A_3^t)\cap B_1$
+\end_inset
+
+ and 
+\begin_inset Formula $\exists b_3 \in (A_1^t \cup A_2^t)\cap B_3$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $|\Delta_{h_*^t l_*^t}| < \Delta_{h_*^t}/2$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\Delta_{b_1 l_*^t} > \Delta_{b_1}/4$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $b_1 \in A_2^t \cap B_1$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $ErrA(b_1, h_*^t, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $b_1 \in A_3^t \cap B_1$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $ErrU(b_1, l_*^t, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\Delta_{b_1 l_*^t} \leq \Delta_{b_1}/4$
+\end_inset
+
+ and hence 
+\begin_inset Formula $\Delta_{h_*^t b_3} \geq \Delta_{h_*^t}/4$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $b_3 \in A_2^t \cap B_3$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $ErrA(l_*^t, b_3, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $b_3 \in A_1^t \cap B_3$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $ErrL(h_*^t, b_3, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $|\Delta_{h_*^t l_*^t}| > \Delta_{h_*^t}/2$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $NEEDY_{h_*^t}^t (\Delta_{h_*^t}/4) \vee NEEDY_{l_*^t}^t (\Delta_{h_*^t}/4)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "case:5.B"
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+(continued) 
+\begin_inset Formula $h_*^t \in B_2 \wedge l_*^t \in B_2$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta_{h_*^t l_*^t} \leq 0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%. Similar to~
+\backslash
+ref{case:5.A}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{logicase}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      Case 6
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{logicase}
+\end_layout
+
+\end_inset
+
+[H] 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\Delta_{h_*^t l_*^t} \geq \frac{\Delta_{l_*^t}}{2}$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Then 
+\begin_inset Formula $NEEDY_{h_*^t}^t(\Delta/4) \vee NEEDY_{l_*^t}^t(\Delta_{l_*^t}/4)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\Delta_{h_*^t l_*^t} < \frac{\Delta_{l_*^t}}{2}$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\therefore \forall b_1 \in \{A_2^t \cup A_3^t\} \cap B_1$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta_{b_1 h_*^t} > \frac{\Delta_{b_1}}{2}$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\exists b_1 \in A_2^t \cap B_1$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $ErrA(b_1, h_*^t, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%       $
+\backslash
+therefore CROSS_{h_*^t}^t 
+\backslash
+vee CROSS_{b_1}^t$ has occurred.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\exists b_1 \in A_3^t \cap B_1$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ Then 
+\begin_inset Formula $ErrU(b_1^t, l_*^t,t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%       OR
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%       $CROSS_{l_*^t}^t 
+\backslash
+vee CROSS_{b_1}^t$ has occurred.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "case:6"
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\begin_inset Formula $h_*^t \in B_2 \wedge l_*^t \in B_3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{logicase}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      Case 7
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{logicase}
+\end_layout
+
+\end_inset
+
+[H] 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\therefore ErrA(l_*^t, h_*^t, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%   $CROSS_{h_*^t}^t 
+\backslash
+vee CROSS_{l_*^t}^t$ has occurred.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "case:7"
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\begin_inset Formula $h_*^t \in B_3 \wedge l_*^t \in B_1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{logicase}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      Case 8
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{logicase}
+\end_layout
+
+\end_inset
+
+[H] 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\Delta_{h_*^t l_*^t} \geq \frac{\Delta_{h_*^t}}{2}$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $ErrA(l_*^t, h_*^t, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%     Then $CROSS_{h_*^t}^t 
+\backslash
+vee CROSS_{l_*^t}^t$ has occurred.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\Delta_{h_*^t l_*^t} < \frac{\Delta_{h_*^t}}{2}$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\therefore \forall b_1 \in \{A_2^t \cup A_3^t\} \cap B_1$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta_{b_1 l_*^t} > \frac{\Delta_{b_1}}{2}$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\exists b_1 \in A_2^t \cap B_1$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $ErrA(b_1, h_*^t, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%       $
+\backslash
+therefore CROSS_{h_*^t}^t 
+\backslash
+vee CROSS_{b_1}^t$ has occurred.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\exists b_1 \in A_3^t \cap B_1$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\therefore ErrU(b_1, l_*^t, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "case:8"
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\begin_inset Formula $h_*^t \in B_3 \wedge l_*^t \in B_2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{logicase}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%      Case 9
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{logicase}
+\end_layout
+
+\end_inset
+
+[H] 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\exists b_1 \in \{A_2^t \cup A_3^t\} \cap B_1$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%, $
+\backslash
+Delta_{1l_*^t} > 
+\backslash
+frac{
+\backslash
+Delta}{2}$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+IF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\exists b_1 \in A_2^t \cap B_1$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $ErrA(b_1, h_*^t, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ELSE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\exists b_1 \in A_3^t \cap B_1$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+STATE
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\therefore ErrA(b_1, l_*^t, t)$
+\end_inset
+
+ has occurred. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ENDIF
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%   $
+\backslash
+therefore {b_1}^t 
+\backslash
+vee CROSS_{h_*^t}^t 
+\backslash
+vee CROSS_{h_*^t}^t$ has occurred.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "case:9"
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\begin_inset Formula $h_*^t \in B_3 \wedge l_*^t \in B_3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{logicase}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+corgenubscglucb*
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{lemma}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+[
+\end_layout
+
+\end_inset
+
+H
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:valT"
+
+\end_inset
+
+ If 
+\begin_inset Formula $T = C H_\epsilon\ln\left(\frac{H_\epsilon}{\delta}\right)$
+\end_inset
+
+, then for 
+\begin_inset Formula $C \geq 2732$
+\end_inset
+
+, the following holds: 
+\begin_inset Formula \[T > 2 + 2 \sum\limits_{a \in \mathcal{A}} u^*(a,T).\]
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+This proof is taken from Appendix B.3 of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+citet{bib:shivaramphdthesis}
+\end_layout
+
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begingroup
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+allowdisplaybreaks
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula \begin{align*}
+     &2 + 2 \sum_{a \in \mathcal{A}} u^*(a,T) =  2 + 64 \sum_{a \in \mathcal{A}} \bceil{\frac{1}{\max(\Delta_{a}, (\epsilon / 2))^2} \ln \frac{ knt^4}{\delta}}\\
+    & \leq  2 + 64n + 64 H_\epsilon\ln \frac{ knT^4}{\delta} \\
+    & =  2 + 64n + 64H_\epsilon\ln k + 64H_\epsilon \ln\frac{n}{\delta} + 256 H_\epsilon \ln T\\
+    & <  (66 + 64\ln k )H_\epsilon + 64H_\epsilon\ln\frac{n}{\delta}  + 256 H_\epsilon \left[\ln C + \ln H_\epsilon + \ln\ln\frac{H_\epsilon}{\delta}\right]\\
+    & <  (66 + 64\ln k )H_\epsilon + 64H_\epsilon\ln\frac{n}{\delta} + 256 H_\epsilon \left[\ln C + \ln H_\epsilon + \ln\ln\frac{H_\epsilon}{\delta}\right]\\
+    & <  130H_\epsilon + 64H_\epsilon\ln\frac{n}{\delta} + 256 H_\epsilon \left[\ln C + \ln H_\epsilon + \ln\frac{H_\epsilon}{\delta}\right]\\
+    & <  130 H_\epsilon + 64H_\epsilon\ln\frac{H_\epsilon}{\delta}  + 256 H_\epsilon \left[\ln C + 2\ln\frac{H_\epsilon}{\delta}\right]\\
+    & < (706 + 256\ln C) H_\epsilon\ln\frac{H_\epsilon}{\delta} <  C H_\epsilon\ln\frac{H_\epsilon}{\delta}\phantom{=}\,\left[\text{For }  C \geq 2732\right].
+\end{align*}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+endgroup
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{lemma}
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:t1star"
+
+\end_inset
+
+ Let 
+\begin_inset Formula $T^* = \bceil{2732H_\epsilon\ln\left(\frac{H_\epsilon}{\delta}\right)}$
+\end_inset
+
+. For every 
+\begin_inset Formula $T > T_1^*$
+\end_inset
+
+, the probability that the Algorithm
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:glucb"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ has not terminated after 
+\begin_inset Formula $T$
+\end_inset
+
+ rounds of sampling is at most 
+\begin_inset Formula $\frac{8\delta}{T^2}$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+Letting 
+\begin_inset Formula $\bar{T} = \frac{T}{2}$
+\end_inset
+
+ we define two events for 
+\begin_inset Formula $ \bar{T} \leq t \leq T-1$
+\end_inset
+
+: 
+\begin_inset Formula $E^{(1)} \defeq \exists a \in \mathcal{A} : {CROSS_a^t}$
+\end_inset
+
+ and 
+\begin_inset Formula $E^{(2)} \defeq \exists  NEEDY_{a}^t\left(\frac{\Delta_a}{4}\right)$
+\end_inset
+
+. If the algorithm stops for 
+\begin_inset Formula $t<\bar{T}$
+\end_inset
+
+, then there is nothing to prove. On the contrary, let the algorithm has not stopped after 
+\begin_inset Formula $t > \bar{T}$
+\end_inset
+
+ and neither 
+\begin_inset Formula $E^{(1)}$
+\end_inset
+
+ nor 
+\begin_inset Formula $E^{(2)}$
+\end_inset
+
+ has occurred. Letting 
+\begin_inset Formula $N_{rounds}$
+\end_inset
+
+ be the the required number of rounds beyond 
+\begin_inset Formula $\bar{T}$
+\end_inset
+
+, we can upper bound it as: 
+\begin_inset Formula \begin{align*}
+  &N_{rounds} = \sum\limits_{t=\bar{T}} \left\{\idop\left[NEEDY_{h_*^t}^t\left(\frac{\Delta_{h_*^t}}{4}\right) \vee NEEDY_{m_*^t}^t\left(\frac{\Delta_{m_*^t}}{4}\right)  \vee   NEEDY_{l_*^t}^t\left(\frac{\Delta_{l_*^t}}{4}\right)\right]\right\}\\
+  & \leq  \sum_{\bar{T}}^{T-1} \sum_{a \in \mathcal{A}}\idop\left[a \in \{h_*^t, m_*^t,  l_*^t\}\wedge NEEDY_{a}^t\left(\frac{\Delta_a}{4}\right)\right]\\
+  & =  \sum_{\bar{T}}^{T-1} \sum_{a \in \mathcal{A}}\idop[a \in \{h_*^t, m_*^t, l_*^t\}\wedge(u_a^t < u^*(a,t))]\\
+  & \leq  \sum_{\bar{T}}^{T-1} \sum_{a \in \mathcal{A}}\idop[a \in \{h_*^t, m_*^t, l_*^t\} \wedge(u_a^t < u^*(a,t))]\\
+  & \leq  \sum_{a \in \mathcal{A}} \sum_{\bar{T}}^{T-1}\idop[(a \in \{h_*^t, m_*^t, l_*^t\})\wedge(u_a^t < u^*(a,t))]\\
+  & \leq  \sum_{a \in \mathcal{A}}u^*(a,t).
+ \end{align*}
+\end_inset
+
+Using Lemma
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:valT"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $T \geq T^* \Rightarrow T > 2 + 2\sum_{a \in \mathcal{A}}u^*(a,t)$
+\end_inset
+
+. Hence, if neither 
+\begin_inset Formula $E^{(1)}$
+\end_inset
+
+ nor 
+\begin_inset Formula $E^{(2)}$
+\end_inset
+
+ occurs then the algorithm runs for at most 
+\begin_inset Formula $\bar{T} + N_{rounds} \leq \ceil{T/2} + \sum_{a \in \mathcal{A}}16u^*(a,t) < T$
+\end_inset
+
+ number of rounds.
+\end_layout
+
+\begin_layout Proof
+The probability that the algorithm does not stop within 
+\begin_inset Formula $T$
+\end_inset
+
+ rounds, is upper-bounded by 
+\begin_inset Formula $P[E^{(1)} \vee E^{(2)}]$
+\end_inset
+
+. Applying Lemma
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:needycross"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Lemma
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:cross"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula \begin{align*}
+  & P[E^{(1)} \vee E^{(2)}] \leq \sum_{t = \bar{T}}^{T-1} \left(\frac{\delta}{k_1 t^3} + \frac{\delta}{kt^4}\right) \leq \sum_{t = \bar{T}}^{T-1} \frac{\delta}{k_1 t^3}\left(1+\frac{2}{t}\right) \leq  \left(\frac{T}{2}\right)\frac{8\delta}{k_1 T^3}\left(1 + \frac{4}{T}\right) < \frac{8\delta}{T^2}. %[\because n \geq 2]\nonumber
+ \end{align*}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+thmscglucb*
+\end_layout
+
+\end_inset
+
+ Using Lemma
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:valT"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and Lemma
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:t1star"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the expected sample complexity of the Algorithm
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:glucb"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ can be upper bounded as 
+\begin_inset Formula \begin{align}
+  & E[SC] \leq 2\left(T_1^* + \sum_{t=T_1^*}^\infty \frac{8\delta}{T^2}\right) \leq 5464\cdot\left(H_\epsilon\ln\left(\frac{H_\epsilon}{\delta}\right)\right) + 32.
+ \end{align}
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
