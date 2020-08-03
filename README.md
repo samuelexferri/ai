@@ -6,15 +6,13 @@
 
 Artificial Intelligence project
 
-Ideas?
-
 ![alt text](https://img.shields.io/badge/Language-Italian-infomrmational?style=for-the-badge)
 
 ## Authors
 
 ### Team
 
--   **Samuele Ferri**: [Site](https://samuelexferri.com), [GitHub](https://github.com/samuelexferri)
+- **Samuele Ferri**: [Site](https://samuelexferri.com), [GitHub](https://github.com/samuelexferri)
 
 ## Version
 

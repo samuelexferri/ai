@@ -1,0 +1,187 @@
+\section{Proof of Theorem~\ref{thm:qpreducubonly}}
+\label{sec:hardnessqp}
+% It is interesting to note that solving \QP problem using order-optimal sample complexity is crucially dependent on the
+% existence of an algorithm that can solve \QF within order-optimal sample complexity for solving
+% \QF. We start with proving the upper bound.
+
+
+% \subsection{Upper Bound}
+% \label{subsec:hardnessqpub}
+
+% In this section we show that if there exists an algorithm for solving any instance of \QF
+% within order-optimal sample-complexity, then we can construct an algorithm that can solve
+% any instance of \QP  within order-optimal sample-complexity.
+
+% \begin{restatable}{theorem}{thmqpubreduc}
+% \label{thm:qpreducub}
+% Let $\gamma: \mathbb{Z}^+ \times \mathbb{Z}^+ \times [0,1] \times [0,1] \mapsto \mathbb{R}^+$.
+% If there exists an algorithm \textsc{OptQF} that can solve any instance of \QF  given by $(\A, n, m, 1, \epsilon, \delta)$
+% within a sample-complexity $O\left(\frac{n}{m\epsilon^2}\log\frac{1}{\delta} + \gamma(\cdot)\right)$, then there exists an
+% algorithm \textsc{OptQP} that can solve any instance of \QF  given by $(\A, P_\A, \rho, \epsilon, \delta)$
+% within a sample-complexity  $O\left(\frac{1}{\rho\epsilon^2}\log\frac{1}{\delta} + \gamma(\cdot)\right)$.
+% \end{restatable}
+% \paragraph{Proof of Theorem~\ref{thm:qpreducub}.}
+% We prove Theorem~\ref{thm:qpreducub} by construction. Following, we present an  algorithm \textsc{OptQP}
+% that follows the approach similar to \textsc{OptQP}.
+% It solves any instance of \QP  by reducing it to a finite instance to pose it as \QFK, and
+% then solves that \QF   using \textsc{OptQF} as the subroutine.
+ 
+Algorithm~\ref{alg:tightqpqf} describes \textsc{OptQP}. It uses \PP~\cite{bib:arcsk2017} with  \textsc{ Median Elimination}  as the 
+subroutine (inside \PP), to select an  $[\epsilon, \rho]$-optimal arm with confidence $1-\delta'$.
+We have assumed $\delta' = 1/4$, in practice the one can choose any
+sufficiently small value for it, which will merely affect the multiplicative constant in the upper bound.
+\begin{algorithm}[]
+\begin{algorithmic}
+\REQUIRE { $\mathcal{A}, \epsilon, \delta$, and \textsc{OptQF}.}
+\ENSURE {A single $[\epsilon, \rho]$-optimal arm}
+ \STATE Set $\delta' = 1/4$, $u = \bceil{\frac{1}{2(0.5-\delta')^2} \cdot \log\frac{2}{\delta}} = \bceil{8 \log\frac{2}{\delta}}$.\;
+ \STATE Run $u$ copies of $\mathcal{P}_2(\A, \rho, \epsilon/2, \delta')$ and form set $S$ with the output arms.\;
+ \STATE Return the output from \textsc{OptQF} $\left(S, u, \floor{\frac{u}{2}}, 1, \frac{\epsilon}{2}, \frac{\delta}{2}\right)$.
+\end{algorithmic}
+\caption{\textsc{OptQP}}
+\label{alg:tightqpqf}
+\end{algorithm}
+
+ \begin{restatable}{theorem}{thmppp}[Correctness and Sample Complexity of \textsc{OptQP}]
+ \label{thm:ppp}
+ If \textsc{OptQF} exists, then
+ \textsc{OptQP}  solves \QP, within the sample complexity $\Theta\left(\frac{1}{\rho\epsilon^2}\log\frac{1}{\delta}+ \gamma(\cdot)\right)$.
+ \end{restatable}
+ \begin{proof}
+ First we prove the correctness and then upper bound the sample complexity.
+  \paragraph{Correctness.}  First we notice that each copy of $\mathcal{P}_2$ outputs an $[\epsilon/2, \rho]$-optimal arm
+ with probability at least $1-\delta'$. Also, \textsc{OptQF} outputs an
+ $[\epsilon/2, \rho]$-optimal arm with probability $1-\delta$.
+ Let, $\hat{X}$ be the fraction of sub-optimal arms in $S$. Then $\Pr\{\hat{X} \geq \frac{1}{2}\}$ $= \Pr\{\hat{X} - \delta' \geq \frac{1}{4}\}$
+  $\leq \exp(-2\cdot(\frac{1}{4})^2\cdot u) = \exp(-2\cdot\frac{1}{16}\cdot 8\log\frac{2}{\delta}) < \frac{\delta}{2}$. On the other hand, the mistake probability of \textsc{OptQF} is upper bounded by $\delta/2$. Therefore, by taking union bound, we get the 
+  mistake probability is upper bounded by $\delta$. Also, the mean of the output arm is not
+  less than $\frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$ from the $(1-\rho)$-th
+  quantile.
+  
+  \paragraph{Sample complexity.} First we note that, for some appropriate constant $C$,
+  the sample complexity (SC) of each of the $u$ copies of $\mathcal{P}_2$ is $\frac{C}{\rho(\epsilon/2)^2}\left(\log\frac{2}{\delta'}\right)^2 \in O\left(\frac{1}{\rho\epsilon^2}\right)$.
+  Hence, SC of all the $u$ copies $\mathcal{P}_2$ together is upper bounded by $\frac{C_1\cdot u}{\rho\epsilon^2}$, for some constant $C_1$.
+  Also, for some constant $C_2$, the sample complexity of \textsc{OptQF} is upper bounded by $C_2 \left(\frac{u}{(u/2) (\epsilon/2)^2}\log\frac{2}{\delta} + \gamma(\cdot)\right) = C_2 \left(\frac{8}{\epsilon^2}\log\frac{2}{\delta}+ \gamma(\cdot)\right)$.
+  Now, adding the sample complexities, and substituting for $u$ we prove the bound.
+ \end{proof}
+ 
+% \paragraph{Usefulness of \textsc{OptQP}.} Although, sample complexity of \textsc{OptQP} matches the lower bound up to a constant factor, in practice its performance is
+% not satisfactory due to large value of the constant. 
+% For example, the number of samples required to select $u$ $[\epsilon, \rho]$-optimal arms is 
+% $\frac{C \cdot u}{\rho (\epsilon/2)^2} \log^2\frac{2}{\delta'} \geq \bceil{\frac{C}{\rho \epsilon^2}\log\frac{2}{\delta} \cdot 2\left(\frac{\log(1/\delta')}{0.5-\delta'}\right)^2} \geq \bceil{\frac{109 C}{\rho \epsilon^2}\log\frac{2}{\delta}}$, minimising with respect to $\delta' $.
+% In the second phase a big number of samples add up to this to make it even bigger. 
+% Therefore, \textsc{OptQP} can not outperform \PP if $\delta \geq 2^{-109}$, which is effectively  far below
+% the practical range.
+% \subsection{Lower Bound}
+% \label{subsec:hardnessqplb}
+
+% \begin{restatable}{lemma}{qpreducqf}[At least as hard as \QFK]
+% \label{lem:qpeduclb}
+% % Let $\mathcal{L}$ be an algorithm that solves \QP. 
+% There exists $\epsilon_0, \delta_0 \in (0, 1)$, such that 
+% for all $0< \epsilon \leq \epsilon_0$, and $0 < \delta \leq \delta_0$,
+% there exists an instance of \QP  given by $\left(\A, P_\A, \rho, \epsilon, \delta\right)$,
+% and a finite subset $\A' \subset \A$, such that $|\A'| \geq \bceil{\frac{1}{2}\ln\frac{1}{\delta}}$, 
+% and a corresponding instance of \QF  given by $\left(\A', |\A'|, \frac{|\A'|}{4}, 1, \epsilon, \delta\right)$
+% such that if $SC^F$ is the minimum number of samples required to solve this \QF, then
+% expected number of samples required to solve the \QP  is at least $\frac{1}{5}SC^F$.
+% % at least 
+% % at least $\filler{C} \frac{1}{\epsilon^2} \ln\left(\frac{1}{\delta}\right)$; \filler{wherein $C = \frac{1}{183750}$}.
+% \end{restatable}
+
+% \paragraph{Bandit Instance.}
+% Consider, a set of Bernoulli arms $\A = (0,1]$, a sampling distribution $P_\A = U[0,1]$, and
+%  $\rho = \frac{1}{10}$. Without loss of generality, let $I_0 = \left(0, \frac{1}{10}\right]$.
+%  We define a set of subsets of $\A$ as $\I \defeq \left\{S \subset \A \setminus I_0 : \Pr_{a 
+%  \sim P_\A} \{a \in S\} = \rho\right\}$. We notice, for all $I \in \I$, 
+%  $\Pr_{a \sim P_\A}\{a \in I\} = \Pr_{a \sim P_\A}\{a \in I_0\} = \frac{1}{10} = \rho$
+%  Also, corresponding to each $I \in \I$,  let $I' \defeq A\setminus \{I_0 \cup I\}$. 
+%  With each $I \in \{I_0\} \cup\I$, we  associate 
+%  a bandit instance $\B^I$, in which the mean of any arm $a$ is given by
+%  \begin{align*}
+%  \mu_a = 
+%      \begin{cases}
+%      \frac{1}{2}\;\;\;\;\;\;\;\;\; \text{ if}\; a \in I_0,\\
+%      \frac{1}{2} + 2\epsilon\;\; \text{if}\; a \in I\; \text{for}\; I \neq I_0,\\
+%      \frac{1}{2} - 2\epsilon\;\; \text{else}.
+%      \end{cases}
+%  \end{align*}
+%  Notice, that all the arms in $\B^{I_0}$ has mean $\frac{1}{2}$. Also, for any 
+%  $I \in \{I_0\} \cup \I$, only the arms in $\B^I$ are $[\epsilon, \rho]$-optimal, while the 
+%  others  are not. Now, we shall show that it is impossible for an algorithm to identify an 
+%  $[\epsilon, \rho]$-optimal arm with the desired mistake probability, if a large enough subset of arms is not sampled sufficiently large number of times.
+ 
+ 
+% %  \subsection{Bound}
+%  To prove the lower bound via contradiction we make the following assumption. 
+%   \begin{assumption}
+%  \label{assmp:contraqp}
+%  We assume that for every $I \in \I_0 \cup \I$, there exists an algorithm $\mathcal{L}$ that solves the any problem 
+%  instance of \QP  given by 
+%  $(\B^{I}, P_{\A}, \frac{1}{10}, \epsilon, \delta)$, incurring  sample complexity strictly less than $\frac{1}{5}SC^F$.
+%  \end{assumption}
+ 
+%  For the sake of conciseness, we denote by $\Pr_I$ the probability distribution resulted from
+%  bandit instance $\B^I$, and the possible randomness in the algorithm $\mathcal{L}$. Also, we
+%  denote the arm output by $\mathcal{L}$ as $a_\mathcal{L}$, and let $T_S$ be the total
+%  number of samples obtained by the arms in $S \subseteq \A$ before $\mathcal{L}$ stops and returns $a_\mathcal{L}$. As $\mathcal{L}$ solves \QP, for the instance $\B^{I_0}$,
+%  \begin{equation}
+%  \label{eq:factqfl}
+%      \Pr_{I_0}\{a_\mathcal{L} \in I_0\} \geq 1-\delta.
+%  \end{equation}
+ 
+%  By Assumption~\ref{assmp:contraqp},
+%  \begin{equation}
+%  \label{eq:i0scub}
+%      \Pr_{I_0}\{T_\A\} < \frac{1}{5}SC^F.
+%  \end{equation}
+ 
+%  \paragraph{Pigeon-Hole Principle.}
+%  We partition $\A \setminus I_0$ into nine disjoint subsets each belonging to $\I$.
+% %  As $\rho = \frac{1}{10}$, intuitively we can partition $\A \setminus I_0$ into nine disjoint subsets each belonging
+% %  to $\I$. 
+%  Formally, letting $I_i \in \I$ for $i \in\{1,2,\cdots, 9\}$, we define a 
+%  \textsc{Partition} as  $P \defeq \{I_1, I_2, \cdots, I_{9}\}$ such that $\cup_{i=1}^{9} I_i = \A\setminus I_0$,
+%  and for $j \in\{1,2,\cdots, 9\}$, if $i \neq j$ then $I_i \cap I_j = \emptyset$.
+%  Let, $\mathcal{P}$ be the set of all possible \textsc{Partition}s, and hence, 
+%  for any partition $P \in \mathcal{P}$, $\Pr_{a \sim P_\A}\{a \in I_0 \cup P\} = 1$. 
+%   We recall that the  algorithm  $\mathcal{L}$ is restricted to choose arms from
+%   $\A$ by sampling $P_\A$. Assume, $\Lambda \subset \A$ be the set of all arms chosen by $\mathcal{L}$ from $\A$,
+%   by sampling $P_\A$. 
+%   Letting $k_0 = \bceil{\frac{1}{2}\ln\frac{1}{\delta}}$,
+%   we define an event $$E_0\defeq \{|\Lambda| < k_0\}.$$ 
+%  Now, for a given fixed partition $P \in \mathcal{P}$, we fix an $I \in P$. Then,
+%  $$\Pr_{I_0}\{ \Lambda \cap I = \emptyset | E_0\}  > (1-\rho)^{k_0} = \left(1-\frac{1}{10}\right)^{\bceil{\frac{1}{2}\ln\frac{1}{\delta}}} > (9/10)^{(\ln\frac{1}{\delta})/{\ln\frac{10}{9}}} > \delta.$$
+%  Therefore, under the instance $B^I$,
+%  \begin{align*}
+%     %  &\Pr_{I_0}\{ \Lambda \cap I_0 = \emptyset | E_0\}  = (1-\rho)^{k_0} = \left(1-\frac{1}{10}\right)^{\frac{1}{2}\ln\frac{1}{\delta}} > (9/10)^{(\ln\frac{1}{\delta})/{\ln\frac{10}{9}}} > \delta\\
+%      & \Pr_{I}\{a_\mathcal{L} \in \A \setminus I | E_0\}  > \delta\\
+%      & \implies \Pr_{I}\{a_\mathcal{L}  \in I | E_0\} < 1 -\delta.
+%  \end{align*}
+%  Hence, if $E_0$ occurs, we get a contradiction to Assumption~\ref{assmp:contraqp}, and hence, there exists an $I' \in \I$,
+%  such that the $\mathcal{L}$ fails to solve the \QP  instance given by  $(\B^{I}, P_{\A}, \frac{1}{10}, \epsilon, \delta)$
+ 
+% \paragraph{Note.}  The rest of the proof assumes $E_0$ did not occur.
+
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %  \filler{$\delta \leq \frac{\exp(-10)}{4}$, and $\ln\frac{1}{\delta}$}\\
+% %  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  In this case we have $|\Lambda| \geq k_0$.
+%   Let us define an event $E_1 \defeq \left\{\frac{|\Lambda \cap I_0|}{|\Lambda|} > \frac{1}{4}\right\}$.
+%  Then we upper bound the probability of occurrence of $E_1$ under $I_0$ as, 
+%  $$\Pr_{I_0}\{E_1\} = \Pr_{I_0}\left\{\frac{|\Lambda \cap I_0|}{|\Lambda|} > \frac{1}{4}\right\} \leq \exp\left(-2 \left(\frac{1}{4} - \frac{1}{10}\right)^2 |\Lambda|\right) \leq \exp\left(-2 \left(\frac{3}{20}\right)^2 k_0\right) < \frac{4}{5}.$$
+ 
+%   Hence, 
+%  $$\Pr_{I_0}\{\neg E_1\} = \Pr_{I_0}\left\{\frac{|\Lambda \cap \{\A \setminus I_0\}|}{|\Lambda|} \geq \frac{3}{4}\right\} = 
+%  \Pr_{I_0}\left\{\frac{|\Lambda \cap \{\A \setminus I_0\}|}{|\Lambda|} \geq 1-\frac{1}{4}\right\} \geq 1 - \frac{4}{5} = \frac{1}{5}.$$
+
+% Therefore, in the set $\Lambda$, at least $\bfloor{\frac{3}{4}|\Lambda|}$ sub-optimal arms are present with
+% probability at least  $\frac{1}{5}$.
+% % Now, as $|\Lambda| \geq k_0 = \bceil{\frac{1}{2}\ln\frac{1}{\delta}}$, therefore, among the arms in  $\Lambda$, at least $\bfloor{\frac{3/4}{2}\ln\frac{1}{\delta}}$ 
+% %  of them are sub-optimal, with probability at least $\frac{1}{5}$. 
+%  Hence, with probability at least $\frac{1}{5}$, solving $(\B^{I_0}, P_\A, \rho, \epsilon, \delta)$ will
+%  require at least the number of samples required for solving the an instance of \QF  given by $(\Lambda, |\Lambda|, \frac{3}{4}|\Lambda|, 1, \epsilon, \delta)$,
+%  where $\epsilon$ and $\delta$ are the same as in the given instance of \QP. Now, recalling 
+%  the fact that $ k_0 = \bceil{\frac{1}{2}\ln\frac{1}{\delta}}$,
+%  we get a contradiction to Assumption~\ref{assmp:contraqp}.

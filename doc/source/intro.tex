@@ -1,0 +1,211 @@
+\section{Introduction}
+\label{sec:intro}
+The stochastic multi-armed bandit~\citep{Robbins:1952,bib:mabdefbook} is
+a well-studied abstraction of decision making under uncertainty. Each \emph{arm} of a bandit represents a decision. A \emph{pull} of an arm represents taking the associated decision, which produces a real-valued reward. The reward is drawn \iid from a distribution corresponding to the arm, independent of the pulls of other arms. At each round, the experimenter may consult the preceding history of pulls and rewards to decide which arm to pull.
+
+The traditional objective of the experimenter is to maximise the expected cumulative reward over a horizon of pulls, or equivalently, to minimise the \textit{regret} with respect to always pulling an optimal arm. Achieving this objective requires a careful balance between \textit{exploring}  (to reduce uncertainty about the arms' expected rewards) and \textit{exploiting} (accruing high rewards). Regret-minimisation algorithms have been used in a variety of applications, including clinical trials~\citep{Robbins:1952}, adaptive routing~\citep{Awerbuch+K:2008}, and recommender systems~\citep{Li+CLS:2010}.
+
+Of separate interest is the problem of \textit{identifying} an arm with the highest mean reward~\citep{Bechhofer:1958,Paulson:1964,bib:evendar1}, under what is called the ``pure exploration'' regime. For applications such as product testing~\citep{Audibert+BM:2010} and strategy selection~\citep{bib:sergiu}, there is a dedicated phase in the experiment in which the rewards obtained are inconsequential. Rather, the objective is to identify the best arm either (1) in the minimum number of trials, for a given confidence threshold~\citep{bib:evendar1,bib:explorem}, or alternatively, (2) with minimum error, after a given number of trials~\citep{Audibert+BM:2010,Carpentier+V:2015}. Our investigation falls into the first category, which is termed the ``fixed confidence'' setting. Conceived by Bechhofer (\citeyear{Bechhofer:1958}), 
+best-arm-identification in the fixed confidence setting has received a significant amount of attention over the years~\citep{bib:evendar1,Gabillon+GLB:2011,Karnin+KS:2013,Jamieson+MNB:2014}.
+The problem has also been generalised to identify the best subset of
+arms~\citep{bib:explorem,bib:lucb}.
+
+More recently, \citet{bib:arcsk2017} have introduced the probem of identifying a single arm from among the best $m$ in an $n$-armed bandit. This formulation is particularly useful when the number of arms is large, and in fact is a viable alternative even when the number of arms is \textit{infinite}. In many practical scenarios, however, it is required to identify more than a single good arm. For example, imagine that a company needs to complete a task that is too large to be accomplished by a single worker, 
+but which can be broken into $5$ subtasks, each capable 
+of being completed by one worker. Suppose there are a total of $1000$ workers, and an indepdendent pilot survey has revealed that at least $15\%$ of them have the skills to complete the subtask. To address the company's need, surely it would \textit{suffice} to identify the best $5$ workers for the subtask. However, if workers are to be identified based on a skill test that has stochastic outcomes, it would be unnecessarily expensive to indeed identify the ``best subset''. Rather, it would be enough to merely identify any $5$ workers from among the best $150$. This is precisely the problem we consider in our paper:
+identifying any $k$ out of the best $m$ arms in an $n$-armed bandit. In addition to distributed crowdsourcing~\citep{Tran-Thanh+SRJ:2014}, applications of this problem include the management of large sensor networks~\citep{Mousavi+HHD:2016}, wherein multiple 
+reliable sensors must be identified using minimal testing, and in drug design~\citep[Chapter 43]{McDuffie+OJ:2016}, to identify a promising set of candidate biomarkers. 
+
+The problem assumes equal significance from a theoretical standpoint, since it generalises both the ``best subset selection'' problem~\citep{bib:explorem} (taking $k = m$) and that of selecting a ``single arm from the best subset''~\citep{bib:arcsk2017} (taking $k = 1$). Unlike best subset selection, the problem remains feasible to solve even when $n$ is large or infinite, as long as $m/n$ is some constant $\rho > 0$. Traditionally, infinite-armed bandits have been tackled by resorting to side information such as distances between arms~\citep{bib:agracntregret,bib:kleincntregret} or the structure of their distribution of rewards~\citep{bib:wang2008}. This approach introduces additional parameters, which might not be easy to tune in practice. Alternatively, good arms can be reached merely by selecting arms \textit{at random} and testing them by pulling. This latter approach has been applied successfully both in the regret-minimisation setting~\citep{Herschkorn+PR:1996} and in the fixed-confidence setting~\citep{bib:sergiu,bib:arcsk2017}. Our formulation paves the way for identifying ``many'' ($k$) ``good'' (in the top $m$ among $n$) arms in this manner. 
+
+%We provide lower and upper bounds on the worst case sample complexity of our ``$(k, m, n)$'' problem, which match up to a constant factor. While generalising existing lower bounds for $(1, m, n)$ and $(m, m, n)$, and also the upper bounds for $(m, m, n)$, we improve upon the previous upper bound for $(1, m, n)$~\citep{bib:arcsk2017} by eliminating a logarithmic factor. We furnish a fully sequential algorithm for $(k, m, n)$, which generalises the LUCB algorithm for $(m, m, n)$~\citep{bib:lucb}, and in fact empirically outperforms the $\F_2$ algorithm for $(1, m, n)$~\citep{bib:arcsk2017}. We extend our algorithms to the infinite setting, where our lower and upper bounds match up to a factor of $O(\log(k))$. PARAGRAPH NEEDS CHECKING.
+
+The interested reader may refer to Table~\ref{tab:prevressummary} right away for a summary of our theoretical results, which are explained in detail after formally specifying the $(k, m, n)$ and $(k, \rho)$ problems in Section~\ref{sec:problemdefinitionandcontributions}. In Section~\ref{sec:finiteinst} we present our algorithms and analysis for the finite setting, and in Section~\ref{sec:infinitemab} for the infinite setting. We present experimental results in Section~\ref{sec:expt}, and conclude with a discussion in Section~\ref{sec:conclusion}.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table*}[t]
+\centering
+\caption{Lower and upper bounds on the expected sample complexity (worst case over problem instances). The bounds for \QPK, $k > 1$ are for the special class of ``at most $k$-equiprobable" instances.
+}
+\label{tab:prevressummary}
+\resizebox{1\textwidth}{!}{
+\begin{tabular}{l|cc|c}
+\hline
+\multicolumn{1}{c|}{Problem} & Lower Bound & Previous Upper Bound & Current Upper Bound \\ \hline
+\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}$(1, 1, n)$\\ Best-Arm \end{tabular}} & $\Omega\left(\frac{n}{\epsilon^2}\log\frac{1}{\delta}\right)$ & $O\left(\frac{n}{\epsilon^2}\log\frac{1}{\delta}\right)$ & \multirow{2}{*}{Same as previous} \\
+ & {\footnotesize \citep{bib:mannor2004}} & {\footnotesize \citep{bib:evendar1}} &  \\ \hline
+\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}$(m, m, n)$\\ \textsc{Subset}\end{tabular}} & $\Omega\left(\frac{n}{\epsilon^2}\log\frac{m}{\delta}\right)$ & $O\left(\frac{n}{\epsilon^2}\log\frac{m}{\delta}\right)$ & \multirow{2}{*}{Same as previous} \\
+ & {\footnotesize \citep{bib:lucb}} & {\footnotesize \citep{bib:explorem}} &  \\ \hline
+\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}$(1, m, n)$\\ \textsc{Q-F}\end{tabular}} & $\Omega\left(\frac{n}{m\epsilon^2}\log\frac{1}{\delta}\right)$ & $O\left(\frac{n}{m\epsilon^2}\log^{2}\frac{1}{\delta}\right)$ & $O\left(\frac{1}{\epsilon^2}\left(\frac{n}{m}\log\frac{1}{\delta} + \log^2\frac{1}{\delta}\right)\right)$ \\
+ & \multicolumn{2}{c|}{{\footnotesize \citep{bib:arcsk2017}}} & {\footnotesize \textbf{This paper}} \\ \hline
+\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}$(k, m, n)$\\ $\textsc{Q-F}_k$\end{tabular}} & $\Omega\left(\frac{n}{(m-k+1)\epsilon^2}\log\frac{\binom{m}{k-1}}{\delta}\right)$ & - & $O\left(\frac{k}{\epsilon^2}\left(\frac{n\log k}{m}\log\frac{k}{\delta} + \log^2\frac{k}{\delta}\right)\right)^*$ \\
+ & {\footnotesize \textbf{This paper}} &  & {\footnotesize \textbf{This paper}\; (*\text{for}\; $k \geq 2$}) \\ \hline
+\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}$(1, \rho)$ ($|\A| = \infty$)\\ \textsc{Q-P}\end{tabular}} & $\Omega\left(\frac{1}{\rho\epsilon^2}\log\frac{1}{\delta}\right)$ & $O\left(\frac{1}{\rho\epsilon^2}\log^{2}\frac{1}{\delta}\right)$ & $O\left(\frac{1}{\epsilon^2}\left(\frac{1}{\rho}\log\frac{1}{\delta} + \log^2\frac{1}{\delta}\right)\right)$ \\
+ & \multicolumn{2}{c|}{{\footnotesize \citep{bib:arcsk2017}}} & {\footnotesize \textbf{This paper}} \\ \hline
+\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}$(k, \rho)$ ($|\A| = \infty$)\\ $\textsc{Q-P}_k$  \end{tabular}} & $\Omega\left(\frac{k}{\rho\epsilon^2}\log\frac{k}{\delta}\right)$ & - & $O\left(\frac{k}{\epsilon^2}\left(\frac{\log k}{\rho}\log\frac{k}{\delta} + \log^2\frac{k}{\delta}\right)\right)^*$\\
+ & {\footnotesize \textbf{This paper}} &  &  {\footnotesize \textbf{This paper}  (*for a special class with\; $k \geq 2$)}\\ \hline
+\end{tabular}
+}
+\end{table*}
+\section{Problem Definition and Contributions}
+\label{sec:problemdefinitionandcontributions}
+
+Let $\A$ be the set of arms in our given bandit instance. With each arm $a \in \A$, there is
+an associated reward distribution supported on a subset of $[0, 1]$, with mean $\mu_a$. When pulled, arm $a \in \A$ produces a reward drawn \iid from the corresponding distribution, and independent of the pulls of other arms.
+%Without the loss of generality, we can assume, for any two arms $a_i, a_j \in \A$, $\mu_{a_i} \geq \mu_{a_j}$, whenever $i \leq j$. The experimenter does not have any knowledge regarding reward distributions associated with the arms, except the fact that, the rewards are \iid samples from the corresponding reward distribution bounded in $[0, 1]$.
+At each round, based on the preceding sequence of pulls and rewards, an algorithm either decides
+which arm to pull, or stops and returns a set of arms.
+
+For a finite bandit instance with $n$ arms, we take $\A = \{a_{1}, a_{2}, \dots, a_{n}\}$, and assume, without
+loss of generality, that for arms $a_i, a_j \in \A$, $\mu_{a_i} \geq \mu_{a_j}$ whenever $i \leq j$. Given a tolerance $\epsilon \in [0, 1]$ and  $m \in \{1, 2,  \dots, n\}$, we call an arm $a \in \A$
+ $(\epsilon, m)$-optimal if $\mu_a \geq \mu_{a_m} - \epsilon$. We denote the set of 
+all the $(\epsilon, m)$-optimal arms as  $\mathcal{TOP}_m(\epsilon) \defeq \{a: \mu_a \geq \mu_{a_m} -\epsilon\}$. For brevity we denote $\mathcal{TOP}_m(0)$ as $\mathcal{TOP}_m$. 
+
+\begin{definition}{\QFK Problem.}
+An instance of the \QFK problem is of the form $(\A, n, m, k, \epsilon, \delta)$, where $\A$ is a set of arms with $|\A| = n \geq 2$; $m \in \{1, 2, \dots, n - 1\}$; $k \in \{1, \dots, m\}$; tolerance $\epsilon \in (0, 1]$; and mistake probability $\delta \in (0,1]$. An algorithm $\mathcal{L}$ is said to solve
+\QFK if for every instance of \QFK, it terminates
+with probability 1, and returns $k$ \emph{distinct} $(\epsilon, m)$-optimal arms with probability at least $1-\delta$.
+\end{definition}
+
+The \QFK problem is interesting from a theoretical standpoint because it covers an entire range of problems,
+with single-arm identification ($m = 1$) at one extreme and subset selection ($k = m$) at the other. Thus, any bounds on the sample
+complexity of \QFK also apply to \QF~\citep{bib:arcsk2017} and to \textsc{Subset}~\citep{bib:explorem}. 
+In this paper, we show that any algorithm that solves \QFK must incur 
+$\Omega\left(\frac{n}{(m - k + 1)\epsilon^{2}} \log\left(\frac{\binom{m}{k - 1}}{\delta}\right)\right)$ 
+pulls for some instance of the problem. We are unaware of bounds in the fixed-confidence setting that 
+involve such a combinatorial term inside the logarithm. 
+% Interestingly, we are able to show that this dependence is optimal: we do so by furnishing an algorithm that achieves a sample complexity within a constant factor of the lower bound.
+
+Table~\ref{tab:prevressummary} places our bounds in the context of previous results. 
+The bounds shown in the table consider the worst-case across problem instances; 
+in practice one can hope to do better on easier problem instances by adopting a fully 
+sequential sampling strategy. Indeed we adapt the \textsc{LUCB1} algorithm~\citep{bib:lucb} 
+to solve \QFK, denoting the new algorithm \GLUCB. Our analysis shows that for $k=1$, and $k=m$, 
+the upper bound on the sample complexity of this algorithm matches with those of 
+$\F_2$~\citep{bib:arcsk2017} and \LUCB~\citep{bib:lucb}, respectively, up to a multiplicative constant.
+Empirically, \GLUCB with $k = 1$ appears to be more efficient than $\F_2$ for solving \QF.
+
+Along the same lines that \citeauthor{bib:arcsk2017} (\citeyear{bib:arcsk2017}) define the \QP problem for infinite instances, we define a generalisation of \QP for selecting many good arms, which we denote \QPK. Given a set of arms $\A$, a sampling
+distribution $P_\A$, $\epsilon \in (0,1]$, and $\rho \in [0, 1]$, an arm $a \in \A$
+is called $[\epsilon, \rho]$-optimal if
+$P_{a' \sim P_\A} \{\mu_a \geq \mu_{a'} -\epsilon\} \geq 1 - \rho$. For $\rho, \epsilon \in [0,1]$, we define the set of all $[\epsilon, \rho]$-optimal arms as
+$\TOPRHO(\epsilon)$. As before, we denote $\TOPRHO(0)$ as $\TOPRHO$.
+%Also, let  $\mu_\rho$ be the $(1-\rho)$-th quantile of the probability distribution over arm means of the arms induced by $P_\A$, and hence, for all $a \in \TOPRHO$, and $a' \in \A \setminus \TOPRHO$, $\mu_{a'} < \mu_\rho \leq \mu_a$.
+A straightforward generalisation of \QP is as follows.
+% \begin{definition}{(\QPK)}
+% An instance of \QPK is fixed by a bandit instance
+% with a set of arms $\A$; a probability distribution over $P_\A$ over $\A$;
+%  $\rho \in (0, 1]$; tolerance $\epsilon \in (0, 1]$; and mistake probability $\delta \in (0,1]$.
+% An algorithm $\mathcal{L}$ is said to solve
+% \QPK if for every instance of \QPK as input, $\mathcal{L}$ terminates
+% with probability 1, and returns $k$ distinct $[\epsilon, \rho]$-optimal arms with probability
+% at least $1-\delta$.
+% \end{definition}
+
+\begin{definition}{\QPK Problem.}
+An instance of the \QPK problem
+is of the form $(\A, P_\A, k, \rho, \epsilon, \delta)$, where $\A$ is a set of arms; $P_\A$ is a probability distribution 
+over $\A$; quantile fraction $\rho \in (0, 1]$; tolerance $\epsilon \in (0, 1]$; and mistake probability $\delta \in (0,1]$. Such an instance is \emph{valid} if $|\TOPRHO| \geq k$, and \textit{invalid} otherwise.
+ % Given a valid instance of \QPK, 
+An algorithm $\mathcal{L}$ is said to solve
+\QPK, if for every \emph{valid} instance of \QPK, $\mathcal{L}$ terminates
+with probability 1, and returns $k$ \emph{distinct} $[\epsilon, \rho]$-optimal arms with probability
+at least $1-\delta$.
+\end{definition}
+
+\paragraph{At most $k$-equiprobable instances.} Observe that \QPK is well-defined only if the given instance has at least $k$ distinct arms in $\TOPRHO$; we term such an instance
+\textit{valid}. It is worth noting that even valid instances can require an arbitrary amount of computation
+to solve. For example, consider an instance with $k > 1$ arms in $\TOPRHO$, one among which has a probability $\gamma$ of being picked by $P_{\A}$, and the rest each a probability of $(\rho - \gamma) / (k - 1)$. Since the arms have to be identified by sampling from $P_{\A}$, the probability of identifying the latter $k - 1$ arms diminishes to $0$ as $\gamma \to \rho$, calling for an infinite number of guesses. To avoid this scenario, we restrict our analysis to a special class of valid instances in which $P_{\A}$ allocates no more than $\rho/k$ probability to any arm in 
+$\TOPRHO$. We refer to such instances as ``at most $k$-equiprobable'' instances. Formally,
+a \QPK problem instance given by $(\A, P_\A, k, \rho, \epsilon, \delta)$ is called
+``at most $k$-equiprobable'' if 
+$\forall a \in \TOPRHO$, $\Pr_{\mathbf{a}' \sim P_\A}\{\mathbf{a}' = a\} \leq \frac{\rho}{k}$.\footnote{In a recent paper, \citet{Ren+LS:2018} claim to solve the \QPK problem. However, they do not notice that the problem can be ill-posed. Also, even with an at most $k$-equiprobable instance as input, their algorithm fails to escape the $(1/\rho)\log^2(1/\delta)$ dependence.}
+
+
+\begin{comment}
+To understand the notion of \QPK let us take a concrete example.
+We clarify the notion of \QPK via the following example.
+
+\begin{example}
+\label{ex:vinvqpk}
+Given a set of arms $\A = [0,1]$, such that $\mu_a = a$. Now for some $\gamma \in [0,0.5]$,bwe define a sampling distribution $P_\A^{(\gamma)}$ on $\A$ such that $\Pr_{a \sim P_\A^{(\gamma)}}\{\mu_a \in [0, 0.5]\} = 0.4$, $  \Pr_{a \sim P_\A^{(\gamma)}}\{\mu_a \in (0.5, 0.95] \cup (0.98, 1)\} = 0$, $\Pr_{a \sim P_\A^{(\gamma)}}\{\mu_a (0.95, 0.98]\} = \gamma$, $\Pr_{a \sim P_\A^{(\gamma)}}\{\mu_a = 1\} = 0.6-\gamma$.
+\begin{small}
+\begin{align*}
+&\Pr_{a \sim P_\A^{(\gamma)}}\{0 \leq \mu_a \leq 0.5\} = 0.4,  \Pr_{a \sim P_\A^{(\gamma)}}\{0.5 < \mu_a \leq 0.95\} = 0,\\\nonumber
+&\Pr_{a \sim P_\A^{(\gamma)}}\{0.95 < \mu_a < 1\} = \gamma, \Pr_{a \sim P_\A^{(\gamma)}}\{\mu_a = 1\} = 0.6-\gamma. \nonumber
+% \label{eq:hardqpk}
+\end{align*}
+\end{small}
+For $\rho = 0.5$, $k = 2$, $\epsilon = 0.1$, and $\delta \in (0, 1)$, we define 
+an instance of  \QPK as $\I^{(\gamma)} \defeq (\A, P_\A^{(\gamma)}, k, \rho, \epsilon, \delta)$. 
+Now according to the definition of \QPK, the instance $\I^{(0)}$ is invalid; for 
+all $\nu \in (0, 0.1)$ an instance $\I^{(\nu)}$ is invalid, but there exist $k$ 
+distinct  $[\epsilon, \rho]$-optimal arms; however, its solution will cease to 
+exist for $\epsilon < 0.02$. Therefore, such an instance is not interesting, as 
+it may lack existence of arbitrarily close approximate solution. Again for any 
+$\gamma > 0.1$, $\I^{(\gamma)}$ is a valid instance; however, as 
+$\gamma \downarrow 0.1$, it gets arbitrarily harder to solve $\I^{(\gamma)}$. 
+\end{example}
+\end{comment}
+
+%Recently \citet{Ren+LS:2018} has claimed that their algorithm can solve any instance \QPK problem. However, they did not notice that the problem is ill-posed, and hence their solution is \emph{incorrect}. Also, given an at most $k$-equiprobable instance given as the input, their algorithm fail to escape the $\rho^{-1}\log^2(1/\delta)$ factor.
+
+Note that any instance of the $(1, \rho)$ or \QP~\citep{bib:arcsk2017} problem is necessarily valid and at most $1$-equiprobable. Interestingly, we improve upon the existing  upper bound for this problem, so it matches the lower bound up to an \textit{additive} $O\left(\frac{1}{\epsilon^{2}}\log^2\frac{1}{\delta}\right)$ term. Below we summarise our contributions.
+% Previous upper bounds for this problem vary as $\log^{2}(1/\delta)$~\citep{Aziz+AKA:2018}. 
+
+
+% \filler{For ``at most $k$-equiprobable'' instances of \QPK, we show a lower bound of $\Omega\left(\frac{k}{\rho\epsilon^2}\log\left(\frac{k}{\delta}\right)\right)$. We also present an algorithm that solves \QPK, and whose sample complexity on ``at most $k$-equiprobable'' instances is tight up to a factor of $O(\log(k))$.}
+\begin{enumerate}
+    \item We generalise two previous problems---\QF and \textsc{Subset}~\citep{bib:arcsk2017}---via \QFK. In Section~\ref{sec:finiteinst} we derive a lower bound on the worst case sample 
+    complexity to solve \QFK, which generalises existing lower bounds for \QF and \SUBSET.
+    
+    \item  In Section~\ref{sec:adaptive} we extend \textsc{LUCB1}~\citep{bib:lucb} 
+    to present a fully-sequential algorithm---\emph{\underbar{LUCB} for $\underbar{k}$ out of $\underbar{m}$}
+    or \GLUCB---to solve \QFK. 
+    We shows that for $k=1$, and $k=m$ the upper bound on its expected sample complexity
+    matches with those of $\F_2$, and \LUCB, respectively, up to a constant factor.
+    
+    \item  In Section~\ref{sec:infinitemab} we present algorithm \PPP to solve 
+    \QP with a sample complexity that is an additive $O((1/\epsilon^{2})\log^2(1/\delta))$ term away from the lower bound.
+    We extend it to an algorithm \KQP for solving at most $k$-equiprobable \QPK instances. Also, \PPP and \KQP can
+    solve \QF and \QFK respectively, and their sample complexities are the tightest 
+    instance-independent upper bounds as yet.
+
+    \item In Section~\ref{subsec:qpreducub} we present a general relation between the 
+    upper bound on the sample complexities for solving \QF and \QP. This helps in effectively transferring
+    any improvement in the upper bound on the former to the latter. Also, we conjecture
+    the existence of a class of \QF instances that can be solved more efficiently than their 
+    ``corresponding" \QP instances.
+    % show that how improving the 
+    % that if there exists an algorithm that solves
+    % \QF with sample complexity within a constant factor its lower bound, then there exists an algorithm that
+    % solves \QP with a sample complexity within a constant factor of the latter's lower bound.
+
+    \item In Section~\ref{sec:expt} we experimentally show that \GLUCB is
+    significantly more efficient than $\F_2$ for solving \QF.
+    %, and justify the result.
+    
+\end{enumerate}
+
+%Next, we present a short literature survey before we enter the technical details.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 1) We generalise the two related problems---\QF and \textsc{Subset}~\citep{bib:arcsk2017}
+% via \QFK. In Section~\ref{sec:finiteinst} we derive the lower bound on the worst case sample 
+% complexity to solve \QFK. It is easy to verify
+% that this lower bound generalises those for \QF and \SUBSET.
+% 2)  In Section~\ref{subsec:ghalving} we propose an algorithm based on 
+% \textsc{Halving}~\citep{bib:explorem}, that can solve \QFK 
+% with a number of pulls that matches the lower bound up to a constant factor.
+% 3)  In Section~\ref{sec:adaptive} we extend \textsc{LUCB1}~\citep{bib:lucb} 
+% to present an adaptive algorithm \emph{\underbar{LUCB} for $\underbar{k}$ out of $\underbar{m}$} or \GLUCB to solve \QFK. The analysis
+% shows that for $k=1$, and $k=m$ the upper bound on its expected sample complexity
+% matches with those of $\F_2$, and \LUCB respectively, up to a multiplicative constant.
+% 4) In Section~\ref{sec:infinitemab} we present algorithm \PPP to solve 
+% \QP with a number of pulls that matches the lower bound up to a constant factor.
+% Hence, it answers in positive to the question raised by~\citeauthor{Aziz+AKA:2018} regarding $\log^2\frac{1}{\delta}$ free upper bound. Also, we show that there is no algorithm that can solve \QPK using
+% $o(k)$ samples.
+% 5) In Section~\ref{sec:expt} we empirically show that \GLUCB is
+% significantly more efficient than $\F_2$ for solving \QF, and justify the result.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
