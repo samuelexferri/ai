@@ -309,7 +309,11 @@ PAC Identification of Many Good Arms in Stochastic Multi-Armed Bandits
 \end_inset
 
  pubblicato da Arghya Roy Chaudhuri e Shivaram Kalyanakrishnan a inizio
- 2019.
+ 2019 nella conferenza 
+\emph on
+Proceedings of the 36 th International Conference on Machine Learning
+\emph default
+, Long Beach, California, PMLR 97.
 \end_layout
 
 \begin_layout Standard
@@ -317,8 +321,10 @@ Nella prossimo paragrafo verrà presentato brevemente il contenuto sottoforma
  di abstract.
 \end_layout
 
-\begin_layout Standard
-Nel capitolo 
+\begin_layout Itemize
+Nel 
+\series bold
+capitolo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Contesto"
@@ -328,22 +334,28 @@ noprefix "false"
 
 \end_inset
 
- verrà descritto il contesto in cui si colloca il lavoro, quale è il problema
+ 
+\series default
+verrà descritto il contesto in cui si colloca il lavoro, quale è il problema
  trattato e quali sono i possibili scenari applicativi.
 \end_layout
 
-\begin_layout Standard
-Nel capitolo 
+\begin_layout Itemize
+Nel 
+\series bold
+capitolo 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "chap:Contesto"
+reference "chap:Studi-correlati"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
- verranno descrittti e commentati i lavori precedenti in merito allo stesso
+ 
+\series default
+verranno descrittti e commentati i lavori precedenti in merito allo stesso
  problema.
  Oltre ai lavori citati nei "related works" e nei riferimenti bibliograci
  del lavoro analizzato verranno descritti anche altri lavori presenti nella
@@ -352,64 +364,80 @@ noprefix "false"
 o essere utilizzate per risolvere il problema in analisi.
 \end_layout
 
-\begin_layout Standard
-Nel capitolo 
+\begin_layout Itemize
+Nel 
+\series bold
+capitolo 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "chap:Contesto"
+reference "chap:Descrizione"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
+
+\series default
  verrà descritto dettagliatamente il lavoro presentato nel paper comprese
  le proprietà teoriche usate.
 \end_layout
 
-\begin_layout Standard
-Nel capitolo 
+\begin_layout Itemize
+Nel 
+\series bold
+capitolo 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "chap:Contesto"
+reference "chap:Esperimenti"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
+
+\series default
  verranno descritti e replicati gli esperimenti svolti nel paper; non essendoci
  codice è stato richiesto di limitarsi a replicare gli esperimenti presenti
  nel paper senza farne di nuovi.
 \end_layout
 
-\begin_layout Standard
-Nel capitolo 
+\begin_layout Itemize
+Nel 
+\series bold
+capitolo 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "chap:Contesto"
+reference "chap:Conclusioni"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
+
+\series default
  verranno elencate le conclusioni sulle proprietà teoriche e sperimentali
  del metodo analizzato nel paper ed eventuali scenari applicativi nella
  vita reale.
 \end_layout
 
-\begin_layout Standard
-Nel capitolo 
+\begin_layout Itemize
+Nel 
+\series bold
+capitolo 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "chap:Contesto"
+reference "chap:Considerazioni-personali"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
+
+\series default
  verranno fatte delle considerazioni personali sull'impatto che questo progetto
  ha avuto sia in ambito universitario/lavorativo che nella quotidianetà.
 \end_layout
@@ -455,7 +483,11 @@ Probably Approximately Correct Learning: nella teoria dell'apprendimento
 \emph on
 k
 \emph default
- qualsiasi tra i migliori m bracci in un 
+ qualsiasi tra i migliori 
+\emph on
+m
+\emph default
+ arms in un 
 \emph on
 
 \begin_inset Formula $n$
@@ -477,7 +509,7 @@ literal "false"
 \emph on
 m
 \emph default
--bracci" 
+-arms" 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "chaudhuri2017pac"
@@ -494,7 +526,11 @@ re una singola buona soluzione spesso non è sufficiente.
 \emph on
 k
 \emph default
- bracci dai migliori m, dove 
+ arms dai migliori 
+\emph on
+m
+\emph default
+, dove 
 \emph on
 1≤k≤m
 \emph default
@@ -514,23 +550,15 @@ infinite-armed bandit
 \emph on
 n
 \emph default
-, che identifica un braccio dalla migliore frazione 
+, che identifica un arm dalla migliore frazione 
 \emph on
 ρ
 \emph default
- di bracci usando al massimo un numero (polinomiale-logatrimico) addizionale
+ di arms usando al massimo un numero (polinomiale-logatrimico) addizionale
  di campioni rispetto al limite inferiore, migliorando così rispetto a 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "chaudhuri2017pac"
-literal "false"
-
-\end_inset
-
- e 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "aziz2018pure"
+key "chaudhuri2017pac,aziz2018pure"
 literal "false"
 
 \end_inset
@@ -540,7 +568,7 @@ literal "false"
 \emph on
  k>1
 \emph default
- bracci distinti dalla frazione 
+ arms distinti dalla frazione 
 \emph on
 ρ
 \emph default
@@ -572,6 +600,394 @@ name "chap:Contesto"
 \end_layout
 
 \begin_layout Standard
+Prima di illustrare il problema centrale analizzato dal paper, definisco
+ il problema dello 
+\emph on
+stochastic multi-armed bandit 
+\emph default
+e descrivo i lavori integrativi fatti nel corso degli anni riguardanti questo
+ ambito.
+\end_layout
+
+\begin_layout Standard
+Il problema dello 
+\emph on
+stochastic multi-armed bandit 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "robbins1952some,berry1985bandit"
+literal "false"
+
+\end_inset
+
+ è un problema ben studiato riguardante decisioni in condizioni di incertezza.
+ Ogni leva (
+\emph on
+arm
+\emph default
+) di un bandit rappresenta una decisione.
+ Un pull della leva rappresenta prendere la decisione associata che produce
+ una ricompensa effettiva.
+ La ricompensa è determinata da una distribuzione i.i.d.
+ corrispondente all'arm selezionato, indipendente dai pull degli altri arms.
+ Ogni possibile alternativa deve essere indipendente dalle altre, ossia
+ che le decisioni prese precedentemente non condizionino il reward della
+ scelta attuale.
+ Ad ogni turno, il giocatore può consultare la precedente storia dei pull
+ effettuato e ricompense ricevute per decidere quale arm tirare.
+\end_layout
+
+\begin_layout Standard
+Il nome deriva dalle slot machines: il problema può essere visto come un
+ giocatore d'azzardo avente di fronte una fila di slot machine: il giocatore
+ deve decidere quali macchine giocare, quante volte giocare ogni macchina
+ e in quale ordine giocarle, e se continuare con la macchina corrente o
+ provare un'altra macchina.
+ Oppure può essere visto come una sola slot machine con piu leve (
+\emph on
+multi-armed
+\emph default
+) che possono essere tirate, ognuna con una propria probabilità di vincere
+ denaro; il giocatore, inizialmente ignoto di qualsiasi caratteristica delle
+ scelte possibili, deve trovare e scegliere la leva che gli porti ad ottenere
+ un maggiore quantitativo di denaro.
+\end_layout
+
+\begin_layout Standard
+Il giocatore deve elaborare una strategia, deve capire quando conviene provare
+ nuove scelte (
+\emph on
+exploration
+\emph default
+) oppure continuare a scegliere di tirare la leva più promettente in base
+ a quanto ha appreso (
+\emph on
+exploitation
+\emph default
+).
+ Vi è quindi un compromesso tra il continuare a sfruttare la leva che ha
+ il profitto più alto atteso oppure continuare a provare nuove leve ad ogni
+ turno cercando di esplorare e conoscere maggiori informazioni sui reward
+ che possono dare le altre leve.
+\end_layout
+
+\begin_layout Standard
+È quindi un problema di 
+\emph on
+reinforcement learning
+\emph default
+, si vuole massimizzare il reward medio ottenibile.
+ L'obiettivo del giocatore è massimizzare la ricompensa cumulativa attesa
+ (
+\emph on
+reward
+\emph default
+) data una serie di pull, oppure equivalentemente minimizzare il rimpianto
+ (
+\emph on
+regret
+\emph default
+) tirando sempre un solo arm.
+\end_layout
+
+\begin_layout Standard
+Un problema a parte è quello di identificare un arm con la più alta ricompensa
+ media 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bechhofer_1958,Paulson_1964,Even_Dar_2002"
+literal "false"
+
+\end_inset
+
+ sotto quello che viene chiamato 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+pure exploration regime
+\begin_inset Quotes frd
+\end_inset
+
+
+\emph default
+.
+ Per applicazioni come product testing 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "audibert2010best"
+literal "false"
+
+\end_inset
+
+ e strategy selection 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "goschin2013planning"
+literal "false"
+
+\end_inset
+
+, c'è una fase dedicata nell'esperimento in cui i premi ottenuti sono irrilevant
+i.
+ Piuttosto, l'obiettivo è quello di identificare l'arm migliore (1) in numero
+ minimo di prove, data una determinata soglia di confidenza 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Even_Dar_2002,kalyanakrishnan2010efficient"
+literal "false"
+
+\end_inset
+
+, o in alternativa, (2) con errore minimo, dopo un determinato numero di
+ prove 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "audibert2010best,alex2015simple"
+literal "false"
+
+\end_inset
+
+.
+ La nostra indagine rientra nella prima categoria, che viene definita 
+\emph on
+fixed confidence setting
+\emph default
+.
+ Concepito da 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bechhofer_1958"
+literal "false"
+
+\end_inset
+
+, l'identificazione del arm migliore in 
+\emph on
+fixed confidence setting
+\emph default
+ ha ricevuto una notevole attenzione nel corso degli anni 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Even_Dar_2002,gabillon2011multi,karnin2013almost,Jamieson_2014"
+literal "false"
+
+\end_inset
+
+.
+ Il problema è stato anche generalizzato per identificare il miglior sottoinsiem
+e di arms 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2012pac"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Più recentemente, Roy Chaudhuri e Kalyanakrishnan 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+ hanno introdotto il problema di identificare un singolo arm tra i migliori
+ 
+\emph on
+m
+\emph default
+ in un 
+\emph on
+n-armed-bandit
+\emph default
+.
+ Questa formulazione è particolarmente utile quando il numero di arms è
+ grande, e in effetti è una valida alternativa anche quando il numero di
+ arms è 
+\emph on
+infinito
+\emph default
+.
+ In molti scenari pratici, tuttavia, è necessario identificare più di un
+ singolo arm buono.
+ Per ad esempio, si immagini che un'azienda debba completare un lavoro che
+ è troppo grande per essere realizzato da un singolo lavoratore, ma che
+ può essere suddiviso in 5 sottoattività, ciascuna capace di essere completata
+ da un solo lavoratore.
+ Supponiamo che ci siano un totale di 1000 lavoratori e, grazie a un sondaggio,
+ si è rilevato che almeno il 15% dei lavoratori ha le competenze per completare
+ la sottoattività.
+ Per rispondere alle esigenze dell'azienda, sicuramente sarebbe sufficiente
+ identificare i 5 migliori lavoratori per la sottoattività.
+ Tuttavia, se i lavoratori devono essere identificati sulla base di un test
+ di abilità che ha risultati stocastici, sarebbe inutilmente costoso per
+ identificare il miglior sottoinsieme (
+\emph on
+best subset
+\emph default
+ selection).
+ Piuttosto sarebbe sufficiente identificare 5 lavoratori tra i migliori
+ 150.
+ 
+\bar under
+Questo è precisamente il problema che trattato nel paper: l'identificazione
+ di qualsiasi 
+\emph on
+k
+\emph default
+ tra i migliori 
+\emph on
+m
+\emph default
+ arm di un 
+\emph on
+n-armed bandit
+\emph default
+.
+
+\bar default
+ 
+\end_layout
+
+\begin_layout Standard
+Il problema assume uguale significato da un punto di vista teorico, dal
+ momento che generalizza sia il problema di selezione del miglior sottoinsieme
+ (
+\emph on
+best subset selection
+\emph default
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2010efficient"
+literal "false"
+
+\end_inset
+
+ (dato 
+\emph on
+k = m
+\emph default
+) e il problema di selezionare un arm singolo da miglior sottoinsieme (
+\emph on
+single arm from the best subset
+\emph default
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+ (dato 
+\emph on
+k = 1
+\emph default
+).
+ A differenza del 
+\emph on
+best subset selection
+\emph default
+, il problema rimane fattibile da risolvere anche quando 
+\emph on
+n
+\emph default
+ è grande o infinito, fintanto che il rapporto 
+\emph on
+m/n
+\emph default
+ è una costante 
+\begin_inset Formula $\rho>0$
+\end_inset
+
+.
+ Tradizionalmente,
+\emph on
+ infinite-armed bandits 
+\emph default
+sono stati affrontati ricorrendo a informazioni secondarie come le distanze
+ tra gli arms 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Agrawal_1995,kleinberg2005nearly"
+literal "false"
+
+\end_inset
+
+ o la struttura della loro distribuzione dei rewards
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wang2009algorithms"
+literal "false"
+
+\end_inset
+
+.
+ Questo approccio introduce parametri aggiuntivi, che potrebbero non essere
+ facili da settare in pratica.
+ In alternativa, buoni arms possono essere raggiunti semplicemente selezionando
+ gli arms a caso e testando facendo il pull.
+ Quest'ultimo approccio è stato applicato con successo sia nella minimizzazione
+ del rimpianto 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Herschkorn_1996"
+literal "false"
+
+\end_inset
+
+ che in 
+\emph on
+fixed confidence setting
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "goschin2013planning,chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+.
+ La nostra formulazione apre la strada all'identificazione di "molti (
+\emph on
+k
+\emph default
+) good" (tra i migliori 
+\emph on
+m
+\emph default
+ degli 
+\emph on
+n
+\emph default
+) arms in questo modo.
+\end_layout
+
+\begin_layout Standard
+Nella tabella presente in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Tabella"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ vi è un riepilogo dei risultati teorici che saranno trattati nel paper.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -581,9 +997,21 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename img/unibg.jpg
+	filename img/Tabella.png
 	lyxscale 50
-	scale 40
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Tabella"
 
 \end_inset
 
@@ -594,7 +1022,18 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-XXXXX
+Limiti inferiore e superiore sulla complessità del campione attesa (ponendosi
+ nel caso peggiore).
+ I limiti per 
+\emph on
+(k;), k>1
+\emph default
+ sono per la classe speciale di istanze “al massimo 
+\emph on
+k
+\emph default
+-equiprobabili”.
+ 
 \end_layout
 
 \end_inset
@@ -605,6 +1044,731 @@ XXXXX
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Scenari applicativi
+\end_layout
+
+\begin_layout Standard
+In pratica, il problema dello 
+\emph on
+stochastic multi-armed bandit
+\emph default
+ è stato usato per modellare problemi come la gestione di progetti di ricerca
+ di grandi organizzazioni sia in ambito scientifico che farmaceutico.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Network Server Selection
+\end_layout
+
+\begin_layout Standard
+Un lavoro deve essere elaborato su uno dei numerosi server, ognuno dei quali
+ ha differenti velocita di processo dovute a distanza geografica, carico
+ ecc.
+ Ogni server può essere visto come un arm.
+ Nel tempo si vuole apprendere quale sia il miglior arm da usare.
+ Questo problema è stato applicato nel routing, nel DNS server selection
+ e nel cloud computing.
+ Approfondire l'adaptive routing 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Awerbuch_2008"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Server.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Server"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Server
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Internet Advertising
+\end_layout
+
+\begin_layout Standard
+Ogni volta che un utente visita il sito è necessario scegliere di visualizzare
+ una delle 𝐾 pubblicità possibili.
+ La ricompensa si ottiene se un utente fa click sulla pubblicità.
+ Nessuna conoscenza dell'utente, del contenuto dell'annuncio e del contenuto
+ della pagina web richiesta.
+ Approfondire i recommender system 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li_2010"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Google Ads.png
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Google Ads"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Google Ads
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Design di trial clinici
+\end_layout
+
+\begin_layout Standard
+Il trial clinico si riferisce a uno studio medico farmacologico, biomedico
+ o correlato alla salute sull'uomo.
+ Vengono adottati protocolli ben definiti.
+ L'obiettivo e quello di vericare che una nuova cura sia piu efficace, migliore
+ e soprattutto sicura di quella normalmente impiegata.
+ Assume notevole importanza l'insieme di campioni sui quali poter testare
+ nuove cure.
+ Approfondire i trial clinici 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "robbins1952some"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Trial clinici.jpg
+	lyxscale 50
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Trial clinici"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Trial clinici
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Progettazione di farmaci
+\end_layout
+
+\begin_layout Standard
+Vi sono applicazioni anche riguardanti la progettazione di farmaci 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "will2016drug"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Gestione di grandi reti di sensori
+\end_layout
+
+\begin_layout Standard
+Le applicazioni di questo problema includono la gestione di grandi reti
+ di sensori 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mousavi_2016"
+literal "false"
+
+\end_inset
+
+, in cui più sensori affidabili devono essere identificati facendo il minor
+ numero di test possibile.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Crowdsouring distribuito
+\end_layout
+
+\begin_layout Standard
+Vi sono applicazioni riguardanti il crowdsourcing distribuito 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Tran_Thanh_2014"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Studi correlati
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Studi-correlati"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lavori citati nel paper
+\end_layout
+
+\begin_layout Standard
+In questa sezione verranno presentati in ordine alfabetico tutti i lavori
+ citati nel paper corredati da una descrizione riguardante il contenuto
+ del problema principale trattato.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Agrawal_1995"
+literal "false"
+
+\end_inset
+
+ Agrawal, R.
+ The continuum-armed bandit problem.
+ SIAM J.
+ Control Optim., 33(6):1926–1951, 1995.
+\end_layout
+
+\begin_layout Standard
+In questo articolo viene considerato il problema del 
+\emph on
+stochastic multi-armed bandit
+\emph default
+ in cui le arms sono scelte da un sottoinsieme dei numeri reali e si presume
+ che le ricompense medie siano una funzione continua delle arms.
+ Il problema con un numero infinito di arms è molto più difficile del solito
+ problema con un numero finito di arms perché il built-in learning è ora
+ di dimensione infinita.
+ Viene elaborato uno schema di apprendimento basato sullo stimatore a kernel
+ per la ricompensa media in funzione degli arms.
+ Usando questo schema di apprendimento, viene costruita una classe di controllo
+ di equivalenza di certezza con schemi di forzatura e successivamente vengono
+ derrivati i limiti superiori asintotici rispetto alla loro perdita di apprendim
+ento.
+ In base ai dati in loro possesso, questi limiti sono i rates più restrittivi
+ finora disponibili.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "audibert2010best"
+literal "false"
+
+\end_inset
+
+ Audibert, J.-Y., Bubeck, S., and Munos, R.
+ Best arm identification in multi-armed bandits.
+ In Proc.
+ COLT 2010, pp.
+ 41–53.
+ Omnipress, 2010.
+\end_layout
+
+\begin_layout Standard
+In questo articolo viene trattato il problema di trovare l'arms migliore
+ in 
+\emph on
+stochastic multi-armed bandit.
+
+\emph default
+ Il rimpianto (
+\emph on
+regret
+\emph default
+) di un previsore è qui definito dal gap tra la ricompensa media del arm
+ ottimale e la ricompensa media del arm scelto.
+ Proponiamo una 
+\emph on
+UCB policy
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Upper Confidence Bound (UCB) policy
+\end_layout
+
+\end_inset
+
+ altamente esplorativa e un nuovo algoritmo basato su scarti successivi.
+ Viene mostrato che questi algoritmi sono essenzialmente ottimali poiché
+ il loro rimpianto diminuisce esponenzialmente a una velocità che è, fino
+ a un fattore logaritmico, il migliore possibile.
+ Tuttavia, mentre la 
+\emph on
+UCB policy
+\emph default
+ richiede l'ottimizzazione di un parametro in base alla complessità non
+ osservabile dell'attività, la 
+\emph on
+successive rejects policy
+\emph default
+ beneficia di essere priva di parametri e indipendente dal ridimensionamento
+ dei premi.
+ Come sottoprodotto della nostra analisi, mostriamo che l'identificazione
+ del arm migliore (quando è unico) richiede un numero di campioni di ordine
+ (fino a un fattore 
+\emph on
+log(K)
+\emph default
+) 
+\begin_inset Formula $Σi\:1/Δ_{i}^{2}$
+\end_inset
+
+, dove la somma è sugli arms non ottimali e 
+\begin_inset Formula $Δ_{i}$
+\end_inset
+
+ rappresentana la differenza tra la ricompensa media del arm migliore e
+ quella del arm 
+\emph on
+i
+\emph default
+.
+ Ciò generalizza il fatto ben noto che è necessario un ordine di 
+\begin_inset Formula $1/Δ^{2}$
+\end_inset
+
+ campioni per differenziare le medie di due distribuzioni con gap 
+\begin_inset Formula $Δ$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Awerbuch_2008"
+literal "false"
+
+\end_inset
+
+ Awerbuch, B.
+ and Kleinberg, R.
+ Online linear optimization and adaptive routing.
+ In J.
+ Comput.
+ Syst.
+ Sci., volume 74, pp.
+ 97–114.
+ Academic Press, Inc., 2008.
+\end_layout
+
+\begin_layout Standard
+In questo articolo si studia un problema di ottimizzazione lineare online
+ generalizzando il problema dei
+\emph on
+ stochastic multi-armed bandits
+\emph default
+.
+ Motivati principalmente dal compito di progettare algoritmi di routing
+ adattivi per reti sovrapposte, presentano due 
+\emph on
+randomized online algorithms
+\emph default
+ per selezionare una sequenza di percorsi di routing in una rete con ritardi
+ ai bordi sconosciuti che variano nel tempo in modo imprevedibile.
+ Contrariamente ai precedenti lavori su questo problema, viene supposto
+ che l'unico feedback dopo aver scelto un determinato percorso sia il ritardo
+ totale end-to-end del percorso selezionato.
+ Vengono presentati due algoritmi il cui regret è sublineare nel numero
+ di prove e polinomiale nelle dimensioni della rete.
+ Il primo di questi algoritmi generalizza per risolvere qualsiasi problema
+ di ottimizzazione lineare online, dato un oracolo per l'ottimizzazione
+ delle funzioni lineari sull'insieme delle strategie; il loro lavoro può
+ quindi essere interpretato come una riduzione generalizzata dall'ottimizzazione
+ lineare offline a quella online.
+ Un elemento chiave di questo algoritmo è la nozione di 
+\emph on
+barycentric spanner
+\emph default
+, un tipo speciale di base per lo spazio vettoriale che consente a qualsiasi
+ strategia possibile di essere espressa come una combinazione lineare di
+ vettori di base utilizzando coefficienti limitati.
+ Inoltre è presentato anche un secondo algoritmo per il problema del percorso
+ più breve (online), che risolve il problema utilizzando una catena di oracoli
+ decisionali (online), uno su ciascun nodo del grafico.
+ Ciò presenta numerosi vantaggi rispetto all'approccio di ottimizzazione
+ lineare online.
+ In primo luogo, è efficace contro un avversario adattivo, mentre il nostro
+ algoritmo di ottimizzazione lineare assume un avversario inconsapevole.
+ In secondo luogo, anche nel caso di un avversario inconsapevole, il secondo
+ algoritmo si comporta leggermente meglio del primo, come misurato dal loro
+ regret additivo.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aziz2018pure"
+literal "false"
+
+\end_inset
+
+ Aziz, M., Anderton, J., Kaufmann, E., and Aslam, J.
+ Pure exploration in infinitely-armed bandit models with fixed confidence.
+ In Proc.
+ ALT 2018, volume 83 of PMLR, pp.
+ 3–24.
+ PMLR, 2018.
+\end_layout
+
+\begin_layout Standard
+Consideriamo il problema dell'identificazione del arm quasi ottimale in
+ 
+\emph on
+fixed confidence setting
+\emph default
+ del problema 
+\emph on
+infinite-armed bandits
+\emph default
+ quando non si sa nulla sulla distribuzione degli arms.
+ Viene introdotto un framework simile al PAC
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Probably Approximately Correct Learning: nella teoria dell'apprendimento
+ computazionale, l'apprendimento approssimativamente corretto (PAC) è un
+ framework per l'analisi matematica del machine learning proposto nel 1984
+ da Leslie Valiant.
+ In questo framework, il learner riceve campioni e deve selezionare una
+ funzione di generalizzazione (chiamata ipotesi) da una certa classe di
+ possibili funzioni.
+ L'obiettivo è che, con alta probabilità, la funzione selezionata avrà un
+ errore di generalizzazione basso.
+ Il learner deve essere in grado di apprendere il concetto dato qualsiasi
+ rapporto di approssimazione arbitrario, probabilità di successo o distribuzione
+ dei campioni.
+\end_layout
+
+\end_inset
+
+ all'interno del quale derivare e trasmettere i risultati; hanno derivato
+ un limite inferiore sulla complessità del campione per l'identificazione
+ del arm quasi ottimale; hanno proposto un algoritmo che identifica un arm
+ quasi ottimale con alta probabilità e deriva un limite superiore sulla
+ complessità del campione che è compreso entro un fattore log del loro limite
+ inferiore calcolato; hanno discusso se la dipendenza 
+\begin_inset Formula $log^{2}(1/Δ)$
+\end_inset
+
+ è inevitabile per gli algoritmi "a due fasi" (prima selezionano gli arms,
+ poi identificano il migliore) nell'impostazione infinita.
+ Questo lavoro consente l'applicazione di bandit models ta una classe più
+ ampia di problemi in cui valgono meno ipotesi.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bechhofer_1958"
+literal "false"
+
+\end_inset
+
+ Bechhofer, R.
+ E.
+ A sequential multiple-decision procedure for selecting the best one of
+ several normal populations with a common unknown variance, and its use
+ with various experimental designs.
+ In Biometrics, volume 14, pp.
+ 408–429.
+ Wiley International Biometric Society, 1958.
+\end_layout
+
+\begin_layout Standard
+In questo articolo sono presentati diversi risultati importanti per l'applicazio
+ne pratica della procedura sequenziale con decisioni multiple che consiste
+ nel selezionare da un gruppo di k distribuiti con una distribuzione normale
+ con una varianza sconosciuta quello con la media della popolazione più
+ grande.
+ Sono state fatte anche delle simulazioni di Monte Carlo.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "berry1985bandit"
+literal "false"
+
+\end_inset
+
+ Berry, D.
+ and Fristedt, B.
+ Bandit Problems: Sequential Allocation of Experiments.
+ Chapman & Hall, 1985.
+\end_layout
+
+\begin_layout Standard
+In questo paper sono stati presentati ulteriori nuovi risultati riguardanti
+ il problema 
+\emph on
+stochastic multi-armed bandits.
+ 
+\emph default
+Tuttavia molti risultati non sono stati dimostrati perchè semplici da capire
+ oppure attraverso una dimostrazione concettuale invece di usare i calcoli.
+\end_layout
+
+\begin_layout Section
+Lavori citati nella letteratura
+\end_layout
+
+\begin_layout Standard
+In questa sezione sono analizzati ulteriori paper presenti nella letteratura
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Google Scholar (https://scholar.google.it/)
+\end_layout
+
+\end_inset
+
+ che sono serviti sia per la comprensione che per l'approfondimento del
+ paper assegnato.
+\end_layout
+
+\begin_layout Standard
+Ulteriori lavori presenti nella letteratura riguardanti il problema 
+\emph on
+stochastic multi-armed bandit 
+\emph default
+possono essere trovati anche nei related works del paper 
+\emph on
+Batched Multi-armed Bandits Problem
+\emph default
+ di Zijun Gao, Yanjun Han, Zhimei Ren, Zhengqing Zhou che avevo in parte
+ letto e analizzato nella sessione estiva.
+\end_layout
+
+\begin_layout Standard
+CORSIVO I TITOLI
+\end_layout
+
+\begin_layout Chapter
+Descrizione
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Descrizione"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Versione estesa del file.
+\end_layout
+
+\begin_layout Chapter
+Esperimenti
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Esperimenti"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Conclusioni
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Conclusioni"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Considerazioni personali
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Considerazioni-personali"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il paper 
+\emph on
+Batched Multi-armed Bandits Problem
+\emph default
+ di Zijun Gao, Yanjun Han, Zhimei Ren, Zhengqing Zhou 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gao2019batched"
+literal "false"
+
+\end_inset
+
+, presentato tra le scelte disponibili nella sessione estiva mi incuriosiva
+ già infatti avevo già letto e analizzato alcune parti che mi sono risultate
+ poi utili nel produrre l'analisi del paper a me assegnato.
+\end_layout
+
+\begin_layout Standard
+Un'opzione per la tesi.
 \end_layout
 
 \end_body
