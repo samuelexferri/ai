@@ -69,7 +69,7 @@ customHeadersFooters
 \maintain_unincluded_children false
 \language italian
 \language_package default
-\inputencoding auto
+\inputencoding utf8-plain
 \fontencoding global
 \font_roman "lmodern" "default"
 \font_sans "lmss" "default"
@@ -116,9 +116,11 @@ customHeadersFooters
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine basic
-\cite_engine_type default
+\cite_engine biblatex
+\cite_engine_type authoryear
 \biblio_style plain
+\biblatex_bibstyle alphabetic-verb
+\biblatex_citestyle alphabetic-verb
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -309,7 +311,7 @@ PAC Identification of Many Good Arms in Stochastic Multi-Armed Bandits
 \end_inset
 
  pubblicato da Arghya Roy Chaudhuri e Shivaram Kalyanakrishnan a inizio
- 2019 nella conferenza 
+ 2019 e mostrato in 
 \emph on
 Proceedings of the 36 th International Conference on Machine Learning
 \emph default
@@ -400,7 +402,7 @@ noprefix "false"
 \series default
  verranno descritti e replicati gli esperimenti svolti nel paper; non essendoci
  codice è stato richiesto di limitarsi a replicare gli esperimenti presenti
- nel paper senza farne di nuovi.
+ nel paper.
 \end_layout
 
 \begin_layout Itemize
@@ -419,7 +421,7 @@ noprefix "false"
 
 \series default
  verranno elencate le conclusioni sulle proprietà teoriche e sperimentali
- del metodo analizzato nel paper ed eventuali scenari applicativi nella
+ dei metodi analizzati nel paper ed eventuali scenari applicativi nella
  vita reale.
 \end_layout
 
@@ -443,14 +445,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Infine sono presenti anche i riferimenti bibliograci citati nell'elaborato.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
+Infine sono presenti anche i riferimenti bibliografici citati nell'elaborato.
 \end_layout
 
 \begin_layout Section
@@ -458,15 +453,30 @@ Abstract
 \end_layout
 
 \begin_layout Standard
-Nell'ambito PAC
+Nell'ambito 
+\emph on
+PAC
+\emph default
+
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Probably Approximately Correct Learning: nella teoria dell'apprendimento
- computazionale, l'apprendimento approssimativamente corretto (PAC) è un
- framework per l'analisi matematica del machine learning proposto nel 1984
- da Leslie Valiant.
+
+\series bold
+Probably Approximately Correct (
+\emph on
+PAC
+\emph default
+) Learning:
+\series default
+ nella teoria dell'apprendimento computazionale, l'apprendimento approssimativam
+ente corretto (
+\emph on
+PAC
+\emph default
+) è un framework per l'analisi matematica del machine learning proposto
+ nel 1984 da Leslie Valiant.
  In questo framework, il learner riceve campioni e deve selezionare una
  funzione di generalizzazione (chiamata ipotesi) da una certa classe di
  possibili funzioni.
@@ -531,28 +541,39 @@ k
 m
 \emph default
 , dove 
-\emph on
-1≤k≤m
-\emph default
+\begin_inset Formula $1≤k≤m$
+\end_inset
+
 , serve come alternativa più efficace.
  Verrà presentato un limite inferiore alla complessità del caso peggiore
  per il generico 
 \emph on
 k
 \emph default
- e un algoritmo PAC completamente sequenziale molto più efficiente in casi
- semplici.
+ e un algoritmo 
+\emph on
+PAC
+\emph default
+ completamente sequenziale molto più efficiente in casi semplici.
  Inoltre, estendendo l'analisi a 
 \emph on
 infinite-armed bandit
 \emph default
-, verrà presentato un algoritmo PAC che è indipendente da 
+, verrà presentato un algoritmo 
+\emph on
+PAC
+\emph default
+ che è indipendente da 
 \emph on
 n
 \emph default
 , che identifica un arm dalla migliore frazione 
 \emph on
-ρ
+
+\begin_inset Formula $ρ$
+\end_inset
+
+
 \emph default
  di arms usando al massimo un numero (polinomiale-logatrimico) addizionale
  di campioni rispetto al limite inferiore, migliorando così rispetto a 
@@ -564,20 +585,28 @@ literal "false"
 \end_inset
 
 .
- Il problema di identificare
-\emph on
- k>1
-\emph default
+ Il problema di identificare 
+\begin_inset Formula $k>1$
+\end_inset
+
  arms distinti dalla frazione 
 \emph on
-ρ
+
+\begin_inset Formula $ρ$
+\end_inset
+
+
 \emph default
  migliore non è sempre ben definito; per una classe speciale di questo problema
  verranno presentati i limiti inferiore e superiore.
  Infine, attraverso una riduzione, verrà stabilita una relazione tra i limiti
  superiori per il problema "uno dei migliori 
 \emph on
-ρ
+
+\begin_inset Formula $ρ$
+\end_inset
+
+
 \emph default
 " per istanze infinite e quello "uno dei migliori 
 \emph on
@@ -628,15 +657,19 @@ literal "false"
 arm
 \emph default
 ) di un bandit rappresenta una decisione.
- Un pull della leva rappresenta prendere la decisione associata che produce
- una ricompensa effettiva.
+ Un 
+\emph on
+pull
+\emph default
+ della leva rappresenta prendere la decisione associata che produce una
+ ricompensa effettiva.
  La ricompensa è determinata da una distribuzione i.i.d.
  corrispondente all'arm selezionato, indipendente dai pull degli altri arms.
  Ogni possibile alternativa deve essere indipendente dalle altre, ossia
  che le decisioni prese precedentemente non condizionino il reward della
  scelta attuale.
  Ad ogni turno, il giocatore può consultare la precedente storia dei pull
- effettuato e ricompense ricevute per decidere quale arm tirare.
+ effettuati e delle ricompense ricevute per decidere quale arm tirare.
 \end_layout
 
 \begin_layout Standard
@@ -651,7 +684,7 @@ multi-armed
 \emph default
 ) che possono essere tirate, ognuna con una propria probabilità di vincere
  denaro; il giocatore, inizialmente ignoto di qualsiasi caratteristica delle
- scelte possibili, deve trovare e scegliere la leva che gli porti ad ottenere
+ leve presenti, deve trovare e scegliere la leva che gli porti ad ottenere
  un maggiore quantitativo di denaro.
 \end_layout
 
@@ -704,15 +737,7 @@ literal "false"
 
  sotto quello che viene chiamato 
 \emph on
-
-\begin_inset Quotes fld
-\end_inset
-
 pure exploration regime
-\begin_inset Quotes frd
-\end_inset
-
-
 \emph default
 .
  Per applicazioni come product testing 
@@ -752,7 +777,8 @@ literal "false"
 \end_inset
 
 .
- La nostra indagine rientra nella prima categoria, che viene definita 
+ Lo studio presente nel paper rientra nella prima categoria, che viene definita
+ 
 \emph on
 fixed confidence setting
 \emph default
@@ -828,8 +854,9 @@ infinito
  Per rispondere alle esigenze dell'azienda, sicuramente sarebbe sufficiente
  identificare i 5 migliori lavoratori per la sottoattività.
  Tuttavia, se i lavoratori devono essere identificati sulla base di un test
- di abilità che ha risultati stocastici, sarebbe inutilmente costoso per
- identificare il miglior sottoinsieme (
+ di abilità che ha risultati stocastici, questo test sarebbe inutilmente
+ costoso se il fine è identificare il miglior sottoinsieme di lavoratori
+ (
 \emph on
 best subset
 \emph default
@@ -923,7 +950,7 @@ literal "false"
 
 \end_inset
 
- o la struttura della loro distribuzione dei rewards
+ o la struttura della loro distribuzione dei rewards 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "wang2009algorithms"
@@ -936,8 +963,11 @@ literal "false"
  facili da settare in pratica.
  In alternativa, buoni arms possono essere raggiunti semplicemente selezionando
  gli arms a caso e testando facendo il pull.
- Quest'ultimo approccio è stato applicato con successo sia nella minimizzazione
- del rimpianto 
+ Quest'ultimo approccio è stato applicato con successo sia in 
+\emph on
+regret minimisation setting
+\emph default
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Herschkorn_1996"
@@ -958,11 +988,12 @@ literal "false"
 \end_inset
 
 .
- La nostra formulazione apre la strada all'identificazione di "molti (
+ La formulazione presente nel testo apre la strada all'identificazione di
+ "molti (
 \emph on
 k
 \emph default
-) good" (tra i migliori 
+) buoni" (tra i migliori 
 \emph on
 m
 \emph default
@@ -971,6 +1002,28 @@ m
 n
 \emph default
 ) arms in questo modo.
+\end_layout
+
+\begin_layout Standard
+Nel paper verranno proposti diversi algoritmi Probably Approximately Correct
+ Learning (
+\emph on
+PAC
+\emph default
+): l'apprendimento approssimativamente corretto (
+\emph on
+PAC
+\emph default
+) è un framework per l'analisi matematica del machine learning proposto
+ nel 1984 da Leslie Valiant.
+ In questo framework, il learner riceve campioni e deve selezionare una
+ funzione di generalizzazione (chiamata ipotesi) da una certa classe di
+ possibili funzioni.
+ L'obiettivo è che, con alta probabilità, la funzione selezionata avrà un
+ errore di generalizzazione basso.
+ Il learner deve essere in grado di apprendere il concetto dato qualsiasi
+ rapporto di approssimazione arbitrario, probabilità di successo o distribuzione
+ dei campioni.
 \end_layout
 
 \begin_layout Standard
@@ -1026,7 +1079,15 @@ Limiti inferiore e superiore sulla complessità del campione attesa (ponendosi
  nel caso peggiore).
  I limiti per 
 \emph on
-(k;), k>1
+
+\begin_inset Formula $(k;\rho)$
+\end_inset
+
+, 
+\begin_inset Formula $k>1$
+\end_inset
+
+
 \emph default
  sono per la classe speciale di istanze “al massimo 
 \emph on
@@ -1066,14 +1127,11 @@ Network Server Selection
 \end_layout
 
 \begin_layout Standard
-Un lavoro deve essere elaborato su uno dei numerosi server, ognuno dei quali
- ha differenti velocita di processo dovute a distanza geografica, carico
- ecc.
- Ogni server può essere visto come un arm.
- Nel tempo si vuole apprendere quale sia il miglior arm da usare.
- Questo problema è stato applicato nel routing, nel DNS server selection
- e nel cloud computing.
- Approfondire l'adaptive routing 
+Nel caso in cui un lavoro deve essere elaborato su uno dei numerosi server,
+ ognuno dei quali ha differenti velocita di processo dovute a distanza geografic
+a, carico ecc., ogni server può essere visto come un arm; nel tempo si vuole
+ apprendere quale sia il miglior arm da usare.
+ Questo problema è stato applicato nel routing (adaptive routing) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Awerbuch_2008"
@@ -1081,7 +1139,7 @@ literal "false"
 
 \end_inset
 
-.
+, nel DNS server selection e nel cloud computing.
 \end_layout
 
 \begin_layout Standard
@@ -1133,6 +1191,57 @@ Server
 \end_layout
 
 \begin_layout Standard
+In questo articolo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Awerbuch_2008"
+literal "false"
+
+\end_inset
+
+ si studia un problema di ottimizzazione lineare online generalizzando il
+ problema del
+\emph on
+ stochastic multi-armed bandit
+\emph default
+.
+ Motivati principalmente dal compito di progettare algoritmi di routing
+ adattivi per reti sovrapposte, gli autori presentano due 
+\emph on
+randomized online algorithms
+\emph default
+ per selezionare una sequenza di percorsi di routing in una rete con ritardi
+ alle frontiere sconosciuti che variano nel tempo in modo imprevedibile.
+ Contrariamente ai precedenti lavori su questo problema, viene supposto
+ che l'unico feedback dopo aver scelto un determinato percorso sia il ritardo
+ totale end-to-end del percorso selezionato.
+ Vengono presentati due algoritmi il cui regret è sublineare nel numero
+ di prove e polinomiale nelle dimensioni della rete.
+ Il primo di questi algoritmi generalizza per risolvere qualsiasi problema
+ di ottimizzazione lineare online, dato un oracolo per l'ottimizzazione
+ delle funzioni lineari sull'insieme delle strategie; il lavoro degli autori
+ può quindi essere interpretato come una riduzione generalizzata dall'ottimizzaz
+ione lineare offline a quella online.
+ Un elemento chiave di questo algoritmo è la nozione di 
+\emph on
+barycentric spanner
+\emph default
+, un tipo speciale di base per lo spazio vettoriale che consente a qualsiasi
+ strategia possibile di essere espressa come una combinazione lineare di
+ vettori di base utilizzando coefficienti limitati.
+ Inoltre è presentato anche un secondo algoritmo per il problema del percorso
+ più breve (online), che risolve il problema utilizzando una catena di oracoli
+ decisionali (online), uno su ciascun nodo del grafico.
+ Ciò presenta numerosi vantaggi rispetto all'approccio di ottimizzazione
+ lineare online.
+ In primo luogo, è efficace contro un avversario adattivo, mentre l'algoritmo
+ sviluppato di ottimizzazione lineare assume un avversario inconsapevole.
+ In secondo luogo, anche nel caso di un avversario inconsapevole, il secondo
+ algoritmo si comporta leggermente meglio del primo, come misurato dal loro
+ regret additivo.
+\end_layout
+
+\begin_layout Standard
 
 \series bold
 Internet Advertising
@@ -1140,11 +1249,15 @@ Internet Advertising
 
 \begin_layout Standard
 Ogni volta che un utente visita il sito è necessario scegliere di visualizzare
- una delle 𝐾 pubblicità possibili.
- La ricompensa si ottiene se un utente fa click sulla pubblicità.
- Nessuna conoscenza dell'utente, del contenuto dell'annuncio e del contenuto
- della pagina web richiesta.
- Approfondire i recommender system 
+ una delle 
+\emph on
+k
+\emph default
+ pubblicità possibili; la ricompensa si ottiene se un utente fa click sulla
+ pubblicità.
+ Inizialmente non si ha nessuna conoscenza dell'utente, del contenuto dell'annun
+cio e del contenuto della pagina web richiesta.
+ Questo è un caso dei recommender system 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Li_2010"
@@ -1152,7 +1265,8 @@ literal "false"
 
 \end_inset
 
-.
+, altre applicazioni possibili sono sul consigliare video correlati a quello
+ che l'utente sta guardando su piattaforme come YouTube.
 \end_layout
 
 \begin_layout Standard
@@ -1204,20 +1318,234 @@ Google Ads
 \end_layout
 
 \begin_layout Standard
+La 
+\emph on
+online recommendation
+\emph default
+ è una caratteristica importante in molte applicazioni.
+ In pratica, l'interazione tra gli utenti e il sistema di raccomandazione
+ potrebbe essere scarsa, vale a dire che gli utenti non interagiscono sempre
+ con il sistema di segnalazione.
+ Ad esempio, alcuni utenti preferiscono scorrere la raccomandazione anziché
+ fare click sui dettagli.
+ Pertanto, una risposta di 
+\begin_inset Quotes fld
+\end_inset
+
+0
+\begin_inset Quotes frd
+\end_inset
+
+ potrebbe non essere necessariamente una risposta negativa, ma una non risposta.
+ È peggio distinguere queste due situazioni quando si consiglia all'utente
+ un solo elemento alla volta e sono raggiungibili poche ulteriori informazioni.
+ La maggior parte delle strategie di raccomandazione esistenti ignorano
+ la differenza tra mancate risposte e risposte negative.
+ In questo documento 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li_2010"
+literal "false"
+
+\end_inset
+
+, viene proposto un nuovo approccio, denominato 
+\emph on
+SAOR
+\emph default
+, per formulare raccomandazioni online tramite interazioni sparse.
+ 
+\emph on
+SAOR
+\emph default
+ utilizza risposte positive e negative per creare il modello delle preferenze
+ dell'utente, ignorando tutte le non risposte.
+ Viene fornita un'analisi del regret di 
+\emph on
+SAOR
+\emph default
+, gli esperimenti su set di dati reali mostrano anche che 
+\emph on
+SAOR
+\emph default
+ supera i metodi concorrenti.
+\end_layout
+
+\begin_layout Standard
 
 \series bold
-Design di trial clinici
+Drug Design
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Drug design.jpg
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Drug design"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Drug design
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vi sono applicazioni anche riguardanti la progettazione di farmaci 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "will2016drug"
+literal "false"
+
+\end_inset
+
+.
+ Sempre più organizzazioni esternalizzano in modo flessibile il lavoro su
+ base temporanea a un pubblico globale di lavoratori.
+ Il crowdsourcing è stato applicato con successo a una serie di lavori,
+ dalla traduzione di testi e annotazioni di immagini, alla raccolta di informazi
+oni durante le situazioni di crisi e all'assunzione di lavoratori qualificati
+ per creare software complessi.
+ Mentre tradizionalmente questi compiti sono stati piccoli e potrebbero
+ essere completati da non professionisti, le organizzazioni stanno ora iniziando
+ a fare crowdsourcing di compiti più grandi e più complessi agli esperti
+ nei loro rispettivi campi.
+ Queste attività includono, ad esempio, lo sviluppo e test del software,
+ web design e marketing del prodotto.
+ Mentre questo crowdsourcing di esperti emergenti offre flessibilità e costi
+ potenzialmente inferiori, solleva anche nuove sfide, poiché i lavoratori
+ possono essere altamente eterogenei, sia nei costi che nella qualità del
+ lavoro che producono.
+ In particolare, l'utilità di ciascuna attività esternalizzata è incerta
+ e può variare in modo significativo tra lavoratori distinti e persino tra
+ compiti successivi assegnati allo stesso lavoratore.
+ Inoltre, in contesti realistici, i lavoratori hanno limiti alla quantità
+ di lavoro che possono svolgere e il datore di lavoro avrà un budget fisso
+ per i lavoratori paganti.
+ Data questa incertezza e i relativi vincoli, l'obiettivo del datore di
+ lavoro è quello di assegnare compiti ai lavoratori al fine di massimizzare
+ l'utilità complessiva raggiunta.
+ Per formalizzare questo problema di crowdsourcing, viene introdotto un
+ nuovo multi-armed bandit (
+\emph on
+MAB
+\emph default
+), il 
+\emph on
+bounded MAB
+\emph default
+.
+ Inoltre, viene sviluppato un algoritmo per risolvere il problema in modo
+ efficiente, chiamato 
+\emph on
+bounded 
+\begin_inset Formula $ε$
+\end_inset
+
+-first
+\emph default
+, che procede in due fasi: 
+\emph on
+exploration
+\emph default
+ e 
+\emph on
+exploitation
+\emph default
+.
+ Durante l'
+\emph on
+exploration
+\emph default
+, l'algoritmo usa prima 
+\begin_inset Formula $εB$
+\end_inset
+
+ del suo budget totale 
+\begin_inset Formula $B$
+\end_inset
+
+ per apprendere stime delle caratteristiche di qualità dei lavoratori.
+ Quindi, durante l'
+\emph on
+exploitation
+\emph default
+, utilizza il rimanente 
+\begin_inset Formula $(1-ε)B$
+\end_inset
+
+ per massimizzare l'utilità totale in base a tali stime.
+ L'utilizzo di questa tecnica ci consente di ricavare un limite superiore
+ 
+\begin_inset Formula $O(B^{\frac{2}{3}})$
+\end_inset
+
+ dal suo regret di prestazione (ovvero, la differenza attesa nell'utilità
+ tra l'algoritmo e l'ottimale), il che significa che quando il budget 
+\begin_inset Formula $B$
+\end_inset
+
+ aumenta, il regret tende a 0.
+ Oltre a questo approccio teorico, l'algoritmo viene applicato ai dati del
+ mondo reale usando 
+\emph on
+oDesk
+\emph default
+, un importante sito di crowdsourcing.
+ Utilizzando i dati di progetti reali, inclusi budget di progetti storici,
+ costi di esperti e valutazioni di qualità, viene dimostrato che l'algoritmo
+ supera i metodi di crowdsourcing esistenti fino al 300%, ottenendo al contempo
+ un massimo ipotetico con informazioni complete.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Clinical Trial
 \end_layout
 
 \begin_layout Standard
 Il trial clinico si riferisce a uno studio medico farmacologico, biomedico
- o correlato alla salute sull'uomo.
- Vengono adottati protocolli ben definiti.
- L'obiettivo e quello di vericare che una nuova cura sia piu efficace, migliore
- e soprattutto sicura di quella normalmente impiegata.
+ o correlato alla salute sull'uomo ben definito da protocolli.
+ L'obiettivo è quello di vericare che una nuova terapia sia piu efficace,
+ migliore e soprattutto sicura di quella normalmente impiegata.
  Assume notevole importanza l'insieme di campioni sui quali poter testare
- nuove cure.
- Approfondire i trial clinici 
+ nuove cure 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "robbins1952some"
@@ -1279,24 +1607,6 @@ Trial clinici
 \begin_layout Standard
 
 \series bold
-Progettazione di farmaci
-\end_layout
-
-\begin_layout Standard
-Vi sono applicazioni anche riguardanti la progettazione di farmaci 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "will2016drug"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
 Gestione di grandi reti di sensori
 \end_layout
 
@@ -1315,9 +1625,130 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/WSN.png
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Wireless Sensor Network"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Wireless Sensor Network (
+\emph on
+WSN
+\emph default
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una delle principali sfide che affrontano le reti di sensori wireless (
+\emph on
+WSN
+\emph default
+) sono le limitate risorse di energia disponibili nei piccoli nodi dei sensori.
+ Si desidera pertanto ridurre il consumo di energia dei sensori mantenendo
+ la distorsione tra la sorgente e la sua stima nel centro di fusione (
+\emph on
+FC
+\emph default
+) al di sotto di una soglia specifica.
+ In questo documento 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mousavi_2016"
+literal "false"
+
+\end_inset
+
+, viene analizzata una strategia di selezione dei sottoinsiemi per ridurre
+ la potenza di trasmissione media della 
+\emph on
+WSN
+\emph default
+.
+ Si considera una rete a due hop e ipotizzando che i canali tra la sorgente
+ e i 
+\emph on
+relay sensor
+\emph default
+ siano 
+\emph on
+time-varying fading channels
+\emph default
+, modellati come canali 
+\emph on
+Gilbert-Elliott
+\emph default
+.
+ Viene mostrato che quando questi canali sono noti all'
+\emph on
+FC
+\emph default
+, l'
+\emph on
+FC
+\emph default
+ può selezionare un sottoinsieme di sensori per ridurre al minimo la potenza
+ di trasmissione soddisfacendo al contempo il criterio di distorsione.
+ Attraverso l'analisi, viene ricavata la distribuzione di probabilità della
+ dimensione di questo sottoinsieme.
+ Vengono anche considerati aspetti pratici dell'attuazione del metodo proposto,
+ compresa la stima dei canali ai 
+\emph on
+relay
+\emph default
+.
+ Attraverso simulazioni, vengono confrontate le prestazioni dello schema
+ proposto con gli schemi che appaiono in letteratura.
+ I risultati della simulazione confermano che per un certo intervallo di
+ 
+\emph on
+end-to-end bit-error rates (BERs)
+\emph default
+, lo schema proposto riesce a ottenere una riduzione di potenza superiore
+ rispetto ad altri schemi.
+\end_layout
+
+\begin_layout Standard
 
 \series bold
-Crowdsouring distribuito
+Distribuited Crowdsouring
 \end_layout
 
 \begin_layout Standard
@@ -1330,6 +1761,153 @@ literal "false"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Crowdsourcing.png
+	lyxscale 50
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Crowdsourcing"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Crowdsourcing
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sempre più organizzazioni esternalizzano in modo flessibile il lavoro su
+ base temporanea a un pubblico globale di lavoratori.
+ Il crowdsourcing è stato applicato con successo a una serie di lavori,
+ dalla traduzione di testi e annotazioni di immagini, alla raccolta di informazi
+oni durante le situazioni di crisi e all'assunzione di lavoratori qualificati
+ per creare software complessi.
+ Mentre tradizionalmente questi compiti sono stati piccoli e potrebbero
+ essere completati da non professionisti, le organizzazioni stanno ora iniziando
+ a fare crowdsourcing di compiti più grandi e più complessi agli esperti
+ nei loro rispettivi campi.
+ Queste attività includono, ad esempio, lo sviluppo e test del software,
+ web design e marketing del prodotto.
+ Mentre questo crowdsourcing di esperti emergenti offre flessibilità e costi
+ potenzialmente inferiori, solleva anche nuove sfide, poiché i lavoratori
+ possono essere altamente eterogenei, sia nei costi che nella qualità del
+ lavoro che producono.
+ In particolare, l'utilità di ciascuna attività esternalizzata è incerta
+ e può variare in modo significativo tra lavoratori distinti e persino tra
+ compiti successivi assegnati allo stesso lavoratore.
+ Inoltre, in contesti realistici, i lavoratori hanno limiti alla quantità
+ di lavoro che possono svolgere e il datore di lavoro avrà un budget fisso
+ per i lavoratori paganti.
+ Data questa incertezza e i relativi vincoli, l'obiettivo del datore di
+ lavoro è quello di assegnare compiti ai lavoratori al fine di massimizzare
+ l'utilità complessiva raggiunta.
+ Per formalizzare questo problema di crowdsourcing, viene introdotto un
+ nuovo multi-armed bandit (
+\emph on
+MAB
+\emph default
+), il 
+\emph on
+bounded MAB
+\emph default
+.
+ Inoltre, viene sviluppato un algoritmo per risolvere il problema in modo
+ efficiente, chiamato 
+\emph on
+bounded 
+\begin_inset Formula $ε$
+\end_inset
+
+-first
+\emph default
+, che procede in due fasi: 
+\emph on
+exploration
+\emph default
+ e 
+\emph on
+exploitation
+\emph default
+.
+ Durante l'
+\emph on
+exploration
+\emph default
+, l'algoritmo usa prima 
+\begin_inset Formula $εB$
+\end_inset
+
+ del suo budget totale 
+\begin_inset Formula $B$
+\end_inset
+
+ per apprendere stime delle caratteristiche di qualità dei lavoratori.
+ Quindi, durante l'
+\emph on
+exploitation
+\emph default
+, utilizza il rimanente 
+\begin_inset Formula $(1-ε)B$
+\end_inset
+
+ per massimizzare l'utilità totale in base a tali stime.
+ L'utilizzo di questa tecnica ci consente di ricavare un limite superiore
+ 
+\begin_inset Formula $O(B^{\frac{2}{3}})$
+\end_inset
+
+ dal suo regret di prestazione (ovvero, la differenza attesa nell'utilità
+ tra l'algoritmo e l'ottimale), il che significa che quando il budget 
+\begin_inset Formula $B$
+\end_inset
+
+ aumenta, il regret tende a 0.
+ Oltre a questo approccio teorico, l'algoritmo viene applicato ai dati del
+ mondo reale usando 
+\emph on
+oDesk
+\emph default
+, un importante sito di crowdsourcing.
+ Utilizzando i dati di progetti reali, inclusi budget di progetti storici,
+ costi di esperti e valutazioni di qualità, viene dimostrato che l'algoritmo
+ supera i metodi di crowdsourcing esistenti fino al 300%, ottenendo al contempo
+ un massimo ipotetico con informazioni complete.
 \end_layout
 
 \begin_layout Chapter
@@ -1350,7 +1928,7 @@ Lavori citati nel paper
 \begin_layout Standard
 In questa sezione verranno presentati in ordine alfabetico tutti i lavori
  citati nel paper corredati da una descrizione riguardante il contenuto
- del problema principale trattato.
+ del problema principale trattato da ciascuno di essi.
 \end_layout
 
 \begin_layout Standard
@@ -1364,7 +1942,11 @@ literal "false"
 \end_inset
 
  Agrawal, R.
- The continuum-armed bandit problem.
+ 
+\emph on
+The continuum-armed bandit problem
+\emph default
+.
  SIAM J.
  Control Optim., 33(6):1926–1951, 1995.
 \end_layout
@@ -1400,7 +1982,11 @@ literal "false"
 \end_inset
 
  Audibert, J.-Y., Bubeck, S., and Munos, R.
- Best arm identification in multi-armed bandits.
+ 
+\emph on
+Best arm identification in multi-armed bandits
+\emph default
+.
  In Proc.
  COLT 2010, pp.
  41–53.
@@ -1429,7 +2015,11 @@ UCB policy
 status open
 
 \begin_layout Plain Layout
-Upper Confidence Bound (UCB) policy
+
+\series bold
+Upper Confidence Bound (UCB) policy: 
+\series default
+pone un limite superiore al valore della ricompensa ottenibile
 \end_layout
 
 \end_inset
@@ -1456,7 +2046,7 @@ successive rejects policy
 log(K)
 \emph default
 ) 
-\begin_inset Formula $Σi\:1/Δ_{i}^{2}$
+\begin_inset Formula $Σi\:\frac{1}{Δ_{i}^{2}}$
 \end_inset
 
 , dove la somma è sugli arms non ottimali e 
@@ -1492,7 +2082,11 @@ literal "false"
 
  Awerbuch, B.
  and Kleinberg, R.
- Online linear optimization and adaptive routing.
+ 
+\emph on
+Online linear optimization and adaptive routing
+\emph default
+.
  In J.
  Comput.
  Syst.
@@ -1503,18 +2097,18 @@ literal "false"
 
 \begin_layout Standard
 In questo articolo si studia un problema di ottimizzazione lineare online
- generalizzando il problema dei
+ generalizzando il problema del
 \emph on
- stochastic multi-armed bandits
+ stochastic multi-armed bandit
 \emph default
 .
  Motivati principalmente dal compito di progettare algoritmi di routing
- adattivi per reti sovrapposte, presentano due 
+ adattivi per reti sovrapposte, gli autori presentano due 
 \emph on
 randomized online algorithms
 \emph default
  per selezionare una sequenza di percorsi di routing in una rete con ritardi
- ai bordi sconosciuti che variano nel tempo in modo imprevedibile.
+ alle frontiere sconosciuti che variano nel tempo in modo imprevedibile.
  Contrariamente ai precedenti lavori su questo problema, viene supposto
  che l'unico feedback dopo aver scelto un determinato percorso sia il ritardo
  totale end-to-end del percorso selezionato.
@@ -1522,9 +2116,9 @@ randomized online algorithms
  di prove e polinomiale nelle dimensioni della rete.
  Il primo di questi algoritmi generalizza per risolvere qualsiasi problema
  di ottimizzazione lineare online, dato un oracolo per l'ottimizzazione
- delle funzioni lineari sull'insieme delle strategie; il loro lavoro può
- quindi essere interpretato come una riduzione generalizzata dall'ottimizzazione
- lineare offline a quella online.
+ delle funzioni lineari sull'insieme delle strategie; il lavoro degli autori
+ può quindi essere interpretato come una riduzione generalizzata dall'ottimizzaz
+ione lineare offline a quella online.
  Un elemento chiave di questo algoritmo è la nozione di 
 \emph on
 barycentric spanner
@@ -1537,8 +2131,8 @@ barycentric spanner
  decisionali (online), uno su ciascun nodo del grafico.
  Ciò presenta numerosi vantaggi rispetto all'approccio di ottimizzazione
  lineare online.
- In primo luogo, è efficace contro un avversario adattivo, mentre il nostro
- algoritmo di ottimizzazione lineare assume un avversario inconsapevole.
+ In primo luogo, è efficace contro un avversario adattivo, mentre l'algoritmo
+ sviluppato di ottimizzazione lineare assume un avversario inconsapevole.
  In secondo luogo, anche nel caso di un avversario inconsapevole, il secondo
  algoritmo si comporta leggermente meglio del primo, come misurato dal loro
  regret additivo.
@@ -1555,7 +2149,11 @@ literal "false"
 \end_inset
 
  Aziz, M., Anderton, J., Kaufmann, E., and Aslam, J.
- Pure exploration in infinitely-armed bandit models with fixed confidence.
+ 
+\emph on
+Pure exploration in infinitely-armed bandit models with fixed confidence
+\emph default
+.
  In Proc.
  ALT 2018, volume 83 of PMLR, pp.
  3–24.
@@ -1573,15 +2171,26 @@ fixed confidence setting
 infinite-armed bandits
 \emph default
  quando non si sa nulla sulla distribuzione degli arms.
- Viene introdotto un framework simile al PAC
+ Viene introdotto un framework simile al 
+\emph on
+PAC
+\emph default
+
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Probably Approximately Correct Learning: nella teoria dell'apprendimento
- computazionale, l'apprendimento approssimativamente corretto (PAC) è un
- framework per l'analisi matematica del machine learning proposto nel 1984
- da Leslie Valiant.
+
+\series bold
+Probably Approximately Correct (PAC) Learning:
+\series default
+ nella teoria dell'apprendimento computazionale, l'apprendimento approssimativam
+ente corretto (
+\emph on
+PAC
+\emph default
+) è un framework per l'analisi matematica del machine learning proposto
+ nel 1984 da Leslie Valiant.
  In questo framework, il learner riceve campioni e deve selezionare una
  funzione di generalizzazione (chiamata ipotesi) da una certa classe di
  possibili funzioni.
@@ -1598,9 +2207,12 @@ Probably Approximately Correct Learning: nella teoria dell'apprendimento
  un limite inferiore sulla complessità del campione per l'identificazione
  del arm quasi ottimale; hanno proposto un algoritmo che identifica un arm
  quasi ottimale con alta probabilità e deriva un limite superiore sulla
- complessità del campione che è compreso entro un fattore log del loro limite
- inferiore calcolato; hanno discusso se la dipendenza 
-\begin_inset Formula $log^{2}(1/Δ)$
+ complessità del campione che è compreso entro un fattore 
+\begin_inset Formula $log$
+\end_inset
+
+ del loro limite inferiore calcolato; hanno discusso se la dipendenza 
+\begin_inset Formula $log^{2}(\frac{1}{Δ})$
 \end_inset
 
  è inevitabile per gli algoritmi "a due fasi" (prima selezionano gli arms,
@@ -1621,9 +2233,13 @@ literal "false"
 
  Bechhofer, R.
  E.
- A sequential multiple-decision procedure for selecting the best one of
- several normal populations with a common unknown variance, and its use
- with various experimental designs.
+ 
+\emph on
+A sequential multiple-decision procedure for selecting the best one of several
+ normal populations with a common unknown variance, and its use with various
+ experimental designs
+\emph default
+.
  In Biometrics, volume 14, pp.
  408–429.
  Wiley International Biometric Society, 1958.
@@ -1650,7 +2266,11 @@ literal "false"
 
  Berry, D.
  and Fristedt, B.
- Bandit Problems: Sequential Allocation of Experiments.
+ 
+\emph on
+Bandit Problems: Sequential Allocation of Experiments
+\emph default
+.
  Chapman & Hall, 1985.
 \end_layout
 
@@ -1658,11 +2278,1694 @@ literal "false"
 In questo paper sono stati presentati ulteriori nuovi risultati riguardanti
  il problema 
 \emph on
-stochastic multi-armed bandits.
+stochastic multi-armed bandit.
  
 \emph default
 Tuttavia molti risultati non sono stati dimostrati perchè semplici da capire
- oppure attraverso una dimostrazione concettuale invece di usare i calcoli.
+ oppure attraverso una dimostrazione concettuale.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capp__2013"
+literal "false"
+
+\end_inset
+
+ Cappè, O., Garivier, A., Maillard, O.-A., Munos, R., and Stoltz, G.
+ 
+\emph on
+Kullback-Leibler upper confidence bounds for optimal sequential allocation
+\emph default
+.
+ The Annals of Stat., 41(3): 1516–1541, 2013.
+\end_layout
+
+\begin_layout Standard
+Viene considerata l'allocazione sequenziale ottimale nel contesto del modello
+ 
+\emph on
+stochastic multi-armed bandit
+\emph default
+.
+ Viene descritta una 
+\emph on
+generic index policy
+\emph default
+, nel senso di 
+\emph on
+Gittins
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Gittins, John C.
+ "Bandit processes and dynamic allocation indices." Journal of the Royal
+ Statistical Society: Series B (Methodological) 41.2 (1979): 148-164.
+\end_layout
+
+\end_inset
+
+, basata sui limiti superiori di confidenza dei payoffs degli arms calcolati
+ usando la divergenza di 
+\emph on
+Kullback-Leibler
+\emph default
+.
+ Vengono considerate due classi di distribuzioni per le quali vengono analizzate
+ le istanze: l'algoritmo kl-UCB è progettato per famiglie esponenziali a
+ un parametro e l'algoritmo KL-UCB empirico per distribuzioni limitate e
+ finite.
+ Il contributo portato dal paper è un'analisi unificata a tempo finito del
+ regret di questi algoritmi che corrisponde asintoticamente ai limiti inferiori
+ di 
+\emph on
+Lai e Robbins
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Adv.
+ in Appl.
+ Matematica.
+ 6 (1985) 4–22
+\end_layout
+
+\end_inset
+
+ e 
+\emph on
+Burnetas e Katehakis
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Adv.
+ in Appl.
+ Matematica.
+ 17 (1996) 122-142
+\end_layout
+
+\end_inset
+
+
+\emph default
+, rispettivamente.
+ Viene studiato anche il comportamento di questi algoritmi quando usati
+ con 
+\emph on
+general bounded rewards
+\emph default
+, dimostrando in particolare che forniscono miglioramenti significativi
+ rispetto allo stato dell'arte.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "alex2015simple"
+literal "false"
+
+\end_inset
+
+ Carpentier, A.
+ and Valko, M.
+ 
+\emph on
+Simple regret for infinitely many armed bandits
+\emph default
+.
+ In Proc.
+ ICML 2015, pp.
+ 1133–1141.
+ JMLR, 2015.
+\end_layout
+
+\begin_layout Standard
+Viene considerato il problema 
+\emph on
+stochastic multi-armed bandit
+\emph default
+.
+ In questo contesto, il learner non ha alcuna possibilità di provare tutti
+ gli arms e deve dedicare il suo numero limitato di prove solo a un certo
+ numero di arnms.
+ Tutti gli algoritmi precedenti per questa impostazione sono stati progettati
+ forminimizzando il 
+\emph on
+cumulative regret
+\emph default
+.
+ In questo documento, viene proposto un algoritmo che mira a minimizzare
+ il 
+\emph on
+simple regret
+\emph default
+.
+ Come nell'impostazione del 
+\emph on
+cumulative regret 
+\emph default
+in 
+\emph on
+infinitely multi-armed bandits
+\emph default
+, il tasso del 
+\emph on
+simple regret
+\emph default
+ dipenderà dal parametro 
+\begin_inset Formula $β$
+\end_inset
+
+ che caratterizza la distribuzione degli arms ottimali.
+ Viene dimostrato che, a seconda del 
+\begin_inset Formula $β$
+\end_inset
+
+ , l'algoritmo proposto è 
+\emph on
+minimax optimal
+\emph default
+ a meno di una costante moltiplicativa al massimo di fattore 
+\begin_inset Formula $alog(n)$
+\end_inset
+
+.
+ Vengono fornite anche estensioni in diversi casi importanti: quando il
+ parametro 
+\begin_inset Formula $β$
+\end_inset
+
+ è sconosciuto, in un ambiente normale in cui gli arms quasi ottimali hanno
+ una piccola varianza, e nel caso di orizzonte temporale sconosciuto.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Even_Dar_2002"
+literal "false"
+
+\end_inset
+
+ Even-Dar, E., Mannor, S., and Mansour, Y.
+ 
+\emph on
+PAC bounds for multi-armed bandit and Markov Decision Processes
+\emph default
+.
+ In Proc.
+ COLT 2002, pp.
+ 255–270.
+ Springer, 2002.
+\end_layout
+
+\begin_layout Standard
+Il problema 
+\emph on
+stochastic multi-armed bandit
+\emph default
+ viene rivisitato e considerato nel modello 
+\emph on
+PAC
+\emph default
+.
+ Il principale contributo del paper è mostrare che, dati 
+\emph on
+n
+\emph default
+ arms, è sufficiente tirare le arms 
+\begin_inset Formula $O(\frac{n}{ε^{2}}log\frac{1}{δ})$
+\end_inset
+
+ volte per trovare un arm 
+\begin_inset Formula $ε$
+\end_inset
+
+-ottimale con probabilità di almeno 
+\begin_inset Formula $1-δ$
+\end_inset
+
+.
+ Ciò è in contrasto con il limite 
+\begin_inset Formula $O(\frac{n}{ε^{2}}log\frac{n}{δ})$
+\end_inset
+
+.
+ Viene costruito un altro algoritmo la cui complessità dipende dall'impostazione
+ specifica delle ricompense, piuttosto che dal settaggio del caso peggiore.
+ Viene fornito anche un limite inferiore corrispondente e mostrato come,
+ dato un algoritmo per il problema
+\emph on
+ multi-armed bandit
+\emph default
+ del modello 
+\emph on
+PAC
+\emph default
+, si possa derivare un algoritmo di apprendimento batch per i processi decisiona
+li di Markov.
+ Questo viene fatto essenzialmente simulando la 
+\emph on
+value iteration
+\emph default
+ del valore e in ogni iterazione viene invocato l'algoritmo
+\emph on
+ multi-armed bandit
+\emph default
+.
+ Usando il nostro algoritmo 
+\emph on
+PAC
+\emph default
+ per il problema del 
+\emph on
+multi-armed bandit
+\emph default
+, miglioriamo la dipendenza dal numero di azioni da svolgere a ogni iterazione.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gabillon2011multi"
+literal "false"
+
+\end_inset
+
+ Gabillon, V., Ghavamzadeh, M., Lazaric, A., and Bubeck, S.
+ 
+\emph on
+Multi-bandit best arm identification
+\emph default
+.
+ In Adv.
+ NIPS 24, pp.
+ 2222–2230.
+ Curran Associates, Inc., 2011.
+\end_layout
+
+\begin_layout Standard
+Viene studiato il problema di identificare l'arm migliore in ciascuno dei
+ bandits in 
+\emph on
+multi-bandit multi-armed setting
+\emph default
+.
+ Per prima cosa viene proposto un algoritmo chiamato 
+\emph on
+Gap-based Exploration (GapE)
+\emph default
+ che si concentra sugli arms la cui media è vicina alla media del arms migliore
+ nello stesso bandit (cioè con un piccolo gap).
+ Viene introdotto quindi un algoritmo, chiamato 
+\emph on
+GapE-V
+\emph default
+, che tiene conto della varianza degli arms oltre al loro gap.
+ Viene dimostrato un limite superiore alla probabilità di errore per entrambi
+ gli algoritmi.
+ Poiché 
+\emph on
+GapE
+\emph default
+ e 
+\emph on
+GapE-V
+\emph default
+ devono ottimizzare un parametro di esplorazione che dipende dalla complessità
+ del problema, molto spesso sconosciuto in anticipo, vengono introdotte
+ anche variazioni di questi algoritmi che stimano questa complessità online.
+ Infine, vengono valutate le prestazioni di questi algoritmi e confrontate
+ con altre strategie di allocazione su una serie di problemi sintetici.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "goschin2013planning"
+literal "false"
+
+\end_inset
+
+ Goschin, S., Weinstein, A., Littman, M.
+ L., and Chastain, E.
+
+\emph on
+ Planning in reward-rich domains via PAC bandits
+\emph default
+.
+ In Proc.
+ EWRL 2012, volume 24, pp.
+ 25–42.
+ JMLR, 2012.
+\end_layout
+
+\begin_layout Standard
+In alcuni ambienti decisionali, le soluzioni di successo sono comuni.
+ Se la valutazione delle soluzioni candidate è molto varaibile, la sfida
+ è sapere quando è stata trovata una soluzione "abbastanza buona".
+ Viene formulato questo problema come
+\emph on
+ infinite-armed bandit
+\emph default
+ e vengono forniti dei limiti inferiori sul numero di valutazioni o di pull
+ necessari per identificare una soluzione il cui valore superi una determinata
+ soglia 
+\begin_inset Formula $r_{0}$
+\end_inset
+
+.
+ Vengono presentati diversi algoritmi e vengono usati per identificare strategie
+ affidabili per la risoluzione di livelli di videogiochi come 
+\emph on
+Infinite Mario
+\emph default
+ e 
+\emph on
+Pitfall!.
+ 
+\emph default
+Vengono mostrati i miglioramenti in ordine di grandezza nella complessità
+ del campione su un approccio naturale che tira ogni arm fino a quando non
+ si conosce una buona stima della sua probabilità di successo.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Herschkorn_1996"
+literal "false"
+
+\end_inset
+
+ Herschkorn, S.
+ J., Pekoz, E., and Ross, S.
+ M.
+ 
+\emph on
+Policies without memory for the infinite-armed Bernoulli bandit under the
+ average-reward criterion
+\emph default
+.
+ Prob.
+ in the Engg.
+ and Info.
+ Sc., 10(1):21–28, 1996.
+\end_layout
+
+\begin_layout Standard
+Viene considerato il problema 
+\emph on
+infinite-armed bandit
+\emph default
+ i cui arms seguono una distribuzione di Bernoulli i cui parametri sconosciuti
+ sono i.i.d.
+ Vengono presentati due policy che massimizzano la ricompensa media quasi
+ certa su un orizzonte infinito.
+ Nessuna delle due policy ritorna mai a un arm precedentemente osservato
+ dopo il passaggio a un nuovo arm o conserva informazioni dalle arms scartate;
+ inoltre le serie di fallimenti indicano la selezione di un nuovo arm.
+ La prima policy è non stazionaria e non richiede informazioni sulla distribuzio
+ne del parametro Bernoulli.
+ La seconda policy è stazionaria e richiede solo informazioni parziali;
+ la sua ottimalità è stabilita dalla 
+\emph on
+renewal theory
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Renewal theory:
+\series default
+ è una branca della teoria della probabilità che generalizza il processo
+ di Poisson per tempi arbitrari.
+ Invece di tempi esponenzialmente distribuiti, un renewal process può avere
+ tempi indipendenti e identicamente distribuiti che hanno una media finita.
+\end_layout
+
+\end_inset
+
+.
+ Vengono sviluppate anche policy stazionarie 
+\begin_inset Formula $ε$
+\end_inset
+
+-ottimali che non richiedono informazioni sulla distribuzione del parametro
+ sconosciuto e discusse policy stazionarie universalmente ottimali.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jamieson2014lil"
+literal "false"
+
+\end_inset
+
+ Jamieson, K., Malloy, M., Nowak, R., and Bubeck, S.
+ 
+\emph on
+lil’ UCB : An optimal exploration algorithm for multi-armed bandits
+\emph default
+.
+ In Proc.
+ COLT 2014, volume 35 of PMLR, pp.
+ 423–439.
+ PMLR, 2014.
+\end_layout
+
+\begin_layout Standard
+Il documento propone un nuovo metodo del limite di confidenza superiore
+ (UCB) per identificare l'arm con la media più grande in un 
+\emph on
+stochastic multi-armed bandit
+\emph default
+ con 
+\emph on
+fixed confidence setting
+\emph default
+ usando un piccolo numero di campioni rispetto al totale.
+ Il metodo descritto non può essere migliorato nel senso che il numero di
+ campioni necessari per identificare l'arm migliore rientra in un fattore
+ costante del limite inferiore definito dalla legge del logaritmo iterato
+ 
+\emph on
+(LIL)
+\emph default
+.
+ Ispirati dal 
+\emph on
+LIL
+\emph default
+, vengon costruiti i loro limiti di confidenza dell'algoritmo con orizzonte
+ temporale infinito.
+ Inoltre, utilizzando un nuovo tempo di arresto per l'algoritmo, viene evitato
+ un union bound rispetto agli altri arms visti in altri algoritmi di tipo
+ UCB.
+ Viene dimostrato che l'algoritmo è ottimale a meno di costanti e viene
+ dimostrato che anche attraverso simulazioni che fornisce prestazioni superiori
+ rispetto allo stato dell'arte.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jamieson_2014"
+literal "false"
+
+\end_inset
+
+ Jamieson, K.
+ G.
+ and Nowak, R.
+ D.
+ 
+\emph on
+Best-arm identification algorithms for multi-armed bandits in the fixed
+ confidence setting
+\emph default
+.
+ In Proc.
+ 48th Annual Conf.
+ on Information Sciences and Systems (CISS), pp.
+ 1–6.
+ IEEE, 2014.
+\end_layout
+
+\begin_layout Standard
+Questo documento si occupa di identificare l'arm con la media più alta in
+ un problema 
+\emph on
+stochastic multi-armed bandit
+\emph default
+ usando il minor numero possibile di campioni indipendenti dagli arms.
+ Mentre il cosiddetto 
+\emph on
+best arm problem
+\emph default
+ risale agli anni '50, solo di recente sono stati proposti due algoritmi
+ qualitativamente diversi che raggiungono la complessità ottimale del campione
+ per il problema.
+ Questo documento esamina questi recenti progressi e mostra che la maggior
+ parte degli algoritmi 
+\emph on
+best-arm 
+\emph default
+possono essere descritti come varianti dei due recenti algoritmi ottimali.
+ Per ogni tipo di algoritmo vengono considerate un'istanza specifica per
+ analizzare sia teoricamente che empiricamente esponendo in tal modo i component
+i principali dell'analisi teorica di questi algoritmi e l'intuizione su
+ come funzionano gli algoritmi nella pratica.
+ I limiti di complessità del campione derivato sono nuovi e in alcuni casi
+ migliorano rispetto ai limiti precedenti.
+ Inoltre, viene confrontato empiricamente una varietà di algoritmi all'avanguard
+ia attraverso simulazioni per il problema del 
+\emph on
+best arm problem
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jamieson2016detection"
+literal "false"
+
+\end_inset
+
+ Jamieson, K.
+ G., Haas, D., and Recht, B.
+ 
+\emph on
+On the detection of mixture distributions with applications to the most
+ biased coin problem
+\emph default
+.
+ CoRR, abs/1603.08037, 2016.
+\end_layout
+
+\begin_layout Standard
+Questo documento studia il trade-off tra due diversi tipi di 
+\emph on
+pure exploration
+\emph default
+: ampiezza e profondità.
+ Il problema 
+\emph on
+most biased coin
+\emph default
+ richiede quante lanci di monete totali sono necessari per identificare
+ una moneta 
+\emph on
+heavy
+\emph default
+ da una borsa infinita contenente sia le monete 
+\emph on
+heavy
+\emph default
+ con media 
+\begin_inset Formula $θ_{1}∈(0,1)$
+\end_inset
+
+ e monete 
+\emph on
+light
+\emph default
+ con media 
+\begin_inset Formula $θ_{0}∈(0,θ_{1})$
+\end_inset
+
+, dove vengono estratte monete 
+\emph on
+heavy
+\emph default
+ dal sacchetto con probabilità 
+\begin_inset Formula $α∈(0,\frac{1}{2})$
+\end_inset
+
+.
+ La difficoltà principale di questo problema sta nel distinguere se i due
+ tipi di monete hanno medie molto simili o se le monete 
+\emph on
+heavy
+\emph default
+ sono estremamente rare.
+ Questo problema ha applicazioni nel crowdsourcing, nel rilevamento di anomalie
+ e nella ricerca dello spettro radio.
+ Vengopno quindi costruiti algoritmi adattativi alla conoscenza parziale
+ o assente dei parametri del problema.
+ Inoltre, le tecniche sviluppate generalizzano anche per casi più generali
+ di 
+\emph on
+infinite-armed bandit
+\emph default
+.
+ Vengono anche dimostrati i limiti inferiori che mostrano che i limiti superiori
+ del nostro algoritmo sono strettamente compresi a meno di fattori logaritmici
+ e sulla strada caratterizzata dalla complessità del campione che varia
+ tra una singola distribuzione parametrica e un mix di tali due distribuzioni.
+ Di conseguenza, questi limiti hanno implicazioni sorprendenti sia per le
+ soluzioni al problema 
+\emph on
+most biased coin
+\emph default
+ che per il rilevamento di anomalie quando sono note solo informazioni parziali
+ sui parametri.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2011learning"
+literal "false"
+
+\end_inset
+
+ Kalyanakrishnan, S.
+ 
+\emph on
+Learning Methods for Sequential Decision Making with Imperfect Representations
+\emph default
+.
+ PhD thesis, The University of Texas at Austin, 2011.
+\end_layout
+
+\begin_layout Standard
+Questa tesi di dottorato fornisce contributi filosofici, analitici e metodologic
+i allo sviluppo di metodi di apprendimento robusti e automatizzati per il
+ processo decisionale sequenziale con rappresentazioni imperfette.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2010efficient"
+literal "false"
+
+\end_inset
+
+ Kalyanakrishnan, S.
+ and Stone, P.
+ 
+\emph on
+Efficient selection of multiple bandit arms: Theory and practice
+\emph default
+.
+ In Proc.
+ ICML 2010, pp.
+ 511–518.
+ Omnipress, 2010.
+\end_layout
+
+\begin_layout Standard
+Viene considerato il problema generale, ampiamente applicabile, di selezionare
+ da 
+\emph on
+n
+\emph default
+ variabili casuali a valore reale un sottoinsieme di quelle con media più
+ alta, sulla base del minor numero possibile di campioni.
+ Questo problema, che denotiamo 
+\emph on
+Ex-plore-m
+\emph default
+, è un aspetto fondamentale di numerosi algoritmi di ottimizzazione stocastica
+ e applicazioni in simulazione e ingegneria industriale.
+ La base teorica per il nostro lavoro è un'estensione di una formulazione
+ precedente che utilizza i 
+\emph on
+multi-armed bandit
+\emph default
+ che si dedica all'identificazione delle migliori variabili casuali (
+\emph on
+Explore-1
+\emph default
+).
+ Oltre a fornire limiti 
+\emph on
+PAC
+\emph default
+ per il caso generale, adattiamo il nostro approccio teorico per lavorare
+ in modo efficiente nella pratica.
+ Confronti empirici del relativo algoritmo di campionamento rispetto ad
+ altre strategie di selezione di sottogruppi presenti allo stato dell'arte
+ dimostrano significativi guadagni nell'efficienza del campionamento.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2012pac"
+literal "false"
+
+\end_inset
+
+ Kalyanakrishnan, S., Tewari, A., Auer, P., and Stone, P.
+
+\emph on
+ PAC subset selection in stochastic multi-armed bandits
+\emph default
+.
+ In Proc.
+ ICML 2012, pp.
+ 655–662.
+ Omnipress, 2012.
+\end_layout
+
+\begin_layout Standard
+Viene considerato il problema di selezionare, tra gli arms di 
+\emph on
+n-armed bandit
+\emph default
+, un sottoinsieme di dimensione 
+\emph on
+m
+\emph default
+ di arms con le più alte ricompense attese, basate sul campionamento efficiente
+ delle arms.
+ Questo problema di 
+\emph on
+sub-set selection 
+\emph default
+trova applicazione in diverse aree.
+ Nel lavoro precedente degli autori 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2010efficient"
+literal "false"
+
+\end_inset
+
+, questo problema è inquadrato in un contesto 
+\emph on
+PAC
+\emph default
+ (indicata con "
+\emph on
+Explore-m
+\emph default
+") e vengono analizzati gli algoritmi di campionamento corrispondenti.
+ Mentre l'analisi formale al suo interno è limitata alla complessità del
+ caso peggiore degli algoritmi, in questo documento, viene progettato e
+ analizzato un algoritmo 
+\emph on
+(LUCB)
+\emph default
+ con una migliore complessità del campionamento previsto.
+ È interessante notare che 
+\emph on
+LUCB
+\emph default
+ assomiglia molto al noto algoritmo 
+\emph on
+UCB
+\emph default
+ per minimizzare il regret.
+ Il limite di complessità del campione atteso che viene mostrato per 
+\emph on
+LUCB
+\emph default
+ è nuovo anche per la selezione a arm singolo (
+\emph on
+Explore-1
+\emph default
+).
+ Viene dato anche un limite inferiore alla complessità del campione peggiore
+ degli algoritmi 
+\emph on
+PAC
+\emph default
+ per 
+\emph on
+Explore-m
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "karnin2013almost"
+literal "false"
+
+\end_inset
+
+ Karnin, Z., Koren, T., and Somekh, O.
+ 
+\emph on
+Almost optimal exploration in multi-armed bandits
+\emph default
+.
+ In Proc.
+ ICML 2013, volume 28, pp.
+ 1238–1246.
+ PMLR, 2013.
+\end_layout
+
+\begin_layout Standard
+In questo paper viene studiato il problema dell'esplorazione nei 
+\emph on
+stochastic multi-armed bandit
+\emph default
+s.
+ Anche nella più semplice impostazione dell'identificazione dell'arm migliore,
+ rimane un gap moltiplicativo logaritmico tra i limiti inferiore e superiore
+ noti per il numero di pull del arm richiesti per il task.
+ Questo ulteriore fattore logaritmico è abbastanza significativo nelle applicazi
+oni su larga scala al giorno d'oggi.
+ Presentiamo due nuovi algoritmi privi di parametri per identificare l'arm
+ migliore, in due diverse impostazioni: data una 
+\emph on
+target confidence
+\emph default
+ e dato un 
+\emph on
+budget of arm pulls
+\emph default
+, per il quale dimostriamo limiti superiori il cui gap dal limite inferiore
+ è solo doppiamente logaritmico nei parametri del problema.
+ Confermiamo i nostri risultati teorici con esperimenti che dimostrano che
+ il nostro algoritmo supera lo stato dell'arte e si adatta meglio all'aumentare
+ della dimensione del problema.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kaufmann2013information"
+literal "false"
+
+\end_inset
+
+ Kaufmann, E.
+ and Kalyanakrishnan, S.
+ 
+\emph on
+Information complexity in bandit subset selection
+\emph default
+.
+ In Proc.
+ COLT 2013, volume 30, pp.
+ 228–251.
+ JMLR, 2013.
+\end_layout
+
+\begin_layout Standard
+Viene considerat il problema di esplorare efficacemente gli arms di un 
+\emph on
+stochastic multi-armed bandit
+\emph default
+s per identificare il sottoinsieme migliore data una dimensione specificata.
+ In base al 
+\emph on
+PAC
+\emph default
+ e alle formulazioni 
+\emph on
+fixed-budget
+\emph default
+, otteniamo limiti migliorati utilizzando intervalli di confidenza basati
+ sulla divergenza 
+\emph on
+KL
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Divergenza di Kullback–Leibler:
+\series default
+ in teoria della probabilità, è una misura non simmetrica della differenza
+ tra due distribuzioni di probabilità P e Q.
+ 
+\end_layout
+
+\end_inset
+
+.
+ Mentre l'applicazione di un'idea simile nel contesto del regret ha prodotto
+ dei limiti in termini di divergenza KL tra gli arms, i limiti trovati nel
+ contesto dell'esplorazione pura implicano la 
+\emph on
+Chernoff information
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Chernoff Information:
+\series default
+ dà limiti esponenzialmente decrescenti sulle distribuzioni di coda di somme
+ di variabili casuali indipendenti
+\end_layout
+
+\end_inset
+
+
+\emph default
+ tra gli arms.
+ Oltre a introdurre questa nuova quantità nella letteratura riguardante
+ i bandits, gli autori hanno contribuit ancheo a un confronto tra strategie
+ basate su campionamenti uniformi e adattivi per problemi di pura esplorazione,
+ trovando prove a favore di questi ultimi.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kleinberg2005nearly"
+literal "false"
+
+\end_inset
+
+ Kleinberg, R.
+ 
+\emph on
+Nearly tight bounds for the continuum-armed bandit problem
+\emph default
+.
+ In Adv.
+ NIPS 17, pp.
+ 697–704.
+ MIT Press, 2005.
+\end_layout
+
+\begin_layout Standard
+Nel problema dei 
+\emph on
+stochastic multi-armed bandit
+\emph default
+s, un algoritmo online deve scegliere da una serie di strategie in una sequenza
+ di prove in modo da ridurre al minimo il costo totale delle strategie scelte.
+ Mentre i limiti superiore e inferiore sono noti nel caso in cui il set
+ di strategie sia finito, non è noto quando esiste un set di strategie infinito.
+ Qui viene considerato il caso in cui l'insieme di strategie è un sottoinsieme
+ di 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+e le funzioni di costo sono continue.
+ Nel caso 
+\begin_inset Formula $d=1$
+\end_inset
+
+, hanno migliorato sui limiti superiore e inferiore noti, riducendo il gap
+ a un fattore sublogaritmico.
+ Considerano anche il caso 
+\begin_inset Formula $d>1$
+\end_inset
+
+ e le funzioni di costo sono convesse, adattando un algoritmo di ottimizzazione
+ convessa online di 
+\emph on
+Zinkevich
+\emph default
+ al modello 
+\emph on
+sparser feedback
+\emph default
+ del problema dei 
+\emph on
+multi-armed bandit
+\emph default
+s.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li_2010"
+literal "false"
+
+\end_inset
+
+ Li, L., Chu, W., Langford, J., and Schapire, R.
+ E.
+ 
+\emph on
+A contextual-bandit approach to personalized news article recommendation
+\emph default
+.
+ In Proc.
+ WWW, pp.
+ 661–670.
+ ACM, 2010.
+\end_layout
+
+\begin_layout Standard
+La 
+\emph on
+online recommendation
+\emph default
+ è una caratteristica importante in molte applicazioni.
+ In pratica, l'interazione tra gli utenti e il sistema di raccomandazione
+ potrebbe essere scarsa, vale a dire che gli utenti non interagiscono sempre
+ con il sistema di segnalazione.
+ Ad esempio, alcuni utenti preferiscono scorrere la raccomandazione anziché
+ fare click sui dettagli.
+ Pertanto, una risposta di 
+\begin_inset Quotes fld
+\end_inset
+
+0
+\begin_inset Quotes frd
+\end_inset
+
+ potrebbe non essere necessariamente una risposta negativa, ma una non risposta.
+ È peggio distinguere queste due situazioni quando si consiglia all'utente
+ un solo elemento alla volta e sono raggiungibili poche ulteriori informazioni.
+ La maggior parte delle strategie di raccomandazione esistenti ignorano
+ la differenza tra mancate risposte e risposte negative.
+ In questo documento, viene proposto un nuovo approccio, denominato 
+\emph on
+SAOR
+\emph default
+, per formulare raccomandazioni online tramite interazioni sparse.
+ 
+\emph on
+SAOR
+\emph default
+ utilizza risposte positive e negative per creare il modello delle preferenze
+ dell'utente, ignorando tutte le non risposte.
+ Viene fornita un'analisi del regret di 
+\emph on
+SAOR
+\emph default
+, gli esperimenti su set di dati reali mostrano anche che 
+\emph on
+SAOR
+\emph default
+ supera i metodi concorrenti.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mannor_2003"
+literal "false"
+
+\end_inset
+
+ Mannor, S.
+ and Tsitsiklis, J.
+ N.
+ 
+\emph on
+The sample complexity of exploration in the multi-armed bandit problem
+\emph default
+.
+ JMLR, 5: 623–648, 2004.
+\end_layout
+
+\begin_layout Standard
+Viene considerato il problema dei 
+\emph on
+stochastic multi-armed bandit
+\emph default
+ nel modello 
+\emph on
+PAC
+\emph default
+.
+ È stato mostrato da 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Even_Dar_2002"
+literal "false"
+
+\end_inset
+
+ che ha dati 
+\emph on
+n
+\emph default
+ arms, un totale di 
+\begin_inset Formula $O(\frac{n}{ε^{2}}log\frac{1}{δ})$
+\end_inset
+
+ è sufficiente per trovare un arm 
+\begin_inset Formula $ε$
+\end_inset
+
+-ottimale con probabilità almeno 
+\begin_inset Formula $1-δ$
+\end_inset
+
+.
+ Viene mostrato un limite inferiore corrispondente al numero previsto di
+ prove nell'ambito di qualsiasi politica di campionamento.
+ Viene generalizzato inoltre il limite inferiore e mostriamo una dipendenza
+ esplicita dalle statistiche (sconosciute) degli arms.
+ Viene fornito anche un limite simile all'interno di un ambiente bayesiano.
+ Viene anche discusso il caso in cui le statistiche sugli arms sono note
+ ma non le identità degli arms.
+ Per questo caso, viene fornito un limite inferiore di 
+\begin_inset Formula $Θ(\frac{1}{ε^{2}}(n+log\frac{1}{δ}))$
+\end_inset
+
+ sul numero previsto di prove, nonché una politica di campionamento con
+ un limite superiore corrispondente.
+ Se invece del numero previsto di prove, viene considerato il numero massimo
+ (su tutti i percorsi di campionamento) di prove, viene stabilito un limite
+ superiore e inferiore corrispondente della forma 
+\begin_inset Formula $Θ(\frac{1}{ε^{2}}log\frac{1}{δ})$
+\end_inset
+
+.
+ Infine, vengono derivati i limiti inferiori sul regret atteso, come avevano
+ fatto 
+\emph on
+Lai
+\emph default
+ e 
+\emph on
+Robbins
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mousavi_2016"
+literal "false"
+
+\end_inset
+
+ Mousavi, S.
+ H., Haghighat, J., Hamouda, W., and Dastbasteh, R.
+ 
+\emph on
+Analysis of a subset selection scheme for wireless sensor networks in time-varyi
+ng fading channels
+\emph default
+.
+ IEEE Trans.
+ Signal Process., 64(9):2193–2208, 2016.
+\end_layout
+
+\begin_layout Standard
+Una delle principali sfide che affrontano le reti di sensori wireless (
+\emph on
+WSN
+\emph default
+) sono le limitate risorse di energia disponibili nei piccoli nodi dei sensori.
+ Si desidera pertanto ridurre il consumo di energia dei sensori mantenendo
+ la distorsione tra la sorgente e la sua stima nel centro di fusione (
+\emph on
+FC
+\emph default
+) al di sotto di una soglia specifica.
+ In questo documento, viene analizzata una strategia di selezione dei sottoinsie
+mi per ridurre la potenza di trasmissione media della 
+\emph on
+WSN
+\emph default
+.
+ Si considera una rete a due hop e ipotizzando che i canali tra la sorgente
+ e i 
+\emph on
+relay sensor
+\emph default
+ siano 
+\emph on
+time-varying fading channels
+\emph default
+, modellati come canali 
+\emph on
+Gilbert-Elliott
+\emph default
+.
+ Viene mostrato che quando questi canali sono noti all'
+\emph on
+FC
+\emph default
+, l'
+\emph on
+FC
+\emph default
+ può selezionare un sottoinsieme di sensori per ridurre al minimo la potenza
+ di trasmissione soddisfacendo al contempo il criterio di distorsione.
+ Attraverso l'analisi, viene ricavata la distribuzione di probabilità della
+ dimensione di questo sottoinsieme.
+ Vengono anche considerati aspetti pratici dell'attuazione del metodo proposto,
+ compresa la stima dei canali ai 
+\emph on
+relay
+\emph default
+.
+ Attraverso simulazioni, vengono confrontate le prestazioni dello schema
+ proposto con gli schemi che appaiono in letteratura.
+ I risultati della simulazione confermano che per un certo intervallo di
+ 
+\emph on
+end-to-end bit-error rates (BERs)
+\emph default
+, lo schema proposto riesce a ottenere una riduzione di potenza superiore
+ rispetto ad altri schemi.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Paulson_1964"
+literal "false"
+
+\end_inset
+
+ Paulson, E.
+ 
+\emph on
+A sequential procedure for selecting the population with the largest mean
+ from k normal populations
+\emph default
+.
+ The Annals of Mathematical Stat., 35(1):174–180, 1964.
+\end_layout
+
+\begin_layout Standard
+In questo articolo vengono fornite procedure sequenziali per selezionare
+ la popolazione normale con la media maggiore quando (1) le popolazioni
+ 
+\emph on
+k
+\emph default
+ hanno una varianza nota comune o (2) le popolazioni 
+\emph on
+k
+\emph default
+ hanno una varianza comune ma sconosciuta, in modo che in ogni caso la probabili
+tà di effettuare la selezione corretta supera un valore specificato quando
+ la media massima supera tutte le altre medie di almeno un valore specificato.
+ Le procedure nel presente documento hanno tutte la proprietà che le popolazioni
+ inferiori possono essere eliminate da ulteriori considerazioni man mano
+ che l'esperimento procede.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ren2019exploring"
+literal "false"
+
+\end_inset
+
+ Ren, W., Liu, J., and Shroff, N.
+ B.
+ 
+\emph on
+Exploring k out of top fraction of arms in stochastic bandits
+\emph default
+.
+ CoRR, abs/1810.11857, 2018.
+\end_layout
+
+\begin_layout Standard
+Questo documento studia il problema dell'identificazione di qualsiasi 
+\emph on
+k
+\emph default
+ arms distinti tra la frazione 
+\emph on
+
+\begin_inset Formula $ρ$
+\end_inset
+
+
+\emph default
+ superiore (ad esempio, il 5% superiore) di arms da un insieme finito o
+ infinito con una tolleranza probabilmente approssimativamente corretta
+ (
+\emph on
+PAC
+\emph default
+) 
+\begin_inset Formula $ϵ$
+\end_inset
+
+.
+ Vengono considerati due casi: (1) quando è nota la soglia dei premi previsti
+ per le migliori arms e (2) quando è sconosciuta.
+ Vengono dimostrati i limiti inferiori per le quattro varianti (
+\emph on
+finite-arms
+\emph default
+ o 
+\emph on
+infinite-arms 
+\emph default
+e soglia nota o sconosciuta) e vengono proposti alcuni algoritmi per ciascuna
+ variante.
+ Due di questi algoritmi si dimostrano ottimali per la complessità del campione
+ (a meno di fattori costanti) e gli altri due sono ottimali a meno di un
+ fattore 
+\begin_inset Formula $log$
+\end_inset
+
+.
+ I risultati in questo documento forniscono riduzioni fino a 
+\begin_inset Formula $\frac{ρn}{k}$
+\end_inset
+
+ rispetto agli algoritmi di 
+\emph on
+k-exploration
+\emph default
+ che si concentrano sulla ricerca dei migliori 
+\emph on
+k
+\emph default
+ arms (
+\emph on
+PAC
+\emph default
+) da 
+\emph on
+n
+\emph default
+ arms.
+ Vengono mostrati numericamente miglioramenti rispetto allo stato dell'arte.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "robbins1952some"
+literal "false"
+
+\end_inset
+
+ Robbins, H.
+ 
+\emph on
+Some aspects of the sequential design of experiments
+\emph default
+.
+ Bulletin of the AMS, 58(5):527–535, 1952.
+\end_layout
+
+\begin_layout Standard
+E' un articolo che non ha ricevuto molte attenzioni al tempo della stesura
+ ma e stato rivalutato negli ultimi anni e viene spesso citato.
+ Studia la teoria dell'analisi sequenziale, soermandosi anche sulla numerosita
+ campionaria che deve essere raggiunta.
+ Mostra quindi alcuni semplici problemi modellizzandoli con la tecnica del
+ design sequenziale.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+ Roy Chaudhuri, A.
+ and Kalyanakrishnan, S.
+ 
+\emph on
+PAC identification of a bandit arm relative to a reward quantile
+\emph default
+.
+ In Proc.
+ AAAI 2017, pp.
+ 1977–1985.
+ AAAI Press, 2017.
+\end_layout
+
+\begin_layout Standard
+Viene proposta una formulazione PAC per identificare un arm in un
+\emph on
+ n-armed bandit
+\emph default
+s la cui media rientra in una 
+\emph on
+fixed tolerance of the m-th highest mean
+\emph default
+.
+ Questo setup generalizza una formulazione precedente con 
+\begin_inset Formula $m=1$
+\end_inset
+
+ e differisce da un'altra ancora che richiede l'identificazione di tali
+ arms.
+ L'implicazione chiave dell'approccio proposto è la capacità di derivare
+ limiti superiori dalla complessità del campione che dipendono da 
+\begin_inset Formula $\frac{n}{m}$
+\end_inset
+
+ al posto di 
+\emph on
+n
+\emph default
+.
+ Di conseguenza, anche quando il numero di arms è infinito, si ha solo bisogno
+ di un numero finito di campioni per identificare un arm che si confronta
+ favorevolmente con un quantile di ricompensa fisso.
+ Questa funzione rende l'approccio presentato attraente per applicazioni
+ come la scoperta di farmaci, in cui il numero di arm (configurazioni molecolari
+) può incorrere in alcune migliaia.
+ Sono presentati algoritmi di campionamento sia per i casi finiti che per
+ i casi infiniti e ne viene convalidata l'efficienza attraverso l'analisi
+ teorica e sperimentale.
+ Sono presentati anche un limite inferiore alla peggiore complessità del
+ campione di algoritmi 
+\emph on
+PAC
+\emph default
+ per il loro problema, che corrisponde al loro limite superiore a meno di
+ un fattore logaritmico.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Tran_Thanh_2014"
+literal "false"
+
+\end_inset
+
+ Tran-Thanh, L., Stein, S., Rogers, A., and Jennings, N.
+ R.
+ 
+\emph on
+Efficient crowdsourcing of unknown experts using bounded multi-armed bandits
+\emph default
+.
+ Artif.
+ Intl., 214:89 – 111, 2014.
+\end_layout
+
+\begin_layout Standard
+Sempre più organizzazioni esternalizzano in modo flessibile il lavoro su
+ base temporanea a un pubblico globale di lavoratori.
+ Il crowdsourcing è stato applicato con successo a una serie di lavori,
+ dalla traduzione di testi e annotazioni di immagini, alla raccolta di informazi
+oni durante le situazioni di crisi e all'assunzione di lavoratori qualificati
+ per creare software complessi.
+ Mentre tradizionalmente questi compiti sono stati piccoli e potrebbero
+ essere completati da non professionisti, le organizzazioni stanno ora iniziando
+ a fare crowdsourcing di compiti più grandi e più complessi agli esperti
+ nei loro rispettivi campi.
+ Queste attività includono, ad esempio, lo sviluppo e test del software,
+ web design e marketing del prodotto.
+ Mentre questo crowdsourcing di esperti emergenti offre flessibilità e costi
+ potenzialmente inferiori, solleva anche nuove sfide, poiché i lavoratori
+ possono essere altamente eterogenei, sia nei costi che nella qualità del
+ lavoro che producono.
+ In particolare, l'utilità di ciascuna attività esternalizzata è incerta
+ e può variare in modo significativo tra lavoratori distinti e persino tra
+ compiti successivi assegnati allo stesso lavoratore.
+ Inoltre, in contesti realistici, i lavoratori hanno limiti alla quantità
+ di lavoro che possono svolgere e il datore di lavoro avrà un budget fisso
+ per i lavoratori paganti.
+ Data questa incertezza e i relativi vincoli, l'obiettivo del datore di
+ lavoro è quello di assegnare compiti ai lavoratori al fine di massimizzare
+ l'utilità complessiva raggiunta.
+ Per formalizzare questo problema di crowdsourcing, viene introdotto un
+ nuovo multi-armed bandit (
+\emph on
+MAB
+\emph default
+), il 
+\emph on
+bounded MAB
+\emph default
+.
+ Inoltre, viene sviluppato un algoritmo per risolvere il problema in modo
+ efficiente, chiamato 
+\emph on
+bounded 
+\begin_inset Formula $ε$
+\end_inset
+
+-first
+\emph default
+, che procede in due fasi: 
+\emph on
+exploration
+\emph default
+ e 
+\emph on
+exploitation
+\emph default
+.
+ Durante l'
+\emph on
+exploration
+\emph default
+, l'algoritmo usa prima 
+\begin_inset Formula $εB$
+\end_inset
+
+ del suo budget totale 
+\begin_inset Formula $B$
+\end_inset
+
+ per apprendere stime delle caratteristiche di qualità dei lavoratori.
+ Quindi, durante l'
+\emph on
+exploitation
+\emph default
+, utilizza il rimanente 
+\begin_inset Formula $(1-ε)B$
+\end_inset
+
+ per massimizzare l'utilità totale in base a tali stime.
+ L'utilizzo di questa tecnica ci consente di ricavare un limite superiore
+ 
+\begin_inset Formula $O(B^{\frac{2}{3}})$
+\end_inset
+
+ dal suo regret di prestazione (ovvero, la differenza attesa nell'utilità
+ tra l'algoritmo e l'ottimale), il che significa che quando il budget 
+\begin_inset Formula $B$
+\end_inset
+
+ aumenta, il regret tende a 0.
+ Oltre a questo approccio teorico, l'algoritmo viene applicato ai dati del
+ mondo reale usando 
+\emph on
+oDesk
+\emph default
+, un importante sito di crowdsourcing.
+ Utilizzando i dati di progetti reali, inclusi budget di progetti storici,
+ costi di esperti e valutazioni di qualità, viene dimostrato che l'algoritmo
+ supera i metodi di crowdsourcing esistenti fino al 300%, ottenendo al contempo
+ un massimo ipotetico con informazioni complete.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wang2009algorithms"
+literal "false"
+
+\end_inset
+
+ Wang, Y., Audibert, J.-Y., and Munos, R.
+ 
+\emph on
+Algorithms for infinitely many-armed bandits
+\emph default
+.
+ In Adv.
+ NIPS 21, pp.
+ 1729– 1736.
+ Curran Associates Inc., 2008.
+\end_layout
+
+\begin_layout Standard
+Viene considerato il problema dei 
+\emph on
+stochastic multi-armed bandit
+\emph default
+ in cui il numero di arms è maggiore del possibile numero di esperimenti.
+ Viene fatta un'ipotesi stocastica sulla ricompensa media di un nuovo arm
+ selezionato che caratterizza la sua probabilità di essere un arm quasi
+ ottimale.
+ La loro ipotesi è più debole rispetto ad altri paper precedenti presenti
+ in letteratura.
+ Vengono descritti algoritmi basati su limiti di confidenza superiore applicati
+ a un insieme limitato di armscci selezionati casualmente e vengono forniti
+ i limiti superiori sul regret atteso risultante.
+ Viene derivato anche un limite inferiore che corrisponde (a meno di fattori
+ logaritmici) al limite superiore in alcuni casi.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "will2016drug"
+literal "false"
+
+\end_inset
+
+ Will, Y., McDuffie, J.
+ E., Olaharski, A.
+ J., and Jeffy, B.
+ D.
+ 
+\emph on
+Drug Discovery Toxicology: From Target Assessment to Translational Biomarkers
+\emph default
+.
+ Wiley, 2016.
+\end_layout
+
+\begin_layout Standard
+È una guida per i professionisti farmaceutici ai problemi e alle pratiche
+ della tossicologia della scoperta di farmaci in cui viene usato anche alcuni
+ algortimi per risolvere il problema dei 
+\emph on
+stochastic multi-armed bandits.
 \end_layout
 
 \begin_layout Section
@@ -1698,7 +4001,19 @@ Batched Multi-armed Bandits Problem
 \end_layout
 
 \begin_layout Standard
-CORSIVO I TITOLI
+ABSTRACT DI QUESTO SOPRA
+\end_layout
+
+\begin_layout Standard
+KEY (PAC, BANDITS)
+\end_layout
+
+\begin_layout Standard
+NOTE A PIE DI PAGINA PER OGNI TERMINE
+\end_layout
+
+\begin_layout Standard
+GIA MESSO ([Rob52] Herbert Robbins)
 \end_layout
 
 \begin_layout Chapter
@@ -1713,7 +4028,7 @@ name "chap:Descrizione"
 \end_layout
 
 \begin_layout Standard
-Versione estesa del file.
+VERSIONE ESTESA DEL PAPER
 \end_layout
 
 \begin_layout Chapter
@@ -1727,6 +4042,14 @@ name "chap:Esperimenti"
 
 \end_layout
 
+\begin_layout Standard
+ALGORITMI?
+\end_layout
+
+\begin_layout Standard
+CODICE?
+\end_layout
+
 \begin_layout Chapter
 Conclusioni
 \begin_inset CommandInset label
@@ -1736,6 +4059,14 @@ name "chap:Conclusioni"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+COMMENTARE BENE I RISULTATI
+\end_layout
+
+\begin_layout Standard
+SCENARI APPLICATIVI SPOSTARLI QUI?
 \end_layout
 
 \begin_layout Chapter
