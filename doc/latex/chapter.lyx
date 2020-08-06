@@ -1030,7 +1030,7 @@ PAC
 Nella tabella presente in figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "Tabella"
+reference "Tabella-1"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1064,7 +1064,7 @@ status open
 \align center
 \begin_inset CommandInset label
 LatexCommand label
-name "Tabella"
+name "Tabella-1"
 
 \end_inset
 
@@ -4389,14 +4389,6 @@ bandits
  di tipo statico.
 \end_layout
 
-\begin_layout Standard
-KEY (PAC, BANDITS)
-\end_layout
-
-\begin_layout Standard
-NOTE A PIE DI PAGINA PER OGNI TERMINE
-\end_layout
-
 \begin_layout Chapter
 Descrizione
 \begin_inset CommandInset label
@@ -4409,7 +4401,1117 @@ name "chap:Descrizione"
 \end_layout
 
 \begin_layout Standard
-VERSIONE ESTESA DEL PAPER
+Inizialmente verrà definito quale è il problema trattato dal paper e successivam
+ente mostrati algoritmi sia per istanze finite che infinite.
+\end_layout
+
+\begin_layout Section
+Definizione del problema e contributi
+\end_layout
+
+\begin_layout Standard
+Sia 
+\begin_inset Formula $A$
+\end_inset
+
+ un set di arms nell'istanza del bandit data.
+ Ogni arm 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ ha associato una distribuzione dei reward compresa nell'intervallo
+\begin_inset Formula $[0,1]$
+\end_inset
+
+, con media 
+\begin_inset Formula $\mu_{a}$
+\end_inset
+
+.
+ Quando tirato, un arm 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ produce un reward a reward i.i.d pescato dalla distribuzione corrispondente
+ e indipendente dagli altri pull degli altri arms.
+ A ogni turno, basandosi sulla precedente sequenza di pulls e rewards, un
+ algoritmo decide quale arm tirare, fermarsi oppure ritornare un set di
+ arms.
+\end_layout
+
+\begin_layout Standard
+Per un instanza finita del bandit con 
+\begin_inset Formula $n$
+\end_inset
+
+ arms, prendiam 
+\begin_inset Formula $A=\{a_{1},a_{2},\dots,a_{n}\}$
+\end_inset
+
+, e assumiamo, senza perdita di generalità, che per le arms 
+\begin_inset Formula $a_{i},a_{j}\in A$
+\end_inset
+
+, vale 
+\begin_inset Formula $\mu_{a_{i}}\geq\mu_{a_{j}}$
+\end_inset
+
+ dove 
+\begin_inset Formula $i\leq j$
+\end_inset
+
+.
+ Data una tolleranza 
+\begin_inset Formula $\epsilon\in[0,1]$
+\end_inset
+
+ e 
+\begin_inset Formula $m\in\{1,2,\dots,n\}$
+\end_inset
+
+, possiamo chiamare un arm 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ 
+\begin_inset Formula $(\epsilon,m)$
+\end_inset
+
+-optimal se 
+\begin_inset Formula $\mu_{a}\geq\mu_{a_{m}}-\epsilon$
+\end_inset
+
+.
+ Denotiamo il set di tutte le 
+\begin_inset Formula $(\epsilon,m)$
+\end_inset
+
+-optimal arms come 
+\begin_inset Formula $\mathcal{TOP}_{m}(\epsilon)=\{a:\mu_{a}\geq\mu_{a_{m}}-\epsilon\}$
+\end_inset
+
+.
+ Per semplicità denotiamo
+\begin_inset Formula $\mathcal{TOP}_{m}(0)$
+\end_inset
+
+ come 
+\begin_inset Formula $\mathcal{TOP}_{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Definizione:
+\series default
+ Problema 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+.
+ Un'istanza del problema 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+ è nella forma 
+\begin_inset Formula $(A,n,m,k,\epsilon,\delta)$
+\end_inset
+
+, dove 
+\begin_inset Formula $A$
+\end_inset
+
+ è il set di arms con 
+\begin_inset Formula $|A|=n\geq2$
+\end_inset
+
+; 
+\begin_inset Formula $m\in\{1,2,\dots,n-1\}$
+\end_inset
+
+; 
+\begin_inset Formula $k\in\{1,\dots,m\}$
+\end_inset
+
+; tolleranza 
+\begin_inset Formula $\epsilon\in(0,1]$
+\end_inset
+
+; e probabilità d'errore 
+\begin_inset Formula $\delta\in(0,1]$
+\end_inset
+
+.
+ Un algoritmo
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ si dice in grado di risolvere 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+ se per ogni istanza di 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+, l'algoritmo termina con probabilità 1 e restituisce 
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\emph on
+distinct
+\emph default
+ 
+\begin_inset Formula $(\epsilon,m)$
+\end_inset
+
+-optimal arms con probabilità almeno 
+\begin_inset Formula $1-\delta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Il problema 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+ è interessante da un punto di vista teorico perchè copre un intero range
+ di problemi, dall'identificazione di una singola arm (
+\begin_inset Formula $m=1$
+\end_inset
+
+) fino alla selezione di un sottoinsime (
+\begin_inset Formula $k=m$
+\end_inset
+
+).
+ Così, ogni buond basato sulla complessità del campione 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+ può essere applicato a 
+\emph on
+Q-F 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+
+\emph default
+ e
+\emph on
+ SUBSET 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2010efficient"
+literal "false"
+
+\end_inset
+
+.
+
+\emph default
+ In questo paper, verrà mostrato un algoritmo che risolve il problema 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+ in cui valga 
+\begin_inset Formula $\Omega\left(\frac{n}{(m-k+1)\epsilon^{2}}\log\left(\frac{\binom{m}{k-1}}{\delta}\right)\right)$
+\end_inset
+
+ pulls per qualche istanza del problema.
+ Non siamo a conoscenza dei limiti in 
+\emph on
+fixed confidence setting
+\emph default
+ che coinvolgono un tale termine combinatorio all'interno del logaritmo.
+\end_layout
+
+\begin_layout Standard
+Nella tabella presente in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Tabella-2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ sono confrontati i limiti che verranno dimostrati in questo paper rispetto
+ ai limiti dei lavori precedenti.
+ I limiti presenti nella tabella sono da considerare come il peggior caso
+ tra tutte le istanze del problema; in pratica uno può sperare di fare meglio
+ su istanze del problema più semplici adottando una strategia di campionamento
+ sequenziale completa.
+ Infatti adattiamo l'algoritmo 
+\emph on
+LUCB1 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2012pac"
+literal "false"
+
+\end_inset
+
+ 
+\emph default
+per risolvere il problema 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+ con un algoritmo adattato chiamato 
+\emph on
+LUCB-k-m
+\emph default
+.
+ La nostra analisi dimostrerà che per 
+\begin_inset Formula $k=1$
+\end_inset
+
+ e 
+\begin_inset Formula $k=m$
+\end_inset
+
+, l'upper bound della complessità del campione di questo algoritmo corrisponde,
+ rispettivamente, a 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+ e 
+\emph on
+LUCB1 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2012pac"
+literal "false"
+
+\end_inset
+
+
+\emph default
+, a meno di una costante moltiplicativa.
+ Empiricamente, 
+\emph on
+LUCB-k-m 
+\emph default
+con 
+\begin_inset Formula $k=1$
+\end_inset
+
+ sembra più efficiente di
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ per risolvere 
+\emph on
+Q–F
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Tabella.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Tabella-2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Limiti inferiore e superiore sulla complessità del campione attesa (ponendosi
+ nel caso peggiore).
+ I limiti per 
+\emph on
+
+\begin_inset Formula $(k;\rho)$
+\end_inset
+
+, 
+\begin_inset Formula $k>1$
+\end_inset
+
+
+\emph default
+ sono per la classe speciale di istanze “al massimo 
+\emph on
+k
+\emph default
+-equiprobabili”.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Allo stesso modo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+ definisce il problema
+\emph on
+ Q-P
+\emph default
+ per istanze infinite, come una generalizazione di
+\emph on
+ Q-P
+\emph default
+ per seleziona tanti buoni arms che denotiamo 
+\begin_inset Formula $(k,ρ)$
+\end_inset
+
+.
+ Dato un set di arms 
+\begin_inset Formula $A$
+\end_inset
+
+, una distribuzione del campione 
+\begin_inset Formula $P_{A}$
+\end_inset
+
+, 
+\begin_inset Formula $\epsilon\in(0,1]$
+\end_inset
+
+, e 
+\begin_inset Formula $\rho\in[0,1]$
+\end_inset
+
+, un arm 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ è chiamata 
+\begin_inset Formula $[\epsilon,\rho]$
+\end_inset
+
+-optimal se 
+\begin_inset Formula $P_{a'\sim P_{A}}\{\mu_{a}\geq\mu_{a'}-\epsilon\}\geq1-\rho$
+\end_inset
+
+.
+ Per 
+\begin_inset Formula $\rho,\epsilon\in[0,1]$
+\end_inset
+
+, possiamo definire un set di tutte 
+\begin_inset Formula $[\epsilon,\rho]$
+\end_inset
+
+-optimal arms come 
+\begin_inset Formula $\mathcal{TOP}_{\rho}(\epsilon)$
+\end_inset
+
+.
+ Come prima possiamo definire 
+\begin_inset Formula $\mathcal{TOP}_{\rho}(0)$
+\end_inset
+
+ come 
+\begin_inset Formula $\mathcal{TOP}_{\rho}$
+\end_inset
+
+.
+ Una semplice generalizzazione di 
+\emph on
+Q-P
+\emph default
+ è la seguente.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Definizione: 
+\series default
+Problema 
+\begin_inset Formula $(k,ρ)$
+\end_inset
+
+.
+ Un istanza del problema 
+\begin_inset Formula $(k,ρ)$
+\end_inset
+
+ è nella forma 
+\begin_inset Formula $(A,P_{A},k,\rho,\epsilon,\delta)$
+\end_inset
+
+, dove 
+\begin_inset Formula $A$
+\end_inset
+
+ è il set di arms; 
+\begin_inset Formula $P_{A}$
+\end_inset
+
+ è la probabilità di distribuzione su 
+\begin_inset Formula $A$
+\end_inset
+
+; frazuibe quantile 
+\begin_inset Formula $\rho\in(0,1]$
+\end_inset
+
+; tolleranza 
+\begin_inset Formula $\epsilon\in(0,1]$
+\end_inset
+
+; e probabilità d'errore 
+\begin_inset Formula $\delta\in(0,1]$
+\end_inset
+
+.
+ Una tale istanza è 
+\emph on
+valida
+\emph default
+ 
+\begin_inset Formula $|\mathcal{TOP}_{\rho}|\geq k$
+\end_inset
+
+, e 
+\shape italic
+non valida
+\shape default
+ altrimenti.
+ Dato un algoritmo 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ si dice in grado di rislvere il problema 
+\begin_inset Formula $(k,ρ)$
+\end_inset
+
+ se per ogni istanza 
+\emph on
+valida
+\emph default
+ di 
+\begin_inset Formula $(k,ρ)$
+\end_inset
+
+, termina con probabilità 1 e restituisce 
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\emph on
+distinct
+\emph default
+ 
+\begin_inset Formula $[\epsilon,\rho]$
+\end_inset
+
+-optimal arms con probabilità di almeno 
+\begin_inset Formula $1-\delta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Al massimo 
+\begin_inset Formula $k$
+\end_inset
+
+ istanze equiprobabili
+\end_layout
+
+\begin_layout Standard
+Si osservi il fatto che il problema 
+\begin_inset Formula $(k,ρ)$
+\end_inset
+
+ è ben definito soltanto se l'istanza data ha almeno 
+\emph on
+k
+\emph default
+ arms distinte in 
+\begin_inset Formula $\mathcal{TOP}_{\rho}$
+\end_inset
+
+; possiamo definire una tale istanza 
+\emph on
+valida
+\emph default
+.
+ Vale la pena notare che anche istanze valide possono richiedere un tempo
+ di calcolo arbitrario per essere risolte.
+ Per esempio, consideriamo un istanza con 
+\begin_inset Formula $k>1$
+\end_inset
+
+ arms in 
+\begin_inset Formula $\mathcal{TOP}_{\rho}$
+\end_inset
+
+, una avrà probabilità 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ di essere pescada da 
+\begin_inset Formula $P_{A}$
+\end_inset
+
+, e le restanti hanno ognuna probabilità 
+\begin_inset Formula $(\rho-\gamma)/(k-1)$
+\end_inset
+
+.
+ Dal momento che le arms devono essere identifiate campionando da 
+\begin_inset Formula $P_{A}$
+\end_inset
+
+, la probabilità di identificare le ultime 
+\begin_inset Formula $k-1$
+\end_inset
+
+ arms tende a 
+\begin_inset Formula $0$
+\end_inset
+
+ se 
+\begin_inset Formula $\gamma\to\rho$
+\end_inset
+
+, chiedendo un numero infinito di tentativi.
+ Per evitare questo scenario, restringiamo la nostra analisi a una classe
+ speciale di istanze valide in cui 
+\begin_inset Formula $P_{A}$
+\end_inset
+
+ riserva non più di 
+\begin_inset Formula $\rho/k$
+\end_inset
+
+ probabilità per ogni arm in 
+\begin_inset Formula $\mathcal{TOP}_{\rho}$
+\end_inset
+
+.
+ Ci riferiamo a tali istanze come 
+\begin_inset Quotes eld
+\end_inset
+
+al massimo 
+\emph on
+k
+\emph default
+ istanze equiprobabili
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Formalmente, un'istanza del problema 
+\begin_inset Formula $(k,ρ)$
+\end_inset
+
+ data da 
+\begin_inset Formula $(A,P_{A},k,\rho,\epsilon,\delta)$
+\end_inset
+
+ è chiamata 
+\begin_inset Quotes eld
+\end_inset
+
+al massimo 
+\begin_inset Formula $k$
+\end_inset
+
+-equiprobable
+\begin_inset Quotes erd
+\end_inset
+
+ se 
+\begin_inset Formula $\forall a\in\mathcal{TOP_{\rho}}$
+\end_inset
+
+, 
+\begin_inset Formula $\Pr_{\mathbf{a}'\sim P_{A}}\{\mathbf{a}'=a\}\leq\frac{\rho}{k}$
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+In un paper recente, Ren et al.
+ (2018) cerca di risolvere il problema (k, ρ).
+ Tuttavia, loro non hanno notato che il problema può essere mal posto.
+ Inoltre, anche con un'istanza al massimo
+\emph on
+ k
+\emph default
+-equiprobable come input, il loro algoritmo fallisce nel tentativo di eliminare
+ la dipendenza da 
+\begin_inset Formula $(1/ρ)log^{2}(1/δ)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+Per capire la nozione del problema 
+\begin_inset Formula $(k,ρ)$
+\end_inset
+
+ prendiamo un esempio concreto.
+\end_layout
+
+\begin_layout Example
+Dato un set di arms 
+\begin_inset Formula $A=[0,1]$
+\end_inset
+
+, tale che 
+\begin_inset Formula $\mu_{a}=a$
+\end_inset
+
+.
+ Ora per qualche 
+\begin_inset Formula $\gamma\in[0,0.5]$
+\end_inset
+
+, su cui definiamo una distribuzione dei campioni 
+\begin_inset Formula $P_{A}^{(\gamma)}$
+\end_inset
+
+ su 
+\begin_inset Formula $A$
+\end_inset
+
+ tale che 
+\begin_inset Formula $\Pr_{a\sim P_{A}^{(\gamma)}}\{\mu_{a}\in[0,0.5]\}=0.4$
+\end_inset
+
+, 
+\begin_inset Formula $\Pr_{a\sim P_{A}^{(\gamma)}}\{\mu_{a}\in(0.5,0.95]\cup(0.98,1)\}=0$
+\end_inset
+
+, 
+\begin_inset Formula $\Pr_{a\sim P_{A}^{(\gamma)}}\{\mu_{a}(0.95,0.98]\}=\gamma$
+\end_inset
+
+, 
+\begin_inset Formula $\Pr_{a\sim P_{A}^{(\gamma)}}\{\mu_{a}=1\}=0.6-\gamma$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{align*}
+ & \Pr_{a\sim P_{A}^{(\gamma)}}\{0\leq\mu_{a}\leq0.5\}=0.4,\Pr_{a\sim P_{A}^{(\gamma)}}\{0.5<\mu_{a}\leq0.95\}=0,\\
+ & \Pr_{a\sim P_{A}^{(\gamma)}}\{0.95<\mu_{a}<1\}=\gamma,\Pr_{a\sim P_{A}^{(\gamma)}}\{\mu_{a}=1\}=0.6-\gamma.%\label{eq:hardqpk}
+\end{align*}
+
+\end_inset
+
+For 
+\begin_inset Formula $\rho=0.5$
+\end_inset
+
+, 
+\begin_inset Formula $k=2$
+\end_inset
+
+, 
+\begin_inset Formula $\epsilon=0.1$
+\end_inset
+
+, e 
+\begin_inset Formula $\delta\in(0,1)$
+\end_inset
+
+, possiamo definire un istanza del problema del problema 
+\begin_inset Formula $(k,ρ)$
+\end_inset
+
+ come 
+\begin_inset Formula $I^{(\gamma)}=(A,P_{A}^{(\gamma)},k,\rho,\epsilon,\delta)$
+\end_inset
+
+.
+ Ora in accordo con la definizione di del problema 
+\begin_inset Formula $(k,ρ)$
+\end_inset
+
+, l'istanza 
+\begin_inset Formula $I^{(0)}$
+\end_inset
+
+ è 
+\emph on
+non valida
+\emph default
+; per tutte le 
+\begin_inset Formula $\nu\in(0,0.1)$
+\end_inset
+
+ un istanza 
+\begin_inset Formula $I^{(\nu)}$
+\end_inset
+
+ è 
+\emph on
+non valida
+\emph default
+, ma devono esistere
+\begin_inset Formula $k$
+\end_inset
+
+ distinct 
+\begin_inset Formula $[\epsilon,\rho]$
+\end_inset
+
+-optimal arms; altrimenti, la sua soluzione cesserà di esistere per 
+\begin_inset Formula $\epsilon<0.02$
+\end_inset
+
+.
+ Inoltre, tale istanza non è interessante visto che può mancare l'esistenza
+ di una soluzione arbitrariamente approssimata.
+ Nuovamente per ogni 
+\begin_inset Formula $\gamma>0.1$
+\end_inset
+
+, 
+\begin_inset Formula $I^{(\gamma)}$
+\end_inset
+
+ è un'istanza 
+\emph on
+valida
+\emph default
+, inoltre come 
+\begin_inset Formula $\gamma\downarrow0.1$
+\end_inset
+
+, l'istanza diventa arbitrariamente più complicata da risolvere 
+\begin_inset Formula $I^{(\gamma)}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notare che ogni istanza del problema 
+\begin_inset Formula $(1,\rho)$
+\end_inset
+
+ or 
+\emph on
+Q-P problem
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+ è necessariamente 
+\emph on
+valida
+\emph default
+ e al massimo 
+\begin_inset Formula $1$
+\end_inset
+
+-equiprobable.
+ Abbiamo migliorato rispetto alla versione esistente dell'upper bound di
+ questo problema e va a corrispondere al lower bound del termine 
+\emph on
+adattive
+\emph default
+ 
+\begin_inset Formula $O\left(\frac{1}{\epsilon^{2}}\log^{2}\frac{1}{\delta}\right)$
+\end_inset
+
+.
+ Qui sotto sono riassunti tutti i contributi dati da questo paper.
+\end_layout
+
+\begin_layout Paragraph
+Contributi
+\end_layout
+
+\begin_layout Enumerate
+Hanno generalizzato due problemi precedenti, 
+\emph on
+Q-F 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+
+\emph default
+ e
+\emph on
+ SUBSET 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2010efficient"
+literal "false"
+
+\end_inset
+
+
+\emph default
+ via 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+.
+ Nella sezione 333333 hanno derivato un lower bound sul caso peggiore della
+ complessità del campione per risolvere 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+ che generalizzava gli esistenti lower bound per i problemi
+\emph on
+ Q-F 
+\emph default
+e
+\emph on
+ SUBSET.
+\end_layout
+
+\begin_layout Enumerate
+Nella sezione 33333333.222222 hanno esteso l'algoritmo 
+\shape smallcaps
+\emph on
+LUCB1
+\shape default
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2012pac"
+literal "false"
+
+\end_inset
+
+ per presentare un algoritmo completamente sequenziale (
+\emph on
+LUCB for 
+\begin_inset Formula $k$
+\end_inset
+
+ out of 
+\begin_inset Formula $m$
+\end_inset
+
+
+\emph default
+ or
+\emph on
+ LUCB-k-m
+\emph default
+) per risolvere 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+.
+ Hanno dimostrato che per 
+\begin_inset Formula $k=1$
+\end_inset
+
+, e 
+\begin_inset Formula $k=m$
+\end_inset
+
+ l'upper bound sulla complessità del campione attesa corrisponde a quelli
+ di
+\begin_inset Formula $F_{2}$
+\end_inset
+
+, and 
+\shape smallcaps
+\emph on
+LUCB1
+\shape default
+\emph default
+, rispettivamente, a meno di un fattore motliplicativo.
+\end_layout
+
+\begin_layout Enumerate
+Nella sezione 4444444444 hanno presentato un algoritmo 
+\begin_inset Formula $P_{3}$
+\end_inset
+
+ per risolvere il problema 
+\emph on
+Q-P
+\emph default
+ con una complessità del campione che è un termina additivo 
+\begin_inset Formula $O((1/\epsilon^{2})\log^{2}(1/\delta))$
+\end_inset
+
+ lontano dal lower bound.
+ Hanno esteso ciò a un algoritmo 
+\emph on
+KQP-1 
+\emph default
+per risolvere le istanze al massimo 
+\emph on
+k
+\emph default
+-equiprobable 
+\begin_inset Formula $(k,ρ)$
+\end_inset
+
+.
+ Inoltre 
+\begin_inset Formula $P_{3}$
+\end_inset
+
+ e 
+\emph on
+KQP-1
+\emph default
+ possono risolvere
+\emph on
+ Q-F
+\emph default
+ e 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+ rispettivamente e le loro complessità del campione sono sono indipendenti
+ dall'istanza più stretta limiti superiori.
+\end_layout
+
+\begin_layout Enumerate
+Nella sezione 4444444.33333333 hanno presentato una relazione generale tra
+ l'upper bound sulle complessità dei campioni per risolvere 
+\emph on
+Q-F
+\emph default
+ e 
+\emph on
+Q-P.
+
+\emph default
+ Questo aiuta a trasferire qualsiasi miglioramento nell'upper bound dal
+ primo problema a quest'ultimo.
+ Inoltre ipotizziamo l'esistenza di una classe di istanze 
+\emph on
+Q-F
+\emph default
+ che possono essere risolte di più in modo efficiente rispetto alle loro
+ istanze 
+\emph on
+Q-P
+\emph default
+ "corrispondenti".
+\end_layout
+
+\begin_layout Enumerate
+Nella sezione 555555 hanno dimostrato empiricamente che 
+\emph on
+LUCB-k-m
+\emph default
+ è più efficinete del 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ per risolvere problemi 
+\emph on
+Q-F
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+SEZIONI
 \end_layout
 
 \begin_layout Chapter
