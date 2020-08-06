@@ -3978,13 +3978,43 @@ In questa sezione sono analizzati ulteriori paper presenti nella letteratura
 status open
 
 \begin_layout Plain Layout
-Google Scholar (https://scholar.google.it/)
+
+\series bold
+Google Scholar
+\series default
+ (https://scholar.google.it/)
 \end_layout
 
 \end_inset
 
  che sono serviti sia per la comprensione che per l'approfondimento del
  paper assegnato.
+\end_layout
+
+\begin_layout Standard
+Alcuni lavori correlati possono essere trovati grazie a parole chiave in
+ 
+\emph on
+Proceedings of Machine Learning Research, 
+\emph default
+in particolare riguardante il 
+\emph on
+Volume 97: International Conference on Machine Learning, 9-15 June 2019,
+ Long Beach, California, USA
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Proceedings of Machine Learning Research v97
+\series default
+ (http://proceedings.mlr.press/v97/)
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3997,11 +4027,366 @@ possono essere trovati anche nei related works del paper
 Batched Multi-armed Bandits Problem
 \emph default
  di Zijun Gao, Yanjun Han, Zhimei Ren, Zhengqing Zhou che avevo in parte
- letto e analizzato nella sessione estiva.
+ letto e analizzato durante la sessione estiva.
+ Qui di seguito un riassunto del contenuto del paper:
 \end_layout
 
 \begin_layout Standard
-ABSTRACT DI QUESTO SOPRA
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gao2019batched"
+literal "false"
+
+\end_inset
+
+ Gao, Z., Han, Y., Ren, Z., & Zhou, Z.
+ (2019).
+ 
+\emph on
+Batched multi-armed bandits problem
+\emph default
+.
+ In Advances in Neural Information Processing Systems (pp.
+ 503-513).
+\end_layout
+
+\begin_layout Standard
+In questo paper ci si concentra sul problema del 
+\emph on
+multi-armed bandit
+\emph default
+ a impostazione batched detto 
+\emph on
+batched multi-armed bandit
+\emph default
+ (
+\emph on
+BMaB
+\emph default
+), in cui i dati vengono suddivisi in un piccolo numero di batches.
+ La motivazione alla base di tale studio è che mentre il minimax regret
+ per il problema del 
+\emph on
+two-armed stochastic bandit
+\emph default
+ è stato caratterizzato a pieno in 
+\emph on
+Batched bandit problems
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Perchet, V., Rigollet, P., Chassang, S., & Snowberg, E.
+ (2016).
+ 
+\emph on
+Batched bandit problems
+\emph default
+.
+ The Annals of Statistics, 44(2), 660-681.
+\end_layout
+
+\end_inset
+
+
+\emph default
+ da Perchet, Rigollet, Chassang e Snowberg, l’effetto del numero degli arms
+ nel regret del caso multi-armed è ancora un argomento aperto.
+ Inoltre, rimane ancora inesplorata la domanda se dimensioni di batch scelti
+ in modo adattivo aiutano a ridurre il regret.
+ Nel documento si propone la policy 
+\emph on
+Batched Successive Elimination
+\emph default
+ (
+\emph on
+BaSE
+\emph default
+) per ottenere rate-optimal regrets (a meno di fattori logaritmici) per
+ il 
+\emph on
+batched multi-armed bandit
+\emph default
+, con matching lower bounds anche se le dimensioni dei batches sono determinate
+ in modo adattivo.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "agarwal2017learning"
+literal "false"
+
+\end_inset
+
+ Agarwal, A., Agarwal, S., Assadi, S., & Khanna, S.
+ (2017, June).
+ 
+\emph on
+Learning with limited rounds of adaptivity: Coin tossing, multi-armed bandits,
+ and ranking from pairwise comparisons
+\emph default
+.
+ In Conference on Learning Theory (pp.
+ 39-75).
+\end_layout
+
+\begin_layout Standard
+Viene analizzata la relazione fra la complessità e l'adattivita nel richiedere
+ attivamente nuovi dati per identicare le 
+\emph on
+k
+\emph default
+ monete che hanno una probabilità maggiore di ottenere il risultato desiderato
+ (testa), in un insieme di 
+\emph on
+n
+\emph default
+ monete.
+ Successivamente si passa poi a considerare il problema delle migliori 
+\emph on
+k
+\emph default
+ arms nel problema 
+\emph on
+multi-armed bandit
+\emph default
+ e al problema dell'ordinamento con confronti a coppie dei primi 
+\emph on
+k
+\emph default
+ oggetti in un insieme finito.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "auer2002finite"
+literal "false"
+
+\end_inset
+
+ Auer, P., Cesa-Bianchi, N., & Fischer, P.
+ (2002).
+ 
+\emph on
+Finite-time analysis of the multiarmed bandit problem
+\emph default
+.
+ Machine learning, 47(2-3), 235-256.
+\end_layout
+
+\begin_layout Standard
+Viene studiato il problema 
+\emph on
+multi-armed bandit
+\emph default
+ focalizzandosi sulla variabile tempo e quindi sul numero di turni.
+ Viene dimostrato che il regret ottimo cresce almeno logaritmicamente non
+ solo in relazione al numero di turni ma anche uniformemente in base al
+ tempo con semplici ed efficienti politiche e per tutte le distribuzioni
+ del reward con supporto limitato (cioe l'insieme dei punti in cui la distribuzi
+one non è una funzione liscia, che vuol dire derivabile infinite volte in
+ quel punto).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "audibert2009exploration"
+literal "false"
+
+\end_inset
+
+ Audibert, J.
+ Y., Munos, R., & Szepesvári, C.
+ (2009).
+ 
+\emph on
+Exploration–exploitation tradeoff using variance estimates in multi-armed
+ bandits
+\emph default
+.
+ Theoretical Computer Science, 410(19), 1876-1902.
+\end_layout
+
+\begin_layout Standard
+Viene studiato il trade-off tra 
+\emph on
+exploration
+\emph default
+ e 
+\emph on
+exploitation
+\emph default
+ in una variante dell'algoritmo base per il problema 
+\emph on
+multi-armed bandit 
+\emph default
+usando la varianza empirica degli arms.
+ Viene discusso di come l'upper bound per il regret sia logaritmico e che
+ possa quindi non essere adatto a problemi reali con decisori avversi al
+ rischio.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sebastien2012regret"
+literal "false"
+
+\end_inset
+
+ Sébastien, B., & Cesa-Bianchi, N.
+ (2012).
+ 
+\emph on
+Regret analysis of stochastic and non stochastic multi-armed bandit problems
+\emph default
+.
+ Foundations and Trends in Machine Learning, 5(1), 1-122.
+\end_layout
+
+\begin_layout Standard
+Viene analizzato il regret nei problemi 
+\emph on
+stochastic multi-armed bandits
+\emph default
+ evidenziando le dierenze fra 
+\emph on
+exploration
+\emph default
+ e 
+\emph on
+exploitation
+\emph default
+.
+ In particolare, confronta due casi estremi: ricompense indipendenti e identicam
+ente distribuite e il caso in cui non siano indipendenti.
+ Analizza alcune varianti ed estensioni, come il 
+\emph on
+contextual bandit model,
+\emph default
+ dove ad ogni turno il giocatore puo scegliere solo un sottoinsieme delle
+ possibili scelte.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bubeck2013bounded"
+literal "false"
+
+\end_inset
+
+ Bubeck, S., Perchet, V., & Rigollet, P.
+ (2013, June).
+ 
+\emph on
+Bounded regret in stochastic multi-armed bandits
+\emph default
+.
+ In Conference on Learning Theory (pp.
+ 122-134).
+\end_layout
+
+\begin_layout Standard
+Viene studiato il problema 
+\emph on
+stochastic multi-armed bandit
+\emph default
+ nel caso in cui si conosca quale sia il valore della scelta ottima e il
+ lower bound sulla piu piccola dierenza fra valore di una scelta e scelta
+ ottima.
+ Propone quindi una politica di randomizzazione che porta a un regret uniformeme
+nte limitato nel tempo, e mostra diversi lower bound, dimostrando che conoscere
+ solo una delle due ipotesi sopra dichiarate renda impossibile ottenere
+ bound piu bassi.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "even2006action"
+literal "false"
+
+\end_inset
+
+ Even-Dar, E., Mannor, S., & Mansour, Y.
+ (2006).
+ 
+\emph on
+Action elimination and stopping conditions for the multi-armed bandit and
+ reinforcement learning problems
+\emph default
+.
+ Journal of machine learning research, 7(Jun), 1079-1105.
+\end_layout
+
+\begin_layout Standard
+Mostra gli intervalli di condenza nel problema dei banditi dimostrando quale
+ sia il numero minimo di scelte per trovare il braccio ottimale con una
+ probabilita definita.
+ Propone un framework che cerca di eliminare le azioni che non sono ottime
+ con alta probabilità.
+ Inoltre mostra una variante basata su modello e una senza modello per il
+ metodo di eliminazione, derivando anche le condizioni di stop che garantiscono
+ che la politica imparata sia approssimativamente ottima con alta probabilità.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "perchet2013multi"
+literal "false"
+
+\end_inset
+
+ Perchet, V., & Rigollet, P.
+ (2013).
+ 
+\emph on
+The multi-armed bandit problem with covariates
+\emph default
+.
+ The Annals of Statistics, 41(2), 693-721.
+\end_layout
+
+\begin_layout Standard
+Viene considerato il problema 
+\emph on
+stochastic multi-armed bandit
+\emph default
+ dove ogni arm presenta una ricompensa con rumore che dipende da una variabile
+ casuale.
+ Al contrario del problema classico, questa variante permette cambiamenti
+ dinamici dei reward che descrivono meglio scenari in cui l'informazione
+ non è certa.
+ Utilizza un modello non parametrico e introudce una politica chiamata 
+\emph on
+Adaptively Binned Successive Elimination (ABSE)
+\emph default
+ che decompone adattativamente il problema in più piccoli problemi dei 
+\emph on
+bandits
+\emph default
+ di tipo statico.
 \end_layout
 
 \begin_layout Standard
@@ -4010,10 +4395,6 @@ KEY (PAC, BANDITS)
 
 \begin_layout Standard
 NOTE A PIE DI PAGINA PER OGNI TERMINE
-\end_layout
-
-\begin_layout Standard
-GIA MESSO ([Rob52] Herbert Robbins)
 \end_layout
 
 \begin_layout Chapter
