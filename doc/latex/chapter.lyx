@@ -1113,6 +1113,13 @@ k
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Scenari applicativi
 \end_layout
@@ -3974,6 +3981,13 @@ Drug Discovery Toxicology: From Target Assessment to Translational Biomarkers
 stochastic multi-armed bandits.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Lavori citati nella letteratura
 \end_layout
@@ -4412,11 +4426,11 @@ ente mostrati algoritmi sia per istanze finite che infinite.
 \end_layout
 
 \begin_layout Standard
-NOMENCLATURA (QF QP LUBC)
+NOMENCLATURA (QF, QP, LUBC)
 \end_layout
 
 \begin_layout Section
-Definizione del problema e contributi
+Definizione del problema
 \end_layout
 
 \begin_layout Standard
@@ -4429,7 +4443,7 @@ Sia
 \begin_inset Formula $a\in A$
 \end_inset
 
- ha associato una distribuzione dei reward compresa nell'intervallo
+ ha associato una distribuzione dei reward compresa nell'intervallo 
 \begin_inset Formula $[0,1]$
 \end_inset
 
@@ -4454,7 +4468,7 @@ Per un instanza finita del bandit con
 \begin_inset Formula $n$
 \end_inset
 
- arms, prendiam 
+ arms, prendiamo 
 \begin_inset Formula $A=\{a_{1},a_{2},\dots,a_{n}\}$
 \end_inset
 
@@ -4550,7 +4564,7 @@ Problema
 \end_inset
 
 .
- Un algoritmo
+ Un algoritmo 
 \begin_inset Formula $\mathcal{L}$
 \end_inset
 
@@ -5004,7 +5018,7 @@ valida
 \begin_inset Formula $\gamma$
 \end_inset
 
- di essere pescada da 
+ di essere pescata da 
 \begin_inset Formula $P_{A}$
 \end_inset
 
@@ -5291,10 +5305,16 @@ adattive
 \end_inset
 
 .
- Qui sotto sono riassunti tutti i contributi dati da questo paper.
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Contributi
 \end_layout
 
@@ -5412,7 +5432,7 @@ LUCB for
 \end_inset
 
  l'upper bound sulla complessità del campione attesa corrisponde a quelli
- di
+ di 
 \begin_inset Formula $F_{2}$
 \end_inset
 
@@ -5543,6 +5563,13 @@ Q-F
 .
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Algortimi per istanze finite
 \end_layout
@@ -5569,7 +5596,7 @@ name "subsec:Lower-Bound-sulla-complessità-del-campione"
 \end_layout
 
 \begin_layout Theorem
-[Lower Bound for 
+[Lower Bound per 
 \begin_inset Formula $(k,m,n)$
 \end_inset
 
@@ -5602,7 +5629,7 @@ name "subsec:Lower-Bound-sulla-complessità-del-campione"
 \begin_inset Formula $1\leq k\leq m$
 \end_inset
 
-, su cui il numero di pulls atteso fatto dall'algoritmo
+, su cui il numero di pulls atteso fatto dall'algoritmo 
 \begin_inset Formula $\mathcal{L}$
 \end_inset
 
@@ -5734,7 +5761,7 @@ noprefix "false"
 \begin_inset Formula $(k;m,n)$
 \end_inset
 
- la cui complessità del campione prevista varia con la "durezza" dell'istanza
+ la cui complessità del campione prevista varia con la complessità dell'istanza
  in input.
 \end_layout
 
@@ -6235,7 +6262,7 @@ Notiamo che
 \begin_layout Theorem
 
 \emph on
-Nella appendice AAAAAAA è descritta la dimostrazione nel dettaglio.
+Nella appendice AAAAAAAAA è descritta la dimostrazione nel dettaglio.
  Il punto centrale è simile all'algoritmo 
 \begin_inset Formula $F_{2}$
 \end_inset
@@ -6252,8 +6279,12 @@ literal "false"
  Tuttavia, differisce leggermente a causa della diversa strategia per la
  scelta delle arms poiché il set di output non è necessariamente singolo.
  In pratica, si possono usare bound di confidenza più stretti (gli autori
- usano limiti di confidenza basati sulla divergenza KL nei loro esperimenti)
- per ottenere una complessità del campione ancora migliore.
+ usano limiti di confidenza basati sulla divergenza 
+\emph default
+KL
+\emph on
+ nei loro esperimenti) per ottenere una complessità del campione ancora
+ migliore.
 \end_layout
 
 \begin_layout Theorem
@@ -6268,6 +6299,13 @@ Successivamente si andrà a considerare le istanze
 infinite-armed bandit
 \emph default
  e descrivere algoritmi che le risolvono.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -6303,7 +6341,7 @@ infinite-armed bandits
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal arm, la comlessità del campione di tutti gli algorimi esistenti
+-optimal arm, la complessità del campione di tutti gli algorimi esistenti
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -6320,7 +6358,8 @@ literal "false"
 \begin_inset Formula $\delta$
 \end_inset
 
-.In questa sezione viene presentato un algoritmo 
+.
+ In questa sezione viene presentato un algoritmo 
 \begin_inset Formula $P_{3}$
 \end_inset
 
@@ -6340,7 +6379,7 @@ literal "false"
 
 \end_inset
 
-.variando
+.
 \end_layout
 
 \begin_layout Subsection
@@ -6410,7 +6449,7 @@ Median Elimination
 L'algoritmo 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "P3"
+reference "P3: algoritmo per l'identificazione dell'arm migliore"
 plural "false"
 caps "false"
 noprefix "false"
@@ -6551,7 +6590,7 @@ Median Elimination
 \size small
 \begin_inset CommandInset label
 LatexCommand label
-name "P3"
+name "P3: algoritmo per l'identificazione dell'arm migliore"
 
 \end_inset
 
@@ -6562,7 +6601,7 @@ name "P3"
 \begin_inset Formula $\mathcal{P}_{3}$
 \end_inset
 
-
+: algoritmo per l'identificazione dell'arm migliore
 \end_layout
 
 \end_inset
@@ -6576,12 +6615,12 @@ name "P3"
 \end_layout
 
 \begin_layout Theorem
-[Correttezza e complessità del campione di and Sample Complexity of 
-\begin_inset Formula $P_{3}$
+[Correttezza e complessità del campione di 
+\begin_inset Formula $\mathcal{P}_{3}$
 \end_inset
 
 ] 
-\begin_inset Formula $P_{3}$
+\begin_inset Formula $\mathcal{P}_{3}$
 \end_inset
 
  risovle il problema Q-P, con una complessità del campione 
@@ -6655,7 +6694,7 @@ Median Elimination
 \begin_inset Formula $(1-\rho)$
 \end_inset
 
--th quantile.
+-esimo quantile.
 \end_layout
 
 \begin_layout Paragraph
@@ -6888,11 +6927,19 @@ name "thm:[Lower-Bound-sulla"
 \begin_inset Formula $\rho\in(0,\frac{1}{2}]$
 \end_inset
 
-, esiste un istanza di (k, ρ) data da 
+, esiste un istanza di 
+\begin_inset Formula $(k,ρ)$
+\end_inset
+
+ data da 
 \begin_inset Formula $(A,P_{A},\rho,\epsilon,\delta)$
 \end_inset
 
-, tale che ogni algoritmo che risolver (k, ρ) necessita di almeno 
+, tale che ogni algoritmo che risolver 
+\begin_inset Formula $(k,ρ)$
+\end_inset
+
+ necessita di almeno 
 \begin_inset Formula $C\cdot\frac{k}{\rho\epsilon^{2}}\ln\frac{k}{8\delta}$
 \end_inset
 
@@ -6905,7 +6952,7 @@ name "thm:[Lower-Bound-sulla"
 
 \begin_layout Proof
 Dimostriamo il teorema per assurdo.
- Assumiamo che il teorema non è corretto.
+ Assumiamo che il teorema non sia corretto.
  Allora esiste un algoritmo 
 \emph on
 ALG
@@ -7019,7 +7066,7 @@ al massimo
 \begin_inset Formula $k$
 \end_inset
 
--equiprobable
+-equiprobabile
 \begin_inset Quotes erd
 \end_inset
 
@@ -7296,7 +7343,7 @@ name "KQP-1: algoritmo per risolvere le most k-equiprobable (k,\\rho) istanze"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-KQP-1: algoritmo per risolvere le most k-equiprobable 
+KQP-1: algoritmo per risolvere le most k-equiprobabile 
 \begin_inset Formula $(k,ρ)$
 \end_inset
 
@@ -7454,7 +7501,11 @@ KQP-1 può risolvere qualsiasi istanza di
 \begin_inset Formula $(k,m,n)$
 \end_inset
 
- data da 
+ data da
+\begin_inset Newline newline
+\end_inset
+
+ 
 \begin_inset Formula $(A,n,m,k,\epsilon,\delta)$
 \end_inset
 
@@ -7596,7 +7647,7 @@ Q-P
 \end_layout
 
 \begin_layout Subsection
-Complessità nella risoluzione
+Complessità della risoluzione
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Complessità-della-risoluzione"
@@ -7653,7 +7704,11 @@ name "thm:Hardness"
 \begin_inset Formula $(A,P_{A},\rho,\epsilon,\delta)$
 \end_inset
 
- può essere risolta con la complessità del campione compresa in 
+ può essere risolta con la complessità del campione compresa in
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset Formula $O\left({(1/\rho\epsilon^{2}})\log({1}/{\delta})+\gamma\left(\ulcorner{8\log({2}/{\delta})}\urcorner,\llcorner{4\log({2}/{\delta)}}\lrcorner,{\epsilon}/{2},{\delta}/{2}\right)\right)$
 \end_inset
 
@@ -7749,7 +7804,7 @@ noprefix "false"
 \end_inset
 
  campioni.
- Dall'altro lato, se i llower bound per risolvere Q-F dato da 
+ Dall'altro lato, se il lower bound per risolvere Q-F dato da 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "chaudhuri2017pac"
@@ -7907,7 +7962,7 @@ noprefix "false"
 
 \end_inset
 
-) e ha bisogni di almeno 
+) e ha bisogno di almeno 
 \begin_inset Formula $\Omega(h(n,m,\epsilon,\delta))$
 \end_inset
 
