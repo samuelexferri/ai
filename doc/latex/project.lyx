@@ -62,12 +62,14 @@
 
 \definecolor{lbcolor}{rgb}{0.95,0.95,0.95}
 \usepackage{url}
-%\renewcommand\PackageError[3]{[[[ERROR FOR PACKAGE #1]]]}
+\usepackage{breqn}
 \end_preamble
 \options intoc,bibliography=totoc,index=totoc,BCOR10mm,captions=tableheading,titlepage
 \use_default_options true
 \begin_modules
 customHeadersFooters
+theorems-ams-chap-bytype
+theorems-ams-extended-chap-bytype
 \end_modules
 \maintain_unincluded_children false
 \language italian
