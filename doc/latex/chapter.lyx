@@ -1122,6 +1122,13 @@ k
 
 \begin_layout Section
 Scenari applicativi
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Scenari-applicativi"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -8016,7 +8023,668 @@ name "chap:Esperimenti"
 \end_layout
 
 \begin_layout Standard
-ALGORITMI?
+Si procede con la replica degli esperimenti eseguiti dagli autori.
+\end_layout
+
+\begin_layout Standard
+Si inizia comparando l'algoritmo 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+ con 
+\begin_inset Formula $LUCB-k-m$
+\end_inset
+
+ basandosi sul numero di campioni estratti da istanze differenti di 
+\emph on
+Q-F
+\emph default
+ o 
+\begin_inset Formula $(1;m;n)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ è un algoritmo completamente sequenziale che assomiglia a 
+\begin_inset Formula $LUCB-k-m$
+\end_inset
+
+ ma ha delle differenze sottili nel modo in cui l'algoritmo partiziona 
+\begin_inset Formula $A$
+\end_inset
+
+ e nel selezionare le arms da tirare e ciò porta a risultati differenti.
+ Allo stesso turno t, 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ partiziona 
+\begin_inset Formula $A$
+\end_inset
+
+ in 
+\begin_inset Formula $\bar{A_{1}}(t)$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{A_{2}}(t)$
+\end_inset
+
+, e 
+\begin_inset Formula $\bar{A_{3}}(t)$
+\end_inset
+
+.
+ L'algoritmo mette le arms con il più alto 
+\emph on
+LCB
+\emph default
+ in 
+\begin_inset Formula $\bar{A_{1}}(t)$
+\end_inset
+
+, inoltre mette le 
+\begin_inset Formula $m-1$
+\end_inset
+
+ arms con i più alti UCBs in 
+\begin_inset Formula $\bar{A_{2}}(t)$
+\end_inset
+
+; e il resto delle 
+\begin_inset Formula $n-m$
+\end_inset
+
+ arms in 
+\begin_inset Formula $\bar{A_{3}}(t)$
+\end_inset
+
+; i legami sono rotti a caso.
+ A ogni turno 
+\begin_inset Formula $t$
+\end_inset
+
+, l'algoritmo campiona tre arm — l'arm in 
+\begin_inset Formula $\bar{A_{1}}(t)$
+\end_inset
+
+, l'ultima arm campionata in 
+\begin_inset Formula $\bar{A_{2}}(t)$
+\end_inset
+
+, e l'arm avente l'UCB più alto in 
+\begin_inset Formula $\bar{A_{3}}(t)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ora prendiamo cinque istanze di Bernoulli dalla dimensione 
+\begin_inset Formula $n=10,20,50,100$
+\end_inset
+
+, e 
+\begin_inset Formula $200$
+\end_inset
+
+, con la media spaziata linearmente tra 0.999 e 0.001 (estremi inclusi), e
+ queste istanze vengono ordinate in ordine decrescente.
+ Chiamamo l'istanza del bandit di dimensione 
+\begin_inset Formula $n$
+\end_inset
+
+ come 
+\begin_inset Formula $I_{n}$
+\end_inset
+
+.
+ Ora, settato 
+\begin_inset Formula $\epsilon=0.05,\delta=0.001$
+\end_inset
+
+, e 
+\begin_inset Formula $m=0.1\times n$
+\end_inset
+
+, eseguiamo gli esperimenti e compariamo il numero di sample pescati da
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $LUCB-k-m$
+\end_inset
+
+ per risolvere queste cinque istanze per 
+\begin_inset Formula $k=1$
+\end_inset
+
+.
+ Nella nostra implementazione abbiamo usato la divergenza K basata sui bounds
+ dei coefficienti 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capp__2013"
+literal "false"
+
+\end_inset
+
+ sia per 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ che 
+\begin_inset Formula $LUCB-k-m$
+\end_inset
+
+.
+ Come viene mostrato nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:scf2glucb"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, come il numero di arms (
+\emph on
+n
+\emph default
+) aumenta, la complessità del campione di entrambi gli algoritmi aumenta
+ a causa dell'aumento dell'hardness 
+\begin_inset Formula $H_{\epsilon}$
+\end_inset
+
+.
+ Tuttavia, la complessità del campione di 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ aumenta molto più velocemente di 
+\begin_inset Formula $LUCB-k-m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename img/compare_sc_f2_glucb_short.eps
+	scale 25
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Confronto delle complessità del campione di 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $LUCB-k-m$
+\end_inset
+
+ per risolvere 
+\emph on
+Q-F
+\emph default
+ con 
+\emph on
+
+\begin_inset Formula $m=n/10$
+\end_inset
+
+
+\emph default
+, sulle cinque istanze descritte sopra.
+ In questo grafico e anche nei successivi, l'asse y rappresenta la media
+ della complessità del campione su 100 runs con barre di standard error.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:scf2glucb"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come mostrato da 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jamieson_2014"
+literal "false"
+
+\end_inset
+
+, l'efficienza di 
+\emph on
+LUCB1 
+\emph default
+deriva dall'identificazione rapida dell'arm più ottimale dovuta alla grande
+ separazione dalla 
+\begin_inset Formula $m+1$
+\end_inset
+
+-esima arm.
+ Intuitivamente, la ragione per cui 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ha bisogno di più campioni + dovuta al ritardo nell'assegnazione delle priorità
+ per tirare più frequentemente dell'arm ottimale.
+ Ciò dovrebbe risultare in una frazione più piccola di tutti i campioni
+ totali presi dall'arm migliore.
+ La figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fracoptpull"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ conferma quest'intuizione.
+ Viene rappresentato il confronto tra 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $LUCB-k-m$
+\end_inset
+
+ sul numero di campioni ottenuti da tre
+\emph on
+ 
+\begin_inset Quotes eld
+\end_inset
+
+ground-truth
+\begin_inset Quotes erd
+\end_inset
+
+ groups
+\emph default
+ — 
+\begin_inset Formula $B_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $B_{2}$
+\end_inset
+
+, e 
+\begin_inset Formula $B_{3}$
+\end_inset
+
+ su 
+\begin_inset Formula $I_{10}$
+\end_inset
+
+, tenendo 
+\begin_inset Formula $k=1$
+\end_inset
+
+ e variando 
+\begin_inset Formula $m$
+\end_inset
+
+ da 1 a 5.
+ Notiamo che minore è la differenza tra 
+\begin_inset Formula $k$
+\end_inset
+
+ e 
+\begin_inset Formula $m$
+\end_inset
+
+, maggiore è l'hardness (
+\begin_inset Formula $H_{\epsilon}$
+\end_inset
+
+), e sia 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $LUCB-k-m$
+\end_inset
+
+ trovano difficoltà a identificare l'arm corretta.
+ to identify a correct arm.
+ Quindi, per 
+\begin_inset Formula $k=m=1$
+\end_inset
+
+, entrambi spendono la stessa frazione dei pulls sulla miglior arm.
+ Tuttavia, come 
+\begin_inset Formula $m$
+\end_inset
+
+ diventa più grande, tenendo 
+\begin_inset Formula $k=1$
+\end_inset
+
+, l'hardness del problema si riduce ma , but 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ fa ancora fatica a identificare l'arm migliore e ciò si traduce in una
+ frazione significativamente minore dei pulls totali per esso, rispetto
+ a 
+\begin_inset Formula $LUCB-k-m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename img/frac_opt_pull_short.eps
+	scale 25
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Confronto tra 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $LUCB-k-m$
+\end_inset
+
+ sul numero di pull ricevuti dai campi 
+\begin_inset Formula $B_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $B_{2}$
+\end_inset
+
+, e 
+\begin_inset Formula $B_{3}$
+\end_inset
+
+, per risolvere diverse istanze di 
+\emph on
+Q-F 
+\emph default
+su 
+\begin_inset Formula $I_{10}$
+\end_inset
+
+, variando 
+\emph on
+m
+\emph default
+ da 1 a 5.
+ Ricorda che 
+\begin_inset Formula $B_{1}$
+\end_inset
+
+ è l'insieme singleton, con l'arm migliore come unico membro.'asse y rappresenta
+ la media della complessità del campione su 100 runs.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fracoptpull"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In questo paper, gli autori hanno sviluppato algoritmi specifici per il
+ problema 
+\begin_inset Formula $(k;m;n)$
+\end_inset
+
+; precedentemente uno poteva risolvere il problema 
+\begin_inset Formula $(k;m;n)$
+\end_inset
+
+ risolvendo 
+\begin_inset Formula $(k,k,n)$
+\end_inset
+
+ o 
+\begin_inset Formula $(m,m,n)$
+\end_inset
+
+: ciò è scegliere il miglior 
+\begin_inset Formula $k$
+\end_inset
+
+- o 
+\begin_inset Formula $m$
+\end_inset
+
+-sized subset.
+ Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:vark_fixtopm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ viene presentato un confronto sulla complessità del campione per risolvere
+ 
+\begin_inset Formula $(k;m;n)$
+\end_inset
+
+ e i problemi 
+\emph on
+best subset-selection
+\emph default
+.
+ Fissando 
+\begin_inset Formula $A=I_{20}$
+\end_inset
+
+, 
+\begin_inset Formula $n=20$
+\end_inset
+
+, 
+\begin_inset Formula $m=10$
+\end_inset
+
+, le istanze 
+\begin_inset Formula $(k;m;n)$
+\end_inset
+
+ sono date variando 
+\begin_inset Formula $k\in\{1,3,5,8,10\}$
+\end_inset
+
+, dove, per 
+\emph on
+best subset-selection problem 
+\emph default
+abbiamo settato 
+\begin_inset Formula $m=k$
+\end_inset
+
+.
+ Come ci si aspettava, il numero di campioni usati è significamente inferiore
+ per risolvere il problema delle istanze con 
+\begin_inset Formula $k<m$
+\end_inset
+
+, convalidando l'uso di 
+\begin_inset Formula $LUCB-k-m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename img/comp_glucb_var_k.eps
+	scale 25
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Confornto del numero di campioni usati per risolvere istanze differenti
+ di 
+\begin_inset Formula $(k;m;n)$
+\end_inset
+
+ definite su 
+\begin_inset Formula $I_{20}$
+\end_inset
+
+, settando 
+\begin_inset Formula $m=10$
+\end_inset
+
+, e variando 
+\begin_inset Formula $k\in\{1,2,3,5,8,10\}$
+\end_inset
+
+.
+ L'asse
+\emph on
+ x
+\emph default
+ rappresenta 
+\begin_inset Formula $k$
+\end_inset
+
+, l'asse 
+\emph on
+y
+\emph default
+ rappresenta il numero di campioni mediato su 100 runs, con barre di standard
+ error.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:vark_fixtopm"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+POCO (PAPER CITATI)
 \end_layout
 
 \begin_layout Standard
@@ -8035,11 +8703,406 @@ name "chap:Conclusioni"
 \end_layout
 
 \begin_layout Standard
-COMMENTARE BENE I RISULTATI
+Identificare un arm tra le migliori 
+\begin_inset Formula $m$
+\end_inset
+
+, in un 
+\begin_inset Formula $n$
+\end_inset
+
+-armed stochastic bandit è un problema molto interessate identificato da
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+.
+ Loro hanno menzionato gli scenari dove identificare il miglior subset è
+ praticamente impossibile.
+ Tuttavia, vi sono numerosi esempi in pratica che richiedono l'identificazione
+ efficiente di più soluzioni buone invece che una sola; per esempio, assegnendo
+ un compito di crowdsourcing distribuito, identificazione di buone combinazioni
+ molecolari nel design dei farmaci, etc.
+ In questo paper, gli autori hanno presentato il problema 
+\begin_inset Formula $(k;m;n)$
+\end_inset
+
+: una generalizzazione del problema di identificare 
+\begin_inset Formula $k$
+\end_inset
+
+ sulle best 
+\begin_inset Formula $m$
+\end_inset
+
+ arms.
+ Settato 
+\begin_inset Formula $k=1$
+\end_inset
+
+, 
+\begin_inset Formula $(k;m;n)$
+\end_inset
+
+ viene ridotto alla selezione di uno tra le migliori 
+\begin_inset Formula $m$
+\end_inset
+
+ arms, mentre settato 
+\begin_inset Formula $k=m$
+\end_inset
+
+, diventa uguale al subset selection 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2010efficient"
+literal "false"
+
+\end_inset
+
+.
+ Gli autori hanno presentato un lower bound alla complessità del campione
+ per risolvere 
+\begin_inset Formula $(k;m;n)$
+\end_inset
+
+.
+ Inoltre hanno presentato un algoritmo completamente sequenziale adattivo
+\emph on
+ PAC, LUCB-k- m, 
+\emph default
+che risolve 
+\begin_inset Formula $(k;m;n)$
+\end_inset
+
+ con una complessità del campione attesa che corrisponde, a meno di un fattore
+ costante, a 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+ e 
+\emph on
+LUCB1
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2012pac"
+literal "false"
+
+\end_inset
+
+ per 
+\begin_inset Formula $k=1$
+\end_inset
+
+ e 
+\begin_inset Formula $k=m$
+\end_inset
+
+, rispettivamente.
+ Inoltre hanno confontato empiricamente i due algoritmi su differenti istanze
+ del problema e mostrato che 
+\emph on
+LUCB1
+\emph default
+ è molto migliore di 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ con un ampio margine del numero dei campioni come 
+\begin_inset Formula $n$
+\end_inset
+
+ cresce.
 \end_layout
 
 \begin_layout Standard
-SCENARI APPLICATIVI SPOSTARLI QUI?
+Per il problema dell'identificazione di una signola 
+\begin_inset Formula $[\epsilon,\rho]$
+\end_inset
+
+-optimal arm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+ tra istanze infinite del bandit, gli esistenti upper bound sulla complessità
+ del campione differisce dal lower bound per un fattore moltiplicativo 
+\begin_inset Formula $\log\frac{1}{\delta}$
+\end_inset
+
+.
+ Non era chiaro se il limite inferiore fosse allentato o se quello superiore
+ potesse essere migliorato e ciò ha lasciato un problema interessante da
+ risolvere come descritto da 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aziz2018pure"
+literal "false"
+
+\end_inset
+
+.
+ In questo paper, gli autori hanno ridotto il gap fornendo un upper bound
+ che è ottimale a meno di un termine 
+\shape italic
+additive
+\shape default
+ poly-log.
+ Inoltre, hanno mostrato che il problema dell'identificazione di 
+\emph on
+k
+\emph default
+ distinct 
+\begin_inset Formula $[\epsilon,\rho]$
+\end_inset
+
+-optimal arms non è ben posto in generale, ma quando lo è, gli autori hanno
+ derivato un lower bound sulla stessa complessità del campione.
+ Inoltre, hanno identificato una classe di istanze ben poste per cui gli
+ autori hanno presentato un algoritmo efficiente.
+ Alla fine mostriamo come il miglioramento del limite superiore della complessit
+à del campione per la risoluzione di istanze 
+\emph on
+Q-F 
+\emph default
+può essere tradotto nel miglioramento del limite superiore della complessità
+ del campione per la risoluzione di 
+\emph on
+Q-P
+\emph default
+.
+ Tuttavia, hanno ipotizzato che esista un insieme di istanze 
+\emph on
+Q-F
+\emph default
+ e un corrispondente insieme di istanze 
+\emph on
+Q-P
+\emph default
+, in modo tale che ogni istanza di 
+\emph on
+Q-F
+\emph default
+ richieda un numero minore di campioni da risolvere rispetto alla corrispondente
+ istanza 
+\emph on
+Q-P
+\emph default
+ nell'altro insieme.
+ Hanno mostrato la correttezza dell'impotesi e migliorato sia il lower che
+ l'upper bound sulla stessa complessità del campione e altre interessanti
+ strade da percorrere in futuri lavori.
+\end_layout
+
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Tabella-2-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ vi è un riassunto di tutti i lower e upper bound migliorati da questo paper.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Tabella.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Tabella-2-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Limiti inferiore e superiore sulla complessità del campione attesa (ponendosi
+ nel caso peggiore).
+ I limiti per 
+\emph on
+
+\begin_inset Formula $(k;\rho)$
+\end_inset
+
+, 
+\begin_inset Formula $k>1$
+\end_inset
+
+
+\emph default
+ sono per la classe speciale di istanze “al massimo 
+\emph on
+k
+\emph default
+-equiprobabili”.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Possibili usi
+\end_layout
+
+\begin_layout Standard
+Oltre agli scenari applicativi presentati precedentemente nella sezione
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Scenari-applicativi"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ vi sono:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Test clinici:
+\series default
+ miglioramento delle cure su persone e animali volte a rendere più affidabili
+ e migliori i trattamenti usati.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Finanza:
+\series default
+ selezione sequenziale di portfolio al fine di massimizzare il reward cumulativo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Raccomandazioni:
+\series default
+ ottimizzazione dei contenuti offerti ai lettori, basandosi sugli interessi
+ dell'utente.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Shopping:
+\series default
+ pricing dinamico per massimizzare il reward cumulativo, andando ad analizzare
+ le richieste di un determinato prodotto.
+\end_layout
+
+\begin_layout Standard
+In ambito machine learning:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Reinforcement learning:
+\series default
+ massimizzazione rewards degli agents (visto a lezione).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Clustering
+\series default
+: clustering collaborativo, paradigma dell’apprendimento automatico.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Bandits per active learning:
+\series default
+ selezione di samples non labeled più utili per formare un modello predittivo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Algorithm selection:
+\series default
+ un problema di bandit con expert advice, usando un solver esistente; oppure
+ un problema di bandit, usando informazioni parziali e bounds sconosciuti
+ di perdite.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Hyperparameter optimization:
+\series default
+ ottimizzazione di iperparametri come un 
+\emph on
+multi-armed bandit (infinitamente armed)
+\emph default
+ non stocastico di pura esplorazione in cui risorse predefinite, come iterazioni
+, campioni di dati o funzionalità sono allocate a configurazioni campionate
+ casualmente.
+\end_layout
+
+\begin_layout Standard
+SISTEMARE EVITARE PLAGIO
+\end_layout
+
+\begin_layout Standard
+COMMENTARE BENE I RISULTATI
 \end_layout
 
 \begin_layout Chapter
@@ -8054,7 +9117,10 @@ name "chap:Considerazioni-personali"
 \end_layout
 
 \begin_layout Standard
-Il paper 
+Inizialmente mi ero trovato un po' disorientato di fronte al paper, ma dopo
+ aver letto più volte il paper e soprattutto integrato con la lettura di
+ alcuni related works si è chiarito molto.
+ Fondamentale è stata l'analisi del paper 
 \emph on
 Batched Multi-armed Bandits Problem
 \emph default
@@ -8066,13 +9132,74 @@ literal "false"
 
 \end_inset
 
-, presentato tra le scelte disponibili nella sessione estiva mi incuriosiva
- già infatti avevo già letto e analizzato alcune parti che mi sono risultate
- poi utili nel produrre l'analisi del paper a me assegnato.
+, presentato tra le scelte disponibili nella sessione estiva.
+ L'avevo già letto, mi incuriosiva ma per altri impegni ho dovuto rinunciare
+ alla stesura dell'elaborato.
+ È stata una buona base per analizzare il problema dei 
+\emph on
+multi-armed bandits 
+\emph default
+come introduzione al paper a me assegnato.
 \end_layout
 
 \begin_layout Standard
-Un'opzione per la tesi.
+È stato molto interessante seguire il processo di ricerca in ambito intelligenza
+ artificiale svolto dagli autori e come essi vanno ad approcciarsi con i
+ lavori precedenti, basandosi sui precedenti risultati e proseguendo la
+ ricerca trovando nuove strade producendo nuovi risultati migliorativi rispetto
+ ai precedenti.
+ Infatti in questo paper, oltre a nuovi algoritmi proposti, vengono migliorati
+ numerosi lower e upper bound su problemi già precedentemente analizzati
+ (si veda la tabella 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Tabella-2-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+Concluso il lavoro, mi sento molto più fiducioso nell'affrontare argomenti
+ che inizialmente mi parevano troppo lontani e difficili e soddifatto nel
+ riuscire a produrre un elaborato, curato anche formalmente, analizzando
+ nel modo più ordinato possibile il problema di identificare un numero 
+\emph on
+k
+\emph default
+ qualsiasi tra i migliori 
+\emph on
+m
+\emph default
+ arms in un 
+\emph on
+
+\begin_inset Formula $n$
+\end_inset
+
+-armed stochastic multi-armed bandit
+\emph default
+ affrontato dal paper.
+ Un peccato che non ci fossero state porzioni di codice, avrei potuto replicare
+ gli esperimenti e produrne di nuovi e imparare anche sotto quell'aspetto.
+ A causa di questa mancanza, mi sono concentrato molto di più sull'analisi
+ dei lavori correlati e delle dimostrazioni teoriche presenti nel paper
+ che ho prodotto nelle appendici (vedi APPENDICIIIIIIIIIIII).
+ Sicuramente, per l'anno prossimo, non è da escludere di basare il mio lavoro
+ di tesi su un ambito dell'intelligenza artifciale, magari proprio il 
+\emph on
+reinforcement learning 
+\emph default
+dopo quest'esperienza stimolante.
+\end_layout
+
+\begin_layout Standard
+APPENDICI (VEDI APPENDICI)
 \end_layout
 
 \begin_layout Standard
