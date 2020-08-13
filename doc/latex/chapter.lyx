@@ -325,8 +325,8 @@ Proceedings of the 36 th International Conference on Machine Learning
 \end_layout
 
 \begin_layout Standard
-Nella prossimo paragrafo verrà presentato brevemente il contenuto sottoforma
- di abstract.
+Nella prossimo paragrafo verrà presentato brevemente il contenuto sotto
+ forma di abstract.
 \end_layout
 
 \begin_layout Itemize
@@ -363,9 +363,9 @@ noprefix "false"
 
  
 \series default
-verranno descrittti e commentati i lavori precedenti in merito allo stesso
+verranno descritti e commentati i lavori precedenti in merito allo stesso
  problema.
- Oltre ai lavori citati nei "related works" e nei riferimenti bibliograci
+ Oltre ai lavori citati nei "related works" e nei riferimenti bibliografici
  del lavoro analizzato verranno descritti anche altri lavori presenti nella
  letteratura che sono correlati al problema analizzato.
  Inoltre, verranno elencate anche quali delle tecniche viste in classe potrebber
@@ -447,11 +447,46 @@ noprefix "false"
 
 \series default
  verranno fatte delle considerazioni personali sull'impatto che questo progetto
- ha avuto sia in ambito universitario/lavorativo che nella quotidianetà.
+ ha avuto sia in ambito universitario/lavorativo che nella quotidianità.
 \end_layout
 
 \begin_layout Standard
-Infine sono presenti anche i riferimenti bibliografici citati nell'elaborato.
+Nelle appendici 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:APP-A"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:APP-B"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:APP-C"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ sono dimostrate le proprietà teoriche presenti nel paper.
+\end_layout
+
+\begin_layout Standard
+Infine, sono presenti anche gli indici degli algoritmi, delle figure e i
+ riferimenti bibliografici citati nell'elaborato.
 \end_layout
 
 \begin_layout Section
@@ -684,7 +719,7 @@ Il nome deriva dalle slot machines: il problema può essere visto come un
  deve decidere quali macchine giocare, quante volte giocare ogni macchina
  e in quale ordine giocarle, e se continuare con la macchina corrente o
  provare un'altra macchina.
- Oppure può essere visto come una sola slot machine con piu leve (
+ Oppure può essere visto come una sola slot machine con più leve (
 \emph on
 multi-armed
 \emph default
@@ -852,13 +887,13 @@ infinito
  singolo arm buono.
  Per ad esempio, si immagini che un'azienda debba completare un lavoro che
  è troppo grande per essere realizzato da un singolo lavoratore, ma che
- può essere suddiviso in 5 sottoattività, ciascuna capace di essere completata
+ può essere suddiviso in 5 sotto attività, ciascuna capace di essere completata
  da un solo lavoratore.
  Supponiamo che ci siano un totale di 1000 lavoratori e, grazie a un sondaggio,
  si è rilevato che almeno il 15% dei lavoratori ha le competenze per completare
- la sottoattività.
+ la sotto attività.
  Per rispondere alle esigenze dell'azienda, sicuramente sarebbe sufficiente
- identificare i 5 migliori lavoratori per la sottoattività.
+ identificare i 5 migliori lavoratori per la sotto attività.
  Tuttavia, se i lavoratori devono essere identificati sulla base di un test
  di abilità che ha risultati stocastici, questo test sarebbe inutilmente
  costoso se il fine è identificare il miglior sottoinsieme di lavoratori
@@ -971,7 +1006,7 @@ literal "false"
  gli arms a caso e testando facendo il pull.
  Quest'ultimo approccio è stato applicato con successo sia in 
 \emph on
-regret minimisation setting
+regret minimization setting
 \emph default
  
 \begin_inset CommandInset citation
@@ -1148,10 +1183,14 @@ Network Server Selection
 
 \begin_layout Standard
 Nel caso in cui un lavoro deve essere elaborato su uno dei numerosi server,
- ognuno dei quali ha differenti velocita di processo dovute a distanza geografic
+ ognuno dei quali ha differenti velocità di processo dovute a distanza geografic
 a, carico ecc., ogni server può essere visto come un arm; nel tempo si vuole
  apprendere quale sia il miglior arm da usare.
- Questo problema è stato applicato nel routing (adaptive routing) 
+ Questo problema è stato applicato nel routing (
+\emph on
+adaptive routing
+\emph default
+) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Awerbuch_2008"
@@ -1159,7 +1198,15 @@ literal "false"
 
 \end_inset
 
-, nel DNS server selection e nel cloud computing.
+, nel 
+\emph on
+DNS server selection
+\emph default
+ e nel 
+\emph on
+cloud computing
+\emph default
+.
 \end_layout
 
 \begin_layout Standard
@@ -1235,7 +1282,7 @@ randomized online algorithms
  Contrariamente ai precedenti lavori su questo problema, viene supposto
  che l'unico feedback dopo aver scelto un determinato percorso sia il ritardo
  totale end-to-end del percorso selezionato.
- Vengono presentati due algoritmi il cui regret è sublineare nel numero
+ Vengono presentati due algoritmi il cui regret è sub lineare nel numero
  di prove e polinomiale nelle dimensioni della rete.
  Il primo di questi algoritmi generalizza per risolvere qualsiasi problema
  di ottimizzazione lineare online, dato un oracolo per l'ottimizzazione
@@ -1562,7 +1609,7 @@ Clinical Trial
 \begin_layout Standard
 Il trial clinico si riferisce a uno studio medico farmacologico, biomedico
  o correlato alla salute sull'uomo ben definito da protocolli.
- L'obiettivo è quello di vericare che una nuova terapia sia piu efficace,
+ L'obiettivo è quello di verificare che una nuova terapia sia più efficace,
  migliore e soprattutto sicura di quella normalmente impiegata.
  Assume notevole importanza l'insieme di campioni sui quali poter testare
  nuove cure 
@@ -1600,7 +1647,7 @@ status open
 \align center
 \begin_inset CommandInset label
 LatexCommand label
-name "Trial clinici"
+name "Clinical Trial"
 
 \end_inset
 
@@ -1611,7 +1658,7 @@ name "Trial clinici"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Trial clinici
+Clinical Trial
 \end_layout
 
 \end_inset
@@ -1985,8 +2032,8 @@ stochastic multi-armed bandit
  per la ricompensa media in funzione degli arms.
  Usando questo schema di apprendimento, viene costruita una classe di controllo
  di equivalenza di certezza con schemi di forzatura e successivamente vengono
- derrivati i limiti superiori asintotici rispetto alla loro perdita di apprendim
-ento.
+ derivati i limiti superiori asintotici rispetto alla loro perdita di apprendime
+nto.
  In base ai dati in loro possesso, questi limiti sono i rates più restrittivi
  finora disponibili.
 \end_layout
@@ -2073,8 +2120,8 @@ log(K)
 \begin_inset Formula $Δ_{i}$
 \end_inset
 
- rappresentana la differenza tra la ricompensa media del arm migliore e
- quella del arm 
+ rappresenta la differenza tra la ricompensa media del arm migliore e quella
+ del arm 
 \emph on
 i
 \emph default
@@ -2132,7 +2179,7 @@ randomized online algorithms
  Contrariamente ai precedenti lavori su questo problema, viene supposto
  che l'unico feedback dopo aver scelto un determinato percorso sia il ritardo
  totale end-to-end del percorso selezionato.
- Vengono presentati due algoritmi il cui regret è sublineare nel numero
+ Vengono presentati due algoritmi il cui regret è sub lineare nel numero
  di prove e polinomiale nelle dimensioni della rete.
  Il primo di questi algoritmi generalizza per risolvere qualsiasi problema
  di ottimizzazione lineare online, dato un oracolo per l'ottimizzazione
@@ -2237,7 +2284,7 @@ PAC
 
  è inevitabile per gli algoritmi "a due fasi" (prima selezionano gli arms,
  poi identificano il migliore) nell'impostazione infinita.
- Questo lavoro consente l'applicazione di bandit models ta una classe più
+ Questo lavoro consente l'applicazione dei bandit models a una classe più
  ampia di problemi in cui valgono meno ipotesi.
 \end_layout
 
@@ -2301,7 +2348,7 @@ In questo paper sono stati presentati ulteriori nuovi risultati riguardanti
 stochastic multi-armed bandit.
  
 \emph default
-Tuttavia molti risultati non sono stati dimostrati perchè semplici da capire
+Tuttavia molti risultati non sono stati dimostrati perché semplici da capire
  oppure attraverso una dimostrazione concettuale.
 \end_layout
 
@@ -2438,9 +2485,9 @@ stochastic multi-armed bandit
 .
  In questo contesto, il learner non ha alcuna possibilità di provare tutti
  gli arms e deve dedicare il suo numero limitato di prove solo a un certo
- numero di arnms.
+ numero di arms.
  Tutti gli algoritmi precedenti per questa impostazione sono stati progettati
- forminimizzando il 
+ minimizzando il 
 \emph on
 cumulative regret
 \emph default
@@ -2659,7 +2706,7 @@ literal "false"
 
 \begin_layout Standard
 In alcuni ambienti decisionali, le soluzioni di successo sono comuni.
- Se la valutazione delle soluzioni candidate è molto varaibile, la sfida
+ Se la valutazione delle soluzioni candidate è molto variabile, la sfida
  è sapere quando è stata trovata una soluzione "abbastanza buona".
  Viene formulato questo problema come
 \emph on
@@ -2729,7 +2776,7 @@ ne del parametro Bernoulli.
  La seconda policy è stazionaria e richiede solo informazioni parziali;
  la sua ottimalità è stabilita dalla 
 \emph on
-renewal theory
+renewal theory.
 \emph default
 
 \begin_inset Foot
@@ -2748,7 +2795,6 @@ Renewal theory:
 
 \end_inset
 
-.
  Vengono sviluppate anche policy stazionarie 
 \begin_inset Formula $ε$
 \end_inset
@@ -2802,7 +2848,7 @@ fixed confidence setting
 \emph on
 LIL
 \emph default
-, vengon costruiti i loro limiti di confidenza dell'algoritmo con orizzonte
+, vengono costruiti i loro limiti di confidenza dell'algoritmo con orizzonte
  temporale infinito.
  Inoltre, utilizzando un nuovo tempo di arresto per l'algoritmo, viene evitato
  un union bound rispetto agli altri arms visti in altri algoritmi di tipo
@@ -2942,7 +2988,7 @@ heavy
  sono estremamente rare.
  Questo problema ha applicazioni nel crowdsourcing, nel rilevamento di anomalie
  e nella ricerca dello spettro radio.
- Vengopno quindi costruiti algoritmi adattativi alla conoscenza parziale
+ Vengono quindi costruiti algoritmi adattativi alla conoscenza parziale
  o assente dei parametri del problema.
  Inoltre, le tecniche sviluppate generalizzano anche per casi più generali
  di 
@@ -3021,7 +3067,7 @@ n
  alta, sulla base del minor numero possibile di campioni.
  Questo problema, che denotiamo 
 \emph on
-Ex-plore-m
+Explore-m
 \emph default
 , è un aspetto fondamentale di numerosi algoritmi di ottimizzazione stocastica
  e applicazioni in simulazione e ingegneria industriale.
@@ -3211,7 +3257,8 @@ Information complexity in bandit subset selection
 \end_layout
 
 \begin_layout Standard
-Viene considerat il problema di esplorare efficacemente gli arms di un 
+Viene considerato il problema di esplorare efficacemente gli arms di un
+ 
 \emph on
 stochastic multi-armed bandit
 \emph default
@@ -3269,7 +3316,7 @@ Chernoff Information:
 \emph default
  tra gli arms.
  Oltre a introdurre questa nuova quantità nella letteratura riguardante
- i bandits, gli autori hanno contribuit ancheo a un confronto tra strategie
+ i bandits, gli autori hanno contribuito anche a un confronto tra strategie
  basate su campionamenti uniformi e adattivi per problemi di pura esplorazione,
  trovando prove a favore di questi ultimi.
 \end_layout
@@ -3316,7 +3363,7 @@ e le funzioni di costo sono continue.
 \end_inset
 
 , hanno migliorato sui limiti superiore e inferiore noti, riducendo il gap
- a un fattore sublogaritmico.
+ a un fattore sub logaritmico.
  Considerano anche il caso 
 \begin_inset Formula $d>1$
 \end_inset
@@ -3723,9 +3770,9 @@ Some aspects of the sequential design of experiments
 \end_layout
 
 \begin_layout Standard
-E' un articolo che non ha ricevuto molte attenzioni al tempo della stesura
+È un articolo che non ha ricevuto molte attenzioni al tempo della stesura
  ma e stato rivalutato negli ultimi anni e viene spesso citato.
- Studia la teoria dell'analisi sequenziale, soermandosi anche sulla numerosita
+ Studia la teoria dell'analisi sequenziale, soffermandosi anche sulla numerosità
  campionaria che deve essere raggiunta.
  Mostra quindi alcuni semplici problemi modellizzandoli con la tecnica del
  design sequenziale.
@@ -3952,7 +3999,7 @@ stochastic multi-armed bandit
  La loro ipotesi è più debole rispetto ad altri paper precedenti presenti
  in letteratura.
  Vengono descritti algoritmi basati su limiti di confidenza superiore applicati
- a un insieme limitato di armscci selezionati casualmente e vengono forniti
+ a un insieme limitato di arms selezionati casualmente e vengono forniti
  i limiti superiori sul regret atteso risultante.
  Viene derivato anche un limite inferiore che corrisponde (a meno di fattori
  logaritmici) al limite superiore in alcuni casi.
@@ -3983,7 +4030,7 @@ Drug Discovery Toxicology: From Target Assessment to Translational Biomarkers
 \begin_layout Standard
 È una guida per i professionisti farmaceutici ai problemi e alle pratiche
  della tossicologia della scoperta di farmaci in cui viene usato anche alcuni
- algortimi per risolvere il problema dei 
+ algoritmi per risolvere il problema dei 
 \emph on
 stochastic multi-armed bandits.
 \end_layout
@@ -4141,6 +4188,10 @@ batched multi-armed bandit
 \end_layout
 
 \begin_layout Standard
+Altri lavori correlati:
+\end_layout
+
+\begin_layout Standard
 
 \series bold
 \begin_inset CommandInset citation
@@ -4163,8 +4214,8 @@ Learning with limited rounds of adaptivity: Coin tossing, multi-armed bandits,
 \end_layout
 
 \begin_layout Standard
-Viene analizzata la relazione fra la complessità e l'adattivita nel richiedere
- attivamente nuovi dati per identicare le 
+Viene analizzata la relazione fra la complessità e l'adattabilità nel richiedere
+ attivamente nuovi dati per identificare le 
 \emph on
 k
 \emph default
@@ -4218,7 +4269,7 @@ multi-armed bandit
  Viene dimostrato che il regret ottimo cresce almeno logaritmicamente non
  solo in relazione al numero di turni ma anche uniformemente in base al
  tempo con semplici ed efficienti politiche e per tutte le distribuzioni
- del reward con supporto limitato (cioe l'insieme dei punti in cui la distribuzi
+ del reward con supporto limitato (cioè l'insieme dei punti in cui la distribuzi
 one non è una funzione liscia, che vuol dire derivabile infinite volte in
  quel punto).
 \end_layout
@@ -4289,7 +4340,7 @@ Viene analizzato il regret nei problemi
 \emph on
 stochastic multi-armed bandits
 \emph default
- evidenziando le dierenze fra 
+ evidenziando le differenze fra 
 \emph on
 exploration
 \emph default
@@ -4304,7 +4355,7 @@ ente distribuite e il caso in cui non siano indipendenti.
 \emph on
 contextual bandit model,
 \emph default
- dove ad ogni turno il giocatore puo scegliere solo un sottoinsieme delle
+ dove ad ogni turno il giocatore può scegliere solo un sottoinsieme delle
  possibili scelte.
 \end_layout
 
@@ -4335,12 +4386,12 @@ Viene studiato il problema
 stochastic multi-armed bandit
 \emph default
  nel caso in cui si conosca quale sia il valore della scelta ottima e il
- lower bound sulla piu piccola dierenza fra valore di una scelta e scelta
+ lower bound sulla più piccola differenza fra valore di una scelta e scelta
  ottima.
  Propone quindi una politica di randomizzazione che porta a un regret uniformeme
 nte limitato nel tempo, e mostra diversi lower bound, dimostrando che conoscere
  solo una delle due ipotesi sopra dichiarate renda impossibile ottenere
- bound piu bassi.
+ bound più bassi.
 \end_layout
 
 \begin_layout Standard
@@ -4365,9 +4416,9 @@ Action elimination and stopping conditions for the multi-armed bandit and
 \end_layout
 
 \begin_layout Standard
-Mostra gli intervalli di condenza nel problema dei banditi dimostrando quale
- sia il numero minimo di scelte per trovare il braccio ottimale con una
- probabilita definita.
+Mostra gli intervalli di confidenza nel problema dei banditi dimostrando
+ quale sia il numero minimo di scelte per trovare il braccio ottimale con
+ una probabilità definita.
  Propone un framework che cerca di eliminare le azioni che non sono ottime
  con alta probabilità.
  Inoltre mostra una variante basata su modello e una senza modello per il
@@ -4405,7 +4456,7 @@ stochastic multi-armed bandit
  Al contrario del problema classico, questa variante permette cambiamenti
  dinamici dei reward che descrivono meglio scenari in cui l'informazione
  non è certa.
- Utilizza un modello non parametrico e introudce una politica chiamata 
+ Utilizza un modello non parametrico e introduce una politica chiamata 
 \emph on
 Adaptively Binned Successive Elimination (ABSE)
 \emph default
@@ -4414,6 +4465,63 @@ Adaptively Binned Successive Elimination (ABSE)
 bandits
 \emph default
  di tipo statico.
+\end_layout
+
+\begin_layout Standard
+Per quanto riguarda il pricing:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "trovo2015multi"
+literal "false"
+
+\end_inset
+
+ Trovo, F., Paladino, S., Restelli, M., & Gatti, N.
+ (2015).
+ 
+\emph on
+Multi–armed bandit for pricing
+\emph default
+.
+ In Proceedings of the European Workshop on Reinforcement Learning (EWRL).
+\end_layout
+
+\begin_layout Standard
+Viene proposta una modifica dell'algoritmo upper confidence bound (
+\emph on
+UCB
+\emph default
+) per i bandit sfruttando due peculiarità del pricing: 1) come il prezzo
+ di vendita sale, è razionale assumere che la probabilità di vendere un
+ oggetto diminuisce.
+ 2) dato che solitamente le persone comparano prezzi da differenti venditori
+ e tengono traccia dei cambiamenti di prezzo nel tempo prima di acquistare
+ (specialmente per acquisti online, esistono anche vari tool che permettono
+ di tenere traccia automatica dei prezzi di prodotti online), il numero
+ di volte che un certo tipo di oggetto è acquistato è solo una piccola frazione
+ del numero di volte che il prezzo è visualizzato da acquirenti possibili.
+ Facendo leva su queste assunzioni, gli autori migliorano la 
+\emph on
+concentration inequality 
+\emph default
+usata nell'algoritmo 
+\emph on
+UCB1, 
+\emph default
+che porta ad avere risultati migliori rispetto all'originale, specialmente
+ nei primi passi del learning dove solo pochi campioni sono disponibili.
+ Gli autori hanno presentato un'evidenza empirica sull'efficacia delle variazion
+i proposte in termini di aumento della velocità del processo di learning
+ dell'algoritmo 
+\emph on
+UCB1
+\emph default
+ nelle applicazioni di pricing.
 \end_layout
 
 \begin_layout Chapter
@@ -4471,7 +4579,7 @@ Sia
 \end_layout
 
 \begin_layout Standard
-Per un instanza finita del bandit con 
+Per un istanza finita del bandit con 
 \begin_inset Formula $n$
 \end_inset
 
@@ -4607,17 +4715,17 @@ Il problema
 \begin_inset Formula $(k,m,n)$
 \end_inset
 
- è interessante da un punto di vista teorico perchè copre un intero range
+ è interessante da un punto di vista teorico perché copre un intero range
  di problemi, dall'identificazione di una singola arm (
 \begin_inset Formula $m=1$
 \end_inset
 
-) fino alla selezione di un sottoinsime (
+) fino alla selezione di un sottoinsieme (
 \begin_inset Formula $k=m$
 \end_inset
 
 ).
- Così, ogni buond basato sulla complessità del campione 
+ Così, ogni bound basato sulla complessità del campione 
 \begin_inset Formula $(k,m,n)$
 \end_inset
 
@@ -4832,7 +4940,7 @@ literal "false"
 \emph on
  Q-P
 \emph default
- per istanze infinite, come una generalizazione di
+ per istanze infinite, come una generalizzazione di
 \emph on
  Q-P
 \emph default
@@ -4924,7 +5032,7 @@ Problema
 \begin_inset Formula $A$
 \end_inset
 
-; frazuibe quantile 
+; frazione quantile 
 \begin_inset Formula $\rho\in(0,1]$
 \end_inset
 
@@ -4954,7 +5062,7 @@ non valida
 \begin_inset Formula $\mathcal{L}$
 \end_inset
 
- si dice in grado di rislvere il problema 
+ si dice in grado di risolvere il problema 
 \begin_inset Formula $(k,ρ)$
 \end_inset
 
@@ -5443,13 +5551,13 @@ LUCB for
 \begin_inset Formula $F_{2}$
 \end_inset
 
-, and 
+, e 
 \shape smallcaps
 \emph on
 LUCB1
 \shape default
 \emph default
-, rispettivamente, a meno di un fattore motliplicativo.
+, rispettivamente, a meno di un fattore moltiplicativo.
 \end_layout
 
 \begin_layout Enumerate
@@ -5559,7 +5667,7 @@ noprefix "false"
 \emph on
 LUCB-k-m
 \emph default
- è più efficinete del 
+ è più efficiente del 
 \begin_inset Formula $F_{2}$
 \end_inset
 
@@ -5649,7 +5757,17 @@ name "subsec:Lower-Bound-sulla-complessità-del-campione"
 \end_layout
 
 \begin_layout Standard
-La dimostrazione completa è presente nell'appendice AAAAAAAAA.
+La dimostrazione completa è presente nell'appendice 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:APP-A"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
  La dimostrazione generalizza sia il lower bound per 
 \begin_inset Formula $(m,m,n)$
 \end_inset
@@ -5684,7 +5802,7 @@ literal "false"
 \begin_inset Formula $\mathcal{I}^{\prime}$
 \end_inset
 
-, tale che su traiettorie vrebi, un istanza di 
+, tale che su traiettorie verbi, un istanza di 
 \begin_inset Formula $\mathcal{I}$
 \end_inset
 
@@ -5711,7 +5829,7 @@ mente per entrambe le istanze, il che implica che un algoritmo corretto
 \begin_inset Formula $k\in\{1,2,\dots,m\}$
 \end_inset
 
- (piuttosto che essattamente 1 or 
+ (piuttosto che esattamente 1 or 
 \begin_inset Formula $m$
 \end_inset
 
@@ -5770,10 +5888,6 @@ noprefix "false"
 
  la cui complessità del campione prevista varia con la complessità dell'istanza
  in input.
-\end_layout
-
-\begin_layout Standard
-APPENDICE
 \end_layout
 
 \begin_layout Subsection
@@ -6070,11 +6184,11 @@ name "LUCB-k-m: algoritmo per selezionare k (\\epsilon,m)-optimal arms"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
+Algoritmo
 \emph on
-LUCB-k-m
+ LUCB-k-m
 \emph default
-: algoritmo per selezionare 
+ per selezionare 
 \begin_inset Formula $k$
 \end_inset
 
@@ -6147,7 +6261,7 @@ LCB
 \begin_inset Formula $A_{2}^{t}$
 \end_inset
 
- l' arm che è stata tirata meno volte che chiamiamo
+ l'arm che è stata tirata meno volte che chiamiamo
 \begin_inset Formula $m_{*}^{t}$
 \end_inset
 
@@ -6164,8 +6278,8 @@ LCB
 UCB
 \emph default
 ).
- L'ìalgoritmo si ferma non appena la differenza tra il lower confidence
- bound of 
+ L'algoritmo si ferma non appena la differenza tra il lower confidence bound
+ di 
 \begin_inset Formula $h_{*}^{t}$
 \end_inset
 
@@ -6269,7 +6383,21 @@ Notiamo che
 \begin_layout Theorem
 
 \emph on
-Nella appendice AAAAAAAAA è descritta la dimostrazione nel dettaglio.
+Nella appendice 
+\emph default
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:APP-A"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\emph on
+ è descritta la dimostrazione nel dettaglio.
  Il punto centrale è simile all'algoritmo 
 \begin_inset Formula $F_{2}$
 \end_inset
@@ -6292,12 +6420,6 @@ KL
 \emph on
  nei loro esperimenti) per ottenere una complessità del campione ancora
  migliore.
-\end_layout
-
-\begin_layout Theorem
-
-\emph on
-APPENDICE
 \end_layout
 
 \begin_layout Standard
@@ -6348,7 +6470,7 @@ infinite-armed bandits
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal arm, la complessità del campione di tutti gli algorimi esistenti
+-optimal arm, la complessità del campione di tutti gli algoritmi esistenti
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -6529,7 +6651,7 @@ Input:
 \size small
 Output:
 \series default
- One 
+ Un 
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
@@ -6605,10 +6727,11 @@ name "P3: algoritmo per l'identificazione dell'arm migliore"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+Algoritmo
 \begin_inset Formula $\mathcal{P}_{3}$
 \end_inset
 
-: algoritmo per l'identificazione dell'arm migliore
+ per l'identificazione dell'arm migliore
 \end_layout
 
 \end_inset
@@ -6630,7 +6753,7 @@ name "P3: algoritmo per l'identificazione dell'arm migliore"
 \begin_inset Formula $\mathcal{P}_{3}$
 \end_inset
 
- risovle il problema Q-P, con una complessità del campione 
+ risolve il problema Q-P, con una complessità del campione 
 \begin_inset Formula $O(\epsilon^{-2}(\rho^{-1}\log(1/\delta)+\log^{2}(1/\delta)))$
 \end_inset
 
@@ -6896,7 +7019,7 @@ noprefix "false"
 \begin_inset Formula $(k,ρ)$
 \end_inset
 
- riducendo a risolere il 
+ riducendo a risolvere il 
 \shape smallcaps
 Subset
 \shape default
@@ -7350,7 +7473,11 @@ name "KQP-1: algoritmo per risolvere le most k-equiprobable (k,\\rho) istanze"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-KQP-1: algoritmo per risolvere le most k-equiprobabile 
+Algoritmo 
+\emph on
+KQP-1
+\emph default
+ per risolvere le most k-equiprobabile 
 \begin_inset Formula $(k,ρ)$
 \end_inset
 
@@ -7532,7 +7659,7 @@ Notiamo che sebbene la complessità del campione di
 \emph on
 KQP-1 
 \emph default
-sia indipendente dalla dimensione dell'isntanza del bandit 
+sia indipendente dalla dimensione dell'istanza del bandit 
 \begin_inset Formula $A$
 \end_inset
 
@@ -7587,7 +7714,7 @@ literal "false"
 KQP-1
 \emph default
 .
- Tuttabia, in istanze molto grandi, dove la probabilità di pescare una qualsiasi
+ Tuttavia, in istanze molto grandi, dove la probabilità di pescare una qualsiasi
  arm data da
 \size small
  
@@ -7744,7 +7871,7 @@ Q-F
 \emph on
  Q-P 
 \emph default
-costuendo un algoritmo 
+costruendo un algoritmo 
 \shape smallcaps
 OptQP
 \shape default
@@ -7770,7 +7897,7 @@ Q-F
 \end_inset
 
  campioni.
- Poi, riusolve 
+ Poi, risolve 
 \emph on
 Q-F
 \emph default
@@ -7779,11 +7906,17 @@ Q-F
 OptQF
 \shape default
  come subroutine.
- La dimostrazione dettagliata è data nell'appendice CCCCCCCCCCCC.
-\end_layout
+ La dimostrazione dettagliata è data nell'appendice 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:APP-C"
+plural "false"
+caps "false"
+noprefix "false"
 
-\begin_layout Standard
-APPENDICE
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Corollary
@@ -8141,7 +8274,7 @@ Ora prendiamo cinque istanze di Bernoulli dalla dimensione
 
 , con la media spaziata linearmente tra 0.999 e 0.001 (estremi inclusi), e
  queste istanze vengono ordinate in ordine decrescente.
- Chiamamo l'istanza del bandit di dimensione 
+ Chiamiamo l'istanza del bandit di dimensione 
 \begin_inset Formula $n$
 \end_inset
 
@@ -8397,7 +8530,6 @@ ground-truth
 \end_inset
 
  trovano difficoltà a identificare l'arm corretta.
- to identify a correct arm.
  Quindi, per 
 \begin_inset Formula $k=m=1$
 \end_inset
@@ -8411,7 +8543,7 @@ ground-truth
 \begin_inset Formula $k=1$
 \end_inset
 
-, l'hardness del problema si riduce ma , but 
+, l'hardness del problema si riduce ma 
 \begin_inset Formula $F_{2}$
 \end_inset
 
@@ -8589,8 +8721,8 @@ abbiamo settato
 \end_inset
 
 .
- Come ci si aspettava, il numero di campioni usati è significamente inferiore
- per risolvere il problema delle istanze con 
+ Come ci si aspettava, il numero di campioni usati è significativamente
+ inferiore per risolvere il problema delle istanze con 
 \begin_inset Formula $k<m$
 \end_inset
 
@@ -8632,7 +8764,7 @@ centering
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Confornto del numero di campioni usati per risolvere istanze differenti
+Confronto del numero di campioni usati per risolvere istanze differenti
  di 
 \begin_inset Formula $(k;m;n)$
 \end_inset
@@ -8684,11 +8816,7 @@ name "fig:vark_fixtopm"
 \end_layout
 
 \begin_layout Standard
-POCO (PAPER CITATI)
-\end_layout
-
-\begin_layout Standard
-CODICE?
+POCO (CODICE, PAPER CITATI)
 \end_layout
 
 \begin_layout Chapter
@@ -8724,7 +8852,7 @@ literal "false"
  Loro hanno menzionato gli scenari dove identificare il miglior subset è
  praticamente impossibile.
  Tuttavia, vi sono numerosi esempi in pratica che richiedono l'identificazione
- efficiente di più soluzioni buone invece che una sola; per esempio, assegnendo
+ efficiente di più soluzioni buone invece che una sola; per esempio, assegnando
  un compito di crowdsourcing distribuito, identificazione di buone combinazioni
  molecolari nel design dei farmaci, etc.
  In questo paper, gli autori hanno presentato il problema 
@@ -8813,7 +8941,7 @@ literal "false"
 \end_inset
 
 , rispettivamente.
- Inoltre hanno confontato empiricamente i due algoritmi su differenti istanze
+ Inoltre hanno confrontato empiricamente i due algoritmi su differenti istanze
  del problema e mostrato che 
 \emph on
 LUCB1
@@ -8830,7 +8958,7 @@ LUCB1
 \end_layout
 
 \begin_layout Standard
-Per il problema dell'identificazione di una signola 
+Per il problema dell'identificazione di una singola 
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
@@ -8906,7 +9034,7 @@ Q-F
 Q-P
 \emph default
  nell'altro insieme.
- Hanno mostrato la correttezza dell'impotesi e migliorato sia il lower che
+ Hanno mostrato la correttezza dell'ipotesi e migliorato sia il lower che
  l'upper bound sulla stessa complessità del campione e altre interessanti
  strade da percorrere in futuri lavori.
 \end_layout
@@ -9013,48 +9141,147 @@ noprefix "false"
 \begin_layout Itemize
 
 \series bold
-Test clinici:
+Clinical Trials:
 \series default
  miglioramento delle cure su persone e animali volte a rendere più affidabili
- e migliori i trattamenti usati.
+ e migliori i trattamenti usati 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "robbins1952some"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-Finanza:
+Dynamic Routing: 
 \series default
- selezione sequenziale di portfolio al fine di massimizzare il reward cumulativo.
+selezione del miglior percorso possibile per indirizzare un pacchetto gestito
+ da un router 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Awerbuch_2008"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-Raccomandazioni:
+Financial Portfolio Design:
+\series default
+ gestione del portfolio finanziario (collezione di investimenti) di una
+ compagnia di investimenti per massimizzare il reward cumulativo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "brochu2010portfolio"
+literal "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "shen2015portfolio"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Pricing:
+\series default
+ pricing dinamico, identificare il prezzo di vendita per un particolare
+ tipo di prodotto che massimizza il profitto del venditore senza conoscere
+ la domanda dei consumatori 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "trovo2015multi"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Viene proposta una modifica dell'algoritmo upper confidence bound (
+\emph on
+UCB
+\emph default
+) per i bandit sfruttando due peculiarità del pricing: 1) come il prezzo
+ di vendita sale, è razionale assumere che la probabilità di vendere un
+ oggetto diminuisce.
+ 2) dato che solitamente le persone comparano prezzi da differenti venditori
+ e tengono traccia dei cambiamenti di prezzo nel tempo prima di acquistare
+ (specialmente per acquisti online, esistono anche vari tools che permettono
+ di tenere traccia automatica dei prezzi di prodotti online), il numero
+ di volte che un certo tipo di oggetto è acquistato è solo una piccola frazione
+ del numero di volte che il prezzo è visualizzato da acquirenti possibili.
+ Facendo leva su queste assunzioni, gli autori migliorano la 
+\emph on
+concentration inequality 
+\emph default
+usata nell'algoritmo 
+\emph on
+UCB1, 
+\emph default
+che porta ad avere risultati migliori rispetto all'originale, specialmente
+ nei primi passi del learning dove solo pochi campioni sono disponibili.
+ Gli autori hanno presentato un'evidenza empirica sull'efficacia delle variazion
+i proposte in termini di aumento della velocità del processo di learning
+ dell'algoritmo 
+\emph on
+UCB1
+\emph default
+ nelle applicazioni di pricing.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Recommendations:
 \series default
  ottimizzazione dei contenuti offerti ai lettori, basandosi sugli interessi
- dell'utente.
-\end_layout
+ dell'utente (ad esempio ottimizzazione dei titoli di notizie e articoli)
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li_2010"
+literal "false"
 
-\begin_layout Itemize
+\end_inset
 
-\series bold
-Shopping:
-\series default
- pricing dinamico per massimizzare il reward cumulativo, andando ad analizzare
- le richieste di un determinato prodotto.
+.
 \end_layout
 
 \begin_layout Standard
-In ambito machine learning:
+In ambito 
+\emph on
+machine learning
+\emph default
+:
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-Reinforcement learning:
+Reinforcement Learning:
 \series default
- massimizzazione rewards degli agents (visto a lezione).
+ massimizzazione dei rewards degli agents (visto a lezione).
 \end_layout
 
 \begin_layout Itemize
@@ -9068,7 +9295,7 @@ Clustering
 \begin_layout Itemize
 
 \series bold
-Bandits per active learning:
+Bandits per Active Learning:
 \series default
  selezione di samples non labeled più utili per formare un modello predittivo.
 \end_layout
@@ -9076,7 +9303,7 @@ Bandits per active learning:
 \begin_layout Itemize
 
 \series bold
-Algorithm selection:
+Algorithm Selection:
 \series default
  un problema di bandit con expert advice, usando un solver esistente; oppure
  un problema di bandit, usando informazioni parziali e bounds sconosciuti
@@ -9086,7 +9313,7 @@ Algorithm selection:
 \begin_layout Itemize
 
 \series bold
-Hyperparameter optimization:
+Hyperparameter Optimization:
 \series default
  ottimizzazione di iperparametri come un 
 \emph on
@@ -9095,10 +9322,6 @@ multi-armed bandit (infinitamente armed)
  non stocastico di pura esplorazione in cui risorse predefinite, come iterazioni
 , campioni di dati o funzionalità sono allocate a configurazioni campionate
  casualmente.
-\end_layout
-
-\begin_layout Standard
-SISTEMARE EVITARE PLAGIO
 \end_layout
 
 \begin_layout Standard
@@ -9166,7 +9389,7 @@ noprefix "false"
 
 \begin_layout Standard
 Concluso il lavoro, mi sento molto più fiducioso nell'affrontare argomenti
- che inizialmente mi parevano troppo lontani e difficili e soddifatto nel
+ che inizialmente mi parevano troppo lontani e difficili e soddisfatto nel
  riuscire a produrre un elaborato, curato anche formalmente, analizzando
  nel modo più ordinato possibile il problema di identificare un numero 
 \emph on
@@ -9188,22 +9411,3936 @@ m
  Un peccato che non ci fossero state porzioni di codice, avrei potuto replicare
  gli esperimenti e produrne di nuovi e imparare anche sotto quell'aspetto.
  A causa di questa mancanza, mi sono concentrato molto di più sull'analisi
- dei lavori correlati e delle dimostrazioni teoriche presenti nel paper
- che ho prodotto nelle appendici (vedi APPENDICIIIIIIIIIIII).
+ dei lavori correlati e nel fare le 
+\series bold
+dimostrazioni teoriche
+\series default
+ citate dal paper che ho prodotto nelle 
+\series bold
+appendici
+\series default
+ (vedi appendici 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:APP-A"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:APP-B"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:APP-C"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
  Sicuramente, per l'anno prossimo, non è da escludere di basare il mio lavoro
- di tesi su un ambito dell'intelligenza artifciale, magari proprio il 
+ di tesi su un ambito dell'intelligenza artificiale, magari proprio il 
 \emph on
 reinforcement learning 
 \emph default
 dopo quest'esperienza stimolante.
 \end_layout
 
-\begin_layout Standard
-APPENDICI (VEDI APPENDICI)
+\begin_layout Chapter
+\start_of_appendix
+Lower bound sulla complessità del campione nel caso peggiore da risolvere
+\emph on
+
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:APP-A"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:[Lower-bound-per"
+
+\end_inset
+
+[Lower bound per 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+] Sia 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ un algoritmo che risolve 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+.
+ Quindi, esiste un istanza 
+\begin_inset Formula $(A,n,m,k,\epsilon,δ)$
+\end_inset
+
+ con 
+\begin_inset Formula $0<\epsilon≤\frac{1}{√32}$
+\end_inset
+
+, 
+\begin_inset Formula $,0<\epsilon≤\frac{e^{-1}}{14}$
+\end_inset
+
+ e 
+\begin_inset Formula $n≥2m$
+\end_inset
+
+, 
+\begin_inset Formula $1≤k≤m$
+\end_inset
+
+ su cui il numero di pulls attesi fatti da 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ sia almeno 
+\begin_inset Formula $\frac{1}{18375}\frac{1}{\epsilon^{2}}\frac{n}{m-k+1}ln\frac{\binom{m}{k-1}}{4\delta}.$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-GLOSSARIO
+La dimostrazione per il teorema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:[Lower-bound-per"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è molto simile a quella del teorema 8 presente in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2012pac"
+literal "false"
+
+\end_inset
+
+ ma differisce per il fatto che qualsiasi delle 
+\begin_inset Formula $m$
+\end_inset
+
+ 
+\begin_inset Formula $(\epsilon,m)$
+\end_inset
+
+-optimal arms ha bisogno di essere ritornata al contrario di tutte le 
+\begin_inset Formula $m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Istanze del bandit
+\end_layout
+
+\begin_layout Standard
+Ipotizziamo di avere un set di 
+\begin_inset Formula $n$
+\end_inset
+
+ arms 
+\begin_inset Formula $\mathcal{A}=\{0,1,2,\cdots,n-1\}$
+\end_inset
+
+.
+ Sia 
+\begin_inset Formula $I_{0}=\{0,1,2,\cdots,m-k\}$
+\end_inset
+
+ e 
+\begin_inset Formula $I_{l}=\{I:I\subseteq\{\mathcal{A}\setminus I_{0}\}\wedge|I|=l\}$
+\end_inset
+
+.
+ Inoltre per 
+\begin_inset Formula $I\subseteq\{m-k+1,m-k+2,\cdots,n-1\}$
+\end_inset
+
+, definiamo:
+\begin_inset Formula 
+\[
+\bar{I}=\{m-k+1,m-k+2,\cdots,n-1\}\setminus I.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con ogni 
+\begin_inset Formula $I\in I_{k-1}\cup I_{m}$
+\end_inset
+
+ associamo un'istanza 
+\begin_inset Formula $n$
+\end_inset
+
+-armed bandit 
+\begin_inset Formula $\mathcal{B}^{I}$
+\end_inset
+
+, in cui ogni arm 
+\begin_inset Formula $a$
+\end_inset
+
+ produce un reward da una distribuzione di Bernoulli con media 
+\begin_inset Formula $\mu_{a}$
+\end_inset
+
+ definita come:
+\begin_inset Formula 
+\begin{align}
+\mu_{a}=\begin{cases}
+\frac{1}{2} & \text{se }a\in I_{0}\\
+\frac{1}{2}+2\epsilon & \text{se }a\in I\\
+\frac{1}{2}-2\epsilon & \text{se }a\in\bar{I}.
+\end{cases}
+\end{align}
+
+\end_inset
+
+Notare che tutte le istanze in 
+\begin_inset Formula $I_{k-1}\cup I_{m}$
+\end_inset
+
+ hanno esattamente 
+\begin_inset Formula $m$
+\end_inset
+
+ 
+\begin_inset Formula $(\epsilon,m)$
+\end_inset
+
+-optimal arms.
+ Per 
+\begin_inset Formula $I\in I_{k-1}$
+\end_inset
+
+, tutte le arms in 
+\begin_inset Formula $I_{0}$
+\end_inset
+
+ sono 
+\begin_inset Formula $(\epsilon,m)$
+\end_inset
+
+-optimal, ma per 
+\begin_inset Formula $I\in I_{m}$
+\end_inset
+
+ non lo sono.
+ Scriviamo 
+\begin_inset Formula $\mu(S)$
+\end_inset
+
+ per indicare il multi-set composto dalle medie delle arms in 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+L'idea di base della dimostrazione è che senza un campionamento sufficiente
+ di ogni arm, non è possibile identificare correttamente 
+\begin_inset Formula $k$
+\end_inset
+
+ delle 
+\begin_inset Formula $(\epsilon,m)$
+\end_inset
+
+-optimal arms con alta probabilità.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Limiti della probabilità d'errore
+\end_layout
+
+\begin_layout Standard
+Dimostreremo il teorema facendo prima l'assunzione seguente, dimostreremo
+ poi che porta a una contraddizione.
+\end_layout
+
+\begin_layout Assumption
+\begin_inset CommandInset label
+LatexCommand label
+name "assu:Assumiamo-che-esista"
+
+\end_inset
+
+Assumiamo che esista un algoritmo 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ che risolve ogni istanza del problema 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+ definite sull'istanza del bandit 
+\begin_inset Formula $\mathcal{B}^{I},\;I\in I_{k-1}$
+\end_inset
+
+, e incorre in una complessità del campione 
+\begin_inset Formula $\textsc{SC}_{I}$
+\end_inset
+
+.
+ Quindi per ogni 
+\begin_inset Formula $I\in I_{k-1}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{E}{\textsc{SC}_{I}}<\frac{1}{18375}.\frac{1}{\epsilon^{2}}.\frac{n}{m-k+1}\ln\left(\frac{\binom{m}{m-k+1}}{4\delta}\right)$
+\end_inset
+
+, per 
+\begin_inset Formula $0<\epsilon\leq\frac{1}{\sqrt{32}}$
+\end_inset
+
+, 
+\begin_inset Formula $0<\delta\leq\frac{e^{-1}}{4}$
+\end_inset
+
+, e 
+\begin_inset Formula $n\geq2m$
+\end_inset
+
+, dove 
+\begin_inset Formula $C=\frac{1}{18375}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Per comodità, indichiamo con 
+\begin_inset Formula $\Pr_{I}$
+\end_inset
+
+ la distribuzione di probabilità indotta dall'istanza bandit
+\begin_inset Formula $\mathcal{B}^{I}$
+\end_inset
+
+ e la possibile randomizzazione introdotta dall'algoritmo 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+.
+ Inoltre, sia 
+\begin_inset Formula $S_{\mathcal{L}}$
+\end_inset
+
+ il set di arms ritornato come output da 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+, e 
+\begin_inset Formula $T_{S}$
+\end_inset
+
+ il numero totale di volte che le arms in 
+\begin_inset Formula $S\subseteq\mathcal{A}$
+\end_inset
+
+ vengono campionate finché 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ si ferma.
+\end_layout
+
+\begin_layout Standard
+Quindi, come 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ risolve 
+\begin_inset Formula $(k,m,n)$
+\end_inset
+
+, per ogni 
+\begin_inset Formula $I\in I_{k-1}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\Pr_{I}\{S_{\mathcal{L}}\subseteq I_{0}\cup I\}\geq1-\delta.\label{eq:contra}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tuttavia, per ogni 
+\begin_inset Formula $I\in I_{k-1}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\mathbb{E}_{I}[T_{\mathcal{A}}]\leq C\frac{n}{m-k+1}\ln\left(\frac{\binom{m}{m-k+1}}{4\delta}\right).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Cambiare 
+\begin_inset Formula $\Pr_{I}$
+\end_inset
+
+ a 
+\begin_inset Formula $\Pr_{I\cup Q}$
+\end_inset
+
+ dove 
+\begin_inset Formula $Q\in\bar{I}$
+\end_inset
+
+ s.t.
+ 
+\begin_inset Formula $|Q|=m-k+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consideriamo un 
+\begin_inset Formula $I\in I_{k-1}$
+\end_inset
+
+ arbitrario ma fisso.
+ Consideriamo una partizione fissa di 
+\begin_inset Formula $A$
+\end_inset
+
+, in 
+\begin_inset Formula $\llcorner{\frac{n}{m-k+1}}\lrcorner$
+\end_inset
+
+ subsets di dimensione 
+\begin_inset Formula $(m-k+1)$
+\end_inset
+
+ ciascuno.
+ Se l'assunzione 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "assu:Assumiamo-che-esista"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è corretta, allora per l'istanza 
+\begin_inset Formula $\mathcal{B}^{I}$
+\end_inset
+
+, ci sono almeno
+\begin_inset Formula $\llcorner{\frac{n}{4(m-k+1})}\lrcorner-1$
+\end_inset
+
+ partizioni 
+\begin_inset Formula $B\subset\bar{I}$
+\end_inset
+
+, tali che 
+\begin_inset Formula $\mathbb{E}_{I}\left[T_{B}\right]\geq\frac{4C}{\epsilon^{2}}\ln\left(\frac{1}{4\delta}\right)$
+\end_inset
+
+.
+ Ora, come 
+\begin_inset Formula $\llcorner{\frac{n-m}{m-k+1}}\lrcorner-\left(\llcorner{\frac{n}{4(m-k+1)}}\lrcorner-1\right)$
+\end_inset
+
+ 
+\begin_inset Formula $\geq\llcorner{\frac{n}{4(m-k+1)}}\lrcorner+1>0$
+\end_inset
+
+; tuttavia, esiste almeno un subset 
+\begin_inset Formula $Q\in\bar{I}$
+\end_inset
+
+ tale che 
+\begin_inset Formula $|Q|=m-k+1$
+\end_inset
+
+, e 
+\begin_inset Formula $\mathbb{E}_{I}\left[T_{Q}\right]<\frac{4C}{\epsilon^{2}}\ln\left(\frac{\binom{m}{m-k+1}}{4\delta}\right)$
+\end_inset
+
+.
+ Definito 
+\begin_inset Formula $T^{*}=\frac{16C}{\epsilon^{2}}\ln\left(\frac{\binom{m}{m-k+1}}{4\delta}\right)$
+\end_inset
+
+.
+ Ora usando 
+\emph on
+Markov's inequality
+\emph default
+ abbiamo: 
+\begin_inset Formula 
+\begin{equation}
+\Pr_{I}\left\{ T_{Q}\geq T^{*}\right\} <\frac{1}{4}.\label{eq:lbusage}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sia 
+\begin_inset Formula $\Delta=2\epsilon T^{*}+\sqrt{T^{*}}$
+\end_inset
+
+ e inoltre sia 
+\begin_inset Formula $K_{Q}$
+\end_inset
+
+ il numero totale di reward ottenuti da 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:boundreward"
+
+\end_inset
+
+ Se 
+\begin_inset Formula $I\in I_{k-1}$
+\end_inset
+
+ e 
+\begin_inset Formula $Q\in\bar{I}$
+\end_inset
+
+ s.t.
+ 
+\begin_inset Formula $|Q|=m-k+1$
+\end_inset
+
+, allora 
+\begin_inset Formula 
+\[
+\Pr_{I}\left\{ T_{Q}\leq T^{*}\wedge K_{Q}\leq\frac{T_{Q}}{2}-\Delta\right\} \leq\frac{1}{4}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Sia 
+\begin_inset Formula $K_{Q}(t)$
+\end_inset
+
+ la somma totale ottenuta da 
+\begin_inset Formula $Q$
+\end_inset
+
+ alla fine del turno 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ Quanto a 
+\begin_inset Formula $\mathcal{B}^{I_{0}},\;\forall j\in Q\;\mu_{j}=1/2-2\epsilon$
+\end_inset
+
+, quindi selezionando e tirando un braccio ad ogni prova da 
+\begin_inset Formula $Q$
+\end_inset
+
+ seguendo qualsiasi regola (deterministica o probabilistica) è equivalente
+ a selezionare una singola arm da 
+\begin_inset Formula $Q$
+\end_inset
+
+ per volta e successivamente fare i pulls su di essa.
+ Quindi qualsiasi sia la strategia di tirare un arma ad ogni turno da 
+\begin_inset Formula $Q$
+\end_inset
+
+, il reward atteso da ogni pull è 
+\begin_inset Formula $1/2-2\epsilon$
+\end_inset
+
+.
+ Sia 
+\begin_inset Formula $r_{i}$
+\end_inset
+
+ la distribuzione i.i.d.
+ del reward ottenuto dal 
+\begin_inset Formula $i^{\text{th}}$
+\end_inset
+
+ turno.
+ Quindi 
+\begin_inset Formula $K_{Q}(t)=\sum_{i=1}^{t}r_{i}$
+\end_inset
+
+ e 
+\begin_inset Formula $Var\left[r_{i}\right]=\left(\frac{1}{2}-2\epsilon\right)\left(\frac{1}{2}+2\epsilon\right)=\left(\frac{1}{4}-4\epsilon^{2}\right)<\frac{1}{4}$
+\end_inset
+
+.
+ Visto che 
+\begin_inset Formula $\forall i:1\leq i\leq t$
+\end_inset
+
+, 
+\begin_inset Formula $r_{i}$
+\end_inset
+
+ sono i.i.d., otteniamo 
+\begin_inset Formula $Var[K_{Q}(t)]=\sum_{i=1}^{t}Var(r_{i})<\frac{t}{4}$
+\end_inset
+
+.
+ Ora possiamo scrivere:: 
+\begin_inset Formula 
+\begin{eqnarray}
+ &  & \Pr_{I}\left\{ \min\limits _{1\leq t\leq T^{*}}\left(K_{Q}(t)-t\left(\frac{1}{2}-2\epsilon\right)\right)\leq-\sqrt{T^{*}}\right\} \nonumber \\
+ & \leq & \Pr_{I}\left\{ \max\limits _{1\leq t\leq T^{*}}\left|K_{Q}(t)-t\left(\frac{1}{2}-2\epsilon\right)\right|\geq\sqrt{T^{*}}\right\} \nonumber \\
+ & \leq & \frac{Var[K_{Q}(T^{*})]}{T^{*}}<\frac{1}{4},
+\end{eqnarray}
+
+\end_inset
+
+in cui abbiamo usato la 
+\emph on
+disuguaglianza di Kolmogorov
+\emph default
+.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:lb1"
+
+\end_inset
+
+ Sia 
+\begin_inset Formula $I\in I_{k-1}$
+\end_inset
+
+ e 
+\begin_inset Formula $Q\in I_{m-k+1}$
+\end_inset
+
+ tale che 
+\begin_inset Formula $Q\subseteq\bar{I}$
+\end_inset
+
+, e sia 
+\begin_inset Formula $W$
+\end_inset
+
+ una qualche sequenza di reward ottenuti da un singolo run dell'algoritmo
+ 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ su 
+\begin_inset Formula $\mathcal{B}^{I}$
+\end_inset
+
+ tale che 
+\begin_inset Formula $T_{Q}\leq T^{*}$
+\end_inset
+
+ e 
+\begin_inset Formula $K_{Q}\geq\frac{T_{Q}}{2}-\Delta$
+\end_inset
+
+, allora: 
+\begin_inset Formula 
+\begin{equation}
+\Pr_{I\cup Q}\{W\}>\Pr_{I}\{W\}\cdot\exp(-32\epsilon\Delta).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Riprendendo il fatto che tutte le arms in 
+\begin_inset Formula $Q$
+\end_inset
+
+ hanno la stessa media.
+ Quindi, se scelta una ad ogni turno (seguendo una qualsiasi strategia),
+ il reward atteso ad ogni turno rimane lo stesso.
+ Quindi la probabilità di ottenere una sequenza dei reward generata da 
+\begin_inset Formula $Q$
+\end_inset
+
+ è indipendente dalla strategia di campionamento.
+ Nuovamente come le arms in 
+\begin_inset Formula $Q$
+\end_inset
+
+ hanno una media alta in 
+\begin_inset Formula $\mathcal{B}^{Q}$
+\end_inset
+
+, la probabilità di ottenere una serquenza di reward decresce in modo monotono
+ man mano che le 1-rewards per 
+\begin_inset Formula $\mathcal{B}^{I_{0}}$
+\end_inset
+
+ diventano più piccole.
+ Perciò abbiamo:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{align*}
+ & \Pr_{I\cup Q}\{W\}=\Pr_{I}\{W\}\frac{\left(\frac{1}{2}+2\epsilon\right)^{K_{Q}}\left(\frac{1}{2}-2\epsilon\right)^{T_{Q}-K_{Q}}}{\left(\frac{1}{2}-2\epsilon\right)^{K_{Q}}\left(\frac{1}{2}+2\epsilon\right)^{T_{Q}-K_{Q}}}\\
+ & \geq\Pr_{I}\{W\}\frac{\left(\frac{1}{2}+2\epsilon\right)^{\left(\frac{T_{Q}}{2}-\Delta\right)}\left(\frac{1}{2}-2\epsilon\right)^{\left(\frac{T_{Q}}{2}+\Delta\right)}}{\left(\frac{1}{2}-2\epsilon\right)^{\left(\frac{T_{Q}}{2}-\Delta\right)}\left(\frac{1}{2}+2\epsilon\right)^{\left(\frac{T_{Q}}{2}+\Delta\right)}}\\
+ & =\Pr_{I}\{W\}\cdot\left(\frac{\frac{1}{2}-2\epsilon}{\frac{1}{2}+2\epsilon}\right)^{2\Delta}\\
+ & >\Pr_{I}\{W\}\cdot\exp(-32\epsilon\Delta)\left[\text{ for }0<\epsilon\leq\frac{1}{\sqrt{32}}\right].
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:boundallreward"
+
+\end_inset
+
+ Se 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lbusage"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ vale per un 
+\begin_inset Formula $I\in I_{k-1}$
+\end_inset
+
+ e 
+\begin_inset Formula $Q\in I_{m-k+1}$
+\end_inset
+
+ tale che 
+\begin_inset Formula $Q\subseteq\bar{I}$
+\end_inset
+
+, e se 
+\begin_inset Formula $\mathcal{W}$
+\end_inset
+
+ è il set di tutte le sequenze di reward possibili 
+\begin_inset Formula $W$
+\end_inset
+
+, ottenute dall'algoritmo 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ su 
+\begin_inset Formula $\mathcal{B}^{I}$
+\end_inset
+
+, allora 
+\begin_inset Formula $\Pr_{I\cup Q}\{\mathcal{W}\}>\left(\Pr_{I}\left\{ \mathcal{W}\right\} -\frac{1}{2}\right)\cdot4\delta.$
+\end_inset
+
+ In particolare: 
+\begin_inset Formula 
+\begin{equation}
+\Pr_{I\cup Q}\{S_{\mathcal{L}}\subseteq I_{0}\cup I\}>\frac{\delta}{\binom{m}{m-k+1}}.\label{eq:err2delta}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Sia per qualche sequenza fissa dei rewards 
+\begin_inset Formula $W$
+\end_inset
+
+, 
+\begin_inset Formula $T_{Q}^{W}$
+\end_inset
+
+ e 
+\begin_inset Formula $K_{Q}^{W}$
+\end_inset
+
+ rispettivamente indichiamo il numero totale di campioni ricevuti dalle
+ arms in 
+\begin_inset Formula $Q$
+\end_inset
+
+ e il numero totale di 
+\begin_inset Formula $1$
+\end_inset
+
+-rewards ottenuti prima che l'algoritmo 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ si fermi.
+ Allora: 
+\begin_inset Formula 
+\begin{align*}
+ & \Pr_{I\cup Q}\{W\}=\Pr_{I\cup Q}(W:W\in\mathcal{W})\\
+ & \geq\Pr_{I\cup Q}\left\{ W:W\in\mathcal{W}\bigwedge T_{Q}^{W}\leq T^{*}\bigwedge K_{Q}^{W}\geq\frac{T_{Q}^{W}}{2}-\Delta\right\} \\
+ & >\Pr_{I}\left\{ W:W\in\mathcal{W}\bigwedge T_{Q}^{W}\leq T^{*}\bigwedge K_{Q}^{W}\geq\frac{T_{Q}^{W}}{2}-\Delta\right\} \cdot\exp(-32\epsilon\Delta)\\
+ & \geq\left(\Pr_{I}\left\{ W:W\in\mathcal{W}\bigwedge T_{Q}^{W}\leq T^{*}\right\} -\frac{1}{4}\right)\cdot\exp(-32\epsilon\Delta)\\
+ & \geq\left(\Pr_{I}\left\{ \mathcal{W}\right\} -\frac{1}{2}\right)\cdot\frac{4\delta}{\binom{m}{m-k+1}}\;\text{ for }C=\frac{1}{18375},\;\delta<\frac{e^{-1}}{4}.\\
+\end{align*}
+
+\end_inset
+
+Qui sopra, il terzo, il quarto e l'ultimo passaggio sono ottenuti usando
+ rispettivamente il lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:lb1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, il lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:boundreward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ e l'equazione 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lbusage"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ La disuguaglianza 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:err2delta"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è ottenuta usando la disuguaglianza 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:contra"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, come 
+\begin_inset Formula $\Pr_{I}\{S_{\mathcal{L}}\in I_{0}\}>1-\delta\geq1-\frac{e^{-1}}{4}>\frac{3}{4}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sommando su 
+\begin_inset Formula $I_{k-1}$
+\end_inset
+
+ e 
+\begin_inset Formula $I_{m}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ora, sommiamo la probabilità degli errori rispetto a tutte le istanze in
+ 
+\begin_inset Formula $I_{k-1}$
+\end_inset
+
+ e 
+\begin_inset Formula $I_{m}$
+\end_inset
+
+.
+ Se l'assunzione
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "assu:Assumiamo-che-esista"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è vera, usando il principio 
+\emph on
+pigeon-hole principle,
+\emph default
+ mostriamo che esiste una qualche istanza per cui la probabilità d'errore
+ è maggiore di 
+\begin_inset Formula $\delta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \sum_{J\in I_{m}}\Pr_{J}\{S_{\mathcal{L}}\nsubseteq J\}\\
+ & \geq\sum_{J\in I_{m}}\sum_{\substack{J'\subset J\\
+:|J'|=m-k+1
+}
+}\Pr_{J}\{S_{\mathcal{L}}\subseteq\{J\setminus J'\}\cup I_{0}\}\\
+ & \geq\sum_{J\in I_{m}}\sum_{\substack{J'\subset J\\
+:|J'|=m-k+1
+}
+}\Pr_{J}\{\exists a\in I_{0}:S_{\mathcal{L}}=\{J\setminus J'\}\cup\{a\}\}\\
+ & =\sum_{J\in I_{m}}\sum_{\substack{J'\subset J\\
+:|J'|=m-k+1
+}
+}\sum_{I\in I_{k-1}}\mathbb{I}[I\cup J'=J]\cdot\Pr_{J}\{S_{\mathcal{L}}\subseteq I\cup I_{0}\}\\
+ & =\sum_{J\in I_{m}}\sum_{\substack{J'\subset\mathcal{A}\setminus I_{0}\\
+:|J'|=m-k+1
+}
+}\sum_{I\in I_{k-1}}\mathbb{I}[I\cup J'=J]\cdot\Pr_{J}\{S_{\mathcal{L}}\subseteq I\cup I_{0}\}\\
+ & =\sum_{J\in I_{m}}\sum_{I\in I_{k-1}}\sum_{\substack{J'\subset\mathcal{A}\setminus I_{0}\\
+:|J'|=m-k+1
+}
+}\mathbb{I}[I\cup J'=J]\cdot\Pr_{J}\{S_{\mathcal{L}}\subseteq I\cup I_{0}\}\\
+ & =\sum_{I\in I_{k-1}}\sum_{J\in I_{m}}\sum_{\substack{J'\subset\bar{I}\\
+:|J'|=m-k+1
+}
+}\mathbb{I}[I\cup J'=J]\cdot\Pr_{J}\{S_{\mathcal{L}}\subseteq I\cup I_{0}\}\\
+ & =\sum_{I\in I_{k-1}}\sum_{\substack{J'\subset\bar{I}\\
+:|J'|=m-k+1
+}
+}\sum_{J\in I_{m}}\mathbb{I}[I\cup J'=J]\cdot\Pr_{J}\{S_{\mathcal{L}}\subseteq I\cup I_{0}\}\\
+ & =\sum_{I\in I_{k-1}}\sum_{\substack{J'\subset\bar{I}\\
+:|J'|=m-k+1
+}
+}\Pr_{I\cup J'}\{S_{\mathcal{L}}\subseteq I\cup I_{0}\}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Riprendendo il fatto che 
+\begin_inset Formula $\forall I\in I_{k-1}$
+\end_inset
+
+ esista un set 
+\begin_inset Formula $Q\subset\mathcal{A}\setminus\{I\cup I_{0}\}:|Q|=(m-k+1)$
+\end_inset
+
+, tale che 
+\begin_inset Formula $T_{Q}<T^{*}$
+\end_inset
+
+.
+ Allora, 
+\begin_inset Formula 
+\begin{align*}
+ & \sum_{J\in I_{m}}\Pr_{J}\{S_{\mathcal{L}}\nsubseteq J\}\\
+ & \geq\sum_{I\in I_{k-1}}\sum_{\substack{J'\subset\bar{I}\\
+:|J'|=m-k+1
+}
+}\Pr_{I\cup J'}\{S_{\mathcal{L}}\subseteq I\cup I_{0}\}\\
+ & >\sum_{I\in I_{k-1}}\sum_{\substack{J'\subset\bar{I}\\
+:|J'|=m-k+1
+}
+}\frac{\delta}{\binom{m}{m-k+1}}\\
+ & \geq\sum_{I\in I_{k-1}}\binom{n-m}{m-k+1}\cdot\frac{\delta}{\binom{m}{m-k+1}}\\
+ & \geq\binom{n-(m-k+1)}{k-1}\cdot\binom{n-m}{m-k+1}\cdot\frac{\delta}{\binom{m}{m-k+1}}\\
+ & =\binom{n-(m+k-1)}{m}\delta\\
+ & =|I_{m}|\delta.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quindi abbiamo ottenuto una contraddizione all'assunzione 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "assu:Assumiamo-che-esista"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, quindi abbiamo dimostrato il teorema.
+\end_layout
+
+\begin_layout Chapter
+Analisi di 
+\emph on
+LUCB-k-m
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:APP-B"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sia al tempo 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{p}_{a}^{t}$
+\end_inset
+
+ la media empirica dell'arm 
+\begin_inset Formula $a\in\mathcal{A}$
+\end_inset
+
+, e 
+\begin_inset Formula $u_{a}^{t}$
+\end_inset
+
+ il numero di volte che l'arm 
+\begin_inset Formula $a$
+\end_inset
+
+ è stata tirata fino al tempo 
+\begin_inset Formula $t$
+\end_inset
+
+ escluso.
+ Per un dato 
+\begin_inset Formula $\delta\in(0,1]$
+\end_inset
+
+, definiamo 
+\begin_inset Formula $\beta(u_{a}^{t},t,\delta)=\sqrt{\frac{1}{2u_{a}^{t}}\ln\frac{k_{1}nt^{4}}{\delta}}$
+\end_inset
+
+, dove 
+\begin_inset Formula $k_{1}=5/4$
+\end_inset
+
+.
+ Definiamo un upper e lower bound di confidenza sulla stima della media
+ reale dell'arm 
+\begin_inset Formula $a\in\mathcal{A}$
+\end_inset
+
+ come 
+\begin_inset Formula $ucb(a,t)=\hat{p}_{a}+\beta(u_{a}^{t},t,\delta)$
+\end_inset
+
+, e 
+\begin_inset Formula $lcb(a,t)=\hat{p}_{a}-\beta(u_{a}^{t},t,\delta)$
+\end_inset
+
+ rispettivamente.
+\end_layout
+
+\begin_layout Standard
+Per analizzare la complessità del campione, prima di tutto definiamo qualche
+ evento, almeno uno dei qualche deve accadere se l'algoritmo non si ferma
+ al turno 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+(
+\shape smallcaps
+Probable Events
+\shape default
+) Siano 
+\begin_inset Formula $a,b\in\mathcal{A}$
+\end_inset
+
+, tali che 
+\begin_inset Formula $\mu_{a}>\mu_{b}$
+\end_inset
+
+.
+ Durante l'esecuzione dell'algoritmo, qualsiasi dei seguenti cinque eventi
+ possono accadere:
+\begin_inset Newline newline
+\end_inset
+
+ i) La media empirica di un arm 
+\begin_inset Formula $a$
+\end_inset
+
+ può cadere oltre l'upper o il lower bound di confidenza; definiamo l'evento
+ in questo modo:
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\[
+CROSS_{a}^{t}=\{ucb(a,t)<\mu_{a}\vee lcb(a,t)>\mu_{a}\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ii) La media empirica di un arm 
+\begin_inset Formula $a$
+\end_inset
+
+ può essere meno di un arm 
+\begin_inset Formula $b$
+\end_inset
+
+; definiamo l'evento in questo modo:
+\begin_inset Formula 
+\[
+ErrA(a,b,t)=\{\hat{p}_{a}^{t}<\hat{p}_{b}^{t}\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+iii)Il lower e l'upper bound di confidenza di un arm 
+\begin_inset Formula $a$
+\end_inset
+
+ può cadere sotto a quella arms 
+\begin_inset Formula $b$
+\end_inset
+
+; definiamo l'evento in questo modo:
+\begin_inset Formula 
+\begin{align*}
+ & ErrL(a,b,t)=\{lcb(a,t)<lcb(b,t)\},\\
+ & ErrU(a,b,t)=\{ucb(a,t)<ucb(b,t)\}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+iv) Se gli intervalli di confidenza di un arm sono sotto un certo raggio
+ (detto 
+\begin_inset Formula $d$
+\end_inset
+
+), definiamo l'evento in questo modo:
+\begin_inset Formula 
+\[
+NEEDY_{a}^{t}(d)=\left\{ \{lcb(a,t)<\mu_{a}-d\}\vee\{ucb(a,t)>\mu_{a}+d\}\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mostriamo che ogni arm 
+\begin_inset Formula $a$
+\end_inset
+
+, se campionata sufficientemente, tale che 
+\begin_inset Formula $u_{a}^{t}\geq u^{*}(a,t)$
+\end_inset
+
+, allora l'accadimento di un qualsiasi 
+\shape smallcaps
+Probable Events
+\shape default
+ implica l'accadimento di 
+\begin_inset Formula $CROSS_{a}^{t}$
+\end_inset
+
+.
+ Prima abbiamo mostrato che se 
+\begin_inset Formula $CROSS_{a}^{t}$
+\end_inset
+
+ non accade per ogni 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, allora l'accadimento di uno dei qualsiasi 
+\shape smallcaps
+Probable Events
+\shape default
+ implica l'accadimento di 
+\begin_inset Formula $NEEDY_{a}^{t}(\cdot)$
+\end_inset
+
+ o 
+\begin_inset Formula $NEEDY_{b}^{t}(\cdot)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+[Esprimere i 
+\shape smallcaps
+Probable Events
+\shape default
+ in termini di 
+\begin_inset Formula $NEEDY_{a}^{t}$
+\end_inset
+
+ e 
+\begin_inset Formula $CROSS_{a}^{t}$
+\end_inset
+
+] 
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:ErrALUN"
+
+\end_inset
+
+ Per dimostrare ciò 
+\begin_inset Formula $\{\neg CROSS_{a}^{t}\wedge\neg CROSS_{b}^{t}\}\wedge\{ErrA(a,b,t)\vee ErrU(a,b,t)\vee ErrL(a,b,t)\}\implies\{NEEDY_{a}^{t}\left(\frac{\Delta_{ab}}{2}\right)\vee NEEDY_{b}^{t}\left(\frac{\Delta_{ab}}{2}\right)\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\mathbf{ErrA(a,b,t)}$
+\end_inset
+
+: Per dimostrare ciò 
+\begin_inset Formula $\neg\{CROSS_{a}^{t}\vee CROSS_{b}^{t}\}\wedge ErrA(a,b,t)\implies NEEDY_{a}^{t}\left(\frac{\Delta_{ab}}{2}\right)\vee NEEDY_{b}^{t}\left(\frac{\Delta_{ab}}{2}\right)$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{align*}
+ & ErrA(a,b,t)\implies\hat{p}_{a}^{t}<\hat{p}_{b}^{t}\\
+ & \implies\hat{p}_{a}^{t}-(p_{a}-\beta(u_{a}^{t},t,\delta))<\hat{p}_{b}^{t}-(p_{b}+\beta(u_{b}^{t},t,\delta)+\\
+ & (\beta(u_{a}^{t},t,\delta)+\beta(u_{b}^{t},t,\delta))-\Delta_{ab}/2)\\
+ & \implies NEEDY_{a}^{t}\left(\frac{\Delta_{ab}}{2}\right)\vee NEEDY_{b}^{t}\left(\frac{\Delta_{ab}}{2}\right).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\mathbf{ErrU(a,b,t)}$
+\end_inset
+
+: Per dimostrare ciò 
+\begin_inset Formula $\neg\{CROSS_{a}^{t}\vee CROSS_{b}^{t}\}\wedge ErrU(a,b,t)\implies NEEDY_{b}^{t}\left(\frac{\Delta_{ab}}{2}\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+ Assumendo 
+\begin_inset Formula $\neg CROSS_{a}^{t}\wedge\neg CROSS_{b}^{t}$
+\end_inset
+
+ otteniamo:
+\begin_inset Formula 
+\begin{align*}
+ & ErrU(a,b,t)\implies\{ucb(b,t)>ucb(a,t)\}\\
+ & \implies\{\hat{p}_{b}^{t}+\beta(u_{b}^{t},t,\delta)>\hat{p}_{a}^{t}+\beta(u_{a}^{t},t,\delta)\}\\
+ & \implies\{\hat{p}_{b}^{t}>\mu_{b}+\beta(u_{b}^{t},t,\delta)\}\vee\{\hat{p}_{a}^{t}<\mu_{a}-\beta(u_{a}^{t},t,\delta)\}\vee\\
+ & \hspace{28pt}\{2\beta(u_{b}^{t},t,\delta)>\Delta_{ab}\}\\
+ & \implies NEEDY_{b}^{t}\left(\frac{\Delta_{ab}}{2}\right).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\mathbf{ErrL(a,b,t)}$
+\end_inset
+
+: Per dimostrare ciò 
+\begin_inset Formula $\neg\{CROSS_{a}^{t}\vee CROSS_{b}^{t}\}\wedge ErrL(a,b,t)\implies NEEDY_{a}^{t}\left(\frac{\Delta_{ab}}{2}\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+ Assumendo 
+\begin_inset Formula $\neg CROSS_{a}^{t}\wedge\neg CROSS_{b}^{t}$
+\end_inset
+
+ otteniamo
+\begin_inset Formula 
+\begin{align*}
+ & ErrL(a,b,t)\implies\{lcb(b,t)>lcb(a,t)\}\\
+ & \implies\{\hat{p}_{b}^{t}-\beta(u_{b}^{t},t,\delta)>\hat{p}_{a}^{t}-\beta(u_{a}^{t},t,\delta)\}\\
+ & \implies\{\hat{p}_{b}^{t}>\mu_{b}+\beta(u_{b}^{t},t,\delta)\}\vee\{\hat{p}_{a}^{t}<\mu_{a}-\beta(u_{a}^{t},t,\delta)\}\vee\\
+ & \hspace{28pt}\{2\beta(u_{a}^{t},t,\delta)>\Delta_{ab}\}\\
+ & \implies NEEDY_{a}^{t}\left(\frac{\Delta_{ab}}{2}\right).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mostriamo che data una soglia 
+\begin_inset Formula $d$
+\end_inset
+
+, se un arm 
+\begin_inset Formula $a$
+\end_inset
+
+è campionata sufficientemente, tale che 
+\begin_inset Formula $\beta(u_{a}^{t},t,\delta)\leq\frac{d}{2}$
+\end_inset
+
+, allora 
+\begin_inset Formula $NEEDY_{a}^{t}$
+\end_inset
+
+ deduce 
+\begin_inset Formula $CROSS_{a}^{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:needycross"
+
+\end_inset
+
+ Per ogni 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, 
+\begin_inset Formula $\{NEEDY_{a}^{t}(d)|\beta(u_{a}^{t},t,\delta)<d/2\}\implies CROSS_{a}^{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Innanzitutto mostriamo che 
+\begin_inset Formula $\{lcb(a,t)<\mu_{a}-d|\beta(u_{a}^{t},t,\delta)<d/2\}\implies CROSS_{a}^{t}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{align}
+ & \{lcb(a,t)<\mu_{a}-d|\beta(u_{a}^{t},t,\delta)<d/2\}\nonumber \\
+ & \implies\{\hat{p}_{a}^{t}-\beta(u_{a}^{t},t,\delta)<\mu_{a}-d|\beta(u_{a}^{t},t,\delta)<d/2\}\nonumber \\
+ & \implies\{\hat{p}_{a}^{t}<\mu_{a}-d+\beta(u_{a}^{t},t,\delta)|\beta(u_{a}^{t},t,\delta)<d/2\}\nonumber \\
+ & \implies\{\hat{p}_{a}^{t}<\mu_{a}-d/2|\beta(u_{a}^{t},t,\delta)<d/2\}\nonumber \\
+ & \implies CROSS_{a}^{t}.
+\end{align}
+
+\end_inset
+
+L'alta direzione segue una dimostrazione simile.
+ 
+\end_layout
+
+\begin_layout Standard
+Dalla stessa definizione di intervallo di confidenza, ad ogni turno 
+\begin_inset Formula $t$
+\end_inset
+
+, la probabilità che la media empirica di un arm cada oltre è molto bassa.
+ In altre parole, la probabilità dell'evento 
+\begin_inset Formula $CROSS_{a}^{t}$
+\end_inset
+
+ è molto bassa per ogni 
+\begin_inset Formula $t$
+\end_inset
+
+ e 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+[Upper bound alla probabilità di 
+\begin_inset Formula $CROSS_{a}^{t}$
+\end_inset
+
+] 
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:cross"
+
+\end_inset
+
+ 
+\begin_inset Formula $\forall a\in\mathcal{A}$
+\end_inset
+
+ e 
+\begin_inset Formula $\forall t\geq0$
+\end_inset
+
+, 
+\begin_inset Formula $\Pr\{{CROSS_{a}^{t}}\}\leq\frac{\delta}{knt^{4}}$
+\end_inset
+
+.
+ Quindi, 
+\begin_inset Formula $P\left[\exists t\geq0\wedge\exists a\in\mathcal{A}:{CROSS_{a}^{t}}|u_{a}^{t}\geq0\right]\leq\frac{\delta}{k_{1}t^{3}}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\Pr\{{CROSS_{a}^{t}}\}$
+\end_inset
+
+ è limitato superiormente dalla 
+\emph on
+disuguaglianza di Hoeffding
+\emph default
+, e il prossimo paragrafo lo dimostra prendendo l'union bound su tutte le
+ arms e 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Ora, riprendendo la definizione di 
+\begin_inset Formula $h_{*}^{t}$
+\end_inset
+
+, e 
+\begin_inset Formula $l_{*}^{t}$
+\end_inset
+
+ dall'algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "case:1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, presentiamo la logica chiave alla base dell'analisi di 
+\emph on
+LUCB-k m
+\emph default
+.
+ L'idea è mostrare che se l'algoritmo non si ferma, allora uno dei 
+\shape smallcaps
+Probable Events
+\shape default
+ deve accadere.
+ Quindi usando il lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:ErrALUN"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, il lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:needycross"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ e il lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:cross"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ dimostriamo che oltre un certo numero di turni, la probabilità che 
+\emph on
+LUCB-k m 
+\emph default
+continui è molto bassa.
+ Infine, usando l'argomento alla base del principio 
+\emph on
+pigeon-hole
+\emph default
+, simile al lemma 5 di 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2011learning"
+literal "false"
+
+\end_inset
+
+, stabiliamo un upper bound sulla complessità del campione.
+ Di seguito presentiamo la logica di base che mostra, finché l'algoritmo
+ non si ferma, deve verificarsi uno degli eventi probabili.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $\exists b_{3}\in A_{1}^{t}\cap B_{3}$
+\end_inset
+
+
+\series bold
+ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+Then 
+\begin_inset Formula $ErrL(h_{*}^{t},b_{3},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\exists b_{3}\in A_{2}^{t}\cap B_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+Then 
+\begin_inset Formula $ErrA(h_{*}^{t},b_{3},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "case:1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Caso 1
+\series default
+: 
+\begin_inset Formula $h_{*}^{t}\in B_{1}\wedge l_{*}^{t}\in B_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $\exists b_{3}\in A_{1}^{t}\cap B_{3}$
+\end_inset
+
+
+\series bold
+ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+Then 
+\begin_inset Formula $ErrL(h_{*}^{t},b_{3}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\exists b_{3}\in A_{2}^{t}\cap B_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $\Delta_{h_{*}^{t}l_{*}^{t}}\geq\frac{\Delta_{h_{*}^{t}}}{2}$
+\end_inset
+
+ 
+\series bold
+then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+Then 
+\begin_inset Formula $NEEDY_{h_{*}^{t}}^{t}(\Delta_{h_{*}^{t}}/4)\vee NEEDY_{l_{*}^{t}}^{t}(\Delta_{h_{*}^{t}}/4)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+Then 
+\begin_inset Formula $ErrL(l_{*}^{t},b_{3}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "case:2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Caso 2
+\series default
+: 
+\begin_inset Formula $h_{*}^{t}\in B_{1}\wedge l_{*}^{t}\in B_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+Then 
+\begin_inset Formula $NEEDY_{h_{*}^{t}}^{t}(\Delta_{h_{*}^{t}}/4)\vee NEEDY_{l_{*}^{t}}^{t}(\Delta_{l_{*}^{t}}/4)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "case:3"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Caso 3
+\series default
+: 
+\begin_inset Formula $h_{*}^{t}\in B_{1}\wedge l_{*}^{t}\in B_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $\Delta_{h_{*}^{t}l_{*}^{t}}\geq\frac{\Delta_{h_{*}^{t}}}{2}$
+\end_inset
+
+
+\series bold
+ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+Then 
+\begin_inset Formula $ErrA(l_{*}^{t},h_{*}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $\exists b_{3}\in A_{1}^{t}\cap B_{3}$
+\end_inset
+
+ 
+\series bold
+then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+Then 
+\begin_inset Formula $ErrL(h_{*}^{t},b_{3}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\exists b_{3}\in A_{2}^{t}\cap B_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\therefore ErrA(l_{*}^{t},b_{3},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "case:4"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Caso 4
+\series default
+: 
+\begin_inset Formula $h_{*}^{t}\in B_{2}\wedge l_{*}^{t}\in B_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+Qui, 
+\begin_inset Formula $\exists b_{1}\in(A_{2}^{t}\cup A_{3}^{t})\cap B_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula $\exists b_{3}\in(A_{1}^{t}\cup A_{2}^{t})\cap B_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $\Delta_{h_{*}^{t}l_{*}^{t}}|<\Delta_{h_{*}^{t}}/2$
+\end_inset
+
+
+\series bold
+ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $\Delta_{b_{1}h_{*}^{t}}>\Delta_{b_{1}}/4$
+\end_inset
+
+
+\series bold
+ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $b_{1}\in A_{2}^{t})\cap B_{1}$
+\end_inset
+
+
+\series bold
+ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $ErrA(b_{1},h_{*}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $b_{1}\in A_{3}^{t}\cap B_{1}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+ 
+\begin_inset Formula $ErrU(b_{1},l_{*}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\Delta_{b_{1}h_{*}^{t}}\leq\Delta_{b_{1}}/4$
+\end_inset
+
+ e quindi 
+\begin_inset Formula $\Delta_{l_{*}^{t}b_{3}}\geq\Delta_{l_{*}^{t}}/4$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $b_{3}\in A_{2}^{t}\cap B_{3}$
+\end_inset
+
+
+\series bold
+ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $ErrA(l_{*}^{t},b_{3},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $b_{3}\in A_{1}^{t}\cap B_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $ErrL(h_{*}^{t},b_{3},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $|\Delta_{h_{*}^{t}l_{*}^{t}}|>\Delta_{h_{*}^{t}}/2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $NEEDY_{h_{*}^{t}}^{t}(\Delta_{h_{*}^{t}}/4)\vee NEEDY_{l_{*}^{t}}^{t}(\Delta_{h_{*}^{t}}/4)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "case:5.A"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Caso 5A:
+\series default
+ 
+\begin_inset Formula $h_{*}^{t}\in B_{2}\wedge l_{*}^{t}\in B_{2}\:e\:\Delta_{h_{*}^{t}l_{*}^{t}}>0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+Qui, 
+\begin_inset Formula $\exists b_{1}\in(A_{2}^{t}\cup A_{3}^{t})\cap B_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula $\exists b_{3}\in(A_{1}^{t}\cup A_{2}^{t})\cap B_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $|\Delta_{h_{*}^{t}l_{*}^{t}}|<\Delta_{h_{*}^{t}}/2$
+\end_inset
+
+
+\series bold
+ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $\Delta_{b_{1}l_{*}^{t}}>\Delta_{b_{1}}/4$
+\end_inset
+
+
+\series bold
+ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $b_{1}\in A_{2}^{t}\cap B_{1}$
+\end_inset
+
+
+\series bold
+ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $ErrA(b_{1},h_{*}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $b_{1}\in A_{3}^{t}\cap B_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+ 
+\begin_inset Formula $ErrU(b_{1},l_{*}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\Delta_{b_{1}l_{*}^{t}}\leq\Delta_{b_{1}}/4$
+\end_inset
+
+ e quindi 
+\begin_inset Formula $\Delta_{h_{*}^{t}b_{3}}\geq\Delta_{h_{*}^{t}}/4$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $b_{3}\in A_{2}^{t}\cap B_{3}$
+\end_inset
+
+
+\series bold
+ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $ErrA(l_{*}^{t},b_{3},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $b_{3}\in A_{1}^{t}\cap B_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $ErrL(h_{*}^{t},b_{3},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $|\Delta_{h_{*}^{t}l_{*}^{t}}|>\Delta_{h_{*}^{t}}/2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $NEEDY_{h_{*}^{t}}^{t}(\Delta_{h_{*}^{t}}/4)\vee NEEDY_{l_{*}^{t}}^{t}(\Delta_{h_{*}^{t}}/4)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "case:5.B"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Caso 5B:
+\series default
+ 
+\begin_inset Formula $h_{*}^{t}\in B_{2}\wedge l_{*}^{t}\in B_{2}and\Delta_{h_{*}^{t}l_{*}^{t}}\leq0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $\Delta_{h_{*}^{t}l_{*}^{t}}\geq\frac{\Delta_{l_{*}^{t}}}{2}$
+\end_inset
+
+
+\series bold
+ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+Then 
+\begin_inset Formula $NEEDY_{h_{*}^{t}}^{t}(\Delta/4)\vee NEEDY_{l_{*}^{t}}^{t}(\Delta_{l_{*}^{t}}/4)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\Delta_{h_{*}^{t}l_{*}^{t}}<\frac{\Delta_{l_{*}^{t}}}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\therefore\forall b_{1}\in\{A_{2}^{t}\cup A_{3}^{t}\}\cap B_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta_{b_{1}h_{*}^{t}}>\frac{\Delta_{b_{1}}}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $\exists b_{1}\in A_{2}^{t}\cap B_{1}$
+\end_inset
+
+ 
+\series bold
+then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $ErrA(b_{1},h_{*}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\exists b_{1}\in A_{3}^{t}\cap B_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+Then 
+\begin_inset Formula $ErrU(b_{1}^{t},l_{*}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "case:6"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Caso 6:
+\series default
+ 
+\begin_inset Formula $h_{*}^{t}\in B_{2}\wedge l_{*}^{t}\in B_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\therefore ErrA(l_{*}^{t},h_{*}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "case:7"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Caso 7:
+\series default
+ 
+\begin_inset Formula $h_{*}^{t}\in B_{3}\wedge l_{*}^{t}\in B_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $\Delta_{h_{*}^{t}l_{*}^{t}}\geq\frac{\Delta_{h_{*}^{t}}}{2}$
+\end_inset
+
+
+\series bold
+ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $ErrA(l_{*}^{t},h_{*}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\Delta_{h_{*}^{t}l_{*}^{t}}<\frac{\Delta_{h_{*}^{t}}}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\therefore\forall b_{1}\in\{A_{2}^{t}\cup A_{3}^{t}\}\cap B_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta_{b_{1}l_{*}^{t}}>\frac{\Delta_{b_{1}}}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $\exists b_{1}\in A_{2}^{t}\cap B_{1}$
+\end_inset
+
+ 
+\series bold
+then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $ErrA(b_{1},h_{*}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\exists b_{1}\in A_{3}^{t}\cap B_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\therefore ErrU(b_{1},l_{*}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "case:8"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Caso 8:
+\series default
+ 
+\begin_inset Formula $h_{*}^{t}\in B_{3}\wedge l_{*}^{t}\in B_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\exists b_{1}\in\{A_{2}^{t}\cup A_{3}^{t}\}\cap B_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+if
+\series default
+ 
+\begin_inset Formula $\exists b_{1}\in A_{2}^{t}\cap B_{1}$
+\end_inset
+
+
+\series bold
+ then
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $ErrA(b_{1},h_{*}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\exists b_{1}\in A_{3}^{t}\cap B_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Formula $\therefore ErrA(b_{1},l_{*}^{t},t)$
+\end_inset
+
+ si è verificato.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+endif
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "case:9"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Caso 9:
+\series default
+ 
+\begin_inset Formula $h_{*}^{t}\in B_{3}\wedge l_{*}^{t}\in B_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:valT"
+
+\end_inset
+
+ Se 
+\begin_inset Formula $T=CH_{\epsilon}\ln\left(\frac{H_{\epsilon}}{\delta}\right)$
+\end_inset
+
+, allora per 
+\begin_inset Formula $C\geq2732$
+\end_inset
+
+, vale: 
+\begin_inset Formula 
+\[
+T>2+2\sum\limits _{a\in\mathcal{A}}u^{*}(a,T).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+La dimostrazione è presa dall'appendice B.3 di 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2011learning"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+ & 2+2\sum_{a\in\mathcal{A}}u^{*}(a,T)=2+64\sum_{a\in\mathcal{A}}\ulcorner{\frac{1}{\max(\Delta_{a},(\epsilon/2))^{2}}\ln\frac{knt^{4}}{\delta}}\urcorner\\
+ & \leq2+64n+64H_{\epsilon}\ln\frac{knT^{4}}{\delta}\\
+ & =2+64n+64H_{\epsilon}\ln k+64H_{\epsilon}\ln\frac{n}{\delta}+256H_{\epsilon}\ln T\\
+ & <(66+64\ln k)H_{\epsilon}+64H_{\epsilon}\ln\frac{n}{\delta}+256H_{\epsilon}\left[\ln C+\ln H_{\epsilon}+\ln\ln\frac{H_{\epsilon}}{\delta}\right]\\
+ & <(66+64\ln k)H_{\epsilon}+64H_{\epsilon}\ln\frac{n}{\delta}+256H_{\epsilon}\left[\ln C+\ln H_{\epsilon}+\ln\ln\frac{H_{\epsilon}}{\delta}\right]\\
+ & <130H_{\epsilon}+64H_{\epsilon}\ln\frac{n}{\delta}+256H_{\epsilon}\left[\ln C+\ln H_{\epsilon}+\ln\frac{H_{\epsilon}}{\delta}\right]\\
+ & <130H_{\epsilon}+64H_{\epsilon}\ln\frac{H_{\epsilon}}{\delta}+256H_{\epsilon}\left[\ln C+2\ln\frac{H_{\epsilon}}{\delta}\right]\\
+ & <(706+256\ln C)H_{\epsilon}\ln\frac{H_{\epsilon}}{\delta}<CH_{\epsilon}\ln\frac{H_{\epsilon}}{\delta}\,\left[\text{For }C\geq2732\right].
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:t1star"
+
+\end_inset
+
+ Sia 
+\begin_inset Formula $T^{*}=\ulcorner{2732H_{\epsilon}\ln\left(\frac{H_{\epsilon}}{\delta}\right)}\urcorner$
+\end_inset
+
+.
+ Per ogni 
+\begin_inset Formula $T>T_{1}^{*}$
+\end_inset
+
+, la probabilità che l'algoritmo
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "case:1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ non termini dopo 
+\begin_inset Formula $T$
+\end_inset
+
+ turni di campionamento e circa 
+\begin_inset Formula $\frac{8\delta}{T^{2}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+Sia 
+\begin_inset Formula $\bar{T}=\frac{T}{2}$
+\end_inset
+
+ definiamo due eventi per 
+\begin_inset Formula $\bar{T}\leq t\leq T-1$
+\end_inset
+
+: 
+\begin_inset Formula $E^{(1)}=\exists a\in\mathcal{A}:{CROSS_{a}^{t}}$
+\end_inset
+
+ e 
+\begin_inset Formula $E^{(2)}=\exists NEEDY_{a}^{t}\left(\frac{\Delta_{a}}{4}\right)$
+\end_inset
+
+.
+ Se l'algoritmo si ferma per 
+\begin_inset Formula $t<\bar{T}$
+\end_inset
+
+, non c'è nulla da dimostrare.
+ Al contrario, se l'algoritmo non ha terminato dopo 
+\begin_inset Formula $t>\bar{T}$
+\end_inset
+
+, né 
+\begin_inset Formula $E^{(1)}$
+\end_inset
+
+ né 
+\begin_inset Formula $E^{(2)}$
+\end_inset
+
+ si sono verificati.
+ Sia 
+\begin_inset Formula $N_{rounds}$
+\end_inset
+
+ il numero di round richiesti prima di 
+\begin_inset Formula $\bar{T}$
+\end_inset
+
+, possiamo limitarlo superiormente come:
+\begin_inset Formula 
+\begin{align*}
+ & N_{rounds}=\sum\limits _{t=\bar{T}}\left\{ \mathbb{I}\left[NEEDY_{h_{*}^{t}}^{t}\left(\frac{\Delta_{h_{*}^{t}}}{4}\right)\vee NEEDY_{m_{*}^{t}}^{t}\left(\frac{\Delta_{m_{*}^{t}}}{4}\right)\vee NEEDY_{l_{*}^{t}}^{t}\left(\frac{\Delta_{l_{*}^{t}}}{4}\right)\right]\right\} \\
+ & \leq\sum_{\bar{T}}^{T-1}\sum_{a\in\mathcal{A}}\mathbb{I}\left[a\in\{h_{*}^{t},m_{*}^{t},l_{*}^{t}\}\wedge NEEDY_{a}^{t}\left(\frac{\Delta_{a}}{4}\right)\right]\\
+ & =\sum_{\bar{T}}^{T-1}\sum_{a\in\mathcal{A}}\mathbb{I}[a\in\{h_{*}^{t},m_{*}^{t},l_{*}^{t}\}\wedge(u_{a}^{t}<u^{*}(a,t))]\\
+ & \leq\sum_{\bar{T}}^{T-1}\sum_{a\in\mathcal{A}}\mathbb{I}[a\in\{h_{*}^{t},m_{*}^{t},l_{*}^{t}\}\wedge(u_{a}^{t}<u^{*}(a,t))]\\
+ & \leq\sum_{a\in\mathcal{A}}\sum_{\bar{T}}^{T-1}\mathbb{I}[(a\in\{h_{*}^{t},m_{*}^{t},l_{*}^{t}\})\wedge(u_{a}^{t}<u^{*}(a,t))]\\
+ & \leq\sum_{a\in\mathcal{A}}u^{*}(a,t).
+\end{align*}
+
+\end_inset
+
+Usando il lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:valT"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $T\geq T^{*}\Rightarrow T>2+2\sum_{a\in\mathcal{A}}u^{*}(a,t)$
+\end_inset
+
+.
+ Quindi, se né 
+\begin_inset Formula $E^{(1)}$
+\end_inset
+
+ né 
+\begin_inset Formula $E^{(2)}$
+\end_inset
+
+ si verificano allora l'algoritmo continua ad essere eseguito per al massimo
+ 
+\begin_inset Formula $\bar{T}+N_{rounds}\leq\ulcorner{T/2}\urcorner+\sum_{a\in\mathcal{A}}16u^{*}(a,t)<T$
+\end_inset
+
+ numero di turni..
+\end_layout
+
+\begin_layout Proof
+La probabilità che l'algoritmo non si fermi entro 
+\begin_inset Formula $T$
+\end_inset
+
+ turni, è limitata superiormente da 
+\begin_inset Formula $P[E^{(1)}\vee E^{(2)}]$
+\end_inset
+
+.
+ Applicando il lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:needycross"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ e il lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:cross"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{align*}
+ & P[E^{(1)}\vee E^{(2)}]\leq\sum_{t=\bar{T}}^{T-1}\left(\frac{\delta}{k_{1}t^{3}}+\frac{\delta}{kt^{4}}\right)\leq\sum_{t=\bar{T}}^{T-1}\frac{\delta}{k_{1}t^{3}}\left(1+\frac{2}{t}\right)\leq\left(\frac{T}{2}\right)\frac{8\delta}{k_{1}T^{3}}\left(1+\frac{4}{T}\right)<\frac{8\delta}{T^{2}}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+[Complessità del campione attesa di LUCB-k-m] LUCB-k-m risolve il problema
+ (k,m, n) usando una complessità del campione attesa limitata superiormente
+ da 
+\begin_inset Formula $O\text{(}H_{\epsilon}log\frac{H_{\epsilon}}{\delta}).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Usando il lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:valT"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, e il lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:t1star"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ la complessità del campione attesa dell'algoritmo
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "case:1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ può essere limitata superiormente in questo modo:
+\begin_inset Formula 
+\begin{align}
+ & E[SC]\leq2\left(T_{1}^{*}+\sum_{t=T_{1}^{*}}^{\infty}\frac{8\delta}{T^{2}}\right)\leq5464\cdot\left(H_{\epsilon}\ln\left(\frac{H_{\epsilon}}{\delta}\right)\right)+32.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Dimostrazione del teorema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:Hardness"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\emph on
+
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:APP-C"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:tightqpqf"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ descrive 
+\shape smallcaps
+OptQP.
+ 
+\shape default
+Usa 
+\begin_inset Formula $\mathcal{P}_{2}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+ con 
+\shape smallcaps
+Median Elimination
+\shape default
+ come subroutine all'interno di 
+\begin_inset Formula $\mathcal{P}_{2}$
+\end_inset
+
+ per selezionare un 
+\begin_inset Formula $[\epsilon,\rho]$
+\end_inset
+
+-optimal arm con confidenza 
+\begin_inset Formula $1-\delta'$
+\end_inset
+
+.
+ Abbiamo assunto 
+\begin_inset Formula $\delta'=1/4$
+\end_inset
+
+, in pratica uno può scegliere tra qualsiasi valore sufficientemente piccolo
+ per esso, che influenzerà semplicemente la costante moltiplicativa nel
+ limite superiore.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement ht
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Input:
+\series default
+\size small
+ 
+\size default
+
+\begin_inset Formula $\mathcal{A},\epsilon,\delta$
+\end_inset
+
+, e 
+\shape smallcaps
+OptQF
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Output:
+\series default
+ 
+\size default
+Una singola 
+\begin_inset Formula $[\epsilon,\rho]$
+\end_inset
+
+-optimal arm
+\end_layout
+
+\begin_layout Plain Layout
+Sia 
+\begin_inset Formula $\delta'=1/4$
+\end_inset
+
+, 
+\begin_inset Formula $u=\ulcorner{\frac{1}{2(0.5-\delta')^{2}}\cdot\log\frac{2}{\delta}}\urcorner=\ulcorner{8\log\frac{2}{\delta}}\urcorner$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:tightqpqf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Algoritmo
+\emph on
+ 
+\shape smallcaps
+\emph default
+OptQP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+[Correttezza e complessità del campione di 
+\shape smallcaps
+OptQP
+\shape default
+] 
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:ppp"
+
+\end_inset
+
+ Se 
+\shape smallcaps
+OptQF
+\shape default
+ esiste, allora 
+\shape smallcaps
+OptQP
+\shape default
+ risolve 
+\emph on
+Q-P,
+\emph default
+ con una complessità del campione compresa in 
+\begin_inset Formula $\Theta\left(\frac{1}{\rho\epsilon^{2}}\log\frac{1}{\delta}+\gamma(\cdot)\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Prima di tutto dimostriamo la correttezza e poi l'upper bound sulla complessità
+ del campione.
+\end_layout
+
+\begin_deeper
+\begin_layout Paragraph
+Correttezza
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Inizialmente notiamo che ogni copia degli outputs di 
+\begin_inset Formula $\mathcal{P}_{2}$
+\end_inset
+
+ è un 
+\begin_inset Formula $[\epsilon/2,\rho]$
+\end_inset
+
+-optimal arm con probabilità di almeno 
+\begin_inset Formula $1-\delta'$
+\end_inset
+
+.
+ Inoltre, anche gli outputs di 
+\shape smallcaps
+OptQF
+\shape default
+ sono un 
+\begin_inset Formula $[\epsilon/2,\rho]$
+\end_inset
+
+-optimal arm con probabilità 
+\begin_inset Formula $1-\delta$
+\end_inset
+
+.
+ Sia, 
+\begin_inset Formula $\hat{X}$
+\end_inset
+
+ la frazione di sub-optimal arms in 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Quindi 
+\begin_inset Formula $\Pr\{\hat{X}\geq\frac{1}{2}\}$
+\end_inset
+
+ 
+\begin_inset Formula $=\Pr\{\hat{X}-\delta'\geq\frac{1}{4}\}$
+\end_inset
+
+ 
+\begin_inset Formula $\leq\exp(-2\cdot(\frac{1}{4})^{2}\cdot u)=\exp(-2\cdot\frac{1}{16}\cdot8\log\frac{2}{\delta})<\frac{\delta}{2}$
+\end_inset
+
+.
+ Dall'altro lato, la probabilità d'errore di 
+\shape smallcaps
+OptQF
+\shape default
+ ha un bound superiore di 
+\begin_inset Formula $\delta/2$
+\end_inset
+
+.
+ Tuttavia, facendo l'union bound, otteniamo che la probabilità d'errore
+ è limitata superiormente da 
+\begin_inset Formula $\delta$
+\end_inset
+
+.
+ Inoltre, la media dell'arm di output non è meno di 
+\begin_inset Formula $\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$
+\end_inset
+
+ presa dal 
+\begin_inset Formula $(1-\rho)$
+\end_inset
+
+-th quantile.
+\end_layout
+
+\begin_deeper
+\begin_layout Paragraph
+Complessità del campione
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Innanzitutto notiamo che, per qualche costante 
+\begin_inset Formula $C$
+\end_inset
+
+, la complessità del campione (SC) di ognuna delle 
+\begin_inset Formula $u$
+\end_inset
+
+ copie di
+\begin_inset Formula $\mathcal{P}_{2}$
+\end_inset
+
+ è 
+\begin_inset Formula $\frac{C}{\rho(\epsilon/2)^{2}}\left(\log\frac{2}{\delta'}\right)^{2}\in O\left(\frac{1}{\rho\epsilon^{2}}\right)$
+\end_inset
+
+.
+ Quindi, la SC di tutte le 
+\begin_inset Formula $u$
+\end_inset
+
+ copie 
+\begin_inset Formula $\mathcal{P}_{2}$
+\end_inset
+
+ insieme è limitata superiormente da 
+\begin_inset Formula $\frac{C_{1}\cdot u}{\rho\epsilon^{2}}$
+\end_inset
+
+, per qualche costante 
+\begin_inset Formula $C_{1}$
+\end_inset
+
+.
+ Inoltre, per qualche costante 
+\begin_inset Formula $C_{2}$
+\end_inset
+
+, 
+\shape smallcaps
+la SC di OptQF
+\shape default
+ è limitata superiormente da 
+\begin_inset Formula $C_{2}\left(\frac{u}{(u/2)(\epsilon/2)^{2}}\log\frac{2}{\delta}+\gamma(\cdot)\right)=C_{2}\left(\frac{8}{\epsilon^{2}}\log\frac{2}{\delta}+\gamma(\cdot)\right)$
+\end_inset
+
+.
+ Ora, aggiungendo le complessità dei campioni e sostituendo 
+\begin_inset Formula $u$
+\end_inset
+
+ dimostriamo tale bound.
 \end_layout
 
 \end_body
