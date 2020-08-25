@@ -690,11 +690,8 @@ e descrivo i lavori integrativi svolti nel corso degli anni riguardanti
 
 \begin_layout Standard
 Il problema dello 
-\series bold
 \emph on
-stochastic multi-armed bandit
-\series default
- 
+stochastic multi-armed bandit 
 \emph default
 
 \begin_inset CommandInset citation
@@ -744,17 +741,13 @@ multi-armed
 \begin_layout Standard
 Il giocatore deve elaborare una strategia, deve capire quando conviene provare
  nuove scelte (
-\series bold
 \emph on
 exploration
-\series default
 \emph default
 ) oppure continuare a scegliere di tirare la leva più promettente in base
  a quanto ha appreso (
-\series bold
 \emph on
 exploitation
-\series default
 \emph default
 ).
  Vi è quindi un compromesso tra il continuare a sfruttare la leva che ha
@@ -765,25 +758,19 @@ exploitation
 
 \begin_layout Standard
 È quindi un problema di 
-\series bold
 \emph on
 reinforcement learning
-\series default
 \emph default
 , si vuole massimizzare il reward medio ottenibile.
  L'obiettivo del giocatore è massimizzare la ricompensa cumulativa attesa
  (
-\series bold
 \emph on
 reward
-\series default
 \emph default
 ) data una serie di pull, oppure equivalentemente minimizzare il rimpianto
  (
-\series bold
 \emph on
 regret
-\series default
 \emph default
 ) tirando sempre un solo arm.
 \end_layout
@@ -799,10 +786,8 @@ literal "false"
 \end_inset
 
  sotto quello che viene chiamato 
-\series bold
 \emph on
 pure exploration regime
-\series default
 \emph default
 .
  Per applicazioni come product testing 
@@ -844,10 +829,8 @@ literal "false"
 .
  Lo studio presente nel paper rientra nella prima categoria, che viene definita
  
-\series bold
 \emph on
 fixed confidence setting
-\series default
 \emph default
 .
  Concepito da 
@@ -892,25 +875,21 @@ literal "false"
 
 \end_inset
 
- hanno introdotto il problema di 
-\series bold
-identificare un singolo arm tra i migliori 
+ hanno introdotto il problema di identificare un singolo arm tra i migliori
+ 
 \emph on
 m
 \emph default
  in un 
 \emph on
 n-armed-bandit
-\series default
 \emph default
 .
  Questa formulazione è particolarmente utile quando il numero di arms è
  grande, e in effetti è una valida alternativa anche quando il numero di
  arms è 
-\series bold
 \emph on
 infinito
-\series default
 \emph default
 .
  In molti scenari pratici, tuttavia, è necessario identificare più di un
@@ -936,20 +915,18 @@ best subset
  150.
  
 \bar under
-Questo è precisamente il problema che trattato nel paper: 
-\series bold
-l'identificazione di qualsiasi 
+Questo è precisamente il problema che trattato nel paper: l'identificazione
+ di 
 \emph on
-k
+k 
 \emph default
- tra i migliori 
+qualsiasi tra le migliori 
 \emph on
 m
 \emph default
- arm di un 
+ arms di un 
 \emph on
 n-armed bandit
-\series default
 \emph default
 .
 
@@ -961,10 +938,8 @@ n-armed bandit
 Il problema assume uguale significato da un punto di vista teorico, dal
  momento che generalizza sia il problema di selezione del miglior sottoinsieme
  (
-\series bold
 \emph on
 best subset selection
-\series default
 \emph default
 ) 
 \begin_inset CommandInset citation
@@ -979,10 +954,8 @@ literal "false"
 k = m
 \emph default
 ) e il problema di selezionare un arm singolo da miglior sottoinsieme (
-\series bold
 \emph on
 single arm from the best subset
-\series default
 \emph default
 ) 
 \begin_inset CommandInset citation
@@ -1212,6 +1185,405 @@ stochastic multi-armed bandit
 \emph default
  è stato usato per modellare problemi come la gestione di progetti di ricerca
  di grandi organizzazioni sia in ambito scientifico che farmaceutico.
+ Descrivo solo alcuni scenari citati anche dal paper; ulteriori applicazioni
+ pratiche saranno presentate nella sezione 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Applicazioni-nella-vita"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ così come alcune applicazioni in ambito 
+\emph on
+machine learning
+\emph default
+ che saranno presentate nella sezione 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Applicazioni-nel-machine"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Clinical Trials
+\end_layout
+
+\begin_layout Standard
+Il trial clinico si riferisce a uno studio medico farmacologico, biomedico
+ o correlato alla salute sull'uomo ben definito da protocolli.
+ L'obiettivo è quello di verificare che una nuova terapia sia più efficace,
+ migliore e soprattutto sicura di quella normalmente impiegata.
+ Assume notevole importanza l'insieme di campioni sui quali poter testare
+ nuove cure come descritto da Robbins, Herbert in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Some aspects of the sequential design of experiments
+\emph default
+
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "robbins1952some"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Trial clinici.jpg
+	lyxscale 50
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Clinical Trials"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Clinical Trials
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un'altra applicazione sempre in questo ambito è quella presentata da Durand,
+ A., Achilleos, C., Iacovides, D., Strati, K., Mitsis, G.
+ D., & Pineau, J.
+ in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Contextual bandits for adapting treatment in a mouse model of de novo carcinogen
+esis
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "durand2018contextual"
+literal "false"
+
+\end_inset
+
+
+\emph on
+ 
+\emph default
+dove si vuole progettare una strategia adattiva di allocazione per migliorare
+ l'efficienza della raccolta dati allocando più campioni per esplorare trattamen
+ti promettenti.
+ Questa applicazione è stata vista come un 
+\emph on
+contextual bandit problem
+\emph default
+ e hanno introdotto un algoritmo pratico per il trade-off tra 
+\emph on
+exploration
+\emph default
+ e 
+\emph on
+exploitation
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Drug Design
+\end_layout
+
+\begin_layout Standard
+Vi sono applicazioni anche riguardanti la progettazione di farmaci come
+ descritto da Will, Yvonne, McDuffie, J Eric, Olaharski, Andrew J, and Jeffy,
+ Brandon D in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Drug Discovery Toxicology: From Target Assessment to Translational Biomarkers
+\begin_inset Quotes frd
+\end_inset
+
+
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "will2016drug"
+literal "false"
+
+\end_inset
+
+.
+ È una guida per i professionisti farmaceutici ai problemi e alle pratiche
+ della tossicologia della scoperta di farmaci in cui vengono usati anche
+ alcuni algoritmi per risolvere il problema dei 
+\emph on
+stochastic multi-armed bandits
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Drug Design.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Drug Design"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Drug Design stages
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Internet Advertising
+\end_layout
+
+\begin_layout Standard
+Ogni volta che un utente visita un sito è necessario scegliere di mostrare
+ una delle 
+\emph on
+k
+\emph default
+ pubblicità possibili; la ricompensa si ottiene se un utente seleziona col
+ mouse la pubblicità.
+ Inizialmente non si ha nessuna conoscenza dell'utente, del contenuto dell'annun
+cio e del contenuto della pagina web richiesta.
+ Questo è un caso dei 
+\emph on
+recommender system, 
+\emph default
+descritti in
+\emph on
+ 
+\begin_inset Quotes fld
+\end_inset
+
+A contextual-bandit approach to personalized news article recommendation
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\emph default
+da
+\emph on
+ 
+\emph default
+Li, Lihong, Chu, Wei, Langford, John, and Schapire, Robert E.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li_2010"
+literal "false"
+
+\end_inset
+
+; altre applicazioni possibili sono sul consigliare video correlati a quello
+ che l'utente sta guardando su piattaforme come 
+\emph on
+YouTube
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+La 
+\emph on
+online recommendation
+\emph default
+ è una caratteristica importante in molte applicazioni.
+ In pratica, l'interazione tra gli utenti e il sistema di raccomandazione
+ potrebbe essere scarsa, vale a dire che gli utenti non interagiscono sempre
+ con il sistema di segnalazione.
+ Ad esempio, alcuni utenti preferiscono scorrere la raccomandazione anziché
+ fare click sui dettagli.
+ Pertanto, una risposta nulla 
+\begin_inset Quotes fld
+\end_inset
+
+0
+\begin_inset Quotes frd
+\end_inset
+
+ potrebbe non essere necessariamente una risposta negativa, ma una non risposta.
+ È peggio distinguere queste due situazioni quando si consiglia all'utente
+ un solo elemento alla volta e sono disponibili solo poche ulteriori informazion
+i.
+ La maggior parte delle strategie di raccomandazione esistenti ignorano
+ la differenza tra mancate risposte e risposte negative.
+ In questo documento 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li_2010"
+literal "false"
+
+\end_inset
+
+, viene proposto un nuovo approccio, denominato 
+\emph on
+SAOR
+\emph default
+, per formulare raccomandazioni online tramite interazioni sparse.
+ 
+\emph on
+SAOR
+\emph default
+ utilizza risposte positive e negative per creare il modello delle preferenze
+ dell'utente, ignorando tutte le non risposte.
+ Viene fornita un'analisi del regret di 
+\emph on
+SAOR
+\emph default
+, gli esperimenti su set di dati reali mostrano anche che 
+\emph on
+SAOR
+\emph default
+ supera i metodi concorrenti.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Google Ads.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Google Ads"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Google Ads
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1258,9 +1630,9 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename img/Server.png
+	filename img/DNS.png
 	lyxscale 50
-	scale 40
+	scale 30
 
 \end_inset
 
@@ -1272,7 +1644,7 @@ status open
 \align center
 \begin_inset CommandInset label
 LatexCommand label
-name "Server"
+name "DNS"
 
 \end_inset
 
@@ -1283,7 +1655,7 @@ name "Server"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Server
+Domain Name System (DNS)
 \end_layout
 
 \end_inset
@@ -1362,332 +1734,6 @@ barycentric spanner
 \begin_layout Standard
 
 \series bold
-Internet Advertising
-\end_layout
-
-\begin_layout Standard
-Ogni volta che un utente visita un sito è necessario scegliere di mostrare
- una delle 
-\emph on
-k
-\emph default
- pubblicità possibili; la ricompensa si ottiene se un utente seleziona col
- mouse la pubblicità.
- Inizialmente non si ha nessuna conoscenza dell'utente, del contenuto dell'annun
-cio e del contenuto della pagina web richiesta.
- Questo è un caso dei 
-\emph on
-recommender system, 
-\emph default
-descritti in
-\emph on
- 
-\begin_inset Quotes fld
-\end_inset
-
-A contextual-bandit approach to personalized news article recommendation
-\begin_inset Quotes frd
-\end_inset
-
- 
-\emph default
-da
-\emph on
- 
-\emph default
-Li, Lihong, Chu, Wei, Langford, John, and Schapire, Robert E.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Li_2010"
-literal "false"
-
-\end_inset
-
-; altre applicazioni possibili sono sul consigliare video correlati a quello
- che l'utente sta guardando su piattaforme come 
-\emph on
-YouTube
-\emph default
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename img/Google Ads.png
-	lyxscale 50
-	scale 30
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset CommandInset label
-LatexCommand label
-name "Google Ads"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Google Ads
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-La 
-\emph on
-online recommendation
-\emph default
- è una caratteristica importante in molte applicazioni.
- In pratica, l'interazione tra gli utenti e il sistema di raccomandazione
- potrebbe essere scarsa, vale a dire che gli utenti non interagiscono sempre
- con il sistema di segnalazione.
- Ad esempio, alcuni utenti preferiscono scorrere la raccomandazione anziché
- fare click sui dettagli.
- Pertanto, una risposta nulla 
-\begin_inset Quotes fld
-\end_inset
-
-0
-\begin_inset Quotes frd
-\end_inset
-
- potrebbe non essere necessariamente una risposta negativa, ma una non risposta.
- È peggio distinguere queste due situazioni quando si consiglia all'utente
- un solo elemento alla volta e sono disponibili solo poche ulteriori informazion
-i.
- La maggior parte delle strategie di raccomandazione esistenti ignorano
- la differenza tra mancate risposte e risposte negative.
- In questo documento 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Li_2010"
-literal "false"
-
-\end_inset
-
-, viene proposto un nuovo approccio, denominato 
-\emph on
-SAOR
-\emph default
-, per formulare raccomandazioni online tramite interazioni sparse.
- 
-\emph on
-SAOR
-\emph default
- utilizza risposte positive e negative per creare il modello delle preferenze
- dell'utente, ignorando tutte le non risposte.
- Viene fornita un'analisi del regret di 
-\emph on
-SAOR
-\emph default
-, gli esperimenti su set di dati reali mostrano anche che 
-\emph on
-SAOR
-\emph default
- supera i metodi concorrenti.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Drug Design
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename img/Drug design.jpg
-	lyxscale 50
-	scale 25
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset CommandInset label
-LatexCommand label
-name "Drug design"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Drug design
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Vi sono applicazioni anche riguardanti la progettazione di farmaci come
- descritto da Will, Yvonne, McDuffie, J Eric, Olaharski, Andrew J, and Jeffy,
- Brandon D in 
-\emph on
-
-\begin_inset Quotes fld
-\end_inset
-
-Drug Discovery Toxicology: From Target Assessment to Translational Biomarkers
-\begin_inset Quotes frd
-\end_inset
-
-
-\emph default
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "will2016drug"
-literal "false"
-
-\end_inset
-
-.
- È una guida per i professionisti farmaceutici ai problemi e alle pratiche
- della tossicologia della scoperta di farmaci in cui vengono usati anche
- alcuni algoritmi per risolvere il problema dei 
-\emph on
-stochastic multi-armed bandits
-\emph default
-.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Clinical Trial
-\end_layout
-
-\begin_layout Standard
-Il trial clinico si riferisce a uno studio medico farmacologico, biomedico
- o correlato alla salute sull'uomo ben definito da protocolli.
- L'obiettivo è quello di verificare che una nuova terapia sia più efficace,
- migliore e soprattutto sicura di quella normalmente impiegata.
- Assume notevole importanza l'insieme di campioni sui quali poter testare
- nuove cure come descritto da Robbins, Herbert in 
-\emph on
-
-\begin_inset Quotes fld
-\end_inset
-
-Some aspects of the sequential design of experiments
-\emph default
-
-\begin_inset Quotes frd
-\end_inset
-
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "robbins1952some"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename img/Trial clinici.jpg
-	lyxscale 50
-	scale 15
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset CommandInset label
-LatexCommand label
-name "Clinical Trial"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Clinical Trial
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\series bold
 Gestione di grandi reti di sensori
 \end_layout
 
@@ -1716,7 +1762,7 @@ literal "false"
 \end_inset
 
 , in cui più sensori affidabili devono essere identificati facendo il minor
- numero di test possibile.
+ numero di tests possibili.
 \end_layout
 
 \begin_layout Standard
@@ -1834,13 +1880,6 @@ end-to-end bit-error rates (BERs)
 \emph default
 , lo schema proposto riesce a ottenere una riduzione di potenza superiore
  rispetto ad altri schemi.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -4132,7 +4171,13 @@ Lavori citati nella letteratura
 
 \begin_layout Standard
 In questa sezione sono analizzati ulteriori paper presenti nella letteratura
- tramite il motore di ricerca 
+ che sono serviti sia per la comprensione che per l'approfondimento del
+ paper assegnato.
+ Essi sono cercati tramite questi due motori di ricerca:
+\end_layout
+
+\begin_layout Itemize
+
 \emph on
 Google Scholar
 \emph default
@@ -4150,13 +4195,15 @@ Google Scholar
 
 \end_inset
 
- che sono serviti sia per la comprensione che per l'approfondimento del
- paper assegnato.
+: motore di ricerca accessibile liberamente che tramite parole chiave specifiche
+ consente di individuare testi della letteratura accademica come articoli
+ sottoposti a revisione paritaria, tesi di laurea e dottorato, libri, prestampe,
+ sommari, recensioni e rapporti tecnici di tutti i settori della ricerca
+ scientifica e tecnologica.
 \end_layout
 
-\begin_layout Standard
-Alcuni lavori correlati possono essere trovati grazie a parole chiave attraverso
- il motore di ricerca 
+\begin_layout Itemize
+
 \emph on
 Proceedings of Machine Learning Research, 
 \emph default
@@ -4191,7 +4238,6 @@ Batched Multi-armed Bandits Problem
 \emph default
  di Zijun Gao, Yanjun Han, Zhimei Ren, Zhengqing Zhou che avevo in parte
  letto e analizzato durante la sessione estiva.
- Questo paper è il primo ad essere analizzato qui di seguito.
 \end_layout
 
 \begin_layout Standard
@@ -4283,7 +4329,15 @@ batched multi-armed bandit
 \end_layout
 
 \begin_layout Standard
-Altri lavori correlati analizzati presenti in letteratura:
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Altri lavori correlati presenti in letteratura che hanno aiutato alla comprensio
+ne del problema sono i seguenti:
 \end_layout
 
 \begin_layout Standard
@@ -4563,11 +4617,129 @@ bandits
 \end_layout
 
 \begin_layout Standard
-Per quanto riguarda il 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Altri lavori analizzati nella ricerca dei possibili scenari applicativi
+ del multi 
 \emph on
-pricing
+armed bandit 
 \emph default
- è stato analizzato il seguente paper:
+nella vita reale
+\emph on
+ 
+\emph default
+sono i seguenti:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "durand2018contextual"
+literal "false"
+
+\end_inset
+
+ Durand, A., Achilleos, C., Iacovides, D., Strati, K., Mitsis, G.
+ D., & Pineau, J.
+ (2018, November).
+ 
+\emph on
+Contextual bandits for adapting treatment in a mouse model of de novo carcinogen
+esis
+\emph default
+.
+ In Machine Learning for Healthcare Conference (pp.
+ 67-82).
+\end_layout
+
+\begin_layout Standard
+Si vuole progettare una strategia adattiva di allocazione per migliorare
+ l'efficienza della raccolta dati allocando più campioni per esplorare trattamen
+ti promettenti.
+ Questa applicazione è stata vista come un 
+\emph on
+contextual bandit problem
+\emph default
+ e hanno introdotto un algoritmo pratico per il trade-off tra 
+\emph on
+exploration
+\emph default
+ e 
+\emph on
+exploitation
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "shen2015portfolio"
+literal "false"
+
+\end_inset
+
+ Shen, W., Wang, J., Jiang, Y.
+ G., & Zha, H.
+ (2015, June).
+ 
+\emph on
+Portfolio choices with orthogonal bandit learning
+\emph default
+.
+ In Twenty-fourth international joint conference on artificial intelligence.
+\end_layout
+
+\begin_layout Standard
+Nell'ambito della gestione del portfolio finanziario (collezione di investimenti
+) di una compagnia di investimenti per massimizzare il reward cumulativo,
+ gli autori hanno proposto un algoritmo bandit per fare scelte online sul
+ portfolio sfruttando le correlazioni tra arms multiple.
+ Costruendo portafogli ortogonali da più assets e integrando il loro approccio
+ col 
+\emph on
+upper-confidence-bound bandit framework, 
+\emph default
+gli autori hanno ottenuto la strategia ottimale del portfolio rappresentata
+ da una combinazione di investimenti passivi e attivi in accordo con la
+\emph on
+ risk-adjusted reward function
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "brochu2010portfolio"
+literal "false"
+
+\end_inset
+
+ Brochu, E., Hoffman, M.
+ W., & de Freitas, N.
+ (2010).
+ 
+\emph on
+Portfolio allocation for Bayesian optimization
+\emph default
+.
+ arXiv preprint arXiv:1009.5419.
+\end_layout
+
+\begin_layout Standard
+Ulteriori esempi riguardanti la gestione del portfolio finanziario.
 \end_layout
 
 \begin_layout Standard
@@ -4603,7 +4775,7 @@ pricing
  di vendere un oggetto diminuisce; (2) dato che solitamente le persone comparano
  prezzi da differenti venditori e tengono traccia dei cambiamenti di prezzo
  nel tempo prima di acquistare (specialmente per acquisti online, esistono
- anche vari tool che permettono di tenere traccia automatica dei prezzi
+ anche vari tools che permettono di tenere traccia automatica dei prezzi
  di prodotti online), il numero di volte che un certo tipo di oggetto è
  acquistato è solo una piccola frazione del numero di volte che il prezzo
  è visualizzato da acquirenti possibili.
@@ -4627,6 +4799,594 @@ UCB1
 \emph on
 pricing
 \emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zhou2017large"
+literal "false"
+
+\end_inset
+
+ Zhou, Q., Zhang, X., Xu, J., & Liang, B.
+ (2017, November).
+ 
+\emph on
+Large-scale bandit approaches for recommender systems
+\emph default
+.
+ In International Conference on Neural Information Processing (pp.
+ 811-821).
+ Springer, Cham.
+\end_layout
+
+\begin_layout Standard
+I sistemi di raccomandazione sono frequentemente usati in varie applicazioni
+ per predire le preferenze degli utenti.
+ In questi sistemi vi è il dilemma 
+\emph on
+exploration-exploitation
+\emph default
+ dal momento che vi è bisogno di avere conoscenza rispetto agli oggetti
+ precedentemente selezionati (oggetti interessanti per gli utenti) ed esplorare
+ nuovi oggetti che magari possono piacere agli utenti.
+ Questo tipo di problema è stato affrontato dagli autori che soprattutto
+ per dei sistemi di raccomandazione su larga scala che hanno tanti o addirittura
+ infiniti elementi.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "vaswani2017model"
+literal "false"
+
+\end_inset
+
+ Vaswani, S., Kveton, B., Wen, Z., Ghavamzadeh, M., Lakshmanan, L., & Schmidt,
+ M.
+ (2017).
+ 
+\emph on
+Model-independent online learning for influence maximization
+\emph default
+.
+ arXiv preprint arXiv:1703.00557.
+\end_layout
+
+\begin_layout Standard
+Gli autori considerano la massimizzazione dell'influenza (
+\emph on
+IM
+\emph default
+) nei social networks, in cui il problema è massimizzare il numero di utenti
+ che diventano interessati a un prodotto selezionando un set di 
+\emph on
+seed users
+\emph default
+ per esporre il prodotto.
+ Gli autori hanno proposto un nuova parametrizzazione che rende il framework
+ indipendente dal sottostante modello di diffusione ma anche staticamente
+ efficiente per imparare dai dati.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "losada2017multi"
+literal "false"
+
+\end_inset
+
+ Losada, D.
+ E., Parapar, J., & Barreiro, A.
+ (2017).
+ 
+\emph on
+Multi-armed bandits for adjudicating documents in pooling-based evaluation
+ of information retrieval systems
+\emph default
+.
+ Information Processing & Management, 53(5), 1005-1025.
+\end_layout
+
+\begin_layout Standard
+Gli autori hanno modellato il processo iterativo di selezione e recupero
+ dell'informazione come un 
+\emph on
+contextual bandit problem
+\emph default
+.
+ In particolare hanno prodotto numerosi metodi per la 
+\emph on
+document adjudication
+\emph default
+ (cinque stazionari e due non stazionari) per effettuare un confronto fra
+ loro per la valutazione 
+\emph on
+pooling-based
+\emph default
+ e 
+\emph on
+metasearch
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "liu2017customized"
+literal "false"
+
+\end_inset
+
+ Liu, B., Yu, T., Lane, I., & Mengshoel, O.
+ J.
+ (2017).
+ 
+\emph on
+Customized nonlinear bandits for online response selection in neural conversatio
+n models
+\emph default
+.
+ arXiv preprint arXiv:1711.08493.
+\end_layout
+
+\begin_layout Standard
+Nell'ambito della 
+\emph on
+dialogue response selection
+\emph default
+, gli autori hanno proposto un 
+\emph on
+contextual multi-armed bandit model
+\emph default
+ con un 
+\emph on
+non-linear reward function
+\emph default
+ che usa una rappresentazione distribuita di testo per una selezione online
+ della risposta.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "silander2018contextual"
+literal "false"
+
+\end_inset
+
+ Silander, T.
+ (2018).
+ 
+\emph on
+Contextual memory bandit for pro-active dialog engagement
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Nell'ambito della 
+\emph on
+dialogue response selection
+\emph default
+, l'autore ha proposto un 
+\emph on
+contextual multi-armed bandit model 
+\emph default
+per il problema della massimizzazione del reward con feedback parziale.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "upadhyay2019bandit"
+literal "false"
+
+\end_inset
+
+ Upadhyay, S., Agarwal, M., Bounneffouf, D., & Khazaeni, Y.
+ (2019).
+ 
+\emph on
+A Bandit Approach to Posterior Dialog Orchestration Under a Budget
+\emph default
+.
+ arXiv preprint arXiv:1906.09384.
+\end_layout
+
+\begin_layout Standard
+Nell'ambito dei
+\series bold
+ 
+\series default
+\emph on
+multi-domain dialogue systems
+\emph default
+, gli autori hanno studiato il compito dell'
+\emph on
+online posterior dialogue orchestration 
+\emph default
+che hanno definito come il compito di seleziona un subset di skills che
+ più appropriatamente rispondono agli input dell'utente e delle skills individua
+li.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "boldrini2018mumab"
+literal "false"
+
+\end_inset
+
+ Boldrini, S., De Nardis, L., Caso, G., Le, M.
+ T., Fiorina, J., & Di Benedetto, M.
+ G.
+ (2018).
+ 
+\emph on
+muMAB: A multi-armed bandit model for wireless network selection
+\emph default
+.
+ Algorithms, 11(2), 13.
+\end_layout
+
+\begin_layout Standard
+Nell'ambito delle telecomunicazioni gli autori hanno usato un modello 
+\emph on
+multi-armed 
+\emph default
+per descrivere il problema della selezione del miglior rete wireless eseguita
+ da un dispositivo 
+\emph on
+multi-Radio Access Technology (multi-RAT) 
+\emph default
+con il fine di massimizzare la qualità percepita dall'utente finale.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ding2019interactive"
+literal "false"
+
+\end_inset
+
+ Ding, K., Li, J., & Liu, H.
+ (2019, January).
+ 
+\emph on
+Interactive anomaly detection on attributed networks
+\emph default
+.
+ In Proceedings of the Twelfth ACM International Conference on Web Search
+ and Data Mining (pp.
+ 357-365).
+\end_layout
+
+\begin_layout Standard
+Nell'ambito dell'identificazione delle anomalie gli autori hanno sviluppato
+ un 
+\emph on
+collaborative contextual bandit algorithm 
+\emph default
+che modella gli attributi e le dipendenze dei nodi e gestisce il dilemma
+ 
+\emph on
+exploration-exploitation 
+\emph default
+quando si investigano anomalie di differenti tipi.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Altri lavori analizzati nella ricerca dei possibili scenari applicativi
+ del multi 
+\emph on
+armed bandit 
+\emph default
+nel 
+\emph on
+machine learning
+\emph default
+ sono i seguenti:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gagliolo2010algorithm"
+literal "false"
+
+\end_inset
+
+ Gagliolo, M., & Schmidhuber, J.
+ (2010, January).
+ 
+\emph on
+Algorithm selection as a bandit problem with unbounded losses
+\emph default
+.
+ In International Conference on Learning and Intelligent Optimization (pp.
+ 82-96).
+ Springer, Berlin, Heidelberg.
+\end_layout
+
+\begin_layout Standard
+L'
+\emph on
+agorithm selection 
+\emph default
+solitamente era basato su modelli di performance degli algoritmi costruiti
+ con sequenze di training offline; attraverso un approccio online si può
+ iterativamente aggiornare il modello e usarlo per la selezione di una sequenza
+ di istanze del problema analizzato.
+ Il trade-off 
+\emph on
+exploration-exploitation 
+\emph default
+è rappresentato da un bandit usando informazioni parziali e un limite sconosciut
+o sulle perdite.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "li2017hyperband"
+literal "false"
+
+\end_inset
+
+ Li, L., Jamieson, K., DeSalvo, G., Rostamizadeh, A., & Talwalkar, A.
+ (2017).
+ 
+\emph on
+Hyperband: A novel bandit-based approach to hyperparameter optimization
+\emph default
+.
+ The Journal of Machine Learning Research, 18(1), 6765-6816.
+\end_layout
+
+\begin_layout Standard
+L'ottimizzazione degli iperparametri è fondamentale per le performance degli
+ algoritmi di machine learning.
+ Gli autori hanno formulato un'ottimizzazione degli iperparametri come un
+ infinite-armed bandit di pura esplorazione non stocastico dove le risorse
+ predefinite come le iterazioni, i campioni di dati e le features sono allocati
+ come configurazione di campioni random.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bouneffouf2017context"
+literal "false"
+
+\end_inset
+
+ Bouneffouf, D., Rish, I., Cecchi, G.
+ A., & Féraud, R.
+ (2017).
+ 
+\emph on
+Context attentive bandits: Contextual bandit with restricted context
+\emph default
+.
+ arXiv preprint arXiv:1705.03821.
+\end_layout
+
+\begin_layout Standard
+Nell'ambito della 
+\emph on
+feature selection
+\emph default
+, gli autori hanno affrontato il problema dell'
+\emph on
+online feature selection 
+\emph default
+associando il problema dell'ottimizzazione combinatoria in un bandit stocastico
+ con bandit feedback usando l'algoritmo 
+\emph on
+Active Thompson Sampling (ATS).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bouneffouf2014contextual"
+literal "false"
+
+\end_inset
+
+ Bouneffouf, D., Laroche, R., Urvoy, T., Féraud, R., & Allesiardo, R.
+ (2014, November).
+ 
+\emph on
+Contextual bandit for active learning: Active thompson sampling
+\emph default
+.
+ In International Conference on Neural Information Processing (pp.
+ 405-412).
+ Springer, Cham.
+\end_layout
+
+\begin_layout Standard
+Nell'ambito dei bandits per 
+\emph on
+active learning
+\emph default
+,
+\series bold
+ 
+\series default
+etichettare tutti gli esempi di training nella classificaizone supervisionata
+ può essere complicato.
+ Le strategie di 
+\emph on
+active learning 
+\emph default
+risolvono questo problema selezionando solo i campioni non etichettati più
+ utili per ottenere la label e per allenare il modello predittivo.
+ La scelta dei campioni da etichettare può essere vista come un dilemma
+ tra l'
+\emph on
+exploration
+\emph default
+ e l'
+\emph on
+exploitation
+\emph default
+ su uno spazio di input.
+ Gli autori hanno proposto di modellare questo problema come un 
+\emph on
+contextual bandit problem
+\emph default
+ e proposto un algoritmo sequenziale chiamato 
+\emph on
+Active Thompson Sampling (ATS).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sublime2018collaborative"
+literal "false"
+
+\end_inset
+
+ Sublime, J., & Lefebvre, S.
+ (2018, July).
+ 
+\emph on
+Collaborative clustering through constrained networks using bandit optimization
+\emph default
+.
+ In 2018 International Joint Conference on Neural Networks (IJCNN) (pp.
+ 1-8).
+ IEEE.
+\end_layout
+
+\begin_layout Standard
+Per quanto riguarda il clustering collaborativo, gli autori
+\emph on
+ 
+\emph default
+hanno proposto un algoritmo collaborativo 
+\emph on
+peer to peer
+\emph default
+ per il clustering basato sul principio del 
+\emph on
+non stochastic multi-arm bandits
+\emph default
+ per assicurarsi in tempo reale quali algoritmi o views potevano portare
+ informazioni utili.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset CommandInset citation
+LatexCommand cite
+key "noothigattu2018interpretable"
+literal "false"
+
+\end_inset
+
+ Noothigattu, R., Bouneffouf, D., Mattei, N., Chandra, R., Madan, P., Varshney,
+ K., ...
+ & Rossi, F.
+ (2018).
+ 
+\emph on
+Interpretable multi-objective reinforcement learning through policy orchestratio
+n
+\emph default
+.
+ arXiv preprint arXiv:1809.08343.
+\end_layout
+
+\begin_layout Standard
+Nell'ambito del 
+\emph on
+reinforcement learning
+\emph default
+, gli agenti devono sviluppare tecniche per massimizzare il loro rewards
+ e seguire delle limitazioni implicite presenti nell'ambiente.
+ Gli autori hanno usato un 
+\emph on
+contextual bandit-based orchestrator
+\emph default
+ che prende una scelta appropriata tra due policies: 
+\emph on
+constraint-based 
+\emph default
+e 
+\emph on
+environment reward-based
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Molti di queste applicazioni pratiche sono state trovate grazie al paper
+ 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+A survey on practical applications of multi-armed and contextual bandits
+\begin_inset Quotes frd
+\end_inset
+
+
+\emph default
+ di Bouneffouf, D., & Rish, I 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bouneffouf2019survey"
+literal "false"
+
+\end_inset
+
 .
 \end_layout
 
@@ -9444,13 +10204,26 @@ k
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
-Possibili usi
+Applicazioni nella vita reale
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Applicazioni-nella-vita"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Oltre agli scenari applicativi presentati nel dettaglio precedentemente
- nella sezione 
+Nella sezione 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Scenari-applicativi"
@@ -9460,17 +10233,80 @@ noprefix "false"
 
 \end_inset
 
- e qui riassunti vi sono anche ulteriori possibili usi pratici:
+ erano già stati descritti i seguenti scenari applicativi citati anche dal
+ paper analizzato:
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-Network Server Selection 
+Clinical Trials:
 \series default
-(già presentato)
+ miglioramento delle cure su persone e animali volte a rendere più affidabili
+ e migliori i trattamenti usati 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "robbins1952some"
+literal "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "durand2018contextual"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
 \series bold
-: 
+Drug Design
+\series default
+: progettazione di nuovi farmaci 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "will2016drug"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Internet Advertising
+\series default
+:
+\series bold
+ 
+\series default
+ogni volta che un utente visita un sito è necessario scegliere di mostrare
+ una delle 
+\emph on
+k
+\emph default
+ pubblicità possibili per massimizzare il reward complessivo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li_2010"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Network Server Selection: 
 \series default
 selezione del miglior server in applicazioni quali 
 \emph on
@@ -9498,72 +10334,10 @@ cloud computing
 \begin_layout Itemize
 
 \series bold
-Internet Advertising 
+Gestione di grandi reti di sensori
 \series default
-(già presentato):
-\series bold
- 
-\series default
-ogni volta che un utente visita un sito è necessario scegliere di mostrare
- una delle 
-\emph on
-k
-\emph default
- pubblicità possibili per massimizzare il reward complessivo 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Li_2010"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Drug Design
-\series default
- (già presentato): progettazione di farmaci 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "will2016drug"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Clinical Trials 
-\series default
-(già presentato)
-\series bold
-:
-\series default
- miglioramento delle cure su persone e animali volte a rendere più affidabili
- e migliori i trattamenti usati 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "robbins1952some"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Gestione di grandi reti di sensori 
-\series default
-(già presentato): estione di grandi reti di sensori in cui più sensori affidabil
-i devono essere identificati facendo il minor numero di test possibile 
+: gestione di grandi reti di sensori in cui più sensori affidabili devono
+ essere identificati facendo il minor numero di tests possibili 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Mousavi_2016"
@@ -9577,18 +10351,21 @@ literal "false"
 \begin_layout Itemize
 
 \series bold
-Dynamic Routing: 
+Distribuited Crowdsouring: 
 \series default
-selezione del miglior percorso possibile per indirizzare un pacchetto gestito
- da un router 
+crowdsourcing distribuito 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Awerbuch_2008"
+key "Tran_Thanh_2014"
 literal "false"
 
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+Ulteriori applicazioni nella vita reale sono le seguenti:
 \end_layout
 
 \begin_layout Itemize
@@ -9597,18 +10374,57 @@ literal "false"
 Financial Portfolio Design:
 \series default
  gestione del portfolio finanziario (collezione di investimenti) di una
- compagnia di investimenti per massimizzare il reward cumulativo 
+ compagnia di investimenti per massimizzare il reward cumulativo.
+ Ad esempio Shen, Weiwei, Wang, Jun, Jiang, Yu-Gang, e Zha, Hongyuan in
+ 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Portfolio choices with orthogonal bandit learning
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\emph default
+
 \begin_inset CommandInset citation
 LatexCommand cite
-key "brochu2010portfolio"
+key "shen2015portfolio"
 literal "false"
 
 \end_inset
 
-, 
+ hanno proposto un algoritmo bandit per fare scelte online sul portfolio
+ sfruttando le correlazioni tra arms multiple.
+ Costruendo portafogli ortogonali da più assets e integrando il loro approccio
+ col 
+\emph on
+upper-confidence-bound bandit framework, 
+\emph default
+gli autori hanno ottenuto la strategia ottimale del portfolio rappresentata
+ da una combinazione di investimenti passivi e attivi in accordo con la
+\emph on
+ risk-adjusted reward function
+\emph default
+.
+ Ulteriori esempi si possono trovare nel paper 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Portfolio allocation for Bayesian optimization
+\begin_inset Quotes frd
+\end_inset
+
+
+\emph default
+ di Brochu, Eric, Hoffman, Matthew W, and de Freitas, Nando 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "shen2015portfolio"
+key "brochu2010portfolio"
 literal "false"
 
 \end_inset
@@ -9619,11 +10435,25 @@ literal "false"
 \begin_layout Itemize
 
 \series bold
-Pricing:
+Dynamic Pricing:
 \series default
  pricing dinamico, identificare il prezzo di vendita per un particolare
  tipo di prodotto che massimizza il profitto del venditore senza conoscere
- la domanda dei consumatori 
+ la domanda dei consumatori.
+ Trovò, Francesco, Paladino, Stefano, Restelli, Marcello, e Gatti, Nicola
+ in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Multi--armed bandit for pricing
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\emph default
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "trovo2015multi"
@@ -9631,12 +10461,7 @@ literal "false"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Viene proposta una modifica dell'algoritmo upper confidence bound (
+ hanno proposto una modifica dell'algoritmo upper confidence bound (
 \emph on
 UCB
 \emph default
@@ -9648,7 +10473,7 @@ pricing
  di vendere un oggetto diminuisce; (2) dato che solitamente le persone comparano
  prezzi da differenti venditori e tengono traccia dei cambiamenti di prezzo
  nel tempo prima di acquistare (specialmente per acquisti online, esistono
- anche vari tool che permettono di tenere traccia automatica dei prezzi
+ anche vari tools che permettono di tenere traccia automatica dei prezzi
  di prodotti online), il numero di volte che un certo tipo di oggetto è
  acquistato è solo una piccola frazione del numero di volte che il prezzo
  è visualizzato da acquirenti possibili.
@@ -9675,14 +10500,63 @@ pricing
 .
 \end_layout
 
-\end_deeper
 \begin_layout Itemize
 
 \series bold
-Recommendations:
+Recommender System:
 \series default
- ottimizzazione dei contenuti offerti ai lettori, basandosi sugli interessi
- dell'utente (ad esempio ottimizzazione dei titoli di notizie e articoli)
+ i sistemi di raccomandazione sono frequentemente usati in varie applicazioni
+ per predire le preferenze degli utenti.
+ In questi sistemi vi è il dilemma 
+\emph on
+exploration-exploitation
+\emph default
+ dal momento che vi è bisogno di avere conoscenza rispetto agli oggetti
+ precedentemente selezionati (oggetti interessanti per gli utenti) ed esplorare
+ nuovi oggetti che magari possono piacere agli utenti.
+ Questo tipo di problema è stato affrontato da Qian Zhou, XiaoFang Zhang,
+ Jin Xu, e Bin Liang in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Large-scale bandit approaches for recommender systems
+\begin_inset Quotes frd
+\end_inset
+
+
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zhou2017large"
+literal "false"
+
+\end_inset
+
+ attraverso un 
+\emph on
+multi-armed bandit
+\emph default
+, costruito soprattutto per dei sistemi di raccomandazione su larga scala
+ che hanno tanti o addirittura infiniti elementi.
+ Un ulteriore esempio è l'ottimizzazione dei contenuti offerti ai lettori,
+ basandosi sugli interessi dell'utente come l'ottimizzazione dei titoli
+ di notizie e articoli svolta da Li, Lihong, Chu, Wei, Langford, John, and
+ Schapire, Robert E.
+ in
+\emph on
+ 
+\begin_inset Quotes fld
+\end_inset
+
+A contextual-bandit approach to personalized news article recommendation
+\emph default
+
+\begin_inset Quotes frd
+\end_inset
+
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -9692,6 +10566,384 @@ literal "false"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Influence Maximization: 
+\series default
+Vaswani, S., Kveton, B., Wen, Z., Ghavamzadeh, M., Lakshmanan, L., & Schmidt,
+ M.
+ in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Model-independent online learning for influence maximization
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "vaswani2017model"
+literal "false"
+
+\end_inset
+
+ considerano la massimizzazione dell'influenza (
+\emph on
+IM
+\emph default
+) nei social networks, in cui il problema è massimizzare il numero di utenti
+ che diventano interessati a un prodotto selezionando un set di 
+\emph on
+seed users
+\emph default
+ per esporre il prodotto.
+ Gli autori hanno proposto un nuova parametrizzazione che rende il framework
+ indipendente dal sottostante modello di diffusione ma anche staticamente
+ efficiente per imparare dai dati.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Information Retrieval:
+\series default
+ Losada, D.
+ E., Parapar, J., & Barreiro, A.
+ in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Multi-armed bandits for adjudicating documents in pooling-based evaluation
+ of information retrieval systems
+\emph default
+
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "losada2017multi"
+literal "false"
+
+\end_inset
+
+ hanno modellato il processo iterativo di selezione e recupero dell'informazione
+ come un 
+\emph on
+contextual bandit problem
+\emph default
+.
+ In particolare hanno prodotto numerosi metodi per la 
+\emph on
+document adjudication
+\emph default
+ (cinque stazionari e due non stazionari) per effettuare un confronto fra
+ loro per la valutazione 
+\emph on
+pooling-based
+\emph default
+ e 
+\emph on
+metasearch
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dialogue Systems: 
+\series default
+in particolare nei seguenti ambiti: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Dialogue response selection
+\series default
+: Liu, B., Yu, T., Lane, I., & Mengshoel, O.
+ J.
+ in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Customized nonlinear bandits for online response selection in neural conversatio
+n models
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "liu2017customized"
+literal "false"
+
+\end_inset
+
+ hanno proposto un 
+\emph on
+contextual multi-armed bandit model
+\emph default
+ con un 
+\emph on
+non-linear reward function
+\emph default
+ che usa una rappresentazione distribuita di testo per una selezione online
+ della risposta.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dialogue response selection:
+\series default
+ Silander, T.
+ in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Contextual memory bandit for pro-active dialog engagement
+\begin_inset Quotes frd
+\end_inset
+
+
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "silander2018contextual"
+literal "false"
+
+\end_inset
+
+ ha proposto un 
+\emph on
+contextual multi-armed bandit model 
+\emph default
+per il problema della massimizzazione del reward con feedback parziale.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Multi-domain dialogue systems: 
+\series default
+Upadhyay, S., Agarwal, M., Bounneffouf, D., & Khazaeni, Y.
+ in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+A Bandit Approach to Posterior Dialog Orchestration Under a Budget
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "upadhyay2019bandit"
+literal "false"
+
+\end_inset
+
+ hanno studiato il compito dell'
+\emph on
+online posterior dialogue orchestration 
+\emph default
+che hanno definito come il compito di seleziona un subset di skills che
+ più appropriatamente rispondono agli input dell'utente e delle skills individua
+li.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Telecommunication:
+\series default
+ Boldrini, S., De Nardis, L., Caso, G., Le, M.
+ T., Fiorina, J., & Di Benedetto, M.
+ G.
+ in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+muMAB: A multi-armed bandit model for wireless network selection
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "boldrini2018mumab"
+literal "false"
+
+\end_inset
+
+
+\series bold
+ 
+\series default
+hanno usato un modello 
+\emph on
+multi-armed 
+\emph default
+per descrivere il problema della selezione del miglior rete wireless eseguita
+ da un dispositivo 
+\emph on
+multi-Radio Access Technology (multi-RAT) 
+\emph default
+con il fine di massimizzare la qualità percepita dall'utente finale.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Anomaly Detection: 
+\series default
+la ricerca delle anomalie su reti si occupa di identificare i nodi il cui
+ comportamento è significativamente diverso da quello dei restanti nodi.
+ Ding, K., Li, J., & Liu, H.
+ in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Interactive anomaly detection on attributed networks
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ding2019interactive"
+literal "false"
+
+\end_inset
+
+ hanno sviluppato un 
+\emph on
+collaborative contextual bandit algorithm 
+\emph default
+che modella gli attributi e le dipendenze dei nodi e gestisce il dilemma
+ 
+\emph on
+exploration-exploitation 
+\emph default
+quando si investigano anomalie di differenti tipi.
+\end_layout
+
+\begin_layout Standard
+In figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Tabella-BRL"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è presente un riassunto delle possibili applicazioni del 
+\emph on
+bandit problem
+\emph default
+ nella vita reale.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Bandit in real life application.png
+	lyxscale 50
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Tabella-BRL"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bandit in applicazioni pratiche nella vita reale
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Applicazioni nel machine learning
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Applicazioni-nel-machine"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -9705,43 +10957,39 @@ machine learning
 \begin_layout Itemize
 
 \series bold
-Reinforcement Learning:
-\series default
- massimizzazione dei rewards degli agents.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
 Algorithm Selection: 
 \series default
-a simpler frameworkwas proposed for representing algorithm selection as
- a bandit problem, using partial information and an un-known bound on losses.
-\end_layout
-
-\begin_layout Itemize
-scegliere un algoritmo da un insieme di algoritmi che ha la performance
- migliore rispetto alla specifica istanza del problema pratico analizzato.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Clustering
-\series default
-: clustering collaborativo, paradigma dell’apprendimento automatico.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Bandits per Active Learning:
-\series default
- selezione di 
+solitamente era basato su modelli di performance degli algoritmi costruiti
+ con sequenze di training offline; attraverso un approccio online si può
+ iterativamente aggiornare il modello e usarlo per la selezione di una sequenza
+ di istanze del problema analizzato.
+ Il trade-off 
 \emph on
-samples non labeled
+exploration-exploitation 
 \emph default
- più utili per formare un modello predittivo.
+è rappresentato da un bandit usando informazioni parziali e un limite sconosciut
+o sulle perdite come proposto da Gagliolo, M., & Schmidhuber, J.
+ in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Algorithm selection as a bandit problem with unbounded losses
+\begin_inset Quotes frd
+\end_inset
+
+
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gagliolo2010algorithm"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
@@ -9749,17 +10997,308 @@ samples non labeled
 \series bold
 Hyperparameter Optimization:
 \series default
- ottimizzazione di iperparametri come un 
+ l'ottimizzazione degli iperparametri è fondamentale per le performance
+ degli algoritmi di machine learning.
+ Li, L., Jamieson, K., DeSalvo, G., Rostamizadeh, A., & Talwalkar, A.
+ in 
 \emph on
-multi-armed bandit (infinitamente armed)
+
+\begin_inset Quotes fld
+\end_inset
+
+Hyperband: A novel bandit-based approach to hyperparameter optimization
 \emph default
- non stocastico di pura esplorazione in cui risorse predefinite, come iterazioni
-, campioni di dati o funzionalità sono allocate a configurazioni campionate
- casualmente.
+
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "li2017hyperband"
+literal "false"
+
+\end_inset
+
+ hanno formulato un'ottimizzazione degli iperparametri come un infinite-armed
+ bandit di pura esplorazione non stocastico dove le risorse predefinite
+ come le iterazioni, i campioni di dati e le features sono allocati come
+ configurazione di campioni random.
 \end_layout
 
 \begin_layout Itemize
-TODO
+
+\series bold
+Feature Selection:
+\series default
+ Bouneffouf, D., Rish, I., Cecchi, G.
+ A., & Féraud, R.
+ in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Context attentive bandits: Contextual bandit with restricted context
+\begin_inset Quotes frd
+\end_inset
+
+
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bouneffouf2017context"
+literal "false"
+
+\end_inset
+
+ hanno affrontato il problema dell'
+\emph on
+online feature selection 
+\emph default
+associando il problema dell'ottimizzazione combinatoria in un bandit stocastico
+ con bandit feedback usando l'algoritmo 
+\emph on
+Active Thompson Sampling (ATS)
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Bandits per Active Learning: 
+\series default
+etichettare tutti gli esempi di training nella classificaizone supervisionata
+ può essere complicato.
+ Le strategie di 
+\emph on
+active learning 
+\emph default
+risolvono questo problema selezionando solo i campioni non etichettati più
+ utili per ottenere la label e per allenare il modello predittivo.
+ La scelta dei campioni da etichettare può essere vista come un dilemma
+ tra l'
+\emph on
+exploration
+\emph default
+ e l'
+\emph on
+exploitation
+\emph default
+ su uno spazio di input.
+ Bouneffouf, D., Laroche, R., Urvoy, T., Féraud, R., & Allesiardo, R.
+ in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Contextual bandit for active learning: Active thompson sampling
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bouneffouf2014contextual"
+literal "false"
+
+\end_inset
+
+ hanno proposto di modellare questo problema come un 
+\emph on
+contextual bandit problem
+\emph default
+ e proposto un algoritmo sequenziale chiamato 
+\emph on
+Active Thompson Sampling (ATS).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Clustering
+\series default
+: per quanto riguarda il clustering collaborativo, Sublime, J., & Lefebvre,
+ S.
+ in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Collaborative clustering through constrained networks using bandit optimization
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sublime2018collaborative"
+literal "false"
+
+\end_inset
+
+
+\emph on
+ 
+\emph default
+hanno proposto un algoritmo collaborativo 
+\emph on
+peer to peer
+\emph default
+ per il clustering basato sul principio del 
+\emph on
+non stochastic multi-arm bandits
+\emph default
+ per assicurarsi in tempo reale quali algoritmi o views potevano portare
+ informazioni utili.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Reinforcement Learning:
+\series default
+ gli agenti devono sviluppare tecniche per massimizzare il loro rewards
+ e seguire delle limitazioni implicite presenti nell'ambiente.
+ Noothigattu, R., Bouneffouf, D., Mattei, N., Chandra, R., Madan, P., Varshney,
+ K., & Rossi, F.
+ in 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Interpretable multi-objective reinforcement learning through policy orchestratio
+n
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "noothigattu2018interpretable"
+literal "false"
+
+\end_inset
+
+ hanno usato un 
+\emph on
+contextual bandit-based orchestrator
+\emph default
+ che prende una scelta appropriata tra due policies: 
+\emph on
+constraint-based 
+\emph default
+e 
+\emph on
+environment reward-based
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+In figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Tabella-BML"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è presente un riassunto delle possibili applicazioni del 
+\emph on
+bandit problem
+\emph default
+ nel 
+\emph on
+machine learning
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Bandit in machine learning.png
+	lyxscale 50
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Tabella-BML"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bandit in machine learning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Molti di queste applicazioni pratiche sono state trovate grazie al paper
+ 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+A survey on practical applications of multi-armed and contextual bandits
+\begin_inset Quotes frd
+\end_inset
+
+
+\emph default
+ di Bouneffouf, D., & Rish, I 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bouneffouf2019survey"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Chapter
