@@ -319,7 +319,7 @@ PAC Identification of Many Good Arms in Stochastic Multi-Armed Bandits
  pubblicato da Arghya Roy Chaudhuri e Shivaram Kalyanakrishnan a inizio
  2019 e mostrato in 
 \emph on
-Proceedings of the 36 th International Conference on Machine Learning
+Proceedings of the 36th International Conference on Machine Learning
 \emph default
 , Long Beach, California, PMLR 97.
 \end_layout
@@ -414,7 +414,7 @@ noprefix "false"
 \series default
  verranno descritti e replicati gli esperimenti svolti nel paper; non essendoci
  codice è stato richiesto di limitarsi a replicare gli esperimenti presenti
- nel paper.
+ nel paper, riprendendo anche alcuni esperimenti di paper citati dagli autori.
 \end_layout
 
 \begin_layout Itemize
@@ -539,7 +539,7 @@ PAC
 
 \end_inset
 
- verrà considerato il problema di identificare un numero 
+ viene considerato il problema di identificare un numero 
 \emph on
 k
 \emph default
@@ -713,12 +713,16 @@ pull
 \emph default
  della leva rappresenta prendere la decisione associata che produce una
  ricompensa effettiva.
- La ricompensa è determinata da una distribuzione i.i.d.
+ La ricompensa è determinata da una distribuzione 
+\emph on
+i.i.d.
+
+\emph default
  corrispondente all'arm selezionato, indipendente dai pull delle altre arms.
  Ogni possibile alternativa deve essere indipendente dalle altre, ossia
  che le decisioni prese precedentemente non condizionino il reward della
  scelta attuale.
- Ad ogni turno, il giocatore può consultare la precedente storia dei pull
+ Ad ogni turno, il giocatore può consultare la precedente storia dei pulls
  effettuati e delle ricompense ricevute per decidere quale arm tirare.
 \end_layout
 
@@ -767,7 +771,7 @@ reinforcement learning
 \emph on
 reward
 \emph default
-) data una serie di pull, oppure equivalentemente minimizzare il rimpianto
+) data una serie di pulls, oppure equivalentemente minimizzare il rimpianto
  (
 \emph on
 regret
@@ -908,9 +912,9 @@ infinito
  costoso se il fine è identificare il miglior sottoinsieme di lavoratori
  (
 \emph on
-best subset
+best subset selection
 \emph default
- selection).
+).
  Piuttosto sarebbe sufficiente identificare 5 lavoratori tra i migliori
  150.
  
@@ -987,7 +991,7 @@ m/n
 \end_inset
 
 .
- Tradizionalmente,
+ Tradizionalmente, gli
 \emph on
  infinite-armed bandits 
 \emph default
@@ -1128,7 +1132,7 @@ name "Tabella-1"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Limiti inferiore e superiore sulla complessità del campione attesa (ponendosi
+Limite inferiore e superiore sulla complessità del campione attesa (ponendosi
  nel caso peggiore).
  I limiti per 
 \emph on
@@ -1142,11 +1146,27 @@ Limiti inferiore e superiore sulla complessità del campione attesa (ponendosi
 
 
 \emph default
- sono per la classe speciale di istanze “al massimo 
+ sono per la classe speciale di istanze
 \emph on
-k
+ 
 \emph default
--equiprobabili”.
+
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+at most 
+\begin_inset Formula $k$
+\end_inset
+
+-equiprobable
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
  
 \end_layout
 
@@ -1478,9 +1498,11 @@ literal "false"
 ; altre applicazioni possibili sono sul consigliare video correlati a quello
  che l'utente sta guardando su piattaforme come 
 \emph on
-YouTube
+YouTube 
 \emph default
-.
+o 
+\emph on
+Netflix.
 \end_layout
 
 \begin_layout Standard
@@ -1990,7 +2012,11 @@ oni durante le situazioni di crisi e all'assunzione di lavoratori qualificati
  lavoro è quello di assegnare compiti ai lavoratori al fine di massimizzare
  l'utilità complessiva raggiunta.
  Per formalizzare questo problema di crowdsourcing, viene introdotto un
- nuovo multi-armed bandit (
+ nuovo 
+\emph on
+multi-armed bandit
+\emph default
+ (
 \emph on
 MAB
 \emph default
@@ -2079,8 +2105,8 @@ Lavori citati nel paper
 
 \begin_layout Standard
 In questa sezione verranno presentati in ordine alfabetico tutti i lavori
- citati nel paper corredati da una descrizione riguardante il contenuto
- del problema principale trattato da ciascuno di essi.
+ citati nel paper corredati da una descrizione riguardante il problema principal
+e trattato da ciascuno di essi.
 \end_layout
 
 \begin_layout Standard
@@ -2161,7 +2187,7 @@ stochastic multi-armed bandit.
 \emph on
 regret
 \emph default
-) di un previsore è qui definito dal gap tra la ricompensa media del arm
+) di un predittore è qui definito dal gap tra la ricompensa media del arm
  ottimale e la ricompensa media del arm scelto.
  Gli autori propongono una 
 \emph on
@@ -2846,7 +2872,7 @@ Infinite Mario
 \emph default
  e 
 \emph on
-Pitfall!.
+Pitfall.
  
 \emph default
 Vengono mostrati i miglioramenti in ordine di grandezza nella complessità
@@ -2885,7 +2911,11 @@ Viene considerato il problema
 infinite-armed bandit
 \emph default
  i cui arms seguono una distribuzione di Bernoulli i cui parametri sconosciuti
- sono i.i.d.
+ sono
+\emph on
+ i.i.d
+\emph default
+.
  Vengono presentati due policy che massimizzano la ricompensa media quasi
  certa su un orizzonte infinito.
  Nessuna delle due policy ritorna mai a un arm precedentemente osservato
@@ -2947,7 +2977,11 @@ lil’ UCB : An optimal exploration algorithm for multi-armed bandits
 
 \begin_layout Standard
 Il documento propone un nuovo metodo del limite di confidenza superiore
- (UCB) per identificare l'arm con la media più grande in un 
+ (
+\emph on
+UCB
+\emph default
+) per identificare l'arm con la media più grande in un 
 \emph on
 stochastic multi-armed bandit
 \emph default
@@ -2975,7 +3009,11 @@ LIL
 \emph on
 union bound
 \emph default
- rispetto agli altri arms visti in altri algoritmi di tipo UCB.
+ rispetto agli altri arms visti in altri algoritmi di tipo 
+\emph on
+UCB
+\emph default
+.
  Viene dimostrato che l'algoritmo è ottimale a meno di costanti e viene
  dimostrato che anche attraverso simulazioni che fornisce prestazioni superiori
  rispetto allo stato dell'arte.
@@ -3417,8 +3455,12 @@ Divergenza di Kullback–Leibler:
 
 .
  Mentre l'applicazione di un'idea simile nel contesto del regret ha prodotto
- dei limiti in termini di divergenza KL tra gli arms, i limiti trovati nel
- contesto dell'esplorazione pura implicano la 
+ dei limiti in termini di divergenza 
+\emph on
+KL
+\emph default
+ tra gli arms, i limiti trovati nel contesto dell'esplorazione pura implicano
+ la 
 \emph on
 Chernoff information
 \begin_inset Foot
@@ -4173,7 +4215,7 @@ Lavori citati nella letteratura
 In questa sezione sono analizzati ulteriori paper presenti nella letteratura
  che sono serviti sia per la comprensione che per l'approfondimento del
  paper assegnato.
- Essi sono cercati tramite questi due motori di ricerca:
+ Essi sono stati cercati tramite questi due motori di ricerca:
 \end_layout
 
 \begin_layout Itemize
@@ -4232,7 +4274,11 @@ Ulteriori lavori presenti nella letteratura riguardanti il problema
 \emph on
 stochastic multi-armed bandit 
 \emph default
-possono essere trovati anche nei related works del paper 
+possono essere trovati anche nei 
+\emph on
+related works
+\emph default
+ del paper 
 \emph on
 Batched Multi-armed Bandits Problem
 \emph default
@@ -4324,8 +4370,11 @@ rate-optimal regrets
 \emph on
 batched multi-armed bandit
 \emph default
-, con matching lower bounds anche se le dimensioni dei batches sono determinate
- in modo adattivo.
+, con 
+\emph on
+matching lower bounds
+\emph default
+ anche se le dimensioni dei batches sono determinate in modo adattivo.
 \end_layout
 
 \begin_layout Standard
@@ -4625,9 +4674,9 @@ bandits
 
 \begin_layout Standard
 Altri lavori analizzati nella ricerca dei possibili scenari applicativi
- del multi 
+ del 
 \emph on
-armed bandit 
+multi armed bandit 
 \emph default
 nella vita reale
 \emph on
@@ -4704,8 +4753,11 @@ Nell'ambito della gestione del portfolio finanziario (collezione di investimenti
 ) di una compagnia di investimenti per massimizzare il reward cumulativo,
  gli autori hanno proposto un algoritmo bandit per fare scelte online sul
  portfolio sfruttando le correlazioni tra arms multiple.
- Costruendo portafogli ortogonali da più assets e integrando il loro approccio
- col 
+ Costruendo portafogli ortogonali da più 
+\emph on
+assets
+\emph default
+ e integrando il loro approccio col 
 \emph on
 upper-confidence-bound bandit framework, 
 \emph default
@@ -4776,9 +4828,9 @@ pricing
  prezzi da differenti venditori e tengono traccia dei cambiamenti di prezzo
  nel tempo prima di acquistare (specialmente per acquisti online, esistono
  anche vari tools che permettono di tenere traccia automatica dei prezzi
- di prodotti online), il numero di volte che un certo tipo di oggetto è
- acquistato è solo una piccola frazione del numero di volte che il prezzo
- è visualizzato da acquirenti possibili.
+ di prodotti online), il numero di volte che un determinato tipo di oggetto
+ è acquistato è solo una piccola frazione del numero di volte che il prezzo
+ è visualizzato da possibili acquirenti.
  Facendo leva su queste assunzioni, gli autori migliorano la 
 \emph on
 concentration inequality 
@@ -4952,7 +5004,7 @@ dialogue response selection
 \emph on
 contextual multi-armed bandit model
 \emph default
- con un 
+ con una 
 \emph on
 non-linear reward function
 \emph default
@@ -5023,9 +5075,9 @@ multi-domain dialogue systems
 \emph on
 online posterior dialogue orchestration 
 \emph default
-che hanno definito come il compito di seleziona un subset di skills che
- più appropriatamente rispondono agli input dell'utente e delle skills individua
-li.
+che hanno definito come il compito di selezionare un subset di skills che
+ più appropriatamente rispondono agli input e alle skills individuali dell'utent
+e.
 \end_layout
 
 \begin_layout Standard
@@ -5055,7 +5107,7 @@ Nell'ambito delle telecomunicazioni gli autori hanno usato un modello
 \emph on
 multi-armed 
 \emph default
-per descrivere il problema della selezione del miglior rete wireless eseguita
+per descrivere il problema della selezione della miglior rete wireless eseguita
  da un dispositivo 
 \emph on
 multi-Radio Access Technology (multi-RAT) 
@@ -5108,9 +5160,9 @@ quando si investigano anomalie di differenti tipi.
 
 \begin_layout Standard
 Altri lavori analizzati nella ricerca dei possibili scenari applicativi
- del multi 
+ del 
 \emph on
-armed bandit 
+multi armed bandit 
 \emph default
 nel 
 \emph on
@@ -5154,8 +5206,11 @@ solitamente era basato su modelli di performance degli algoritmi costruiti
 \emph on
 exploration-exploitation 
 \emph default
-è rappresentato da un bandit usando informazioni parziali e un limite sconosciut
-o sulle perdite.
+è rappresentato da un 
+\emph on
+bandit
+\emph default
+ usando informazioni parziali e un limite sconosciuto sulle perdite.
 \end_layout
 
 \begin_layout Standard
@@ -5180,11 +5235,18 @@ Hyperband: A novel bandit-based approach to hyperparameter optimization
 
 \begin_layout Standard
 L'ottimizzazione degli iperparametri è fondamentale per le performance degli
- algoritmi di machine learning.
+ algoritmi di 
+\emph on
+machine learning
+\emph default
+.
  Gli autori hanno formulato un'ottimizzazione degli iperparametri come un
- infinite-armed bandit di pura esplorazione non stocastico dove le risorse
- predefinite come le iterazioni, i campioni di dati e le features sono allocati
- come configurazione di campioni random.
+\emph on
+ infinite-armed bandit
+\emph default
+ di pura esplorazione non stocastico dove le risorse predefinite come le
+ iterazioni, i campioni di dati e le features sono allocati come configurazione
+ di campioni random.
 \end_layout
 
 \begin_layout Standard
@@ -5218,7 +5280,7 @@ feature selection
 online feature selection 
 \emph default
 associando il problema dell'ottimizzazione combinatoria in un bandit stocastico
- con bandit feedback usando l'algoritmo 
+ con feedback usando l'algoritmo 
 \emph on
 Active Thompson Sampling (ATS).
 \end_layout
@@ -5348,8 +5410,12 @@ Nell'ambito del
 \emph on
 reinforcement learning
 \emph default
-, gli agenti devono sviluppare tecniche per massimizzare il loro rewards
- e seguire delle limitazioni implicite presenti nell'ambiente.
+, gli agenti devono sviluppare tecniche per massimizzare i loro rewards
+ e seguire delle 
+\emph on
+constraints
+\emph default
+ implicite presenti nell'ambiente.
  Gli autori hanno usato un 
 \emph on
 contextual bandit-based orchestrator
@@ -5434,8 +5500,12 @@ Sia
 \begin_inset Formula $a\in A$
 \end_inset
 
- produce un reward i.i.d pescato dalla distribuzione corrispondente e indipendente
- dagli altri pull degli altri arms.
+ produce un reward 
+\emph on
+i.i.d
+\emph default
+ pescato dalla distribuzione corrispondente e indipendente dagli altri pulls
+ degli altri arms.
  A ogni turno, basandosi sulla precedente sequenza di pulls e rewards, un
  algoritmo decide quale arm tirare, fermarsi oppure ritornare un set di
  arms.
@@ -5476,19 +5546,27 @@ Per un istanza finita del bandit con
 \end_inset
 
  
+\emph on
+
 \begin_inset Formula $(\epsilon,m)$
 \end_inset
 
--optimal se 
+-optimal
+\emph default
+ se 
 \begin_inset Formula $\mu_{a}\geq\mu_{a_{m}}-\epsilon$
 \end_inset
 
 .
  Denotiamo il set di tutte le 
+\emph on
+
 \begin_inset Formula $(\epsilon,m)$
 \end_inset
 
--optimal arms come 
+-optimal
+\emph default
+ arms come 
 \begin_inset Formula $\mathcal{TOP}_{m}(\epsilon)=\{a:\mu_{a}\geq\mu_{a_{m}}-\epsilon\}$
 \end_inset
 
@@ -5563,10 +5641,14 @@ Per un istanza finita del bandit con
 distinct
 \emph default
  
+\emph on
+
 \begin_inset Formula $(\epsilon,m)$
 \end_inset
 
--optimal arms con probabilità almeno 
+-optimal 
+\emph default
+arms con probabilità almeno 
 \begin_inset Formula $1-\delta$
 \end_inset
 
@@ -5713,7 +5795,7 @@ con
 \begin_inset Formula $k=1$
 \end_inset
 
- sembra più efficiente di
+ sembra più efficiente di 
 \begin_inset Formula $F_{2}$
 \end_inset
 
@@ -5759,7 +5841,7 @@ name "Tabella-2"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Limiti inferiore e superiore sulla complessità del campione attesa (ponendosi
+Limite inferiore e superiore sulla complessità del campione attesa (ponendosi
  nel caso peggiore).
  I limiti per 
 \emph on
@@ -5773,11 +5855,23 @@ Limiti inferiore e superiore sulla complessità del campione attesa (ponendosi
 
 
 \emph default
- sono per la classe speciale di istanze “al massimo 
+ sono per la classe speciale di istanze 
+\begin_inset Quotes eld
+\end_inset
+
+
 \emph on
-k
+at most 
+\begin_inset Formula $k$
+\end_inset
+
+-equiprobable
 \emph default
--equiprobabili”.
+
+\begin_inset Quotes erd
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -5833,10 +5927,14 @@ literal "false"
 \end_inset
 
  è chiamata 
+\emph on
+
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal se 
+-optimal
+\emph default
+ se 
 \begin_inset Formula $P_{a'\sim P_{A}}\{\mu_{a}\geq\mu_{a'}-\epsilon\}\geq1-\rho$
 \end_inset
 
@@ -5846,10 +5944,14 @@ literal "false"
 \end_inset
 
 , possiamo definire un set di tutte 
+\emph on
+
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal arms come 
+-optimal
+\emph default
+ arms come 
 \begin_inset Formula $\mathcal{TOP}_{\rho}(\epsilon)$
 \end_inset
 
@@ -5946,10 +6048,14 @@ valida
 distinct
 \emph default
  
+\emph on
+
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal arms con probabilità di almeno 
+-optimal 
+\emph default
+arms con probabilità di almeno 
 \begin_inset Formula $1-\delta$
 \end_inset
 
@@ -6065,7 +6171,7 @@ al massimo
 \begin_inset Formula $k$
 \end_inset
 
--equiprobable
+-equiprobabile
 \begin_inset Quotes erd
 \end_inset
 
@@ -6083,13 +6189,17 @@ status open
 
 \begin_layout Plain Layout
 In un paper recente, Ren et al.
- (2018) cerca di risolvere il problema (k, ρ).
+ (2018) cerca di risolvere il problema 
+\begin_inset Formula $(k,ρ)$
+\end_inset
+
+.
  Tuttavia, loro non hanno notato che il problema può essere mal posto.
  Inoltre, anche con un'istanza al massimo
 \emph on
  k
 \emph default
--equiprobable come input, il loro algoritmo fallisce nel tentativo di eliminare
+-equiprobabile come input, il loro algoritmo fallisce nel tentativo di eliminare
  la dipendenza da 
 \begin_inset Formula $(1/ρ)log^{2}(1/δ)$
 \end_inset
@@ -6216,7 +6326,11 @@ non valida
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal arms; altrimenti, la sua soluzione cesserà di esistere per 
+
+\emph on
+-optimal
+\emph default
+ arms; altrimenti, la sua soluzione cesserà di esistere per 
 \begin_inset Formula $\epsilon<0.02$
 \end_inset
 
@@ -6272,7 +6386,7 @@ valida
 \begin_inset Formula $1$
 \end_inset
 
--equiprobable.
+-equiprobabile.
  Si è migliorato rispetto alla versione esistente dell'upper bound di questo
  problema e va a corrispondere al lower bound del termine 
 \emph on
@@ -6334,7 +6448,7 @@ literal "false"
  Nella sezione 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Lower-Bound-sulla-complessità-del-campione"
+reference "subsec:Lower-bound-sulla-complessità-del-campione"
 plural "false"
 caps "false"
 noprefix "false"
@@ -6442,7 +6556,7 @@ noprefix "false"
 \emph on
 Q-P
 \emph default
- con una complessità del campione che è un termina additivo 
+ con una complessità del campione che è un termine additivo 
 \begin_inset Formula $O((1/\epsilon^{2})\log^{2}(1/\delta))$
 \end_inset
 
@@ -6455,7 +6569,7 @@ per risolvere le istanze al massimo
 \emph on
 k
 \emph default
--equiprobable 
+-equiprobabili 
 \begin_inset Formula $(k,ρ)$
 \end_inset
 
@@ -6476,8 +6590,8 @@ KQP-1
 \begin_inset Formula $(k,m,n)$
 \end_inset
 
- rispettivamente e le loro complessità del campione sono sono indipendenti
- dall'istanza più stretta limiti superiori.
+ rispettivamente e le loro complessità del campione sono indipendenti dall'istan
+za e inferiori ai limiti superiori.
 \end_layout
 
 \begin_layout Enumerate
@@ -6503,7 +6617,7 @@ Q-P.
 \emph default
  Questo aiuta a trasferire qualsiasi miglioramento nell'upper bound dal
  primo problema a quest'ultimo.
- Inoltre ipotizziamo l'esistenza di una classe di istanze 
+ Inoltre hanno ipotizzato l'esistenza di una classe di istanze 
 \emph on
 Q-F
 \emph default
@@ -6615,7 +6729,7 @@ name "Finite"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Finite-Armed Bandit Instances
+Istanze del Finite-Armed Bandit
 \end_layout
 
 \end_inset
@@ -6629,10 +6743,10 @@ Finite-Armed Bandit Instances
 \end_layout
 
 \begin_layout Subsection
-Lower Bound sulla complessità del campione
+Lower bound sulla complessità del campione
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Lower-Bound-sulla-complessità-del-campione"
+name "subsec:Lower-bound-sulla-complessità-del-campione"
 
 \end_inset
 
@@ -6731,16 +6845,16 @@ literal "false"
 \begin_inset Formula $\mathcal{I}^{\prime}$
 \end_inset
 
-, tale che su traiettorie verbi, un istanza di 
+, tale che su traiettorie “brevi”, un istanza di 
 \begin_inset Formula $\mathcal{I}$
 \end_inset
 
- produrrà la stessa sequenza di reward corrispondente all'istanza presa
- da 
+ produrrà, con alta probabilità, la stessa sequenza di reward corrispondente
+ all'istanza presa da 
 \begin_inset Formula $\mathcal{I}^{\prime}$
 \end_inset
 
-, con alta probabilità.
+.
  Inoltre, ogni algoritmo ritornerà lo stesso set di arms per entrambe le
  istanze, con alta probabilità.
  Tuttavia, per costruzione, nessun set di arms può essere corretto contemporanea
@@ -6774,8 +6888,11 @@ Q-F
 \begin_inset Formula $(k;m,n)$
 \end_inset
 
- (across bandit instances) seguono i metodi che gli autori hanno progettato
- per 
+ (
+\emph on
+across bandit instances
+\emph default
+) seguono i metodi che gli autori hanno progettato per 
 \emph on
 infinite-armed setting
 \emph default
@@ -6922,7 +7039,11 @@ Output:
 \begin_inset Formula $(\epsilon,m)$
 \end_inset
 
--optimal arms da 
+
+\emph on
+-optimal
+\emph default
+ arms da 
 \begin_inset Formula $\mathcal{A}$
 \end_inset
 
@@ -7130,7 +7251,11 @@ Algoritmo
 \begin_inset Formula $(\epsilon,m)$
 \end_inset
 
--optimal arms
+
+\emph on
+-optimal
+\emph default
+ arms
 \end_layout
 
 \end_inset
@@ -7187,7 +7312,11 @@ contentious
 \begin_inset Formula $h_{*}^{t}$
 \end_inset
 
-, l'arm con il più basso lower confidence bound (
+, l'arm con il più basso 
+\emph on
+lower confidence bound
+\emph default
+ (
 \emph on
 LCB
 \emph default
@@ -7207,17 +7336,28 @@ LCB
 \begin_inset Formula $l_{*}^{t}$
 \end_inset
 
-, l' arm con la più alta upper confidence bound (
+, l' arm con la più alta 
+\emph on
+upper confidence bound
+\emph default
+ (
 \emph on
 UCB
 \emph default
 ).
- L'algoritmo si ferma non appena la differenza tra il lower confidence bound
- di 
+ L'algoritmo si ferma non appena la differenza tra il 
+\emph on
+lower confidence bound 
+\emph default
+di 
 \begin_inset Formula $h_{*}^{t}$
 \end_inset
 
-, e l'upper confidence bound di 
+, e l'
+\emph on
+upper confidence bound
+\emph default
+ di 
 \begin_inset Formula $l_{*}^{t}$
 \end_inset
 
@@ -7229,7 +7369,7 @@ UCB
 \end_layout
 
 \begin_layout Standard
-Sia 
+Siano 
 \begin_inset Formula $B_{1},B_{2},B_{3}$
 \end_inset
 
@@ -7259,7 +7399,7 @@ Sia
 \end_inset
 
 .
- Per comodità appesantiamo leggermente questa notazione come
+ Per comodità appesantiamo leggermente questa notazione come:
 \size footnotesize
 
 \begin_inset Formula 
@@ -7357,7 +7497,7 @@ KL
 \end_layout
 
 \begin_layout Standard
-Successivamente si andrà a considerare le istanze 
+Nella porssima sezione si andrà a considerare le istanze 
 \emph on
 infinite-armed bandit
 \emph default
@@ -7388,10 +7528,14 @@ Prima di procedere all'identificazione delle
 \end_inset
 
  
+\emph on
+
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal arms in 
+-optimal 
+\emph default
+arms negli 
 \emph on
 infinite-armed bandits
 \emph default
@@ -7401,11 +7545,14 @@ infinite-armed bandits
 
 .
  Per trovare un 
+\emph on
+
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal arm, la complessità del campione di tutti gli algoritmi esistenti
- 
+-optimal 
+\emph default
+arm, la complessità del campione di tutti gli algoritmi esistenti 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "chaudhuri2017pac,aziz2018pure"
@@ -7430,7 +7577,11 @@ literal "false"
 \shape italic
 additive
 \shape default
- poly-log factor lontana dal lower bound di 
+ 
+\emph on
+poly-log factor
+\emph default
+ lontana dal lower bound 
 \begin_inset Formula $\Omega((1/\rho\epsilon^{2})\log1/\delta)$
 \end_inset
 
@@ -7498,7 +7649,7 @@ name "Infinite"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Infinite-Armed Bandit Instances
+Istanze del Infinite-Armed Bandit
 \end_layout
 
 \end_inset
@@ -7512,7 +7663,9 @@ Infinite-Armed Bandit Instances
 \end_layout
 
 \begin_layout Subsection
-Risolvere le istanze Q-P
+Risolvere le istanze 
+\emph on
+Q-P
 \end_layout
 
 \begin_layout Standard
@@ -7530,10 +7683,14 @@ Risolvere le istanze Q-P
 \end_inset
 
 ) in cui ogni arm è 
+\emph on
+
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal con probabilità di almeno 
+-optimal 
+\emph default
+con probabilità di almeno 
 \begin_inset Formula $1-\delta'$
 \end_inset
 
@@ -7554,10 +7711,14 @@ Risolvere le istanze Q-P
 \end_inset
 
  è scelto in modo che almeno una delle arms scelte è 
+\emph on
+
 \begin_inset Formula $[\epsilon/2,\rho]$
 \end_inset
 
--optimal con probabilità di almeno 
+-optimal 
+\emph default
+con probabilità di almeno 
 \begin_inset Formula $\delta/2$
 \end_inset
 
@@ -7607,10 +7768,14 @@ literal "false"
  Median Elimination
 \shape default
  come subroutine, per selezionare una 
+\emph on
+
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal arm con confidenza 
+-optimal
+\emph default
+ arm con confidenza 
 \begin_inset Formula $1-\delta'$
 \end_inset
 
@@ -7652,10 +7817,14 @@ Input:
 Output:
 \series default
  Un 
+\emph on
+
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal arm.
+-optimal 
+\emph default
+arm.
 \end_layout
 
 \begin_layout Plain Layout
@@ -7705,10 +7874,14 @@ Esegue
 
 \size small
 Identifica una 
+\emph on
+
 \begin_inset Formula $(\epsilon/2,1)$
 \end_inset
 
--optimal arm in 
+-optimal
+\emph default
+ arm in 
 \begin_inset Formula $S$
 \end_inset
 
@@ -7788,10 +7961,14 @@ Innanzitutto notiamo che ogni copia degli output di
 \end_inset
 
  è un 
+\emph on
+
 \begin_inset Formula $[\epsilon/2,\rho]$
 \end_inset
 
--optimal arm con probabilità di almeno 
+-optimal
+\emph default
+ arm con probabilità di almeno 
 \begin_inset Formula $1-\delta'$
 \end_inset
 
@@ -7808,7 +7985,11 @@ Innanzitutto notiamo che ogni copia degli output di
 \begin_inset Formula $\mathcal{P}_{2}$
 \end_inset
 
- sono sub-optimal arms.
+ sono 
+\emph on
+sub-optimal
+\emph default
+ arms.
  Allora, 
 \begin_inset Formula $\Pr\{S\cap\mathcal{TOP}_{\rho}=\emptyset\}=(1-\delta')^{u}\leq\delta/2$
 \end_inset
@@ -7834,10 +8015,10 @@ Median Elimination
 \end_inset
 
  dal 
-\begin_inset Formula $(1-\rho)$
+\begin_inset Formula $(1-\rho)-esimo$
 \end_inset
 
--esimo quantile.
+quantile.
 \end_layout
 
 \begin_layout Paragraph
@@ -8005,11 +8186,15 @@ Risolvere le istanze
 \begin_inset Quotes eld
 \end_inset
 
-al massimo 
+
+\emph on
+at most 
 \begin_inset Formula $k$
 \end_inset
 
--equiprobabili
+-equiprobable
+\emph default
+
 \begin_inset Quotes erd
 \end_inset
 
@@ -8022,10 +8207,14 @@ Ora si vuole identificare le
 \end_inset
 
  
+\emph on
+
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal arms.
+-optimal 
+\emph default
+arms.
  Nel teorema 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -8168,11 +8357,11 @@ con
 \end_inset
 
 .
- Allora, risolvere questa 
+ Allora, risolvere questa istanza 
 \begin_inset Formula $(k,ρ)$
 \end_inset
 
- istanza significa risolvere l'istanza del 
+ significa risolvere l'istanza del 
 \shape smallcaps
 Subset.
  
@@ -8214,11 +8403,15 @@ Algoritmo per risolvere le istanze
 \begin_inset Quotes eld
 \end_inset
 
-al massimo 
+
+\emph on
+at most 
 \begin_inset Formula $k$
 \end_inset
 
--equiprobabile
+-equiprobable
+\emph default
+
 \begin_inset Quotes erd
 \end_inset
 
@@ -8244,11 +8437,15 @@ Sia, per ogni
 \emph on
 KQP- 1
 \emph default
- che può risolvere qualsiasi delle most 
+ che può risolvere qualsiasi delle 
+\emph on
+most 
 \begin_inset Formula $k$
 \end_inset
 
--equiprobable istanze di 
+-equiprobable
+\emph default
+ istanze di 
 \begin_inset Formula $(k,ρ)$
 \end_inset
 
@@ -8340,7 +8537,7 @@ rejection-sampling
 \begin_inset Formula $k$
 \end_inset
 
--equiprobable.
+-equiprobabili.
  Allora, in ogni fase 
 \begin_inset Formula $y\geq1$
 \end_inset
@@ -8508,11 +8705,27 @@ Algoritmo
 \emph on
 KQP-1
 \emph default
- per risolvere le most k-equiprobabile 
+ per risolvere le istanze 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+at most 
+\begin_inset Formula $k$
+\end_inset
+
+-equiprobable
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+ 
 \begin_inset Formula $(k,ρ)$
 \end_inset
 
- istanze
+
 \end_layout
 
 \end_inset
@@ -8536,7 +8749,7 @@ noprefix "false"
 
 \end_inset
 
- presentiamo un upper buond della complessità di campionamento attesa del
+ presentiamo un upper bound della complessità di campionamento attesa del
  problema 
 \emph on
 KQP-1
@@ -8555,7 +8768,7 @@ Data una qualsiasi al massimo
 \begin_inset Formula $k$
 \end_inset
 
--equiprobable istanza di 
+-equiprobabile istanza di 
 \begin_inset Formula $(k,ρ)$
 \end_inset
 
@@ -8573,8 +8786,8 @@ Data una qualsiasi al massimo
 \end_layout
 
 \begin_layout Proof
-Dividiamo la dimostrazione in due parti: upper-bounding della complessità
- del campione e la verifica di correttezza.
+Dividiamo la dimostrazione in due parti: upper bound della complessità del
+ campione e la verifica di correttezza.
 \end_layout
 
 \begin_deeper
@@ -8717,7 +8930,11 @@ sia indipendente dalla dimensione dell'istanza del bandit
 \begin_inset Formula $k=m$
 \end_inset
 
-, la complessità del campione di KQP-1 viene ridotta a 
+, la complessità del campione di 
+\emph on
+KQP-1
+\emph default
+ viene ridotta a 
 \begin_inset Formula $O\left(\frac{1}{\epsilon^{2}}\left(n\log m\cdot\log\frac{m}{\delta}+\log^{2}\frac{m}{\delta}\right)\right)$
 \end_inset
 
@@ -8806,11 +9023,14 @@ Ogni istanza di
 \begin_layout Corollary
 
 \emph on
-La correttezza del corollario può essere provata notando che tutti i k outputs
- sono unici con probabilità 1 e poi prendendo l'union bound sulle probabilità
- d'errore.
+La correttezza del corollario può essere provata notando che tutti i 
+\emph default
+k
+\emph on
+ outputs sono unici con probabilità 1 e poi prendendo l'union bound sulle
+ probabilità d'errore.
  Prima di passare agli esperimenti, verranno presentati dei risultati importanti
- sulla complessità nella risoluzione di 
+ sulla complessità della risoluzione di 
 \emph default
 Q-P
 \emph on
@@ -9048,7 +9268,7 @@ noprefix "false"
 \begin_inset Formula $n<\ulcorner{8\log(2/\delta)}\urcorner$
 \end_inset
 
- crediamo che 
+ gli autori credono che 
 \emph on
 Q-F
 \emph default
@@ -9064,19 +9284,11 @@ Per
 \begin_inset Formula $g:\mathbb{Z}^{+}\times\mathbb{Z}^{+}\times[0,1]\times[0,1]\mapsto\mathbb{R}^{+}$
 \end_inset
 
- diciamo che 
-\emph on
-Q-F
-\emph default
- è risolvibile in 
+ diciamo che Q-F è risolvibile in 
 \begin_inset Formula $\Theta(g(\cdot))$
 \end_inset
 
-, se esiste un algoritmo che risolve ogni istanza di 
-\emph on
-Q-F 
-\emph default
-data da 
+, se esiste un algoritmo che risolve ogni istanza di Q-F data da 
 \begin_inset Formula $(A,n,m,\epsilon,\delta)$
 \end_inset
 
@@ -9084,11 +9296,7 @@ data da
 \begin_inset Formula $O(g(n,m,\epsilon,\delta))$
 \end_inset
 
- campioni, e esiste un istanza di 
-\emph on
-Q-F
-\emph default
- data da 
+ campioni, e esiste un istanza di Q-F data da 
 \begin_inset Formula $(\bar{A},\bar{n},\bar{m},\bar{\epsilon},\bar{\delta})$
 \end_inset
 
@@ -9211,7 +9419,7 @@ Confronto tra
 \end_layout
 
 \begin_layout Standard
-In questo primo paragrafo si riprende a analizzano gli esperimenti prodotti
+In questo primo paragrafo si riprende e si analizzano gli esperimenti prodotti
  dal paper 
 \emph on
 
@@ -9234,7 +9442,7 @@ literal "false"
 
 \end_inset
 
- che serviranno come base agli esperimenti da replicare nel nostro elaborato.
+ che serviranno come base per esperimenti da replicare.
 \end_layout
 
 \begin_layout Standard
@@ -9269,9 +9477,13 @@ m
 's stopping rule
 \emph default
 .
- Simuliamo i reward in base alle distribuzioni di Bernoulli.
+ Vengono simulati i rewards in base alle distribuzioni di Bernoulli.
  Per tutti gli algoritmi utilizziamo gli intervalli di confidenza basati
- sulla divergenza KL 
+ sulla divergenza 
+\emph on
+KL
+\emph default
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Capp__2013"
@@ -9407,18 +9619,14 @@ LUCB
 \emph default
  in tutti e tre i casi.
  Poiché 
-\begin_inset Formula $\mu_{a4}$
-\end_inset
-
- = 
-\begin_inset Formula $\mu_{a5}$
+\begin_inset Formula $\mu_{a4}=\mu_{a5}$
 \end_inset
 
  e 
-\begin_inset Formula $\epsilon$
+\begin_inset Formula $\epsilon=0$
 \end_inset
 
- = 0, 
+, 
 \emph on
 LUCB
 \emph default
@@ -9881,7 +10089,11 @@ LCB
 \begin_inset Formula $m-1$
 \end_inset
 
- arms con i più alti UCBs in 
+ arms con i più alti 
+\emph on
+UCBs
+\emph default
+ in 
 \begin_inset Formula $\bar{A_{2}}(t)$
 \end_inset
 
@@ -9906,7 +10118,11 @@ LCB
 \begin_inset Formula $\bar{A_{2}}(t)$
 \end_inset
 
-, e l'arm avente l'UCB più alto in 
+, e l'arm avente l'
+\emph on
+UCB
+\emph default
+ più alto in 
 \begin_inset Formula $\bar{A_{3}}(t)$
 \end_inset
 
@@ -9965,8 +10181,15 @@ Q-F
 
 \emph default
 , sulle cinque istanze descritte sopra.
- In questo grafico e anche nei successivi, l'asse y rappresenta la media
- della complessità del campione su 100 runs con standard error bars.
+ In questo grafico e anche nei successivi, l'asse 
+\emph on
+y
+\emph default
+ rappresenta la media della complessità del campione su 100 runs con 
+\emph on
+standard error bars
+\emph default
+.
 \end_layout
 
 \end_inset
@@ -10030,7 +10253,7 @@ Ora prendiamo cinque istanze di Bernoulli dalla dimensione
 .
  Nella nostra implementazione abbiamo usato la 
 \emph on
-K-divergence
+KL-divergence
 \emph default
  basata sui bounds dei coefficienti 
 \begin_inset CommandInset citation
@@ -10095,10 +10318,10 @@ LUCB1
 \emph default
 deriva dall'identificazione rapida dell'arm più ottimale dovuta alla grande
  separazione dalla 
-\begin_inset Formula $m+1$
+\begin_inset Formula $m+1-esima$
 \end_inset
 
--esima arm.
+ arm.
  Intuitivamente, la ragione per cui 
 \begin_inset Formula $F_{2}$
 \end_inset
@@ -10202,8 +10425,8 @@ ground-truth
 \end_inset
 
  fa ancora fatica a identificare l'arm migliore e ciò si traduce in una
- frazione significativamente minore dei pulls totali per esso, rispetto
- a 
+ frazione significativamente minore dei pulls totali per l'arm migliore,
+ rispetto a 
 \begin_inset Formula $LUCB-k-m$
 \end_inset
 
@@ -10249,7 +10472,7 @@ Confronto tra
 \begin_inset Formula $LUCB-k-m$
 \end_inset
 
- sul numero di pull ricevuti dai campi 
+ sul numero di pulls ricevuti dai campi 
 \begin_inset Formula $B_{1}$
 \end_inset
 
@@ -10279,7 +10502,11 @@ m
 \end_inset
 
  è l'insieme singleton, con l'arm migliore come unico membro.
- L'asse y rappresenta la media della complessità del campione su 100 runs.
+ L'asse 
+\emph on
+y
+\emph default
+ rappresenta la media della complessità del campione su 100 runs.
 \end_layout
 
 \end_inset
@@ -10304,7 +10531,7 @@ Quindi l'algoritmo
 \begin_inset Formula $LUCB-k-m$
 \end_inset
 
- porposto è migliore dell'algoritmo 
+ proposto è migliore dell'algoritmo 
 \begin_inset Formula $F_{2}$
 \end_inset
 
@@ -10316,7 +10543,7 @@ literal "false"
 
 \end_inset
 
- perchè la complessità del campione del primo rimane sempre inferiore di
+ poiché la complessità del campione del primo rimane sempre inferiore di
  quella del secondo algoritmo (indipendentemente dal numero di arms 
 \emph on
 n
@@ -10338,7 +10565,8 @@ n
 \begin_inset Formula $LUCB-k-m$
 \end_inset
 
- riesce ad identificare prima e a dare maggiore priorità all'arms migliore.
+ riesce ad identificare prima e a dare maggiore priorità fin da subito all'arm
+ migliore.
 \end_layout
 
 \begin_layout Standard
@@ -10505,8 +10733,11 @@ Confronto del numero di campioni usati per risolvere istanze differenti
 \emph on
 y
 \emph default
- rappresenta il numero di campioni mediato su 100 runs, con standard error
- bars.
+ rappresenta il numero di campioni mediato su 100 runs, con 
+\emph on
+standard error bars
+\emph default
+.
 \end_layout
 
 \end_inset
@@ -10551,7 +10782,7 @@ name "chap:Conclusioni"
 \end_layout
 
 \begin_layout Standard
-Identificare un arm tra le migliori 
+Identificare un'arm tra le migliori 
 \begin_inset Formula $m$
 \end_inset
 
@@ -10576,8 +10807,8 @@ literal "false"
  praticamente impossibile.
  Tuttavia, vi sono numerosi esempi in pratica che richiedono l'identificazione
  efficiente di più soluzioni buone invece che una sola; per esempio, assegnando
- un compito di crowdsourcing distribuito, identificazione di buone combinazioni
- molecolari nel design dei farmaci, etc.
+ un compito di crowdsourcing distribuito, l'identificazione di buone combinazion
+i molecolari nel design dei farmaci, etc.
  In questo paper, gli autori hanno presentato il problema 
 \begin_inset Formula $(k;m;n)$
 \end_inset
@@ -10624,7 +10855,7 @@ literal "false"
 .
  Inoltre hanno presentato un algoritmo completamente sequenziale adattivo
 \emph on
- PAC, LUCB-k-m, 
+ (PAC), LUCB-k-m, 
 \emph default
 che risolve il problema 
 \begin_inset Formula $(k;m;n)$
@@ -10682,10 +10913,14 @@ LUCB1
 
 \begin_layout Standard
 Per il problema dell'identificazione di una singola 
+\emph on
+
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal arm 
+-optimal
+\emph default
+ arm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "chaudhuri2017pac"
@@ -10723,12 +10958,20 @@ literal "false"
 \emph on
 k
 \emph default
- distinct 
+ 
+\emph on
+distinct
+\emph default
+ 
+\emph on
+
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal arms non è ben posto in generale, ma quando lo è, gli autori hanno
- derivato un lower bound sulla stessa complessità del campione.
+-optima
+\emph default
+l arms non è ben posto in generale, ma quando lo è, gli autori hanno derivato
+ un lower bound sulla stessa complessità del campione.
  Inoltre, hanno identificato una classe di istanze ben poste per cui gli
  autori hanno presentato un algoritmo efficiente.
  Alla fine hanno mostrato come il miglioramento del limite superiore della
@@ -10814,7 +11057,7 @@ name "Tabella-2-1"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Limiti inferiore e superiore sulla complessità del campione attesa (ponendosi
+Limite inferiore e superiore sulla complessità del campione attesa (ponendosi
  nel caso peggiore).
  I limiti per 
 \emph on
@@ -10828,11 +11071,23 @@ Limiti inferiore e superiore sulla complessità del campione attesa (ponendosi
 
 
 \emph default
- sono per la classe speciale di istanze “al massimo 
+ sono per la classe speciale di istanze 
+\begin_inset Quotes eld
+\end_inset
+
+
 \emph on
-k
+at most 
+\begin_inset Formula $k$
+\end_inset
+
+-equiprobable
 \emph default
--equiprobabili”.
+
+\begin_inset Quotes erd
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -11039,8 +11294,11 @@ literal "false"
 
  hanno proposto un algoritmo bandit per fare scelte online sul portfolio
  sfruttando le correlazioni tra arms multiple.
- Costruendo portafogli ortogonali da più assets e integrando il loro approccio
- col 
+ Costruendo portafogli ortogonali da più 
+\emph on
+assets
+\emph default
+ e integrando il loro approccio col 
 \emph on
 upper-confidence-bound bandit framework, 
 \emph default
@@ -11115,9 +11373,9 @@ pricing
  prezzi da differenti venditori e tengono traccia dei cambiamenti di prezzo
  nel tempo prima di acquistare (specialmente per acquisti online, esistono
  anche vari tools che permettono di tenere traccia automatica dei prezzi
- di prodotti online), il numero di volte che un certo tipo di oggetto è
- acquistato è solo una piccola frazione del numero di volte che il prezzo
- è visualizzato da acquirenti possibili.
+ di prodotti online), il numero di volte che un determinato tipo di oggetto
+ è acquistato è solo una piccola frazione del numero di volte che il prezzo
+ è visualizzato da possibili acquirenti.
  Facendo leva su queste assunzioni, gli autori migliorano la 
 \emph on
 concentration inequality 
@@ -11342,7 +11600,7 @@ literal "false"
 \emph on
 contextual multi-armed bandit model
 \emph default
- con un 
+ con una 
 \emph on
 non-linear reward function
 \emph default
@@ -11413,9 +11671,9 @@ literal "false"
 \emph on
 online posterior dialogue orchestration 
 \emph default
-che hanno definito come il compito di seleziona un subset di skills che
- più appropriatamente rispondono agli input dell'utente e delle skills individua
-li.
+che hanno definito come il compito di selezionare un subset di skills che
+ più appropriatamente rispondono agli input e alle skills individuali dell'utent
+e.
 \end_layout
 
 \end_deeper
@@ -11455,7 +11713,7 @@ hanno usato un modello
 \emph on
 multi-armed 
 \emph default
-per descrivere il problema della selezione del miglior rete wireless eseguita
+per descrivere il problema della selezione della miglior rete wireless eseguita
  da un dispositivo 
 \emph on
 multi-Radio Access Technology (multi-RAT) 
@@ -11577,7 +11835,11 @@ Bandit in applicazioni pratiche nella vita reale
 \end_layout
 
 \begin_layout Section
-Applicazioni nel machine learning
+Applicazioni nel 
+\emph on
+machine learning
+\emph default
+
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Applicazioni-nel-machine"
@@ -11608,8 +11870,12 @@ solitamente era basato su modelli di performance degli algoritmi costruiti
 \emph on
 exploration-exploitation 
 \emph default
-è rappresentato da un bandit usando informazioni parziali e un limite sconosciut
-o sulle perdite come proposto da Gagliolo, M., & Schmidhuber, J.
+è rappresentato da un 
+\emph on
+bandit
+\emph default
+ usando informazioni parziali e un limite sconosciuto sulle perdite come
+ proposto da Gagliolo, M., & Schmidhuber, J.
  in 
 \emph on
 
@@ -11639,7 +11905,11 @@ literal "false"
 Hyperparameter Optimization:
 \series default
  l'ottimizzazione degli iperparametri è fondamentale per le performance
- degli algoritmi di machine learning.
+ degli algoritmi di 
+\emph on
+machine learning
+\emph default
+.
  Li, L., Jamieson, K., DeSalvo, G., Rostamizadeh, A., & Talwalkar, A.
  in 
 \emph on
@@ -11661,10 +11931,13 @@ literal "false"
 
 \end_inset
 
- hanno formulato un'ottimizzazione degli iperparametri come un infinite-armed
- bandit di pura esplorazione non stocastico dove le risorse predefinite
- come le iterazioni, i campioni di dati e le features sono allocati come
- configurazione di campioni random.
+ hanno formulato un'ottimizzazione degli iperparametri come un 
+\emph on
+infinite-armed bandit
+\emph default
+ di pura esplorazione non stocastico dove le risorse predefinite come le
+ iterazioni, i campioni di dati e le features sono allocati come configurazione
+ di campioni random.
 \end_layout
 
 \begin_layout Itemize
@@ -11699,7 +11972,7 @@ literal "false"
 online feature selection 
 \emph default
 associando il problema dell'ottimizzazione combinatoria in un bandit stocastico
- con bandit feedback usando l'algoritmo 
+ con feedback usando l'algoritmo 
 \emph on
 Active Thompson Sampling (ATS)
 \emph default
@@ -11711,7 +11984,7 @@ Active Thompson Sampling (ATS)
 \series bold
 Bandits per Active Learning: 
 \series default
-etichettare tutti gli esempi di training nella classificaizone supervisionata
+etichettare tutti gli esempi di training nella classificazione supervisionata
  può essere complicato.
  Le strategie di 
 \emph on
@@ -11807,8 +12080,12 @@ non stochastic multi-arm bandits
 \series bold
 Reinforcement Learning:
 \series default
- gli agenti devono sviluppare tecniche per massimizzare il loro rewards
- e seguire delle limitazioni implicite presenti nell'ambiente.
+ gli agenti devono sviluppare tecniche per massimizzare i loro rewards e
+ seguire delle 
+\emph on
+constraints
+\emph default
+ implicite presenti nell'ambiente.
  Noothigattu, R., Bouneffouf, D., Mattei, N., Chandra, R., Madan, P., Varshney,
  K., & Rossi, F.
  in 
@@ -11904,7 +12181,9 @@ name "Tabella-BML"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Bandit in machine learning
+Bandit in applicazioni pratiche nel 
+\emph on
+machine learning
 \end_layout
 
 \end_inset
@@ -11961,7 +12240,11 @@ lligenza artificiale vasto quale è il
 reinforcement learning
 \emph default
 , ma dopo aver letto più volte il paper e soprattutto integrato con la lettura
- di alcuni related works si è chiarito molto.
+ di alcuni 
+\emph on
+related works
+\emph default
+ si è chiarito molto.
  Fondamentale è stata l'analisi del paper 
 \emph on
 Batched Multi-armed Bandits Problem
@@ -11974,7 +12257,7 @@ literal "false"
 
 \end_inset
 
-, presentato tra le scelte disponibili nella sessione estiva.
+, proposto tra le scelte disponibili nella sessione estiva.
  L'avevo già letto, mi incuriosiva ma per altri impegni ho dovuto rinunciare
  alla stesura dell'elaborato in estate.
  È stata una buona base per analizzare il problema dei 
@@ -11986,12 +12269,11 @@ come introduzione al paper a me assegnato.
 
 \begin_layout Standard
 È stato molto interessante seguire il processo di ricerca svolto dagli autori
- e come essi si approcciano con i lavori già esistenti in letteratura, basandosi
+ e come essi si approcciano con lavori già esistenti in letteratura, basandosi
  sui precedenti risultati, producendo nuovi risultati migliorativi e aprendo
- nuove strade per possibili ricerche future.
- Ad esempio in questo paper, oltre a nuovi algoritmi proposti, vengono migliorat
-i numerosi lower e upper bound su problemi già precedentemente analizzati
- (si veda la tabella 
+ nuove strade per possibili ricerche future: ad esempio, in questo paper,
+ oltre a nuovi algoritmi proposti, vengono migliorati numerosi lower e upper
+ bound su problemi già precedentemente analizzati (si veda la tabella 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Tabella-2-1"
@@ -12013,7 +12295,8 @@ noprefix "false"
 Concluso il lavoro, mi sento molto più sicuro nell'affrontare argomenti
  che inizialmente mi parevano troppo difficili e soddisfatto nel aver riuscito
  a produrre un elaborato, curato anche formalmente, analizzando nel modo
- più ordinato possibile il problema di identificare un numero 
+ più ordinato possibile il problema centrale del paper a me assegnato, ossia
+ di identificare un numero 
 \emph on
 k
 \emph default
@@ -12027,22 +12310,15 @@ m
 \begin_inset Formula $n$
 \end_inset
 
--armed stochastic multi-armed bandit,
+-armed stochastic multi-armed bandit
 \emph default
- affrontato dal paper a me assegnato.
- Un peccato che non ci fossero porzioni di codice degli autori, avrei potuto
- replicare gli esperimenti e produrne di nuovi e apprendere anche in quel
- aspetto.
+.
+ Un peccato che non ci fossero porzioni di codice prodotte degli autori,
+ avrei potuto produrne di nuovi e apprendere anche in quel aspetto.
  A causa della mancanza dei codici, mi sono concentrato molto di più sull'analis
 i dei lavori correlati, nei possibili scenari applicativi e nel fare le
- 
-\series bold
-dimostrazioni teoriche
-\series default
- citate nella descrizione del paper che ho prodotto nelle appendici (vedi
- 
-\series bold
-appendici 
+ dimostrazioni teoriche citate nella descrizione del paper che ho prodotto
+ nelle appendici (vedi appendici 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:APP-A"
@@ -12072,8 +12348,6 @@ noprefix "false"
 
 \end_inset
 
-
-\series default
 ).
  Sicuramente, per l'anno prossimo, non è da escludere il fatto di basare
  il mio lavoro di tesi su un ambito dell'intelligenza artificiale, magari
@@ -12173,10 +12447,14 @@ literal "false"
 \end_inset
 
  
+\emph on
+
 \begin_inset Formula $(\epsilon,m)$
 \end_inset
 
--optimal arms ha bisogno di essere ritornata al contrario di tutte le 
+-optimal
+\emph default
+ arms ha bisogno di essere ritornata al contrario di tutte le 
 \begin_inset Formula $m$
 \end_inset
 
@@ -12263,10 +12541,14 @@ Notare che tutte le istanze in
 \end_inset
 
  
+\emph on
+
 \begin_inset Formula $(\epsilon,m)$
 \end_inset
 
--optimal arms.
+-optimal 
+\emph default
+arms.
  Per 
 \begin_inset Formula $I\in I_{k-1}$
 \end_inset
@@ -12279,7 +12561,11 @@ Notare che tutte le istanze in
 \begin_inset Formula $(\epsilon,m)$
 \end_inset
 
--optimal, ma per 
+
+\emph on
+-optimal
+\emph default
+, ma per 
 \begin_inset Formula $I\in I_{m}$
 \end_inset
 
@@ -12296,7 +12582,7 @@ Notare che tutte le istanze in
 \end_layout
 
 \begin_layout Standard
-L'idea di base della dimostrazione è che senza un campionamento sufficiente
+L'idea di base della dimostrazione è che, senza un campionamento sufficiente
  di ogni arm, non è possibile identificare correttamente 
 \begin_inset Formula $k$
 \end_inset
@@ -12305,7 +12591,11 @@ L'idea di base della dimostrazione è che senza un campionamento sufficiente
 \begin_inset Formula $(\epsilon,m)$
 \end_inset
 
--optimal arms con alta probabilità.
+
+\emph on
+-optimal
+\emph default
+ arms con alta probabilità.
 \end_layout
 
 \begin_layout Standard
@@ -12380,11 +12670,11 @@ Per comodità, indichiamo con
 \begin_inset Formula $\Pr_{I}$
 \end_inset
 
- la distribuzione di probabilità indotta dall'istanza bandit 
+ la distribuzione di probabilità indotta dall'istanza bandit e 
 \begin_inset Formula $\mathcal{B}^{I}$
 \end_inset
 
- e la possibile randomizzazione introdotta dall'algoritmo 
+ la possibile randomizzazione introdotta dall'algoritmo 
 \begin_inset Formula $\mathcal{L}$
 \end_inset
 
@@ -12397,7 +12687,7 @@ Per comodità, indichiamo con
 \begin_inset Formula $\mathcal{L}$
 \end_inset
 
-, e 
+ e 
 \begin_inset Formula $T_{S}$
 \end_inset
 
@@ -12413,7 +12703,7 @@ Per comodità, indichiamo con
 \end_layout
 
 \begin_layout Standard
-Quindi, come 
+Quindi, 
 \begin_inset Formula $\mathcal{L}$
 \end_inset
 
@@ -12425,7 +12715,7 @@ Quindi, come
 \begin_inset Formula $I\in I_{k-1}$
 \end_inset
 
- 
+
 \begin_inset Formula 
 \begin{equation}
 \Pr_{I}\{S_{\mathcal{L}}\subseteq I_{0}\cup I\}\geq1-\delta.\label{eq:contra}
@@ -12506,7 +12796,7 @@ noprefix "false"
 \begin_inset Formula $\mathcal{B}^{I}$
 \end_inset
 
-, ci sono almeno 
+ ci sono almeno 
 \begin_inset Formula $\llcorner{\frac{n}{4(m-k+1})}\lrcorner-1$
 \end_inset
 
@@ -12514,12 +12804,12 @@ noprefix "false"
 \begin_inset Formula $B\subset\bar{I}$
 \end_inset
 
-, tali che 
+ tali che 
 \begin_inset Formula $\mathbb{E}_{I}\left[T_{B}\right]\geq\frac{4C}{\epsilon^{2}}\ln\left(\frac{1}{4\delta}\right)$
 \end_inset
 
 .
- Ora, come 
+ Ora, 
 \begin_inset Formula $\llcorner{\frac{n-m}{m-k+1}}\lrcorner-\left(\llcorner{\frac{n}{4(m-k+1)}}\lrcorner-1\right)$
 \end_inset
 
@@ -12569,7 +12859,7 @@ Sia
 \begin_inset Formula $K_{Q}$
 \end_inset
 
- il numero totale di reward ottenuti da 
+ il numero totale di rewards ottenuti da 
 \begin_inset Formula $Q$
 \end_inset
 
@@ -12623,10 +12913,10 @@ Sia
 
 .
  Quanto a 
-\begin_inset Formula $\mathcal{B}^{I_{0}},\;\forall j\in Q\;\mu_{j}=1/2-2\epsilon$
+\begin_inset Formula $\mathcal{B}^{I_{0}},\;\forall j\in Q,\;\mu_{j}=1/2-2\epsilon$
 \end_inset
 
-, quindi selezionando e tirando un braccio ad ogni prova da 
+, selezionare e tirare un arm ad ogni prova da 
 \begin_inset Formula $Q$
 \end_inset
 
@@ -12636,7 +12926,7 @@ Sia
 \end_inset
 
  per volta e successivamente fare i pulls su di essa.
- Quindi qualsiasi sia la strategia di tirare un arma ad ogni turno da 
+ Quindi qualsiasi sia la strategia di tirare un arm ad ogni turno da 
 \begin_inset Formula $Q$
 \end_inset
 
@@ -12649,9 +12939,13 @@ Sia
 \begin_inset Formula $r_{i}$
 \end_inset
 
- la distribuzione i.i.d.
+ la distribuzione 
+\emph on
+i.i.d.
+
+\emph default
  del reward ottenuto dal 
-\begin_inset Formula $i^{\text{th}}$
+\begin_inset Formula $i-esimo$
 \end_inset
 
  turno.
@@ -12672,12 +12966,16 @@ Sia
 \begin_inset Formula $r_{i}$
 \end_inset
 
- sono i.i.d., otteniamo 
+ sono
+\emph on
+ i.i.d
+\emph default
+., otteniamo 
 \begin_inset Formula $Var[K_{Q}(t)]=\sum_{i=1}^{t}Var(r_{i})<\frac{t}{4}$
 \end_inset
 
 .
- Ora possiamo scrivere:: 
+ Ora possiamo scrivere:
 \begin_inset Formula 
 \begin{eqnarray}
  &  & \Pr_{I}\left\{ \min\limits _{1\leq t\leq T^{*}}\left(K_{Q}(t)-t\left(\frac{1}{2}-2\epsilon\right)\right)\leq-\sqrt{T^{*}}\right\} \nonumber \\
@@ -12746,7 +13044,7 @@ name "lem:lb1"
 \end_layout
 
 \begin_layout Proof
-Riprendendo il fatto che tutte le arms in 
+Riprendiamo il fatto che tutte le arms in 
 \begin_inset Formula $Q$
 \end_inset
 
@@ -12758,7 +13056,7 @@ Riprendendo il fatto che tutte le arms in
 \end_inset
 
  è indipendente dalla strategia di campionamento.
- Nuovamente come le arms in 
+ Nuovamente, come le arms in 
 \begin_inset Formula $Q$
 \end_inset
 
@@ -12766,7 +13064,7 @@ Riprendendo il fatto che tutte le arms in
 \begin_inset Formula $\mathcal{B}^{Q}$
 \end_inset
 
-, la probabilità di ottenere una serquenza di reward decresce in modo monotono
+, la probabilità di ottenere una sequenza di reward decresce in modo monotono
  man mano che le 1-rewards per 
 \begin_inset Formula $\mathcal{B}^{I_{0}}$
 \end_inset
@@ -12826,7 +13124,7 @@ noprefix "false"
 \begin_inset Formula $W$
 \end_inset
 
-, ottenute dall'algoritmo 
+ ottenute dall'algoritmo 
 \begin_inset Formula $\mathcal{L}$
 \end_inset
 
@@ -12867,7 +13165,7 @@ Sia per qualche sequenza fissa dei rewards
 \begin_inset Formula $Q$
 \end_inset
 
- e il numero totale di 
+ e il numero totale dei 
 \begin_inset Formula $1$
 \end_inset
 
@@ -13078,7 +13376,7 @@ Riprendendo il fatto che
 \end_inset
 
 .
- Allora, 
+ Allora:
 \begin_inset Formula 
 \begin{align*}
  & \sum_{J\in I_{m}}\Pr_{J}\{S_{\mathcal{L}}\nsubseteq J\}\\
@@ -13112,7 +13410,7 @@ noprefix "false"
 
 \end_inset
 
-, quindi abbiamo dimostrato il teorema.
+ e perciò abbiamo dimostrato il teorema.
 \end_layout
 
 \begin_layout Chapter
@@ -13233,7 +13531,7 @@ La media empirica di un arm
 \begin_inset Formula $a$
 \end_inset
 
- può essere meno di un arm 
+ può essere meno della media di un arm 
 \begin_inset Formula $b$
 \end_inset
 
@@ -13253,7 +13551,7 @@ Il lower e l'upper bound di confidenza di un arm
 \begin_inset Formula $a$
 \end_inset
 
- può cadere sotto a quella arms 
+ può cadere sotto a quello dell'arm 
 \begin_inset Formula $b$
 \end_inset
 
@@ -13270,12 +13568,12 @@ Il lower e l'upper bound di confidenza di un arm
 \end_layout
 
 \begin_layout Enumerate
-Se gli intervalli di confidenza di un arm sono sotto un certo raggio (detto
+Gli intervalli di confidenza di un arm sono sotto un certo raggio (detto
  
 \begin_inset Formula $d$
 \end_inset
 
-), definiamo l'evento in questo modo:
+); definiamo l'evento in questo modo:
 \begin_inset Formula 
 \[
 NEEDY_{a}^{t}(d)=\left\{ \{lcb(a,t)<\mu_{a}-d\}\vee\{ucb(a,t)>\mu_{a}+d\}\right\} .
@@ -13429,7 +13727,7 @@ Procediamo con la dimostrazione:
 \begin_inset Formula $\neg CROSS_{a}^{t}\wedge\neg CROSS_{b}^{t}$
 \end_inset
 
- otteniamo
+ otteniamo:
 \begin_inset Formula 
 \begin{align*}
  & ErrL(a,b,t)\implies\{lcb(b,t)>lcb(a,t)\}\\
@@ -13561,14 +13859,18 @@ name "lem:cross"
 \end_layout
 
 \begin_layout Proof
+
+\emph on
 \begin_inset Formula $\Pr\{{CROSS_{a}^{t}}\}$
 \end_inset
 
+
+\emph default
  è limitato superiormente dalla 
 \emph on
 disuguaglianza di Hoeffding
 \emph default
-, e il prossimo paragrafo lo dimostra prendendo l'union bound su tutte le
+ e il prossimo paragrafo lo dimostra prendendo l'union bound su tutte le
  arms e 
 \begin_inset Formula $t$
 \end_inset
@@ -13582,7 +13884,7 @@ Ora, riprendendo la definizione di
 \begin_inset Formula $h_{*}^{t}$
 \end_inset
 
-, e 
+ e 
 \begin_inset Formula $l_{*}^{t}$
 \end_inset
 
@@ -13605,7 +13907,7 @@ LUCB-k m
 \shape smallcaps
 Probable Events
 \shape default
- deve accadere.
+ deve accadere per forza.
  Quindi usando il lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -14069,7 +14371,7 @@ else
 \end_inset
 
 
-\begin_inset Formula $\therefore ErrA(l_{*}^{t},b_{3},t)$
+\begin_inset Formula $ErrA(l_{*}^{t},b_{3},t)$
 \end_inset
 
  si è verificato.
@@ -15557,7 +15859,7 @@ noprefix "false"
 \begin_inset Formula $\bar{T}+N_{rounds}\leq\ulcorner{T/2}\urcorner+\sum_{a\in\mathcal{A}}16u^{*}(a,t)<T$
 \end_inset
 
- numero di turni..
+ numero di turni.
 \end_layout
 
 \begin_layout Proof
@@ -15716,7 +16018,11 @@ Median Elimination
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal arm con confidenza 
+
+\emph on
+-optimal
+\emph default
+ arm con confidenza 
 \begin_inset Formula $1-\delta'$
 \end_inset
 
@@ -15766,7 +16072,11 @@ Una singola
 \begin_inset Formula $[\epsilon,\rho]$
 \end_inset
 
--optimal arm.
+
+\emph on
+-optimal
+\emph default
+ arm.
 \end_layout
 
 \begin_layout Plain Layout
@@ -15868,7 +16178,11 @@ Inizialmente notiamo che ogni copia degli outputs di
 \begin_inset Formula $[\epsilon/2,\rho]$
 \end_inset
 
--optimal arm con probabilità di almeno 
+
+\emph on
+-optimal
+\emph default
+ arm con probabilità di almeno 
 \begin_inset Formula $1-\delta'$
 \end_inset
 
@@ -15881,7 +16195,11 @@ OptQF
 \begin_inset Formula $[\epsilon/2,\rho]$
 \end_inset
 
--optimal arm con probabilità 
+
+\emph on
+-optimal
+\emph default
+ arm con probabilità 
 \begin_inset Formula $1-\delta$
 \end_inset
 
@@ -15890,7 +16208,11 @@ OptQF
 \begin_inset Formula $\hat{X}$
 \end_inset
 
- la frazione di sub-optimal arms in 
+ la frazione di 
+\emph on
+sub-optimal
+\emph default
+ arms in 
 \begin_inset Formula $S$
 \end_inset
 
@@ -15923,15 +16245,15 @@ OptQF
 \end_inset
 
 .
- Inoltre, la media dell'arm di output non è meno di 
+ Inoltre, la media dell'arm in output non è meno di 
 \begin_inset Formula $\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$
 \end_inset
 
  presa dal 
-\begin_inset Formula $(1-\rho)$
+\begin_inset Formula $(1-\rho)-esimo$
 \end_inset
 
--esimo quantile.
+ quantile.
 \end_layout
 
 \begin_layout Paragraph
@@ -15951,7 +16273,7 @@ SC
 \begin_inset Formula $u$
 \end_inset
 
- copie di
+ copie di 
 \begin_inset Formula $\mathcal{P}_{2}$
 \end_inset
 
@@ -15960,7 +16282,11 @@ SC
 \end_inset
 
 .
- Quindi, la SC di tutte le 
+ Quindi, la 
+\emph on
+SC
+\emph default
+ di tutte le 
 \begin_inset Formula $u$
 \end_inset
 
@@ -15968,7 +16294,7 @@ SC
 \begin_inset Formula $\mathcal{P}_{2}$
 \end_inset
 
- insieme è limitata superiormente da 
+ è limitata superiormente da 
 \begin_inset Formula $\frac{C_{1}\cdot u}{\rho\epsilon^{2}}$
 \end_inset
 
