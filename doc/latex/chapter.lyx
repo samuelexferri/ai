@@ -9199,7 +9199,600 @@ In questa sezione verranno replicati gli esperimenti fatti dagli autori.
 \end_layout
 
 \begin_layout Section
-Confronto 
+Confronto tra 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $LUCB$
+\end_inset
+
+ e campionamento uniforme
+\end_layout
+
+\begin_layout Standard
+In questo primo paragrafo si riprende a analizzano gli esperimenti prodotti
+ dal paper 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+PAC Identification of a Bandit Arm Relative to a Reward Quantile
+\emph default
+
+\begin_inset Quotes frd
+\end_inset
+
+ di Chaudhuri, A.
+ R., & Kalyanakrishnan, S.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+ che serviranno come base agli esperimenti da replicare nel nostro elaborato.
+\end_layout
+
+\begin_layout Standard
+Si inizia a valutare 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ confrontandolo con 
+\begin_inset Formula $LUCB$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kalyanakrishnan2012pac"
+literal "false"
+
+\end_inset
+
+ che può essere applicato con un subset di dimensione qualsiasi compresa
+ tra 1 e 
+\emph on
+m
+\emph default
+, e successivamente confrontandolo anche con il campionamento uniforme.
+ Tutti gli algoritmi terminano in base alla 
+\emph on
+
+\begin_inset Formula $F_{2}$
+\end_inset
+
+'s stopping rule
+\emph default
+.
+ Simuliamo i reward in base alle distribuzioni di Bernoulli.
+ Per tutti gli algoritmi utilizziamo gli intervalli di confidenza basati
+ sulla divergenza KL 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Capp__2013"
+literal "false"
+
+\end_inset
+
+ che, negli esperimenti proposti dagli autori, danno un miglioramento di
+ almeno 10 volte rispetto all'
+\emph on
+Hoeffding-based bounds
+\emph default
+ (usati nella sezione 4 del paper 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename img/Chad (Tabella).png
+	scale 45
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $I_{1}$
+\end_inset
+
+: tutte le arms tranne la migliore hanno la stessa media.
+ 
+\begin_inset Formula $I_{2}$
+\end_inset
+
+: la differenza della media tra due arms consecutive è la stessa.
+ 
+\begin_inset Formula $I_{3}$
+\end_inset
+
+: le migliori 4 arms hanno la stessa media e anche le peggiori 6 hanno la
+ stessa media che è differente da quella delle 4 migliori arms.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:chad-table"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consideriamo tre istanze di bandit con 10 arms, che sono descritte come
+ nella tabella 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:chad-table"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Poniamo 
+\emph on
+m
+\emph default
+ = 4; 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ = 0 e 
+\begin_inset Formula $\delta$
+\end_inset
+
+ = 0: 001.
+ La complessità del campione corrispondente è tracciata nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:chad-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Si osservi che 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ supera sia il campionamento uniforme che 
+\emph on
+LUCB
+\emph default
+ in tutti e tre i casi.
+ Poiché 
+\begin_inset Formula $\mu_{a4}$
+\end_inset
+
+ = 
+\begin_inset Formula $\mu_{a5}$
+\end_inset
+
+ e 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ = 0, 
+\emph on
+LUCB
+\emph default
+ con una dimensione del subset di 4 non termina nell'istanza 
+\begin_inset Formula $I_{1}$
+\end_inset
+
+.
+ D'altra parte, 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ identifica rapidamente 
+\begin_inset Formula $a_{1}$
+\end_inset
+
+.
+ Le figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:chad-2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:chad-3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ mostrano la distribuzione dei pulls trasversali delle arms rispettivamente
+ su 
+\begin_inset Formula $I_{1}$
+\end_inset
+
+e 
+\begin_inset Formula $I_{2}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ campiona raramente un qualsiasi braccio singolo rispetto a qualsiasi altro
+ algoritmo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename img/Chad (1).jpg
+	scale 175
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Istanze del bandit
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:chad-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename img/Chad (2).jpg
+	scale 175
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Indici degli arms
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:chad-2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename img/Chad (3).jpg
+	scale 175
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Indici degli arms
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:chad-3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Sebbene 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ sia più efficiente di 
+\emph on
+LUCB
+\emph default
+ su 
+\emph on
+Q-F
+\emph default
+, entrambi gli algoritmi impiegano progressivamente più tempo per terminare
+ quando il numero di arms aumenta.
+ La figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:chad-4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ mostra la performance di 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ su quattro istanze di bandit, con 
+\emph on
+n
+\emph default
+ = 20; 100; 1000; e 3000, rispettivamente.
+ Ogni istanza contiene quattro gruppi di arms di uguale dimensione, i cui
+ rewards attesi sono 0.99, 0.66, 0.33 e 0.01.
+ Dopo aver settato 
+\begin_inset Formula $\rho$
+\end_inset
+
+ = 0.1; 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ = 0.05 e 
+\begin_inset Formula $\delta$
+\end_inset
+
+ = 0.001, passiamo a una dimensione del subset di 
+\emph on
+m
+\emph default
+ =
+\begin_inset Formula $\rho n$
+\end_inset
+
+ in 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+.
+ Si osserva che anche la complessità di 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ aumenta con 
+\emph on
+n
+\emph default
+, quella degli altri tre algoritmi in figura (
+\begin_inset Formula $P_{2}$
+\end_inset
+
+ con dimensioni batch di 2, 30 e 77 (= 
+\begin_inset Formula $N(\rho;\delta)$
+\end_inset
+
+)) rimane costante.
+ Nell'istanza con 3000 arms, 
+\begin_inset Formula $P_{2}$
+\end_inset
+
+ è significativamente meglio con una qualsiasi di queste dimensioni di memoria;
+ su ciascun istanza, una dimensione della memoria maggiore porta a una terminazi
+one più rapida dell'algoritmo.
+ Pertanto, nelle applicazioni con un numero elevato di arms, 
+\begin_inset Formula $P_{2}$
+\end_inset
+
+ è il metodo migliore.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename img/Chad (4).jpg
+	scale 175
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Numero di arms nelle istanze del bandit
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:chad-4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Confronto tra 
 \begin_inset Formula $F_{2}$
 \end_inset
 
@@ -9223,15 +9816,17 @@ literal "false"
 
 \end_inset
 
- con 
+ (la cui analisi è stata ripresa nel precedente paragrafo) con l'algoritmo
+ 
 \begin_inset Formula $LUCB-k-m$
 \end_inset
 
- basandosi sul numero di campioni estratti da istanze differenti di 
+ proposto basandosi sul numero di campioni estratti da istanze differenti
+ di 
 \emph on
 Q-F
 \emph default
- o 
+ o di 
 \begin_inset Formula $(1;m;n)$
 \end_inset
 
@@ -9244,7 +9839,7 @@ Q-F
 \begin_inset Formula $LUCB-k-m$
 \end_inset
 
- ma ha delle differenze sottili nel modo in cui l'algoritmo partiziona 
+ ma ha delle differenze minime nel modo in cui l'algoritmo partiziona 
 \begin_inset Formula $A$
 \end_inset
 
@@ -9371,7 +9966,7 @@ Q-F
 \emph default
 , sulle cinque istanze descritte sopra.
  In questo grafico e anche nei successivi, l'asse y rappresenta la media
- della complessità del campione su 100 runs con barre di standard error.
+ della complessità del campione su 100 runs con standard error bars.
 \end_layout
 
 \end_inset
@@ -9679,12 +10274,12 @@ su
 m
 \emph default
  da 1 a 5.
- Ricorda che 
+ Ricordare che 
 \begin_inset Formula $B_{1}$
 \end_inset
 
- è l'insieme singleton, con l'arm migliore come unico membro.'asse y rappresenta
- la media della complessità del campione su 100 runs.
+ è l'insieme singleton, con l'arm migliore come unico membro.
+ L'asse y rappresenta la media della complessità del campione su 100 runs.
 \end_layout
 
 \end_inset
@@ -9702,6 +10297,48 @@ name "fig:fracoptpull"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Quindi l'algoritmo 
+\begin_inset Formula $LUCB-k-m$
+\end_inset
+
+ porposto è migliore dell'algoritmo 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaudhuri2017pac"
+literal "false"
+
+\end_inset
+
+ perchè la complessità del campione del primo rimane sempre inferiore di
+ quella del secondo algoritmo (indipendentemente dal numero di arms 
+\emph on
+n
+\emph default
+) e ciò è dovuto al fatto che 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $LUCB-k-m$
+\end_inset
+
+ riesce ad identificare prima e a dare maggiore priorità all'arms migliore.
 \end_layout
 
 \begin_layout Standard
@@ -9750,7 +10387,11 @@ In questo paper, gli autori hanno sviluppato algoritmi specifici per il
 \begin_inset Formula $m$
 \end_inset
 
--sized subset.
+-
+\emph on
+sized subset
+\emph default
+.
  Nella figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -9766,7 +10407,7 @@ noprefix "false"
 \begin_inset Formula $(k;m;n)$
 \end_inset
 
- e i problemi 
+ e i problemi di 
 \emph on
 best subset-selection
 \emph default
@@ -9864,8 +10505,8 @@ Confronto del numero di campioni usati per risolvere istanze differenti
 \emph on
 y
 \emph default
- rappresenta il numero di campioni mediato su 100 runs, con barre di standard
- error.
+ rappresenta il numero di campioni mediato su 100 runs, con standard error
+ bars.
 \end_layout
 
 \end_inset
