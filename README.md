@@ -4,7 +4,7 @@
 <img src="https://github.com/samuelexferri/ai/blob/master/images/ai.jpg" width="200">
 </p>
 
-Artificial Intelligence project
+Artificial Intelligence project based on the paper _PAC Identification of Many Good Arms in Stochastic Multi-Armed Bandits_ by Arghya Roy Chaudhuri and Shivaram Kalyanakrishnan.
 
 ![alt text](https://img.shields.io/badge/Language-Italian-infomrmational?style=for-the-badge)
 
